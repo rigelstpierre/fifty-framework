@@ -8,48 +8,4 @@ Version: 1.0
 Text Domain: fiftyandfifty
 */
 
-* { box-sizing: border-box; }
-
-.wrap{
-	width:960px;
-	margin:0 auto;
-	display:block;
-}
-
-.content{
-	width:70%;
-	float:left;
-	padding-right:30px;
-}
-
-.sidebar{
-	width:30%;
-	float:right;
-}
-
-header{
-	margin-top:30px;
-	height:75px;
-}
-
-.logo{
-	float:left;
-}
-
-.menu-menu-1-container{
-	float:right;
-}
-
-.menu-menu-1-container ul{
-	display: inline;
-}
-
-.menu-menu-1-container ul li{
-	display: inline;
-	margin-left: 30px;
-}
-
-.post{
-	padding-bottom:10px;
-	border-bottom: 1px solid #d3d3d3;
-}
+@import "assets/css/style.css";

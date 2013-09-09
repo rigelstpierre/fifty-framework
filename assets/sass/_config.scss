@@ -1,0 +1,112 @@
+/* _variables.scss */
+
+
+/* COLORS
+================================================== */
+
+$colorPrimary:          #2a2a2a;
+$colorPrimaryLight:     adjust_hue(saturate(darken(#2a2a2a, 13), 21), 0);
+
+$colorSecondary:        #fafafa;
+
+
+
+
+
+
+/* SUSY BASE GRID & BASICS
+================================================================== */
+
+// Base Font Size (for EM grids)
+$base-font-size     : 16px;
+
+// The total number of columns in the grid
+$total-columns      : 12              !default;
+
+// The width of columns and gutters.
+// These must all be set with the comparable units.
+$column-width       : 60px            !default;
+$gutter-width       : 20px            !default;
+
+// Padding on the left and right of a Grid Container.
+$grid-padding       : 10px            !default;
+
+/* -------- ADVANCED SETTINGS -------- */
+
+// From Direction:
+// Controls for right-to-left or bi-directional sites.
+$from-direction     : left            !default;
+
+// Omega Float Direction:
+// The direction that +omega elements are floated by deafult.
+$omega-float        : opposite-position($from-direction)    !default;
+
+// Container Width:
+// Override the total width of your grid, using any length (50em, 75%, etc.)
+$container-width    : 960px           !default;
+
+// Container Style:
+// 'magic'  - Static (fixed or elastic) when there's enough space,
+//            fluid when there isn't. This is the SUSY MAGIC SAUCE(TM).
+// 'static' - Forces the grid container to remain static at all times.
+// 'fluid'  - Forces the grid to remain fluid at all times.
+//            (this will overrule any static $container-width settings)
+$container-style    : magic           !default;
+
+// Border-Box Sizing
+// Adjust the grid math appropriately for box-sizing: border-box;
+// Warning: This does not actually apply the new box model!
+// In most cases you can ignore this setting,
+// and simply apply the border-box-sizing mixin.
+// $border-box-sizing  : false           !default;
+
+/* -------- IE SETTINGS --------  */
+
+// When you are using a seperate IE stylesheet,
+// you can use these settings to control the output of at-breakpoint.
+// By default, at-breakpoint will output media-queries as well as
+// any defined ie-fallback classes.
+$breakpoint-media-output  : true      !default;
+$breakpoint-ie-output     : true      !default;
+
+// Danger Zone! Only set as 'true' in IE-specific style sheets.
+$breakpoint-raw-output    : false     !default;
+
+
+
+/* GRID CLASSES
+================================================== */
+.container { @include container; }
+
+.span1 {@include span-columns(1,12);}
+.span2 {@include span-columns(2,12);}
+.span3 {@include span-columns(3,12);}
+.span4 {@include span-columns(4,12);}
+.span5 {@include span-columns(5,12);}
+.span6 {@include span-columns(6,12);}
+.span7 {@include span-columns(7,12);}
+.span8 {@include span-columns(8,12);}
+.span9 {@include span-columns(9,12);}
+.span10 {@include span-columns(10,12);}
+.span11 {@include span-columns(11,12);}
+.span12 {@include span-columns(12,12);}
+
+.omega {@include omega;}
+
+/* HELP GRID */
+.help-grid {
+  z-index: -5;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  
+  div {
+    background: rgba(255,255,255,.15);
+    height: 5000px;
+  }
+}
+
+/* DEVELOPMENT */
+// * {outline: 1px solid red;}

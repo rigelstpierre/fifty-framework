@@ -7,9 +7,15 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-	<div class="wrap">
+
+
+	<div class="container">
 		<header>
-			<a href="<?php echo home_url(); ?>" class="logo">Fifty Framework</a>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+			<div class="span1">
+				<a href="<?php echo home_url(); ?>" class="logo">Fifty Framework</a>
+			</div>
+			<div class="span3">
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+			</div>
 		</header>
 	</div>
