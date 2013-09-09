@@ -14,7 +14,6 @@
 $debug = false;
 
 if ( $debug ) {
-	error reporting temp
 	ini_set('display_errors','On');
 	error_reporting(E_ALL);
 	define('WP_USE_THEMES', false);
