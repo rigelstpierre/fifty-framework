@@ -1,0 +1,14 @@
+/* _header.scss */
+
+
+/* HEADER.default
+================================================== */
+header.default {
+
+  @if $transparency-header == true {
+    background-color:transparent;
+  } @else {
+    background-color:#ffffff;
+  }
+
+}

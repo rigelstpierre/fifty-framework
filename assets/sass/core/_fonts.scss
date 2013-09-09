@@ -1,0 +1,24 @@
+/* _fonts.scss */
+
+@mixin fff($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false ) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+
+    src: url('#{$file-path}.eot');
+    src: url('#{$file-path}.eot?#iefix')               format('embedded-opentype'),
+         url('#{$file-path}.woff')                     format('woff'),
+         url('#{$file-path}.ttf')                      format('truetype'),
+         url('#{$file-path}.svg##{$font-family}')      format('svg');
+  
+  }
+}
+
+
+/* FONTS
+================================================== */
+@include fff(pictos, '../fonts/pictos/pictos', normal);
+@include fff(arrrows, '../fonts/arrrows/arrrows', 300);
+@include fff(arrrows, '../fonts/arrrows/arrrows-bold', bold);
+@include fff(socialico, '../fonts/socialico/socialico', normal);
