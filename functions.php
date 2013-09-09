@@ -36,7 +36,6 @@ define( $theme_prefix . 'CSS_DIR', get_template_directory_uri().'/assets/css' );
  * Theme Setup
  * @since 1.0
  */
-if ( ! isset( $content_width ) ) $content_width = 650;
 require_once( get_template_directory() .'/functions/setup.php' );
 
 
