@@ -15,9 +15,11 @@
         "core/body";
 
 /* Librarires */
-@import "lib/animate", 
-        "lib/mixins",
+@import "lib/mixins", 
         "lib/icons",
-        "lib/buttons";
+        "lib/extenders",
+        "lib/buttons",
+        "lib/animate";
 
 /* Modules & Components */
+@import "modules/header";

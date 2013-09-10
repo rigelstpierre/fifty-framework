@@ -1,12 +1,13 @@
 <?php
 /**
  * Fifty Framework functions and definitions.
- *
+ * USAGE: comment out undesired function files. 
  *
  * @package WordPress
  * @subpackage fiftyandfifty
  * @since Fifty and Fifty 1.0
  */
+
 
 /**
  * Debugging
@@ -37,6 +38,7 @@ define( $theme_prefix . 'CSS_DIR', get_template_directory_uri().'/assets/css' );
  * @since 1.0
  */
 require_once( get_template_directory() .'/functions/setup.php' );
+require_once( get_template_directory() .'/functions/scripts.php' );
 
 
 /**

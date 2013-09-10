@@ -3,12 +3,37 @@
 
 /* HEADER.default
 ================================================== */
+$height-header_default:   88;
 header.default {
+  width:100%;
+  // height:#{$height-header_default}px;
+  line-height:#{$height-header_default}px;
+  @include clearfix;
 
   @if $transparency-header == true {
     background-color:transparent;
   } @else {
     background-color:#ffffff;
+  }
+
+  /* LOGO
+  ================================================== */
+  .logo {
+    @extend %inline-block;
+
+    a     {}
+    img   {}
+  }
+
+  /* NAV
+  ================================================== */
+  nav {
+    line-height:#{$height-header_default}px;
+
+    ul {
+      @extend %ul-blank;
+      line-height:#{$height-header_default}px;
+    } 
   }
 
 }

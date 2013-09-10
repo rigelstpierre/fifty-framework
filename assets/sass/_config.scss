@@ -5,10 +5,16 @@
 ================================================== */
 
 $colorPrimary:          #2a2a2a;
+$colorPrimaryDark:      #1c1c1c;
 $colorPrimaryLight:     adjust_hue(saturate(darken(#2a2a2a, 13), 21), 0);
 
 $colorSecondary:        #fafafa;
+$colorSecondaryDark:    #fafafa;
+$colorSecondaryLight:   #fafafa;
 
+$colorTertiary:         #cccccc;
+$colorTertiaryDark:     #cccccc;
+$colorTertiaryLight:    #cccccc;
 
 
 
@@ -37,10 +43,30 @@ $socialico:     "socialico";
 /* SUSY BASE GRID & BASICS
 ================================================== */
 $base-font-size     : 16px;
-$total-columns      : 12              !default;
-$column-width       : 60px            !default;
-$gutter-width       : 20px            !default;
-$grid-padding       : 10px            !default;
+$base-line-height   : $base-font-size * 1.5;
+
+
+// FIXED
+// $total-columns      : 12              !default;
+// $column-width       : 60px            !default;
+// $gutter-width       : 20px            !default;
+// $grid-padding       : 10px            !default;
+
+// MAGIC
+$total-columns      : 4              !default;
+$column-width       : 4em             !default;
+$gutter-width       : 1em             !default;
+$grid-padding       : $gutter-width   !default;
+
+// BREAKPOINTS
+$mobile-portrait    : 4;
+$mobile-landscape   : 6;
+$tablet             : 8;
+$desktop            : 12;
+
+
+// GRID BG
+$show-grid-backgrounds    : false;
 
 // ADVANCED SETTINGS
 $from-direction     : left            !default;

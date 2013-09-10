@@ -45,14 +45,17 @@
 <header class="default">
 	<div class="container">
 		 		
-		<div class="logo">
+		<div class="logo span5">
 			<a href="<?php echo home_url(); ?>" class="logo">Fifty Framework</a>
 		</div>
 
-		<nav>
+		<nav class="nav-header span7 omega">
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
 		</nav>
 
   <div class="clear"></div>
 	</div>
 </header><!-- header.default.<header_class> -->
+<div style="width:100%;height:300px;background-color:#3a3a3a;"></div>
+
+

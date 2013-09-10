@@ -4,22 +4,28 @@
  * Grid config located in _config.scss
 ================================================== */
 
-.container { @include container; }
+.container { 
+  @include container($total-columns, $mobile-landscape, $tablet, $desktop);
+}
 
-.span1 {@include span-columns(1,12);}
-.span2 {@include span-columns(2,12);}
-.span3 {@include span-columns(3,12);}
-.span4 {@include span-columns(4,12);}
-.span5 {@include span-columns(5,12);}
-.span6 {@include span-columns(6,12);}
-.span7 {@include span-columns(7,12);}
-.span8 {@include span-columns(8,12);}
-.span9 {@include span-columns(9,12);}
-.span10 {@include span-columns(10,12);}
-.span11 {@include span-columns(11,12);}
-.span12 {@include span-columns(12,12);}
+.span1  { @include span-columns(1,12); }
+.span2  { @include span-columns(2,12); }
+.span3  { @include span-columns(3,12); }
+.span4  { @include span-columns(4,12); }
+.span5  { @include span-columns(5,12); }
+.span6  { @include span-columns(6,12); }
+.span7  { @include span-columns(7,12); }
+.span8  { @include span-columns(8,12); }
+.span9  { @include span-columns(9,12); }
+.span10 { @include span-columns(10,12); }
+.span11 { @include span-columns(11,12); }
+.span12 { @include span-columns(12,12); }
+
+
 
 .omega {@include omega;}
+
+
 
 /* DEVELOPMENT */
 // * {outline: 1px solid red;}

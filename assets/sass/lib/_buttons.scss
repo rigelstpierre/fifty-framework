@@ -1,1 +1,235 @@
 /* _buttons.scss */
+
+
+/* ======================================================================== */
+/*                                                                          */
+/*                                  BUTTON                                  */
+/*                                                                          */
+/* ======================================================================== */    
+
+
+
+/* BTN 
+ * ---
+ * @include btn(20px, bold, #2a2a2a, #fbfbfb, transparent, none, 52, 15px);
+ *
+=========================================================================== */
+@mixin btn(
+  $font-size:   1em,
+  $font-weight: normal,
+  $font-color:  #ffffff,
+  $bg-color-1:  #b9141e,
+  $bg-color-2:  transparent,
+  $border:      none,
+  $height:      52,
+  $padding:     0 25px,
+  $text-align:  center
+) {
+  // inline-block IE compatibility hack
+  display:-moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
+  position:       relative;
+  height:         #{$height}px;
+  line-height:    #{$height +2}px;
+  background:     $bg-color-1;
+  border:         $border;
+  font-weight:    $font-weight;
+  font-size:      $font-size;
+  color:          $font-color;
+  padding:        $padding;
+  text-align:     $text-align;
+
+  // backface visibility hack to fix chrome bug
+  @include backface; * {@include backface;}
+
+  // transition
+  @include transition(all 150ms ease-in-out);
+}
+
+
+
+/* BTN HOVER METHOD
+ * ----------------
+ * @include btn-hover-method();
+ *
+=========================================================================== */
+@mixin btn-hover-method(
+  $method:      'normal',
+  $font-color:  #fff,
+  $bg-color:    #b9141e
+) {
+  // NORMAL
+  @if $method == 'normal' {
+      &:hover {
+        color: lighten($font-color, 5);
+        background-color: darken($bg-color, 5);
+      }
+    }
+  // NO CHANGE
+  @if $method == 'nochange' {
+    &:hover {
+      color: $font-color;
+      background-color: $bg-color;
+    }
+  }
+  // GLOW
+  @if $method == 'glow-white' {
+    &:hover {
+      @include box-shadow(1px 1px 50px 2px rgba(white, 0.4));
+      color: darken($font-color, 15);
+    }
+  }
+}
+
+
+
+
+
+
+
+
+/* ======================================================================== */
+/*                                                                          */
+/*                                BUTTON BEFORE                             */
+/*                                                                          */
+/* ======================================================================== */    
+
+/* BTN BEFORE BASICS
+ * -----------------
+ * @include btn-before(absolute, 1.5, #000);
+ *
+=========================================================================== */
+@mixin btn-before-basics(
+  $position:        relative,
+  $top:             0,
+  $left:            0,
+  $width:           auto,
+  $height:          auto,
+  $bg-color:        transparent
+) {
+  &:before {
+    position:$position;
+    top:$top;
+    left:$left;
+    height:#{$height};
+    width:#{$width};
+    // margin-top:-#{ (($height/2) + 4)/2 }px;
+    background-color:$bg-color;
+  }
+}
+
+/* BTN BEFORE FONT
+ * ---------------
+ * @include btn-before-font(1.4em, bold, #fff, "socialico");
+ *
+=========================================================================== */
+@mixin btn-before-font(
+  $font-size:       1.6em,
+  $font-weight:     normal,
+  $font-color:      #fff,
+  $line-height:     inherit,
+  $font-family:     "pictos"
+) {
+  &:before {
+    font-size:    $font-size;
+    font-weight:  $font-weight;
+    color:        $font-color;
+    font-family:  $font-family;
+  }
+}
+
+
+/* BTN BEFORE ICON
+ * ---------------
+ * @include btn-before-icon();
+ *
+=========================================================================== */
+@mixin btn-before-icon(
+  $icon:    'group'
+) {
+  &:before {
+    // GROUP / [3 people] (pictos)
+    @if $icon == 'group'  { content: 'g'; }
+    // HEART [<3 shape] (pictos)
+    @if $icon == 'heart'  { content: 'k'; }
+    // HELP/ [life preserver] (pictos)
+    @if $icon == 'help'   { content: 'h'; }
+    // SEARCH [magnifying glass] (pictos)
+    @if $icon == 'search' { content: 's'; }
+    // SEARCH [magnifying glass] (pictos)
+    @if $icon == 'chat'   { content: 'q'; }
+  }
+}
+
+
+/* BTN BEFORE HOVER METHOD
+ * -----------------------
+ * @include btn-before-hover-method();
+ *
+=========================================================================== */
+@mixin btn-before-hover-method(
+  $method:    'normal',
+  $duration:  .35s
+) {
+
+  // ----------- START DEFAULTS -------------
+  &:before {
+    @include transition(transform);
+    @include transition-duration($duration);
+  }
+  // ------------ END DEFAULTS --------------
+
+  // ROTATE (spin a full circle)
+  @if $method == 'rotate' {
+    &:hover {
+      &:before {
+        @include transform(rotate(360deg));
+      }
+    }
+  }
+  // TILT-RIGHT (rotate 15deg clockwise)
+  @if $method == 'tilt-right' {
+    &:hover {
+      &:before {
+        @include transform(rotate(15deg));
+      }
+    }
+  }
+  // SCALE UP (grow by 135%)
+  @if $method == 'scale-135' {
+    &:hover {
+      &:before {
+        @include transform(scale(1.35));
+      }
+    }
+  }
+  // SCALE UP (grow by 115%)
+  @if $method == 'scale-115' {
+    &:hover {
+      &:before {
+        @include transform(scale(1.15));
+      }
+    }
+  }
+}
+
+
+
+
+
+
+/* ======================================================================== */
+/*                                                                          */
+/*                              BUTTON CLASSES                              */
+/*                                                                          */
+/* ======================================================================== */   
+
+.btn {
+  @include btn;
+}
+.btn-before {
+  @include btn-before-basics();
+  @include btn-before-font();
+  @include btn-before-icon();
+  @include btn-before-hover-method();
+}
+
