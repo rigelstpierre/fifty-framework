@@ -46,4 +46,8 @@ require_once( get_template_directory() .'/functions/scripts.php' );
  * @since 1.0
  */
 
+// Actions & Hooks
+require_once( get_template_directory() .'/functions/actions.php' );
+
+// Components
 require_once( get_template_directory() .'/functions/widgets.php' );

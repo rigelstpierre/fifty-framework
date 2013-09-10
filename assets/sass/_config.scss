@@ -29,7 +29,7 @@ $transparency-header:     true;
 
 /* FONTS
 ================================================== */
-$default:       Helvetica, Arial, sans-serif;
+$default:       "opensans", Helvetica, Arial, sans-serif;
 $serif:         Georgia, serif;
 $pictos:        "pictos";
 $arrrows:       "arrrows";
@@ -53,7 +53,7 @@ $base-line-height   : $base-font-size * 1.5;
 // $grid-padding       : 10px            !default;
 
 // MAGIC
-$total-columns      : 4              !default;
+$total-columns      : 4               !default;
 $column-width       : 4em             !default;
 $gutter-width       : 1em             !default;
 $grid-padding       : $gutter-width   !default;
@@ -72,7 +72,7 @@ $show-grid-backgrounds    : false;
 $from-direction     : left            !default;
 $omega-float        : opposite-position($from-direction)    !default;
 $container-width    : 960px           !default;
-$container-style    : magic           !default;
+$container-style    : fluid           !default;
 // $border-box-sizing  : false           !default;
 
 // IE SETTINGS

@@ -2,7 +2,8 @@
  
 /* SASS Libraries */
 @import "compass",
-        "susy";
+        "susy",
+        "mixins";
 
 /* Reset */
 @import "vendor/normalize";
@@ -15,11 +16,13 @@
         "core/body";
 
 /* Librarires */
-@import "lib/mixins", 
+@import "lib/extenders",
         "lib/icons",
-        "lib/extenders",
         "lib/buttons",
         "lib/animate";
 
 /* Modules & Components */
-@import "modules/header";
+@import "modules/header",
+        "modules/slider",
+        "modules/sidebar",
+        "modules/content";

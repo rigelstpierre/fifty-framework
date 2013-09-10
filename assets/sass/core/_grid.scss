@@ -8,23 +8,83 @@
   @include container($total-columns, $mobile-landscape, $tablet, $desktop);
 }
 
-.span1  { @include span-columns(1,12); }
-.span2  { @include span-columns(2,12); }
-.span3  { @include span-columns(3,12); }
-.span4  { @include span-columns(4,12); }
-.span5  { @include span-columns(5,12); }
-.span6  { @include span-columns(6,12); }
-.span7  { @include span-columns(7,12); }
-.span8  { @include span-columns(8,12); }
-.span9  { @include span-columns(9,12); }
-.span10 { @include span-columns(10,12); }
-.span11 { @include span-columns(11,12); }
-.span12 { @include span-columns(12,12); }
+.span1,
+.span2,
+.span3,
+.span4,
+.span5,
+.span6,
+.span7,
+.span8,
+.span9,
+.span10,
+.span11,
+.span12 {
+  float:left;
+}
+
+.span1, %span1  { 
+  width: 8.333333333333332%;
+  float:left;
+  @include media(mobile) { width:100%; }
+}
+.span2, %span2  { 
+  width: 16.666666666666664%;
+  float:left;
+  @include media(mobile) { width:100%; }
+}
+.span3, %span3  { 
+  width: 25%;
+  @include media(mobile) { width:100%; }
+}
+.span4, %span4  { 
+  width: 33.33333333333333%;
+  float:left;
+  @include media(mobile) { width:100%; }
+}
+.span5, %span5  { 
+  width: 41.66666666666667%;
+  float:left;
+  @include media(mobile) { width:100%; }
+}
+.span6, %span6  { 
+  width: 50%;
+  float:left;
+  @include media(mobile) { width:100%; }
+}
+.span7, %span7  { 
+  width: 58.333333333333336%;
+  float:left;
+  @include media(mobile) { width:100%; }
+}
+.span8, %span8  { 
+  width: 66.66666666666666%;
+  float:left;
+  @include media(mobile) { width:100%; }
+}
+.span9, %span9  { 
+  width: 75%;
+  float:left;
+  @include media(mobile) { width:100%; }
+}
+.span10, %span10 { 
+  width: 83.33333333333334%;
+  float:left;
+  @include media(mobile) { width:100%; }
+}
+.span11, %span11 { 
+  width: 91.66666666666666%;
+  float:left;
+  @include media(mobile) { width:100%; }
+}
+.span12, %span12 { 
+  width: 100%;
+  float:left;
+  @include media(mobile) { width:100%; }
+}
 
 
-
-.omega {@include omega;}
-
+.omega, %omega { @include omega; }
 
 
 /* DEVELOPMENT */

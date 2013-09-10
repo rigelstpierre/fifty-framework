@@ -56,6 +56,6 @@
   <div class="clear"></div>
 	</div>
 </header><!-- header.default.<header_class> -->
-<div style="width:100%;height:300px;background-color:#3a3a3a;"></div>
+
 
 

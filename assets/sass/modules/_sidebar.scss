@@ -1,0 +1,6 @@
+/* _sidebar.scss */
+
+.sidebar{
+  @extend %span4;
+  @include omega;
+}

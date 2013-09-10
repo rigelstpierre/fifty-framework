@@ -73,6 +73,28 @@
   }
 }
 
+/* HALVES
+================================================== */
+.halves, %halves {
+  width:100%;
+  @include clearfix;
+}
+  .half, %half {
+    width:50%;float:left;
+  }
+
+
+/* THIRDS
+================================================== */
+.thirds, %thirds {
+  width:100%;
+  @include clearfix;
+}
+  .third, %third {
+    width: 33.33333333333333%;float:left;
+  }
+
+
 /* INLINE BLOCK
 ================================================== */
 %inline-block {
