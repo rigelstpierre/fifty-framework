@@ -238,15 +238,15 @@
         
         FF.init();
 
-        FF.flexLoader(
-            $('.flexslider'), 
-            {
-                animation   : "slide",
-                prevText    : "N",
-                nextText    : "n",
-                start: function(slider){ }
-            } 
-        );
+        // FF.flexLoader(
+        //     $('.flexslider'), 
+        //     {
+        //         animation   : "slide",
+        //         prevText    : "N",
+        //         nextText    : "n",
+        //         start: function(slider){ }
+        //     } 
+        // );
 
     });
 

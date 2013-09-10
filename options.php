@@ -57,34 +57,11 @@ function optionsframework_options() {
     'type' => 'checkbox'
   );
         
-  $options[] = array(
-    "name" => __( 'Toggle: Slideshow', 'FFW' ),
-    "desc" => __( 'Check this box to enable automatic slideshow for your slides.', 'FFW' ),
-    "id"   => "slides_slideshow",
-    "std"  => "true",
-    "type" => "select",
-    "options" => array(
-      'true'  => 'true',
-      'false' => 'false'
-    ),
-  );
-    
-  $options[] = array(
-    "name" => __( 'Toggle: Randomize', 'FFW' ),
-    "desc" => __( 'Check this box to enable the randomize feature for your slides.', 'FFW' ),
-    "id"   => "slides_randomize",
-    "std"  => "false",
-    "type" => "select",
-    "options" => array(
-      'true'  => 'true',
-      'false' => 'false'
-    ),
-  );
     
   $options[] = array(
     "name" => __( 'Animation', 'FFW' ),
     "desc" => __( 'Select your animation of choice.', 'FFW' ),
-    "id"   => "slides_animation",
+    "id"   => "slider_animation",
     "std"  => "slide",
     "type" => "select",
     "options" => array(
@@ -96,7 +73,7 @@ function optionsframework_options() {
   $options[] = array(
     "name" => __( 'Direction', 'FFW' ),
     "desc" => __( 'Select the direction for your slides. Slide animation only & if using the <strong>vertical direction</strong> all slides must have the same height.', 'FFW' ),
-    "id"   => "slides_direction",
+    "id"   => "slider_direction",
     "std"  => "horizontal",
     "type" => "select",
     "options" => array(
@@ -104,11 +81,27 @@ function optionsframework_options() {
       'vertical'   => 'vertical'
     ),
   );
+
+  $options[] = array(
+    "name" => __( 'Slider Previous Text', 'FFW' ),
+    "desc" => __( 'Enter the Arrrows font character to use for the PREVIOUS button.', 'FFW' ),
+    "id"   => "slider_prev_text",
+    "std"  => "N",
+    "type" => "text" ,
+  );
+
+  $options[] = array(
+    "name" => __( 'Slider Next Text', 'FFW' ),
+    "desc" => __( 'Enter the Arrrows font character to use for the NEXT button.', 'FFW' ),
+    "id"   => "slider_next_text",
+    "std"  => "n",
+    "type" => "text" ,
+  );
     
   $options[] = array(
-    "name" => __( 'SlideShow Speed', 'FFW' ),
-    "desc" => __( 'Enter your preferred slideshow speed in milliseconds.', 'FFW' ),
-    "id"   => "slideshow_speed",
+    "name" => __( 'Slider Speed', 'FFW' ),
+    "desc" => __( 'Enter your preferred slider speed in milliseconds.', 'FFW' ),
+    "id"   => "slider_slide_speed",
     "std"  => "7000",
     "type" => "text" ,
   );
@@ -116,7 +109,7 @@ function optionsframework_options() {
   $options[] = array(
     "name" => __( 'Animation Speed', 'FFW' ),
     "desc" => __( 'Enter your preferred animation speed in milliseconds.', 'FFW' ),
-    "id"   => "animation_speed",
+    "id"   => "slider_animation_speed",
     "std"  => "600",
     "type" => "text"
   );

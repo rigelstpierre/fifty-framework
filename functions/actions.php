@@ -45,21 +45,52 @@ function FFW_actions(){
   function slider_full( $args = NULL ) {
 
     global $post;
-    $class = isset($args['class']) ? $args['class'] : null;
+    $class    = isset($args['class']) ? $args['class'] : null;
     $category = isset($args['category']) ? $args['category'] : null;
 
     if ( of_get_option ( 'enable_slides', '1' ) ) :
 
     ?>
+      
+      <?php /* GET SLIDER SETTINGS FROM OPTIONS
+      ================================================== */
+        $slider_animation       = of_get_option('slider_animation');
+        $slider_direction       = of_get_option('slider_direction');
+        $slider_prev_text       = of_get_option('slider_prev_text');
+        $slider_next_text       = of_get_option('slider_next_text');
+        $slider_speed           = of_get_option('slider_slide_speed');
+        $slider_animation_speed = of_get_option('slider_animation_speed');
+      ?>
+      
+      <?php /* FLEXSLIDER JAVASCRIPT
+      ================================================== */ ?>
+      <script>
+        jQuery(window).load(function($){
+          jQuery('.flexslider').flexslider({
+            animation       : "<?php echo $slider_animation; ?>",
+            prevText        : "<?php echo $slider_prev_text; ?>",
+            nextText        : "<?php echo $slider_next_text; ?>",
+            direction       : "<?php echo $slider_direction; ?>",
+            slideShowSpeed  : "<?php echo $slider_speed; ?>",
+            animationSpeed  : "<?php echo $slider_animation_speed; ?>",
+            start: function(slider){}
+          });
+        });
+      </script>
 
-      <?php query_posts( array(
+      <?php /* QUERY THE SLIDER POST TYPE
+      ================================================== */
+      query_posts( array(
         'ignore_sticky_posts' => 1,
         'posts_per_page'      => 20,
         'post_type'           => 'slides',
         'category'            => $category
       )); ?>
 
-      <?php if(have_posts()) :?>         
+
+      <?php /* START THE LOOP IF WE HAVE SLIDES
+      ================================================== */
+      if(have_posts()) :?>         
         <div class="slider-full flexslider">    
           <ul class="slides">
 
@@ -115,11 +146,10 @@ function FFW_actions(){
       <h1> Slider Not Enabled </h1>
     <?php endif;
 
-
   }
   add_action('FFW_slider_full', 'slider_full');
 
 
-  
+
 
 }

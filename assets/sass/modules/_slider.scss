@@ -102,46 +102,46 @@ $height-flex_control_thumbs:  130;
   ================================================== */
   .flex-control-nav-wrap {
     width:100%;
+    margin:0 auto;
     position:relative;
-    @include clearfix;
+    text-align:center;
   }
 
   ol.flex-control-paging  {
     @extend %ul-blank;
+    @extend %inline-block;
     height:#{$height-flex_paging}px;
+    top:-#{$height-flex_paging}px;
     position:absolute;
-    top:0;left:0;
-    padding:0 15px;
+    @include clearfix;
 
     li {
+      @extend %inline-block;
       height:100%;
       line-height:#{$height-flex_paging}px;
-      float:left;
-      margin-right:5px;
+      margin-right:7px;
+
+      &:last-child {margin-right:0;}
     }
     li a {
       display:block;
       text-indent: -9999px;
       position:relative;
-      width: 0;
-      height: 0;
-      top:11px;
-      border: 4px solid transparent;
-      border-bottom-color: #ccc9be;
-      position: relative;
-      line-height:40px;
+      width: 14px;
+      height: 14px;
+      @include border-radius(7px / 7px 7px 6px 6px);
+      @include background-clip(padding-box);
+      /* TRANSITION */
+      @include transition(all 150ms ease-in-out);
+      background-color: #eae9e9;
+      @include opacity(0.25);
+
+      &.flex-active {
+        background-color:#ffffff;
+        @include opacity(1);
+      }
     }
-    li a:after {
-      content: '';
-      position: absolute;
-      left: -4px;
-      top: 4px;
-      width: 0;
-      height: 0;
-      border: 4px solid transparent;
-      border-top-color: #ccc9be;
-    }
-    li a.flex-active        {border-bottom-color:#96be73;}
+
     li a.flex-active:after  {border-top-color:#96be73;}
   }/* flex-control-nav */
 
@@ -163,7 +163,7 @@ $height-flex_control_thumbs:  130;
       overflow:hidden;
       cursor:pointer;
       @include opacity(.8);
-      @include transition(opacity 200ms linear);
+      @include transition(opacity 200ms ease-in-out);
       border-right:5px solid #ffffff;
       border-bottom:5px solid #ffffff;
 
@@ -214,7 +214,7 @@ $height-flex_control_thumbs:  130;
       display:block;
       position:absolute;
       font-size:initial;
-      @include transition(all 100ms linear);
+      @include transition(all 100ms ease-in-out);
     }
     li a {
       display:block;
@@ -230,7 +230,7 @@ $height-flex_control_thumbs:  130;
       text-transform: none;
       /* TRANSITION */
       @include xbc-trans_bg(0.08, #dadada);
-      @include transition(all 150ms linear);
+      @include transition(all 150ms ease-in-out);
 
       &:hover {
         @include xbc-trans_bg(0.25, #dadada);
