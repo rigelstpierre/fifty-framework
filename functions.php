@@ -66,3 +66,5 @@ if ( of_get_option ( 'enable_slides', '1' ) ) {
   require_once( get_template_directory() .'/functions/post-types/slides.php' );
   require_once( get_template_directory() .'/functions/meta/slides.php' );
 }
+
+require_once( get_template_directory() .'/functions/meta/home.php' );

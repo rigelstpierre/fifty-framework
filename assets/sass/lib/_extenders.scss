@@ -12,10 +12,14 @@
   %font-shadow    {text-shadow:1px 1px 1px rgba(black, .11);}
 
   /* FAMILIES */
-  %font-serif     {font-family:$serif,Georgia,serif;}
-  %font-pictos    {font-family:$pictos;}
-  %font-socialico {font-family:$socialico;}
-  %font-arrrows   {font-family:$arrrows;}
+  %font-serif         {font-family:$serif,Georgia,serif;}
+  %font-serif_italic  {font-family:$serif,Georgia,serif;font-style:italic;}
+  %font-pictos        {font-family:$pictos;}
+  %font-socialico     {font-family:$socialico;}
+  %font-arrrows       {font-family:$arrrows;}
+
+  /* PARAGRAPHS */
+  %p-lh-med       {line-height:( 1.4 * 1.1em);}
 
 
 /* BG COLORS
@@ -125,3 +129,9 @@
   outline:none;
   border:none;
 }
+
+
+/* PUSH (floats)
+================================================== */
+body .push-right {float:right}
+body .push-left  {float:left;}

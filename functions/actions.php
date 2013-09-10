@@ -45,17 +45,18 @@ function FFW_actions(){
   function slider_full( $args = NULL ) {
 
     global $post;
-
     $class = isset($args['class']) ? $args['class'] : null;
+    $category = isset($args['category']) ? $args['category'] : null;
+
+    if ( of_get_option ( 'enable_slides', '1' ) ) :
 
     ?>
-
-
 
       <?php query_posts( array(
         'ignore_sticky_posts' => 1,
         'posts_per_page'      => 20,
-        'post_type'           => 'slides'
+        'post_type'           => 'slides',
+        'category'            => $category
       )); ?>
 
       <?php if(have_posts()) :?>         
@@ -87,21 +88,13 @@ function FFW_actions(){
             <li id="slide<?php echo $i; ?>" data-thumb="" class="<?php echo $s_class; ?>" style="<?php echo $s_styles;?>">  
               <div class="container">
                 <div class="slide-content">
-                  
-                  <?php //print_r(get_post_meta( get_the_ID() )); ?>
-                  
-                  <?php the_content(); ?>
 
                   <?php if($show_slide_text) : ?>       
                     <div class="details <?php echo $slide_text_alignment; ?>">
-                      <div class="box">
-                        <div class="inside">
-                          <div class="text">
-                              <h2><span><?php the_title(); ?></span></h2>
-                            <?php echo wpautop(do_shortcode($slide_class)); ?>
-                          </div>
-                        </div>
-                      </div>          
+                      <h1><?php the_title(); ?></h1>
+                      <div class="seperator"></div>
+                      <?php the_content(); ?>
+                      <?php//echo wpautop(do_shortcode($slide_class)); ?>
                     </div>
                   <?php endif; ?>
 
@@ -118,9 +111,15 @@ function FFW_actions(){
       <?php endif; ?>
       <?php wp_reset_query(); wp_reset_postdata(); ?>
 
-    <?php
+    <?php else : ?>
+      <h1> Slider Not Enabled </h1>
+    <?php endif;
+
 
   }
   add_action('FFW_slider_full', 'slider_full');
+
+
+  
 
 }

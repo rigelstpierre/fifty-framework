@@ -141,5 +141,18 @@ function optionsframework_options() {
       "type" => "checkbox",
     );
 
+    // SIDEBAR POSITION
+    $options[] = array(
+      'name' => __( 'Sidebar Position', 'FFW' ),
+      'desc' => __( 'Select where you want your sidebar positioned.', 'FFW' ),
+      'std'  => '1',
+      'id'   => 'sidebar_position_blog',
+      'type' => 'select',
+      'options' => array(
+        'left'  => 'left',
+        'right' => 'right'
+      ),
+    );
+
   return $options;
 }

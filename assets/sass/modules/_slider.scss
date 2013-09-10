@@ -10,8 +10,15 @@ $height-flex_control_thumbs:  130;
 
 
 
-.slider-full.flexslider {
+.flexslider {
   position:relative;
+
+  /* SLIDER FULL
+  ================================================== */
+  &.slider-full {
+
+  }
+
 
   .flex-viewport {width:100%;height:#{$height-slider_full}px;}
   
@@ -45,17 +52,48 @@ $height-flex_control_thumbs:  130;
       }
 
       .slide-content {
-        position:relative;z-index:100;
+        position:relative;
+        z-index:1000;
         display:table-cell;
         vertical-align:middle;
         padding:50px;
         color:#ffffff;
         width:100%;min-width:940px;height:#{$height-slider_full}px;
         // @include box-shadow(0 1px 2px rgba(0,0,0,.13), inset 3px 4px 250px rgba(0,0,0,.71));
+        
+        .details {
+          width:65%;
+          margin:0 auto;
+          font-size:initial;
 
-        h1,h2 {width:65%;}
+          &.left    {text-align:left;}
+          &.center  {text-align:center;}
+          &.right   {text-align:right;}
+          
+          .seperator {
+            @extend %inline-block;
+            margin:1em 0 0 0;
+            width: 200px;
+            height: 2px;
+            background-color: #fff;
+          }
 
-        .btn {}
+          h1 {
+            @extend %inline-block;
+            width:70%;
+            &:first-of-type {margin:0;}
+          }
+          p {
+            @extend %inline-block;
+            @extend %font-serif;
+            line-height:( 1.3 * 1.1em);
+            font-size:1.1em;
+            font-style:italic;
+          }
+
+          .btn {}
+        }
+
       }
     }
   }/* slides */
@@ -168,6 +206,7 @@ $height-flex_control_thumbs:  130;
     top:50%;margin-top:-28px;
     height:#{$height-flex_direction_nav}px;
     width:100%;
+    overflow-x:hidden;
 
     li {
       height:#{$height-flex_direction_nav}px;width:#{$width-flex_direction_nav}px;
@@ -175,14 +214,13 @@ $height-flex_control_thumbs:  130;
       display:block;
       position:absolute;
       font-size:initial;
+      @include transition(all 100ms linear);
     }
     li a {
       display:block;
       height:#{$height-flex_direction_nav}px;
       width:#{$width-flex_direction_nav}px;
-      @include border-radius(5px);
       @include background-clip(padding-box);
-      background-color: #dadada;
       font-family: "arrrows";
       color: #eae9e9;
       text-align:center;
@@ -190,17 +228,33 @@ $height-flex_control_thumbs:  130;
       line-height:#{$height-flex_direction_nav}px;
       text-indent: 0;
       text-transform: none;
+      /* TRANSITION */
       @include xbc-trans_bg(0.08, #dadada);
       @include transition(all 150ms linear);
-    }
-    li:first-child {left:0px;}
-    li:last-child  {right:0px;}
 
-    li a.flex-prev {background-position:0 0}
-    li a.flex-prev:hover {background-position:0 -#{$height-flex_direction_nav}px;}
-    
-    li a.flex-next {background-position:-#{$width-flex_direction_nav}px 0;}
-    li a.flex-next:hover {background-position:-#{$width-flex_direction_nav}px -#{$height-flex_direction_nav}px;}
+      &:hover {
+        @include xbc-trans_bg(0.25, #dadada);
+      }
+
+      &.flex-prev {@include border-radius(0 5px 5px 0);}
+      &.flex-next {@include border-radius(5px 0 0 5px);}
+    }
+    li:first-child {left:-60px;}
+    li:last-child  {right:-60px;}
 
   }/* flex-direction-nav */
+
+
+
+  /* HOVER INTERACTIONS
+  ================================================== */
+  &:hover {
+    .flex-direction-nav {
+      li {
+        &:first-child {left:0}
+      }
+    }
+    .flex-direction-nav li:first-child {left:0px;}
+    .flex-direction-nav li:last-child {right:0px;}
+  }
 }

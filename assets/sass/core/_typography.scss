@@ -4,7 +4,7 @@
 /**
  * Headers <h1>, <h2>, <h3>, <h4>, <h5>, <h6>
  */
-h1, h2, h3, h4, h5, h6 {  }
+h1, h2, h3, h4, h5, h6 { a {color:inherit;} }
 
 h1,.h1{ }
 h2,.h2{ }
@@ -89,7 +89,7 @@ p small         { font-size:0.8em; }
 ul ul, ul ol, ol ol, ol ul { margin-bottom: 0; }
 ul            { list-style: none; list-style-type:none; margin:0; padding:0; }
 ul li         { color:inherit; }
-ul li a       { color:inherit; }
+ul li a       {  }
 ol            { list-style: decimal; }
 ol.roman      { list-style: upper-roman; }
 li            {  }

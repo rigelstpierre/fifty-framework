@@ -35,6 +35,14 @@ header.default {
       @extend %inline-block;
       @extend %ul-blank;
       line-height:#{$height-header_default}px;
+
+      li {
+        text-transform: uppercase;
+      }
+
+      li a {
+        color:$colorTextDefault;
+      }
     } 
   }
 

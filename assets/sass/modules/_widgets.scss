@@ -1,0 +1,27 @@
+/* _widgets.scss */
+
+.widget-area {
+  font-size:initial;
+}
+
+  .widget {
+    font-size:.9em;
+    margin-bottom:2em;
+    
+    .separator {
+      @extend %inline-block;
+      width:50%;
+      margin-top:2em;
+      border-bottom:1px solid #ddd;
+    }
+
+    h3.widget-title {
+      color:$colorSecondaryDark;
+      @extend %font-bold_caps;
+      font-size:inherit;
+    }
+
+    ul {
+      @extend %font-serif_italic;
+    }
+  }

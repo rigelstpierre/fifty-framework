@@ -9,12 +9,15 @@ $colorPrimaryDark:      #1c1c1c;
 $colorPrimaryLight:     adjust_hue(saturate(darken(#2a2a2a, 13), 21), 0);
 
 $colorSecondary:        #eae9e9;
-$colorSecondaryDark:    #fafafa;
+$colorSecondaryDark:    #363636;
 $colorSecondaryLight:   #fafafa;
 
-$colorTertiary:         #cccccc;
+$colorTertiary:         #dddddd;
 $colorTertiaryDark:     #cccccc;
 $colorTertiaryLight:    #cccccc;
+
+$colorTextDefault:      #433f3e;
+$colorAnchorDefault:    #2f7499;
 
 
 

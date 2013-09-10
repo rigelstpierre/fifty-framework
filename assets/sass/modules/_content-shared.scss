@@ -1,0 +1,54 @@
+/* _content-shared.scss */
+
+
+/* #MAIN
+================================================== */
+#main {
+
+  &.default {}
+  &.blog    {padding-top:3em;}
+}
+
+
+  /* .content
+  ================================================== */
+  .content{
+    @extend %span9;
+    
+    &.push-left {
+      .content-inner {padding-left:2em;}
+    }
+    &.push-right {
+      .content-inner {padding-right:2em;}
+    }
+  }
+
+    /* ARTICLE
+    ================================================== */
+    article {
+
+    }
+
+    // POST/PAGE TITLE
+    .post-title {margin-top:0;}
+
+
+
+  /* SIDEBAR
+  ================================================== */
+  .sidebar{
+    @extend %span3;
+    @include omega;
+
+    &.push-left {
+      .sidebar-inner {padding-right:2em;text-align:right;}
+    }
+    &.push-right {
+      .sidebar-inner {padding-left:2em;}
+    }
+
+    .sidebar-inner {
+      
+    }
+  }
+

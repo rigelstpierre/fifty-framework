@@ -7,11 +7,9 @@
 */
 
 if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
-	<div class="sidebar">
-		<div class="sidebar-inner">
-			<div class="widget-area">
-				<?php dynamic_sidebar( 'sidebar-1' ); ?>
-			</div><!-- .widget-area -->
-		</div><!-- .sidebar-inner -->
-	</div><!-- #sidebar -->
+	<div class="sidebar-inner">
+		<div class="widget-area">
+			<?php dynamic_sidebar( 'sidebar-1' ); ?>
+		</div><!-- .widget-area -->
+	</div><!-- .sidebar-inner -->
 <?php endif; ?>
