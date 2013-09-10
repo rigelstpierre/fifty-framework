@@ -29,8 +29,10 @@ header.default {
   ================================================== */
   nav {
     line-height:#{$height-header_default}px;
+    text-align:right;
 
     ul {
+      @extend %inline-block;
       @extend %ul-blank;
       line-height:#{$height-header_default}px;
     } 

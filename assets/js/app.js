@@ -241,7 +241,9 @@
         FF.flexLoader(
             $('.flexslider'), 
             {
-                animation: "slide",
+                animation   : "slide",
+                prevText    : "N",
+                nextText    : "n",
                 start: function(slider){ }
             } 
         );

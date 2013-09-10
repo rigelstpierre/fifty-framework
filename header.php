@@ -46,7 +46,15 @@
 	<div class="container">
 		 		
 		<div class="logo span5">
-			<a href="<?php echo home_url(); ?>" class="logo">Fifty Framework</a>
+			<?php if( of_get_option('custom_logo','') !== '' ) : ?>
+			    <a href="<?php echo home_url(); ?>/" title="<?php get_bloginfo( 'name' ); ?>" rel="home">
+			    	<img src="<?php echo of_get_option('custom_logo'); ?>" alt="<?php get_bloginfo( 'name' ) ?>" />
+			    </a>
+			<?php else: ?>
+			    <h2><a href="<?php echo home_url(); ?>/" title="<?php get_bloginfo( 'name' ); ?>" rel="home">
+			     	<?php echo get_bloginfo( 'name' ); ?>
+			    </a></h2>
+			<?php endif; ?>		
 		</div>
 
 		<nav class="nav-header span7 omega">

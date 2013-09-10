@@ -34,4 +34,93 @@ function FFW_actions(){
   }
   add_action('FFW_pagination', 'pagination');
 
+
+
+
+
+  /**
+   * Slider
+   * @since 1.0
+   */
+  function slider_full( $args = NULL ) {
+
+    global $post;
+
+    $class = isset($args['class']) ? $args['class'] : null;
+
+    ?>
+
+
+
+      <?php query_posts( array(
+        'ignore_sticky_posts' => 1,
+        'posts_per_page'      => 20,
+        'post_type'           => 'slides'
+      )); ?>
+
+      <?php if(have_posts()) :?>         
+        <div class="slider-full flexslider">    
+          <ul class="slides">
+
+            <?php $i = 1; while (have_posts()) : the_post(); ?>
+            <?php
+            //Get slide options
+            $slide_class          = get_post_meta($post->ID, "_FFW_slide_class", true);         
+            $show_slide_text      = get_post_meta($post->ID, "_FFW_slide_show_text", true);
+            $slide_text_alignment = get_post_meta($post->ID, "_FFW_slide_text_alignment", true);
+            $slide_thumbnail_img  = wp_get_attachment_image_src(get_post_meta($post->ID, "_FFW_slide_thumbnail", true), 'full');
+            $slide_background_img = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), '' );
+            // reset vars to first array items
+            $slide_background_img = $slide_background_img[0];
+            // $slide_class          = $slide_class[0];
+            
+            $s_styles = "";
+            $s_class  = "";
+            if($slide_background_img){
+              $s_styles .= "background-image: url(".$slide_background_img.");";           
+              $s_styles .= "background-repeat: no-repeat;";
+              $s_styles .= "background-position: center center;";
+              $s_styles .= "background-size: cover;"; 
+            }   
+            ?>          
+          
+            <li id="slide<?php echo $i; ?>" data-thumb="" class="<?php echo $s_class; ?>" style="<?php echo $s_styles;?>">  
+              <div class="container">
+                <div class="slide-content">
+                  
+                  <?php //print_r(get_post_meta( get_the_ID() )); ?>
+                  
+                  <?php the_content(); ?>
+
+                  <?php if($show_slide_text) : ?>       
+                    <div class="details <?php echo $slide_text_alignment; ?>">
+                      <div class="box">
+                        <div class="inside">
+                          <div class="text">
+                              <h2><span><?php the_title(); ?></span></h2>
+                            <?php echo wpautop(do_shortcode($slide_class)); ?>
+                          </div>
+                        </div>
+                      </div>          
+                    </div>
+                  <?php endif; ?>
+
+                </div><!-- .slide-content -->
+              </div><!-- .container -->
+            </li>
+            
+            <?php $i++; ?>      
+          
+            <?php endwhile; ?>
+          </ul>
+        </div>  
+
+      <?php endif; ?>
+      <?php wp_reset_query(); wp_reset_postdata(); ?>
+
+    <?php
+
+  }
+  add_action('FFW_slider_full', 'slider_full');
+
 }
