@@ -283,7 +283,7 @@
     (function(){ 
 
         FF.setVars(); // set variables
-        FF.skrollr(); // skroller init
+        //FF.skrollr(); // skroller init
 
         if(window.location.hash) {
             // puts hash in variable, and removes the # character

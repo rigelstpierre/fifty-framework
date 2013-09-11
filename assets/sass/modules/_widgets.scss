@@ -3,10 +3,12 @@
 .widget-area {
   font-size:initial;
 }
-
+  
   .widget {
     font-size:.9em;
     margin-bottom:2em;
+
+    // &:first-of-type .widget-title {margin-top:10px;}
     
     .separator {
       @extend %inline-block;
@@ -15,7 +17,7 @@
       border-bottom:1px solid #ddd;
     }
 
-    h3.widget-title {
+    .widget-title {
       color:$colorSecondaryDark;
       @extend %font-bold_caps;
       font-size:inherit;
@@ -25,3 +27,64 @@
       @extend %font-serif_italic;
     }
   }
+
+
+  /* PERSONAL IMAGE
+  ================================================== */
+  .widget.personal-image {
+    @include box-shadow(none);
+
+    .standard-pi-pic {
+      text-align:right;
+
+      a { @extend %inline-block; }
+      img,a {
+        @include border-radius(64px);
+        width:128px;height:128px;
+      }
+    }
+      
+    .standard-pi-bio {
+      margin:0;
+      @extend %font-serif_italic;
+    }
+    .separator {display:none;}
+  }
+
+
+
+  /* FOOTER-WIDGETS
+  ================================================== */
+  .footer-widgets {
+
+    &.halves {
+      @include clearfix;
+
+      .footer-widget {float:left;width:50%;}
+    }
+
+    &.thirds {
+      @include clearfix;
+
+      .footer-widget {float:left;width:33.3333333333333333333%;}
+    }
+
+    &.fourths {
+      @include clearfix;
+
+      .footer-widget {float:left;width:25%;}
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+

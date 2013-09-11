@@ -20,18 +20,24 @@ function fiftyframework_setup(){
 
   load_theme_textdomain('fifty-framework', get_template_directory() . 'languages' );
 
-
+  // Automatic Feed Links
   add_theme_support( 'automatic-feed-links' );
+  
+  // HTML5
   add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
 
-  /*
-  * This theme supports Post Formats. If you want to remove them, comment this line.
-  *
-  */
+  /**
+   * Post Formats
+   * @since 1.0
+   */
   add_theme_support( 'post-formats', array(
-    'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
+    'audio', 'video', 'gallery', 'image', 'link', 'quote'
   ) );
 
+  /**
+   * Nav Menus
+   * @since 1.0
+   */
   register_nav_menu('primary', __( 'Navigation Menu', 'fifty-framework' ) );
 
 }

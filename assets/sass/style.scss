@@ -17,12 +17,15 @@
 
 /* Librarires */
 @import "lib/extenders",
+        "lib/helpers",
         "lib/icons",
         "lib/buttons",
         "lib/animate";
 
 /* Modules & Components */
 @import "modules/header",
+        "modules/footer",
         "modules/slider",
         "modules/widgets",
-        "modules/content-shared";
+        "modules/content-shared",
+        "modules/content-blog";

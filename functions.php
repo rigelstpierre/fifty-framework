@@ -42,12 +42,15 @@ define( $theme_prefix . 'CSS_DIR', get_template_directory_uri().'/assets/css' );
 require_once( get_template_directory() .'/functions/setup.php' );
 require_once( get_template_directory() .'/functions/scripts.php' );
 require_once( get_template_directory() .'/functions/load-admin.php');
+require_once( get_template_directory() .'/functions/helpers.php');
 
   // Mr MetaBox
   if(!class_exists('mrMetaBox')) {
     define('MRMETABOX_URL', TEMPLATEPATH . '/admin/mr-meta-box/');
       require_once(MRMETABOX_URL . 'mr-meta-box.php');
   }
+  // Personal Image
+  require_once( get_template_directory() .'/lib/personal-image/plugin.php');
 
 
 /**
@@ -59,7 +62,7 @@ require_once( get_template_directory() .'/functions/load-admin.php');
 require_once( get_template_directory() .'/functions/actions.php' );
 
 // Components
-require_once( get_template_directory() .'/functions/widgets.php' );
+require_once( get_template_directory() .'/functions/sidebars.php' );
 
 // Post Types
 if ( of_get_option ( 'enable_slides', '1' ) ) {

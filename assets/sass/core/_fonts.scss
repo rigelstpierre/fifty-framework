@@ -18,8 +18,9 @@
 
 /* FONTS
 ================================================== */
-@include fff(opensans, '../fonts/opensans/OpenSans-Bold', bold);
 @include fff(opensans, '../fonts/opensans/OpenSans-Regular', normal);
+@include fff(opensans, '../fonts/opensans/OpenSans-Bold', bold);
+@include fff(opensans, '../fonts/opensans/OpenSans-ExtraBold', 900);
 @include fff(opensans, '../fonts/opensans/OpenSans-Italic', italic);
 
 @include fff(pictos, '../fonts/pictos/pictos', normal);

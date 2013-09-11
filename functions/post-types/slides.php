@@ -51,6 +51,41 @@ class FFW_Slides_Post_Type {
     $args = apply_filters( 'FFW_slides_args', $args);
     
     register_post_type( 'slides', $args );
+
+    /* TAXONOMIES
+    ================================================== */
+    $taxonomy_slides_category_labels = array(
+      'name'                       => __( 'Slide Categories', 'FFW' ),
+      'singular_name'              => __( 'Slide Category', 'FFW' ),
+      'search_items'               => __( 'Search Slide Categories', 'FFW' ),
+      'popular_items'              => __( 'Popular Slide Categories', 'FFW' ),
+      'all_items'                  => __( 'All Slide Categories', 'FFW' ),
+      'parent_item'                => __( 'Parent Slide Category', 'FFW' ),
+      'parent_item_colon'          => __( 'Parent Slide Category:', 'FFW' ),
+      'edit_item'                  => __( 'Edit Slide Category', 'FFW' ),
+      'update_item'                => __( 'Update Slide Category', 'FFW' ),
+      'add_new_item'               => __( 'Add New Slide Category', 'FFW' ),
+      'new_item_name'              => __( 'New Slide Category Name', 'FFW' ),
+      'separate_items_with_commas' => __( 'Separate slide categories with commas', 'FFW' ),
+      'add_or_remove_items'        => __( 'Add or remove slide categories', 'FFW' ),
+      'choose_from_most_used'      => __( 'Choose from the most used slide categories', 'FFW' ),
+      'menu_name'                  => __( 'Slide Categories', 'FFW' ),
+    );
+
+    $taxonomy_slides_category_args = array(
+      'labels'            => $taxonomy_slides_category_labels,
+      'public'            => true,
+      'show_in_nav_menus' => true,
+      'show_ui'           => true,
+      'show_tagcloud'     => true,
+      'hierarchical'      => true,
+      'rewrite'           => array( 'slug' => 'slide_category' ),
+      'query_var'         => true
+    );
+
+    $taxonomy_slides_category_args = apply_filters( 'att_taxonomy_slides_category_args', $taxonomy_slides_category_args);
+    
+      register_taxonomy( 'slides_category', array( 'slides' ), $taxonomy_slides_category_args );
   }
 
   /**

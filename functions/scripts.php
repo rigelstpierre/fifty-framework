@@ -48,7 +48,7 @@ function FFW_scripts_styles(){
     wp_enqueue_script('jquery');
     wp_enqueue_script('easing');
     wp_enqueue_script('scrollTo');
-    wp_enqueue_script('skrollr');
+    // wp_enqueue_script('skrollr');
     wp_enqueue_script('flexslider');
     wp_enqueue_script('app');
 

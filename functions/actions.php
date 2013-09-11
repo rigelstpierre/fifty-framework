@@ -40,12 +40,15 @@ function FFW_actions(){
 
   /**
    * Slider
+   * @author Alexander Zizzo
    * @since 1.0
    */
   function slider_full( $args = NULL ) {
 
     global $post;
+
     $class    = isset($args['class']) ? $args['class'] : null;
+    $id       = isset($args['id']) ? $args['id'] : null;
     $category = isset($args['category']) ? $args['category'] : null;
 
     if ( of_get_option ( 'enable_slides', '1' ) ) :
@@ -84,14 +87,20 @@ function FFW_actions(){
         'ignore_sticky_posts' => 1,
         'posts_per_page'      => 20,
         'post_type'           => 'slides',
-        'category'            => $category
+        'tax_query' => array(
+          array(
+            'taxonomy' => 'slides_category',
+            'field' => 'slug',
+            'terms' => $category
+          )
+        )
       )); ?>
 
 
       <?php /* START THE LOOP IF WE HAVE SLIDES
       ================================================== */
       if(have_posts()) :?>         
-        <div class="slider-full flexslider">    
+        <div id="<?php echo $id; ?>" class="flexslider <?php echo $class; ?>">
           <ul class="slides">
 
             <?php $i = 1; while (have_posts()) : the_post(); ?>
@@ -148,6 +157,52 @@ function FFW_actions(){
 
   }
   add_action('FFW_slider_full', 'slider_full');
+
+
+
+
+  /**
+   * Post Meta
+   * @author Alexander Zizzo
+   * @since 1.0
+   */
+  function post_meta( $args = NULL ) {
+
+    global $post;
+    $class    = isset($args['class']) ? $args['class'] : null;
+    $author   = isset($args['author']) ? $args['author'] : true;
+    $date     = isset($args['date']) ? $args['date'] : true;
+    $comments = isset($args['comments']) ? $args['comments'] : true;
+    
+    ?>
+      
+      <ul class="post-meta <?php echo $class; ?>">
+        <?php if ( $author ) : ?>
+          <li class="post-author">
+              <span>By </span>
+              <i class="icon icon-person"></i>
+              <?php the_author(); ?>
+          </li>
+        <?php endif; ?>
+        <?php if ( $date ) : ?>
+          <li class="post-time">
+              <i class="icon icon-calendar"></i>
+              <time class="entry-date" datetime="<?php the_time(); ?>"><?php the_time('F j, Y'); ?></time>
+          </li>
+        <?php endif; ?>
+        <?php if ( $comments ) : ?>
+          <li class="post-comments">
+            <a href="<?php the_permalink(); ?>/#comments">
+              <i class="icon icon-chat"></i>
+              <?php echo get_comments_number(); ?> Comments
+            </a>
+          </li>
+        <?php endif; ?>
+      </ul>
+
+    <?php 
+  }
+  add_action('FFW_post_meta', 'post_meta');
 
 
 

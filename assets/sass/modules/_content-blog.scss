@@ -1,0 +1,52 @@
+/* _content-blog.scss */
+
+/* ARTICLE.post
+================================================== */
+.post {
+  width:100%;height:auto;
+  @include clearfix;
+  padding-bottom:60px;
+  margin-bottom:30px;
+  
+  // FIRST/LASTS
+  &:first-child .post-title {margin-top:0;}
+  &:last-of-type {border-bottom:0;margin-bottom:0;padding-bottom:0;}
+  p:last-of-type {margin-bottom:0;}
+  
+  // HEADER
+  header {}
+
+    // POST TITLE
+    .post-title {
+      font-size:em(24px);
+      font-weight:900;
+    }
+  
+  // CONTENT
+  .content {
+
+  }
+
+  // FOOTER
+  footer {
+    width:100%;height:auto;
+    margin:15px 0 0 0;
+  } 
+    // POST META
+    ul.post-meta {
+      @extend %ul-blank;
+      font-size:initial;
+
+      a {color:inherit; &:hover {text-decoration: underline;} }
+
+      li {
+        @extend %inline-block;
+        @extend %font-serif_italic;
+        margin-right:7px;
+        font-size:em(14px);
+        color:$colorSecondaryLight;
+        
+      }
+    }
+
+}

@@ -12,13 +12,15 @@
 
   /* .content
   ================================================== */
-  .content{
+  #content{
     @extend %span9;
-    
+        
     &.push-left {
+      float:left;
       .content-inner {padding-left:2em;}
     }
     &.push-right {
+      float:right;
       .content-inner {padding-right:2em;}
     }
   }
@@ -29,21 +31,21 @@
 
     }
 
-    // POST/PAGE TITLE
-    .post-title {margin-top:0;}
 
 
 
   /* SIDEBAR
   ================================================== */
-  .sidebar{
+  #main .sidebar{
     @extend %span3;
     @include omega;
 
     &.push-left {
+      float:left;
       .sidebar-inner {padding-right:2em;text-align:right;}
     }
     &.push-right {
+      float:right;
       .sidebar-inner {padding-left:2em;}
     }
 
