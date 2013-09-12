@@ -18,7 +18,9 @@
 /* Librarires */
 @import "lib/extenders",
         "lib/helpers",
+        "lib/forms",
         "lib/icons",
+        "lib/social",
         "lib/buttons",
         "lib/animate";
 
@@ -27,5 +29,6 @@
         "modules/footer",
         "modules/slider",
         "modules/widgets",
+        "modules/comments",
         "modules/content-shared",
-        "modules/content-blog";
+        "modules/content-posts";

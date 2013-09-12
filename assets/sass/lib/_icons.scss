@@ -60,14 +60,19 @@ i.arr,.arr  {
 i.socialico,.socialico  {
   font-style:normal;display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
   background-image:none !important;
+  
+  &.circle:before {
+    text-transform:lowercase;
+  }
 }
 .socialico:before {
   font-family:"socialico",$social;
   font-weight:normal; 
   font-style:normal;
   font-size:inherit;
-  // text-transform:none;
+
 }
+// REGULAR
 .socialico-facebook:before        {content:'F';}
 .socialico-twitter:before         {content:'L';}
 .socialico-googleplus:before      {content:'G';}

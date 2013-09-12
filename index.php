@@ -9,14 +9,12 @@
 <div id="main" class="default blog">
 	<div class="container">
 
-		<?php $sidebar_position_class = of_get_option ( 'sidebar_position_blog' ); ?>
-
-		<div class="sidebar push-<?php echo $sidebar_position_class; ?>">
+		<div class="sidebar push-<?php sidebar_position_class(); ?>">
 			<?php get_sidebar(); ?>
 		</div><!-- #sidebar -->
 
 
-		<div id="content" class="push-<?php echo $sidebar_position_class; ?>">
+		<div id="content" class="push-<?php sidebar_position_class(); ?>">
 			<div class="content-inner">
 				
 				<?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
@@ -25,7 +23,7 @@
 
 				<?php endwhile; endif; ?>
 
-				<?php do_action('FFW_pagination'); ?>
+				<?php do_action('FFW_pagination', array('id' => 'nav-below') ); ?>
 			</div>
 		</div><!-- .content -->
 

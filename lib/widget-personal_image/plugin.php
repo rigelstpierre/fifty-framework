@@ -14,10 +14,12 @@ class Standard_Personal_Image extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname' 	=> __( 'personal-image', 'standard' ), 
-			'description' 	=> __( 'Display a personal image and an optional description.', 'standard' )
+			'classname'   => __( 'personal-image', 'standard' ), 
+			'description' => __( 'Display a personal image and an optional description.', 'standard' ),
+			'top_text'    => __( 'Optional text as a heading', 'standard' ),
+			'author_name' => __( 'The author/user name', 'standard' ),
 		);	
-		$this->WP_Widget( 'standard-personal-image', __( 'Personal Image', 'standard' ), $widget_opts );
+		$this->WP_Widget( 'ffw-standard-personal-image', __( 'Personal Image', 'standard' ), $widget_opts );
 		
 		// We don't want to load these on the Appearance Options because we're overiding window.send_to_editor there, too.
 		global $pagenow;
@@ -46,9 +48,11 @@ class Standard_Personal_Image extends WP_Widget {
 	
 		extract( $args, EXTR_SKIP );
 	
-		$image_src = empty( $instance['image_src']) ? '' : apply_filters( 'image_src', $instance['image_src'] );
-		$image_url = empty( $instance['image_url']) ? '' : apply_filters( 'image_url', $instance['image_url'] );
+		$image_src         = empty( $instance['image_src']) ? '' : apply_filters( 'image_src', $instance['image_src'] );
+		$image_url         = empty( $instance['image_url']) ? '' : apply_filters( 'image_url', $instance['image_url'] );
 		$image_description = empty( $instance['image_description']) ? '' : apply_filters( 'image_description', $instance['image_description'] );
+		$top_text          = empty( $instance['top_text']) ? '' : apply_filters( 'top_text', $instance['top_text'] );
+		$author_name       = empty( $instance['author_name']) ? '' : apply_filters( 'author_name', $instance['author_name'] );
 		
 		// Display the widget
 		include( plugin_dir_path( __FILE__ ) .  'views/widget.php' );
@@ -70,6 +74,8 @@ class Standard_Personal_Image extends WP_Widget {
 		
 		// we'll allow css and html, but no javascript
 		$instance['image_description'] = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['image_description'] );
+		$instance['top_text'] = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['top_text'] );
+		$instance['author_name'] = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['author_name'] );
 		
 		return $instance;
 		
@@ -85,15 +91,19 @@ class Standard_Personal_Image extends WP_Widget {
 		$instance = wp_parse_args(
 			(array)$instance,
 			array(
-				'image_src' 		=> '',
-				'image_url' 		=> '',
-				'image_description'	=> ''
+				'image_src'         => '',
+				'image_url'         => '',
+				'image_description' => '',
+				'top_text'          => '',
+				'author_name'       => ''
 			)
 		);
     
 		$image_src = esc_url( $instance['image_src'] );
 		$image_url = esc_url( $instance['image_url'] );
 		$image_description = esc_textarea( $instance['image_description'] );
+		$top_text = esc_textarea( $instance['top_text'] );
+		$author_name = esc_textarea( $instance['author_name'] );
     
 		// Display the admin form
 		include( plugin_dir_path( __FILE__ ) .  'views/admin.php' );
@@ -111,7 +121,7 @@ class Standard_Personal_Image extends WP_Widget {
 	
 		wp_enqueue_style( 'thickbox' );
 		
-		wp_register_style( 'standard-personal-image', get_template_directory_uri() . '/lib/personal-image/css/admin.css' );
+		wp_register_style( 'standard-personal-image', get_template_directory_uri() . '/lib/widget-personal_image/css/admin.css' );
 		wp_enqueue_style( 'standard-personal-image' );
 		
 	} // end register_admin_styles
@@ -132,7 +142,7 @@ class Standard_Personal_Image extends WP_Widget {
 			wp_enqueue_script('thickbox');
 	
 			// admin
-			wp_register_script( 'standard-personal-image', get_template_directory_uri() . '/lib/personal-image/js/admin.js', array( 'jquery', 'media-upload','thickbox') );
+			wp_register_script( 'standard-personal-image', get_template_directory_uri() . '/lib/widget-personal_image/js/admin.js', array( 'jquery', 'media-upload','thickbox') );
 			wp_enqueue_script( 'standard-personal-image' );
 		
 		} // end if
@@ -145,7 +155,7 @@ class Standard_Personal_Image extends WP_Widget {
 	 */
 	public function register_widget_styles() {
 	
-		wp_register_style( 'standard-personal-image-widget', get_template_directory_uri() . '/lib/personal-image/css/widget.css' );
+		wp_register_style( 'standard-personal-image-widget', get_template_directory_uri() . '/lib/widget-personal_image/css/widget.css' );
 		wp_enqueue_style( 'standard-personal-image-widget' );
 	
 	} // end register_widget_styles

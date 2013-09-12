@@ -16,7 +16,7 @@
         FF.basics();
         FF.scroll();
         FF.modalEffects();
-        FF.wp_placeholders();
+        FF.fauxPlaceholders();
         FF.regex();
     };
 
@@ -77,10 +77,23 @@
 
     /* WP PLACEHOLDERS
     ================================================== */
-    FF.wp_placeholders = function() {
+    FF.fauxPlaceholders = function() {
 
-        var comments_input      = $('#comments input[type="text"]'),
-            comments_textarea   = $('#comments textarea');
+        var comments_input      = $('#respond input[type="text"]'),
+            comments_textarea   = $('#respond textarea');
+
+        function labelAsPlaceholder(obj) {
+            //check if exists
+            if ( !obj.length ) { return; }
+
+            //input as obj
+            obj.each(function(){
+                var $this = $(this);
+                var input_label_text    = $this.siblings('label');
+                $this.attr('placeholder', input_label_text.text()); // placeholder method
+                input_label_text.hide();
+            });
+        }
 
         function labelAsValue(obj) {
             //check if exists
@@ -89,16 +102,14 @@
             //input as obj
             obj.each(function(){
                 var $this = $(this);
-
-                var input_label_text    = $this.siblings('label').text();
-
-                $this.attr('placeholder', input_label_text);    // placeholder method
-                
+                var input_label_text    = $this.siblings('label');
+                $this.attr('value', input_label_text.text()); // value method
+                input_label_text.hide();
             });
         }
 
-        labelAsValue(comments_input);
-        labelAsValue(comments_textarea);
+        labelAsPlaceholder(comments_input);
+        labelAsPlaceholder(comments_textarea);
     };
 
 

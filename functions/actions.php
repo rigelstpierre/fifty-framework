@@ -18,10 +18,11 @@ function FFW_actions(){
   function pagination( $args = NULL ) {
 
     $class = isset($args['class']) ? $args['class'] : null;
+    $id = isset($args['id']) ? $args['id'] : null;
 
     ?>
     
-      <div class="pagination <?php echo $class; ?>">
+      <div id="<?php echo $id; ?>" class="pagination <?php echo $class; ?>">
         <div class="next-posts">
           <?php next_posts_link(); ?>
         </div>
@@ -99,7 +100,7 @@ function FFW_actions(){
 
       <?php /* START THE LOOP IF WE HAVE SLIDES
       ================================================== */
-      if(have_posts()) :?>         
+      if(have_posts()) :?>
         <div id="<?php echo $id; ?>" class="flexslider <?php echo $class; ?>">
           <ul class="slides">
 
@@ -125,7 +126,8 @@ function FFW_actions(){
             }   
             ?>          
           
-            <li id="slide<?php echo $i; ?>" data-thumb="" class="<?php echo $s_class; ?>" style="<?php echo $s_styles;?>">  
+            <li id="slide<?php echo $i; ?>" data-thumb="" class="<?php echo $s_class; ?>" style="<?php echo $s_styles;?>"> 
+              <div class="flex-overlay"></div>
               <div class="container">
                 <div class="slide-content">
 
@@ -205,6 +207,62 @@ function FFW_actions(){
   add_action('FFW_post_meta', 'post_meta');
 
 
+  /**
+   * Comment Form
+   * Abstraction to keep markup clean since arguments are numberous
+   * @author Alexander Zizzo
+   * @since 1.0
+   */
+  function display_comment_form() {
+    $args = array(
+      'id_form'           => 'commentform',
+      'id_submit'         => 'submit',
+      'title_reply'       => __( 'Leave a Reply' ),
+      'title_reply_to'    => __( 'Leave a Reply to %s' ),
+      'cancel_reply_link' => __( 'Cancel Reply' ),
+      'label_submit'      => __( 'Post Comment' ),
 
+      'must_log_in'           => 
+        '<p class="must-log-in">' .
+          sprintf(
+            __( 'You must be <a href="%s">logged in</a> to post a comment.' ),
+            wp_login_url( apply_filters( 'the_permalink', get_permalink() ) ) ) . 
+        '</p>',
+
+      'logged_in_as'          => 
+        '<p class="logged-in-as">' .
+          sprintf(
+          __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ),
+            admin_url( 'profile.php' ),
+            $user_identity,
+            wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) )
+          ) . 
+        '</p>',
+
+      'comment_notes_before'  => '',
+
+      'comment_notes_after'   => '',
+
+      'fields'                => apply_filters( 'comment_form_default_fields', array(
+
+        'author'  =>
+          '<div class="fields-halves"><p class="comment-form-author field-half">' .
+          '<label for="author">' . __( 'Name', 'domainreference' ) . '</label> ' .
+          ( $req ? '<span class="required">*</span>' : '' ) .
+          '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+          '" size="30"' . $aria_req . ' /></p>',
+
+        'email'   =>
+          '<p class="comment-form-email field-half"><label for="email">' . __( 'Email', 'domainreference' ) . '</label> ' .
+          ( $req ? '<span class="required">*</span>' : '' ) .
+          '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+          '" size="30"' . $aria_req . ' /></p></div>',
+
+        )
+      ),
+    );
+    comment_form($args);
+  }
+  add_action('FFW_comment_form', 'display_comment_form');
 
 }

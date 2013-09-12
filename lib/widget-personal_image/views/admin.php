@@ -20,7 +20,17 @@
     	
     </div><!-- /.option -->
     
-    <div class="bio option">
+    <div class="top_text option" style="margin-top:10px;">
+        <label for="<?php echo $this->get_field_id( 'top_text' ); ?>"><?php _e( 'Top Text:', 'standard' ); ?></label>
+        <input id="<?php echo $this->get_field_id( 'top_text' ); ?>" name="<?php echo $this->get_field_name( 'top_text' ); ?>" type="text" value="<?php echo $top_text; ?>"/>
+    </div>
+
+    <div class="author_name option" style="margin-top:10px;">
+        <label for="<?php echo $this->get_field_id( 'author_name' ); ?>"><?php _e( 'Author Name:', 'standard' ); ?></label>
+        <input id="<?php echo $this->get_field_id( 'author_name' ); ?>" name="<?php echo $this->get_field_name( 'author_name' ); ?>" type="text" value="<?php echo $author_name; ?>"/>
+    </div>
+
+    <div class="bio option" style="margin-top:10px;">
     	<label for="<?php echo $this->get_field_id( 'image_description' ); ?>"><?php _e( 'Bio (Optional):', 'standard' ); ?></label>
     	<textarea id="<?php echo $this->get_field_id( 'image_description' ); ?>" name="<?php echo $this->get_field_name( 'image_description' ); ?>" maxlength="400" rows="3" cols="30"><?php echo $image_description; ?></textarea>
     	<p class="description"><span><?php _e( '400', 'standad' ); ?></span><?php _e( ' characters remaining', 'standard' ); ?></p>

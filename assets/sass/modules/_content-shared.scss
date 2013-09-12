@@ -5,8 +5,8 @@
 ================================================== */
 #main {
 
-  &.default {}
-  &.blog    {padding-top:3em;}
+  &.default {padding-top:3em;}
+  &.blog    {}
 }
 
 
@@ -40,6 +40,10 @@
     @extend %span3;
     @include omega;
 
+    a {
+      &:hover {text-decoration:underline;}
+    }
+
     &.push-left {
       float:left;
       .sidebar-inner {padding-right:2em;text-align:right;}
@@ -51,6 +55,36 @@
 
     .sidebar-inner {
       
+    }
+  }
+
+
+  /* HERO
+  ================================================== */
+  #hero {
+    width:100%;height:300px;
+    background-color:$colorSecondaryDark;
+    @include background-size(cover);
+    background-repeat:no-repeat;
+    background-position:0 0;
+    
+    .hero-overlay {
+
+    }
+    .container {
+      position:relative;
+      display:table;
+      text-align:center;
+      height:300px;
+    }
+    .hero-inner {
+      display:table-cell;
+      vertical-align:middle;
+      width:100%;height:auto;
+    }
+
+    h1 {
+      color:#ffffff;
     }
   }
 

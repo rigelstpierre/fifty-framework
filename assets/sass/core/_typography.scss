@@ -79,7 +79,7 @@ sub             { bottom: -0.25em; }
 /**
  * Paragraph
  */
-p               { font-size:1em; }
+p               { font-size:1em; line-height:1.4; }
 p small         { font-size:0.8em; }
 
 
@@ -88,7 +88,7 @@ p small         { font-size:0.8em; }
  */
 ul ul, ul ol, ol ol, ol ul { margin-bottom: 0; }
 ul            { list-style: none; list-style-type:none; margin:0; padding:0; }
-ul li         { color:inherit; }
+ul li         { color:inherit; line-height:1.4; }
 ul li a       {  }
 ol            { list-style: decimal; }
 ol.roman      { list-style: upper-roman; }

@@ -1,0 +1,126 @@
+/* _content-posts.scss */
+
+/* ARTICLE.post
+================================================== */
+.post {
+  width:100%;height:auto;
+  @include clearfix;
+  padding-bottom:60px;
+  margin-bottom:30px;
+  
+  // FIRST/LASTS
+  &:first-child .post-title {margin-top:0;}
+  &:last-of-type {border-bottom:0;margin-bottom:0;padding-bottom:0;}
+  p:last-of-type {margin-bottom:0;}
+  
+  // HEADER
+  header {}
+
+    // POST TITLE
+    .post-title {
+      font-size:em(24px);
+      font-weight:900;
+    }
+  
+  // CONTENT
+  .content {
+
+  }
+
+  // FOOTER
+  footer {
+    width:100%;height:auto;
+    margin:20px 0 0 0;
+  } 
+    // POST META
+    ul.post-meta {
+      @extend %ul-blank;
+      font-size:initial;
+
+      a {color:inherit; &:hover {text-decoration: underline;} }
+
+      li {
+        @extend %inline-block;
+        @extend %font-serif_italic;
+        margin-right:7px;
+        font-size:em(14px);
+        color:$colorSecondaryLight;
+        
+      }
+    }
+
+
+  /* POST FORMAT: IMAGE
+  ================================================== */
+  &.post-format-image {
+
+    .post-format-image-image {
+      display:block;
+      position:relative;
+      width:100%;height:auto;
+      @include border-radius(3px);
+      
+      // overlay
+      .post-format-image-overlay {
+        position:absolute;top:0;left:0;
+        width:100%;height:100%;
+        @include xbc-trans_bg(0.25, #363636);
+      }
+      
+      .post-format-image-content-wrap {
+        width:100%;height:100%;
+        display:table;
+        text-align:center;
+      }
+
+      .post-format-image-content {
+        display:table-cell;
+        vertical-align:middle;
+
+        .post-format-image-icon {
+          display:block;
+          margin:0 auto;
+          width:86px;height:86px;
+          @extend %font-pictos;
+          font-size:em(34px);
+          text-align:center;
+          line-height:92px;
+          color:$colorAnchorDefault;
+          @include border-radius(43px);
+          @include background-clip(padding-box);
+          background-color: #fff;
+          
+          &:before {
+            content:'P';
+          }
+        }
+        // <h1>
+        .post-format-image-title {
+          @extend %inline-block;
+          @extend %font-extrabold;
+          color:#fff;
+          margin:.5em 0;
+          width:70%;
+          font-size:em(24px);
+
+          p {@extend %font-baseline;}
+        }
+      }
+
+
+      &.fallback {}
+
+      img {
+        max-width:100%;width:100%;
+        height:auto;
+        @include border-radius(3px);
+      }
+    }
+
+  }/* post-format-image */
+
+
+
+
+
+}
