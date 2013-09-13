@@ -18,6 +18,7 @@
         FF.modalEffects();
         FF.fauxPlaceholders();
         FF.regex();
+        FF.collapsableSidebar();
     };
 
     /* SET ELEMENTS
@@ -231,6 +232,45 @@
         }
         // urlToLink($('#content article'));
         
+    }
+
+
+    /* COLLAPSABLE SIDEBAR
+    ================================================== */
+    FF.collapsableSidebar = function() {
+
+        var sidebar_default = $('#sidebar_default');
+
+        $('#sidebar-toggle').toggle(function(){
+            $('#sidebar-default').stop().animate({
+                'width'     : '8%'
+            }, function () {
+                $('#content').animate({
+                    'width'     : '92%'
+                });
+            });
+            $('.sidebar-inner').stop().animate({
+                'left'      : '-700px',
+                'opacity'   : '0'
+            }, 500);
+            
+        }, function() {
+            $('#sidebar-default').animate({
+                'width'     : '25%'
+            }, function() {
+                
+            });
+            $('.sidebar-inner').stop().animate({
+                'left'      : '0px',
+                'opacity'   : '1'
+            });
+            $('#content').animate({
+                'width'     : '75%'
+            }, 350);
+        
+            
+            
+        });
     }
 
 

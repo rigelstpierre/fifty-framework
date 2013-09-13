@@ -91,19 +91,19 @@
     &.halves {
       @include clearfix;
 
-      .footer-widget {float:left;width:50%;}
+      .footer-widget {@extend %span6;}
     }
 
     &.thirds {
       @include clearfix;
 
-      .footer-widget {float:left;width:33.3333333333333333333%;}
+      .footer-widget {@extend %span4;}
     }
 
     &.fourths {
       @include clearfix;
 
-      .footer-widget {float:left;width:25%;}
+      .footer-widget {@extend %span3;}
     }
 
   }

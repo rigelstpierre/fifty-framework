@@ -22,7 +22,8 @@
 <div id="main" class="single default">
   <div class="container">
 
-  <div class="sidebar push-<?php sidebar_position_class(); ?>">
+  <div id="sidebar-default" class="sidebar collapsable collapsed push-<?php sidebar_position_class(); ?>">
+    <div id="sidebar-toggle"></div>
     <?php get_sidebar(); ?>
   </div><!-- #sidebar -->
   
@@ -34,7 +35,7 @@
         <?php get_template_part( 'loop/loop', get_post_format() ); ?>
 
         <?php do_action('FFW_comment_form'); ?>
-        
+
         <?php comments_template(); ?>
 
       <?php endwhile; endif; ?>

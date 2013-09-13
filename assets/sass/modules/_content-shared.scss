@@ -17,11 +17,19 @@
         
     &.push-left {
       float:left;
-      .content-inner {padding-left:2em;}
+      @include media(mobile) { float:right; }
+      .content-inner {
+        padding-left:2em;
+        @include media(mobile) { padding-left:0; }
+      }
+
     }
     &.push-right {
       float:right;
-      .content-inner {padding-right:2em;}
+      .content-inner {
+        padding-right:2em;
+        @include media(mobile) { padding-right:0; }
+      }
     }
   }
 
@@ -46,14 +54,26 @@
 
     &.push-left {
       float:left;
-      .sidebar-inner {padding-right:2em;text-align:right;}
+      @include media(mobile) { float:right; }
+      .sidebar-inner {
+        padding-right:2em;text-align:right;
+        @include media(mobile) { padding-right:0; text-align:left; }
+      }
     }
     &.push-right {
       float:right;
-      .sidebar-inner {padding-left:2em;}
+      .sidebar-inner {
+        padding-left:2em;
+        @include media(mobile) { padding-left:0; }
+      }
     }
 
     .sidebar-inner {
+      
+    }
+
+    // COLLAPSABLE
+    &.collapsable {
       
     }
   }
