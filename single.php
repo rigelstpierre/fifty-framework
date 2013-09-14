@@ -1,23 +1,8 @@
 <?php get_header(); ?>
 
-<?php 
-  if( has_post_thumbnail() ) {
-    $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-  } elseif ( get_header_image() != '' ) {
-    $hero_url = get_header_image();
-    $hero_height = get_custom_header()->height;
-  } else {
-    $hero_url = '';
-  }
-?>
-
-<div id="hero" style="background-image:url('<?php echo $hero_url; ?>');">
-  <div class="container">
-    <div class="hero-inner">
-      <h1 class="page-title"><?php the_title(); ?></h1>
-    </div>
-  </div>
-</div>
+<?php do_action('FFW_hero_before'); ?>
+<?php do_action('FFW_hero'); ?>
+<?php do_action('FFW_hero_after'); ?>
 
 <div id="main" class="single default">
   <div class="container">
@@ -44,7 +29,7 @@
     </div>
   </div><!-- #content -->
 
-  </div>
-</div>
+  </div><!-- .container -->
+</div><!-- #main -->
 
 <?php get_footer(); ?>

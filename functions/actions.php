@@ -11,6 +11,8 @@ add_action('init', 'FFW_actions');
 function FFW_actions(){
 
 
+
+
   /**
    * Pagination
    * @since 1.0
@@ -34,6 +36,12 @@ function FFW_actions(){
     <?php 
   }
   add_action('FFW_pagination', 'pagination');
+
+
+
+
+
+
 
 
 
@@ -163,12 +171,96 @@ function FFW_actions(){
 
 
 
+
+
+
+
+
+
+
   /**
-   * Post Meta
+   * Hero
    * @author Alexander Zizzo
+   * @package Fifty Framework
    * @since 1.0
    */
-  function post_meta( $args = NULL ) {
+
+  // HERO_BEFORE
+  ///////////////////////////////////////
+  function hero_before( $args = NULL ) {
+
+    // args
+    $class    = isset($args['class']) ? $args['class'] : null;
+
+    // page logic
+    if( has_post_thumbnail() ) {
+      $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+    } elseif ( get_header_image() != '' ) {
+      $hero_url = get_header_image();
+      $hero_height = get_custom_header()->height;
+    } else {
+      $hero_url = '';
+    }
+
+    // begin HTML ?>
+
+      <div id="hero" style="background-image:url('<?php echo $hero_url; ?>');">
+        <div class="container">
+          <div class="hero-inner">
+
+    <?php // end HTML
+  } 
+  add_action('FFW_hero_before', 'hero_before');
+
+
+  // HERO
+  ///////////////////////////////////////
+  function hero( $args = NULL ) {
+    
+    // args
+    $class    = isset($args['class']) ? $args['class'] : null;
+    
+    // begin HTML ?>
+
+      <h1 class="page-title"><?php the_title(); ?></h1>
+
+    <?php // end HTML
+  }
+  add_action('FFW_hero', 'hero');
+
+
+  // HERO_AFTER
+  ///////////////////////////////////////
+  function hero_after( $args = NULL ) {
+
+    // begin HTML ?>
+    
+          </div>
+        </div>
+      </div>
+
+    <?php // end HTML
+  }
+  add_action('FFW_hero_after', 'hero_after');
+
+
+
+
+
+
+
+
+
+
+
+
+  /**
+   * Post Details
+   * @author Alexander Zizzo
+   * @package Fifty Framework
+   * @since 1.0
+   */
+  function post_details( $args = NULL ) {
 
     global $post;
     $class    = isset($args['class']) ? $args['class'] : null;
@@ -204,7 +296,17 @@ function FFW_actions(){
 
     <?php 
   }
-  add_action('FFW_post_meta', 'post_meta');
+  add_action('FFW_post_details', 'post_details');
+
+
+
+
+
+
+
+
+
+
 
 
   /**

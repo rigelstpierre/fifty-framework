@@ -134,12 +134,8 @@
 
 /* TRANSITIONS
 ================================================== */
-%transition-all-fast {
-  @include transition(all 150ms ease-in-out);
-}
-%transition-all-slow {
-  @include transition(all 250ms ease-in-out);
-}
+%transition-all-fast { @include transition(all 150ms ease-in-out); }
+%transition-all-slow { @include transition(all 250ms ease-in-out); }
 
 
 

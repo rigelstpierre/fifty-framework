@@ -34,6 +34,6 @@
 
   </div>
   <footer>
-    <?php do_action('FFW_post_meta'); ?>
+    <?php do_action('FFW_post_details'); ?>
   </footer>
 </article>

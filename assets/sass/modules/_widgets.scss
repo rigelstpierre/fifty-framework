@@ -108,7 +108,8 @@
 
   }
 
-    // FOOTER-WIDGET
+    /* FOOTER WIDGET
+    ================================================== */
     .widget.footer-widget {
       margin-bottom:0;
 
@@ -123,7 +124,7 @@
           border-bottom:1px solid #5a5a5a;
 
           a {
-            padding:.8em 0;
+            padding:.8em .2em;
             display:block;
           }
         }
@@ -132,7 +133,10 @@
           &:hover {color:$colorAnchorDefault;}
         }
       }
-
+    
+      /* FOOTER-WIDGET > MENU-SOCIAL
+       * Needs overrides to reset styles from footer-widget
+      ===================================================== */
       ul.menu-social {
         li {
           line-height:1;

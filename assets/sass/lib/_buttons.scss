@@ -78,6 +78,14 @@
       color: darken($font-color, 15);
     }
   }
+  // SCALE UP
+  @if $method == 'scale-up' {
+    &:hover {
+      @include transition(transform);
+      @include transition-duration(150ms);
+      @include transform(scale(1.15));
+    }
+  }
 }
 
 
