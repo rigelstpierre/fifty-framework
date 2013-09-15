@@ -130,13 +130,14 @@
   /* COMMENT  */
   .comment-comment {
     @include box-flex(4);
-    padding-left:25px;
+    padding-left:20px;
 
     // HEADER
     ////////////////////////
     .comment-header {
       width:100%;
       @include clearfix;
+      margin-bottom:.5em;
       
       // wrap (meta header)
       .comment-meta-header {
@@ -180,7 +181,10 @@
       color:$colorTextDefault;
       @extend %font-serif_italic;
 
-      p {font-size:em(14px);}
+      p {
+        font-size:em(14px);
+        &:first-of-type {margin-top:0;}
+      }
     }
     
 

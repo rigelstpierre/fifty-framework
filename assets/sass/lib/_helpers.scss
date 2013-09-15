@@ -5,3 +5,17 @@
 ================================================== */
 .alignleft {float:left;margin:0 15px 15px 0;}
 .alignright {float:left;margin:0 0 15px 15px;}
+
+
+/* LAZYLOAD IMG
+================================================== */
+.lazyload-img {
+  @include transition(opacity 150ms ease-in);
+  opacity:0;
+  visibility:hidden;
+
+  &.show {
+    opacity:1;
+    visibility:visible;
+  }
+}

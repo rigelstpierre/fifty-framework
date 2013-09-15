@@ -11,7 +11,7 @@ function FFW_helper_functions() {
    * @since 1.0
    */
   function pp( $data ) {
-    print '<pre>';
+    print '<pre style="color:#1c1c1c;">';
     print_r($data);
     print '</pre>';
   }
@@ -109,11 +109,12 @@ function FFW_helper_functions() {
 
 
   /**
-   * identify_video_service()
+   * get_video_service()
    * Identify the video hosting service (Youtube, Vimeo, etc);
    * @author Alexander Zizzo
    * @package Fifty Framework
    * @since 1.0
+   * @return (string) video service name
    */
   function get_video_service( $url ) {
     $url = preg_replace('#\#.*$#', '', trim($url));
@@ -131,7 +132,14 @@ function FFW_helper_functions() {
     }
     return false;
   }
-
+  /**
+   * get_video_id()
+   * Use regex to grab the video ID contained in the URL
+   * @author Alexander Zizzo
+   * @package Fifty Framework
+   * @since 1.0
+   * @return (string) the video id
+   */
   function get_video_id( $url ) {
     $v_service = get_video_service($url);
 
@@ -142,9 +150,83 @@ function FFW_helper_functions() {
     }
     // vimeo
     elseif ( $v_service == 'vimeo' ) {
-      preg_match('#http://(\w+.)?vimeo.com/(video/|moogaloop\.swf\?clip_id=)\w+#i', $url, $matches);
+      preg_match('/(\d+)/', $url, $matches);
       return $matches[0];
     }
+  }
+
+  /**
+   * get_video_data()
+   * Get additional video data that requires use of json
+   * @author Alexander Zizzo
+   * @package Fifty Framework
+   * @since 1.0
+   */
+  function get_video_data( $url, $data_type = NULL ) {
+
+    global $post;
+
+    $vid_service = get_video_service($url);
+    $vid_id      = get_video_id($url);
+    $meta_data   = get_post_meta( $post->ID, $data_type );
+
+    /* YOUTUBE
+    ================================================== */
+    if ( $vid_service == 'youtube' ) {
+
+      if ( $meta_data ) {
+        return $meta_data[0];
+      }
+      else {
+        // THUMBNAIL
+        if ( $data_type == 'thumbnail_large' ) {
+
+          $vid_thumb_url = 'http://img.youtube.com/vi/'.$vid_id.'/hqdefault.jpg';
+          return $vid_thumb_url;
+        }
+        // TITLE
+        elseif ( $data_type == 'title' ) {
+          
+          $vid_json_url      = 'http://gdata.youtube.com/feeds/api/videos/'.$vid_id.'?v=2&alt=jsonc';
+          $vid_json_contents = file_get_contents($vid_json_url);
+          $vid_json_data     = json_decode($vid_json_contents, true);
+          $vid_json_data     = $vid_json_data['data'];
+          $vid_json_data_str = $vid_json_data[$data_type];
+
+          update_post_meta( $post->ID, $data_type, $vid_json_data_str );
+          
+          return $vid_json_data_str;
+        }
+
+      }
+      
+    }
+    
+    /* VIMEO
+    ================================================== */
+    elseif ( $vid_service == 'vimeo' ) {
+
+      if ( $meta_data ) {
+        return $meta_data[0];
+      }
+      else {
+        $vid_json_url      = 'http://vimeo.com/api/v2/video/'.$vid_id.'.json';
+        $vid_json_contents = file_get_contents($vid_json_url);
+        $vid_json_data     = json_decode($vid_json_contents);
+        $vid_json_data     = $vid_json_data[0];
+
+        $vid_json_data_str = (string)$vid_json_data->$data_type;
+
+        update_post_meta( $post->ID, $data_type, $vid_json_data_str );
+
+        return $vid_json_data_str;
+      }
+
+    }
+  }
+
+  function set_video_data( $meta_name ) {
+    // if ( !isset() )
   }
 
 }

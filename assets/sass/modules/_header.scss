@@ -40,8 +40,8 @@ header.default {
         text-transform: uppercase;
         @extend %inline-block;
         margin-right:1.5em;
-        font-family:$default-alt;
-        font-weight:300;
+        // font-family:$default-alt;
+        // font-weight:300;
         letter-spacing:1px;
 
         &:last-child {margin-right:0;}

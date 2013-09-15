@@ -12,13 +12,13 @@ $height-flex_control_thumbs:  130;
 
 .flexslider {
   position:relative;
+  background-color:#363636;
 
   /* SLIDER FULL
   ================================================== */
   &.slider-full {
     
   }
-
 
   .flex-viewport {width:100%;height:#{$height-slider_full}px;}
 
@@ -33,9 +33,23 @@ $height-flex_control_thumbs:  130;
   ================================================== */
   ul.slides {
     min-width:100%;
+    overflow-y:hidden;
     background-color:#3a3a3a;
     height:#{$height-slider_full}px;
     @extend %ul-blank;
+    /* TRANSITION */
+    li {
+      @include transition(opacity 150ms ease-in);
+      opacity:0;
+      visibility:hidden;
+    }
+
+    &.show-lis {
+      li {
+        opacity:1;
+        visibility:visible;
+      }
+    }
 
     li {
       display:none; /* hidden */

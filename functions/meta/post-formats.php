@@ -28,9 +28,9 @@ $post_format_metaboxes = array(
         'description' => '',
         'size'        => 60
       ),
-      'vid_thumb_url'   => array(
-        'title'       => __('Video Thumbnail URL', 'FFW'),
-        'type'        => 'text',
+      'vid_title_toggle'   => array(
+        'title'       => __('Use video title', 'FFW'),
+        'type'        => 'checkbox',
         'description' => '',
         'size'        => 60
       )
@@ -103,13 +103,22 @@ function show_metaboxes( $post, $args ) {
       switch ( $field['type'] ) {
         default:
         case "text":
-
           $output .= '<div class="post-format-metabox-fields" style="width:100%;">
                         <label class="post-format-metabox-label" style="width:30%;display:inline-block;" for="' . $id . '">' . $field['title'] . '</label>
                         <input id="' . $id . '" type="text" name="' . $id . '" value="' . $custom[$id][0] . '" size="' . $field['size'] . '" />
                       </div>';
+        break;
+        case "checkbox":
+          $output .= '<div class="post-format-metabox-fields" style="width:100%;">
+              <label class="post-format-metabox-label" style="width:30%;display:inline-block;" for="' . $id . '">' . $field['title'] . '</label>';
+          
+          if ($custom[$id][0] == 'true') {
+            $output .= '<input id="' . $id . '" type="checkbox" name="' . $id . '" value="true" checked />';  
+          } else {
+            $output .= '<input id="' . $id . '" type="checkbox" name="' . $id . '" value="true" />';
+          }   
 
-          break;
+          $output .= '</div>';
       }
     }
   }

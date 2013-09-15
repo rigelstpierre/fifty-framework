@@ -85,7 +85,9 @@ function FFW_actions(){
             direction       : "<?php echo $slider_direction; ?>",
             slideShowSpeed  : "<?php echo $slider_speed; ?>",
             animationSpeed  : "<?php echo $slider_animation_speed; ?>",
-            start: function(slider){}
+            start: function(slider){
+              slider.find('ul.slides').addClass('show-lis');
+            }
           });
         });
       </script>
@@ -189,16 +191,33 @@ function FFW_actions(){
   ///////////////////////////////////////
   function hero_before( $args = NULL ) {
 
+    global $post;
+
     // args
     $class    = isset($args['class']) ? $args['class'] : null;
 
-    // page logic
-    if( has_post_thumbnail() ) {
+    // is archive or category
+    if ( has_post_format( 'video' ) ) {
+      $vid_url     = get_post_meta($post->ID, 'vid_url');
+      $vid_url     = $vid_url[0];
+      $vid_service = get_video_service($vid_url);
+      $vid_id      = get_video_id($vid_url);
+
+      $hero_url = $vid_id;
+    }
+    elseif ( is_archive() || is_category() ) {
+      $hero_url = get_header_image();
+    } 
+    // has post thumbnail (featured image)
+    elseif ( has_post_thumbnail() ) {
       $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-    } elseif ( get_header_image() != '' ) {
+    }
+    // use header image from settings
+    elseif ( get_header_image() != '' ) {
       $hero_url = get_header_image();
       $hero_height = get_custom_header()->height;
-    } else {
+    } 
+    else {
       $hero_url = '';
     }
 
@@ -217,12 +236,42 @@ function FFW_actions(){
   ///////////////////////////////////////
   function hero( $args = NULL ) {
     
+    global $post;
+
     // args
     $class    = isset($args['class']) ? $args['class'] : null;
     
     // begin HTML ?>
+    
+    <?php // SINGLE OR PAGE
+      if ( is_single() || is_page() ) : ?>
 
       <h1 class="page-title"><?php the_title(); ?></h1>
+
+    <?php // ARCHIVE
+      elseif ( is_archive() && !is_category() ): ?>
+
+      <h1 class="page-title">
+        <?php
+          if ( is_day() )       : printf( __( 'Archives: %s', 'FFW' ), get_the_date() );
+          elseif ( is_month() ) : printf( __( 'Archives: %s', 'FFW' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'FFW' ) ) );
+          elseif ( is_year() )  : printf( __( 'Archives: %s', 'FFW' ), get_the_date( _x( 'Y', 'yearly archives date format', 'FFW' ) ) );
+          else                  : _e( 'Archives', 'FFW' );
+          endif;
+        ?>
+      </h1>
+
+    <?php // CATEGORY
+      elseif ( is_category() ) : ?>
+
+      <h1 class="page-title"><?php the_category(); ?></h1>
+
+    <?php // ELSE
+      else: ?>
+
+      <h1 class="page-title"><?php the_title(); ?></h1>
+
+    <?php endif; ?>
 
     <?php // end HTML
   }

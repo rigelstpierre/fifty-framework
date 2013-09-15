@@ -10,17 +10,19 @@
 
   <div class="content">
     <?php // Get the ID from the URL
-      $vid_url     = get_post_meta($post->ID, 'vid_url');
-      $vid_url     = $vid_url[0];
-      $vid_service = get_video_service($vid_url);
-      $vid_id      = get_video_id($vid_url);
+      $vid_url       = get_post_meta($post->ID, 'vid_url');
+      $vid_url       = $vid_url[0];
+      $vid_service   = get_video_service($vid_url);
+      $vid_id        = get_video_id($vid_url);
+      $vid_use_title = get_post_meta($post->ID, 'vid_title_toggle');
+      $vid_title     = get_video_data($vid_url, 'title' );
     ?>
     <?php 
       if( has_post_thumbnail() ) { 
         $vid_img_url    = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
         $vid_img_class  = '';
       } else {
-        $vid_img_url    = 'http://img.youtube.com/vi/'.$vid_id.'/hqdefault.jpg';
+        $vid_img_url    = get_video_data($vid_url, 'thumbnail_large' );
         $vid_img_class  = 'fallback';
       }
     ?>
@@ -34,12 +36,19 @@
         <div class="post-format-video-content-wrap">
           <div class="post-format-video-content">
             <span class="post-format-video-icon"></span>
-            <div class="post-format-video-title"><?php the_content(); ?></div>
+            <div class="post-format-video-title">
+              <?php if ( $vid_use_title ) : ?>
+                <?php echo $vid_title; ?>
+              <?php else: ?>
+                <?php the_title(); ?>
+              <?php endif; ?>
+            </div>
           </div>
         </div>
       </div>
-      <img src="<?php echo $vid_img_url; ?>" class="" alt="<?php the_title(); ?>">
+      <img class="lazyload-img" src="<?php echo $vid_img_url; ?>" class="" alt="<?php the_title(); ?>">
     </a>
+
 
   </div>
 
