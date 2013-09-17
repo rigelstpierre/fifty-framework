@@ -13,6 +13,13 @@
   </div><!-- .container -->
 </footer>
 
+
+<?php do_action('FFW_debug_box', array(
+  'post_meta' => true,
+  'post_obj'  => true
+)); ?>
+
+
 <?php wp_footer(); ?>	
 </body>
 </html>

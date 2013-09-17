@@ -46,7 +46,7 @@
   ================================================== */
   #main .sidebar{
     @extend %span3;
-    @include omega;
+    @extend %omega;
 
     a {
       &:hover {text-decoration:underline;}
@@ -79,32 +79,26 @@
   }
 
 
-  /* HERO
+
+
+  /* PAGINATION
   ================================================== */
-  #hero {
-    width:100%;height:300px;
-    background-color:$colorSecondaryDark;
-    @include background-size(cover);
-    background-repeat:no-repeat;
-    background-position:0 0;
-    
-    .hero-overlay {
+  nav.pagination {
+    margin-top:30px;
+    width:100%;
+    text-align:center;
 
+    .pagination-wrap {
+      display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
     }
-    .container {
-      position:relative;
-      display:table;
-      text-align:center;
-      height:300px;
-    }
-    .hero-inner {
-      display:table-cell;
-      vertical-align:middle;
-      width:100%;height:auto;
-    }
+    .pagination-nav {
+      font-family:"arrrows";
+      font-size:em(20px);
+      line-height:1;
 
-    h1 {
-      color:#ffffff;
+      &.prev {}
+      &.next {}
     }
   }
+  
 

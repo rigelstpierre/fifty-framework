@@ -9,26 +9,23 @@
 @mixin media($type) {
 
   @if $type == tablet {
-      @media only screen and (min-width:39em) and (max-width:59em) {
-          @content;
+      @media only screen and (min-width:768px) and (max-width:959px) {
+          @content; 
       }
   }
   @else if $type == mobile {
-      @media only screen and (max-width: 39em) and (min-width: 9em) {
+      @media only screen and (max-width: 39em) {
           @content;
       }
   }
   @else if $type == mobile_landscape {
-      @media only screen and (max-width:479px) {
+      @media only screen and (min-width:480px) and (max-width:767px) {
           @content;
       }
   }
-  @else if $type == mobile_portrait {
-      @media only screen and (max-width:321px) {
-          @content;
-      }
-  }
+
 }
+
 
 
 /* BRADIUS

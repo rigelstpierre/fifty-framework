@@ -1,5 +1,12 @@
 /* Options Framework Admin Styles */
 
+
+/* CUSTOM */
+#optionsframework .section.sub-section { position:relative; padding-left:40px; }
+#optionsframework .section.sub-section:before { position:absolute; top:21px;left:16px;content:'↪'; }
+#optionsframework .section.sub-section h4.heading { border-bottom:none; }
+
+/* ORIGINAL */
 .updated {
 	max-width:764px;
 	margin-bottom:0px !important;
@@ -21,6 +28,7 @@
 #optionsframework .section {
 	padding:10px 10px 0;
 }
+
 #optionsframework .group {
 	padding-bottom:40px;
 }

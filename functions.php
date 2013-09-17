@@ -63,7 +63,6 @@ require_once( get_template_directory() .'/lib/widget-social_links/plugin.php');
 
 
 
-
 /**
  * Functions
  * @since 1.0
@@ -74,6 +73,7 @@ require_once( get_template_directory() .'/functions/actions.php' );
 
 // Components
 require_once( get_template_directory() .'/functions/comments.php' );
+require_once( get_template_directory() .'/functions/pagination.php' );
 
 // Post Types
 if ( of_get_option ( 'enable_slides', '1' ) ) {
@@ -83,6 +83,11 @@ if ( of_get_option ( 'enable_slides', '1' ) ) {
 
 // Metaboxes
 require_once( get_template_directory() .'/functions/meta/post-formats.php' );
+
+// Debugging Helper
+if ( of_get_option ( 'enable_debug', '1' ) ) {
+  require_once( get_template_directory() .'/functions/debug.php' );
+}
 
 
 

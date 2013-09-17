@@ -112,5 +112,16 @@ function FFW_add_theme_sidebars() {
     'after_title'   => '</h3>',
   ) );
 
+  // Homepage Modules
+  register_sidebar( array(
+    'name'          => __( 'Homepage Modules', 'FFW' ),
+    'id'            => 'homepage_modules',
+    'description'   => __( 'Modules enabled on landing page and their ordering.', 'FFW' ),
+    'before_widget' => '<section id="%1$s" class="module widget-module %2$s">',
+    'after_widget'  => '</section>',
+    'before_title'  => '<h3 class="module-title">',
+    'after_title'   => '</h3>',
+  ) );
+
 }
 add_action( 'widgets_init', 'FFW_add_theme_sidebars' );

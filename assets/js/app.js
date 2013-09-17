@@ -19,15 +19,17 @@
         FF.fauxPlaceholders();
         FF.regex();
         FF.lazyLoadVideo();
-        // FF.collapsableSidebar();
+        FF.collapsableSidebar();
+        FF.debugBox();
     };
 
     /* SET ELEMENTS
     ================================================== */
     FF.setElements = function(){
         FF.el = {};
-        FF.el.page_overlay              = $('.page-overlay');
-        FF.el.page_wrap                 = $('.page-wrap');
+        FF.el.page_overlay = $('.page-overlay');
+        FF.el.page_wrap    = $('.page-wrap');
+        FF.el.debug_box    = $('#debug_box');
     };
 
 
@@ -324,6 +326,22 @@
         }
     }
 
+
+    /* DEBUG_BOX
+    ================================================== */
+    FF.debugBox = function(start) {
+
+        var debug_box_toggle = FF.el.debug_box.find('button#debug_box-close'),
+            debug_box_inner  = FF.el.debug_box.find('.debug_box-inner');
+
+        debug_box_toggle.toggle(function() {
+            localStorage.setItem('FFW_debug_box_closed', true);
+            FF.el.debug_box.removeClass('closed');
+        }, function() {
+            localStorage.setItem('FFW_debug_box_closed', false);
+            FF.el.debug_box.addClass('closed');
+        });
+    }
 
 
     /* ================================================================ */

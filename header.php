@@ -17,7 +17,7 @@
 	<link rel="apple-touch-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/apple-touch-icon.png" sizes="114x114">
 	<link rel="apple-touch-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/apple-touch-icon.png" sizes="72x72">
 	<link rel="apple-touch-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/apple-touch-icon.png">
-	
+
 	<?php wp_head(); ?>
 	
 	<script>
@@ -31,7 +31,6 @@
 	<!--[if lt IE 9]>
 		<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/xbc.js"></script>
 	<![endif]-->
-
 
 	<script>
 		// Google Analytics here

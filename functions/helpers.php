@@ -141,18 +141,43 @@ function FFW_helper_functions() {
    * @return (string) the video id
    */
   function get_video_id( $url ) {
-    $v_service = get_video_service($url);
+    global $post;
+
+    $v_service   = get_video_service($url);
+    $meta_data   = get_post_meta( $post->ID, 'vid_id' );
 
     // youtube
     if ( $v_service == 'youtube' ) {
-      preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $url, $matches);
-      return $matches[0];
+      preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $url, $id);
+      return $id[0];
     }
     // vimeo
     elseif ( $v_service == 'vimeo' ) {
-      preg_match('/(\d+)/', $url, $matches);
-      return $matches[0];
+      preg_match('/(\d+)/', $url, $id);
+      return $id[0];
     }
+  }
+
+
+  /**
+   * set_video_id()
+   * set the video id to the post meta
+   * @author Alexander Zizzo
+   * @package Fifty Framework
+   * @since 1.0
+   */
+  function set_video_id( $id ) {
+    global $post;
+
+    $meta_data = get_post_meta( $post->ID, 'vid_id' );
+
+    if ( $meta_data[0] == $id[0] ) {
+      return $id[0];
+    } else {
+      update_post_meta( $post->ID, 'vid_id', $id[0], $meta_data[0] );
+      return $id[0];
+    }
+
   }
 
   /**
@@ -174,30 +199,28 @@ function FFW_helper_functions() {
     ================================================== */
     if ( $vid_service == 'youtube' ) {
 
-      if ( $meta_data ) {
-        return $meta_data[0];
+      // THUMBNAIL
+      if ( $data_type == 'thumbnail_large' ) {
+
+        $vid_thumb_url = 'http://img.youtube.com/vi/'.$vid_id.'/hqdefault.jpg';
+
+        $data = set_video_data( $post->ID, $vid_id, $data_type, $vid_thumb_url, $meta_data );
+
+        return $data;
+
       }
-      else {
-        // THUMBNAIL
-        if ( $data_type == 'thumbnail_large' ) {
+      // TITLE
+      elseif ( $data_type == 'title' ) {
+        
+        $vid_json_url      = 'http://gdata.youtube.com/feeds/api/videos/'.$vid_id.'?v=2&alt=jsonc';
+        $vid_json_contents = file_get_contents($vid_json_url);
+        $vid_json_data     = json_decode($vid_json_contents, true);
+        $vid_json_data     = $vid_json_data['data'];
+        $vid_json_data_str = $vid_json_data[$data_type];
 
-          $vid_thumb_url = 'http://img.youtube.com/vi/'.$vid_id.'/hqdefault.jpg';
-          return $vid_thumb_url;
-        }
-        // TITLE
-        elseif ( $data_type == 'title' ) {
-          
-          $vid_json_url      = 'http://gdata.youtube.com/feeds/api/videos/'.$vid_id.'?v=2&alt=jsonc';
-          $vid_json_contents = file_get_contents($vid_json_url);
-          $vid_json_data     = json_decode($vid_json_contents, true);
-          $vid_json_data     = $vid_json_data['data'];
-          $vid_json_data_str = $vid_json_data[$data_type];
+        $data = set_video_data( $post->ID, $vid_id, $data_type, $vid_json_data_str, $meta_data );
 
-          update_post_meta( $post->ID, $data_type, $vid_json_data_str );
-          
-          return $vid_json_data_str;
-        }
-
+        return $data;
       }
       
     }
@@ -217,16 +240,34 @@ function FFW_helper_functions() {
 
         $vid_json_data_str = (string)$vid_json_data->$data_type;
 
-        update_post_meta( $post->ID, $data_type, $vid_json_data_str );
+        // update_post_meta( $post->ID, $data_type, $vid_json_data_str );
 
-        return $vid_json_data_str;
+        $data = set_video_data( $post->ID, $vid_id, $data_type, $vid_json_data_str, $meta_data );
+
+        return $data;
       }
 
     }
   }
 
-  function set_video_data( $meta_name ) {
-    // if ( !isset() )
+  /**
+   * set_video_data()
+   * check if meta is different. if so, update, if not, used old
+   * NEEDS REFACTORING -> check by ID first
+   * @author Alexander Zizzo
+   * @since 1.0
+   */
+  function set_video_data( $postID, $vid_id, $meta_key, $meta_val, $meta_val_old ) {
+    global $post;
+
+    $v_id = set_video_id( $vid_id );
+
+    if ( $v_id[0] == $vid_id ) {
+      return $meta_val;
+    } else {
+      update_post_meta( $postID, $meta_key, $meta_val, $meta_val_old[0] );
+      return $meta_val;
+    }
   }
 
 }

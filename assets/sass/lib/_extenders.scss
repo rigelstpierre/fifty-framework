@@ -55,12 +55,14 @@
 }
 
 %ul-checkmarks {
+  padding:0 0 0 .7em;
+  margin:0 0 0 .5em;
+  
   li {
     margin:0 0 .4em 0;
 
-    @extend %font-baseline;
-    @extend %icon;
     &:before {
+      font-family: "pictos";
       padding-right: 15px;
       font-size: 1.35em;
       padding-left: 0;

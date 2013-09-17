@@ -83,7 +83,7 @@
         @include background-clip(padding-box);
         @include border-radius(5px);
         /* TRANSITION */
-        @include transition(all 200ms ease-in-out);
+        @include transition(all 250ms linear);
       }
       
       .post-format-image-content-wrap, .post-format-video-content-wrap {
@@ -109,7 +109,7 @@
           @include background-clip(padding-box);
           background-color: #fff;
           /* TRANSITION */
-          @include transition(all 200ms ease-in-out);
+          @include transition(all 250ms linear);
           
           &:before {
             content:'P';
@@ -128,7 +128,7 @@
           @include background-clip(padding-box);
           background-color: #fff;
           /* TRANSITION */
-          @include transition(all 200ms ease-in-out);
+          @include transition(all 250ms linear);
           
           &:before {
             display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;

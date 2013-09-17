@@ -9,9 +9,10 @@
 <div id="main" class="default blog">
 	<div class="container">
 
-		<div class="sidebar push-<?php sidebar_position_class(); ?>">
-			<?php get_sidebar(); ?>
-		</div><!-- #sidebar -->
+	<div id="sidebar-default" class="sidebar collapsable collapsed push-<?php sidebar_position_class(); ?>">
+    <div id="sidebar-toggle"></div>
+    <?php get_sidebar(); ?>
+  </div><!-- #sidebar -->
 
 
 		<div id="content" class="push-<?php sidebar_position_class(); ?>">

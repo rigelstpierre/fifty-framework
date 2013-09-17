@@ -22,8 +22,11 @@
         <?php do_action('FFW_comment_form'); ?>
 
         <?php comments_template(); ?>
+        
+        
 
       <?php endwhile; endif; ?>
+
 
       <?php do_action('FFW_pagination'); ?>
     </div>
@@ -31,5 +34,7 @@
 
   </div><!-- .container -->
 </div><!-- #main -->
+
+
 
 <?php get_footer(); ?>

@@ -57,20 +57,71 @@ function optionsframework_options() {
       'id'   => 'social_url_facebook',
       'type' => 'text'
     );
-    // TWITTER
+
+    // GOOGLEPLUS
     $options[] = array(
       'name' => __( 'Google Plus URL', 'FFW' ),
       'std'  => '',
       'id'   => 'social_url_googleplus',
       'type' => 'text'
     );
-    // GOOGLE PLUS
+
+    // TWITTER
     $options[] = array(
       'name' => __( 'Twitter URL', 'FFW' ),
       'std'  => '',
       'id'   => 'social_url_twitter',
       'type' => 'text'
     );
+      // TWITTER CLIENT ID
+      $options[] = array(
+        'name'  => __( 'Twitter Client ID', 'FFW' ),
+        'std'   => '',
+        'id'    => 'social_url_twitter_client_id',
+        'type'  => 'text',
+        'class' => 'sub-section'
+      );
+      // TWITTER CLIENT SECRET
+      $options[] = array(
+        'name'  => __( 'Twitter Client Secret', 'FFW' ),
+        'std'   => '',
+        'id'    => 'social_url_twitter_client_secret',
+        'type'  => 'text',
+        'class' => 'sub-section'
+      );
+
+    // INSTAGRAM
+    $options[] = array(
+      'name' => __( 'Instagram URL', 'FFW' ),
+      'std'  => '',
+      'id'   => 'social_url_instagram',
+      'type' => 'text'
+    );
+      // INSTAGRAM CLIENT ID
+      $options[] = array(
+        'name'  => __( 'Instagram Client ID', 'FFW' ),
+        'std'   => '',
+        'id'    => 'social_url_instagram_client_id',
+        'type'  => 'text',
+        'class' => 'sub-section'
+      );
+      // INSTAGRAM CLIENT SECRET
+      $options[] = array(
+        'name'  => __( 'Instagram Client Secret', 'FFW' ),
+        'std'   => '',
+        'id'    => 'social_url_instagram_client_secret',
+        'type'  => 'text',
+        'class' => 'sub-section'
+      );
+
+    // YOUTUBE
+    $options[] = array(
+      'name' => __( 'Youtube URL', 'FFW' ),
+      'std'  => '',
+      'id'   => 'social_url_youtube',
+      'type' => 'text'
+    );
+
 
 
 
@@ -156,6 +207,24 @@ function optionsframework_options() {
     );
 
 
+
+  /**
+   * Debugging
+   * @since 1.0
+   */
+  $options[] = array(
+    'name'  => __( 'Debugging', 'FFW' ),
+    'type'  => 'heading',
+  );
+    
+    // TOGGLE ON/OF
+    $options[] = array(
+      'name' => __( 'Debug Box Enable', 'FFW' ),
+      'desc' => __( 'Check this box to enable the debug box', 'FFW' ),
+      'id'   => 'enable_debug',
+      'std'  => '1',
+      'type' => 'checkbox'
+    );
   
   /**
    * Blog
@@ -187,6 +256,8 @@ function optionsframework_options() {
         'right' => 'right'
       ),
     );
+
+
 
   return $options;
 }

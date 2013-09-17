@@ -1,11 +1,11 @@
 <article class="post post-format-image">
   
   <?php if ( is_single() ) : ?>
-    <header>
+    <!-- <header>
       <h1 class="post-title">
         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
       </h1>
-    </header>
+    </header> -->
   <?php endif; ?>
 
   <div class="content">
@@ -30,7 +30,6 @@
       </div>
       <img src="<?php echo $img_url; ?>" class="" alt="<?php the_title(); ?>">
     </a>
-
 
   </div>
   <footer>

@@ -24,14 +24,14 @@ function FFW_actions(){
 
     ?>
     
-      <div id="<?php echo $id; ?>" class="pagination <?php echo $class; ?>">
-        <div class="next-posts">
-          <?php next_posts_link(); ?>
-        </div>
-        <div class="previous-posts">
-          <?php previous_posts_link(); ?>
-        </div>
-      </div>
+    <nav id="<?php echo $id; ?>" class="pagination <?php echo $class; ?>">
+    <?php 
+      loop_pagination( array( 
+        'prev_text' => __( '<span class="pagination-nav prev meta-nav">W</span>'),
+        'next_text' => __( '<span class="pagination-nav next meta-nav">w</span>')
+      ) ); 
+    ?>
+    </nav>
 
     <?php 
   }
@@ -196,18 +196,24 @@ function FFW_actions(){
     // args
     $class    = isset($args['class']) ? $args['class'] : null;
 
+    // vars
+    $hero_class = '';
+
     // is archive or category
-    if ( has_post_format( 'video' ) ) {
+    
+    if ( is_archive() || is_category() ) {
+      $hero_url = get_header_image();
+    }
+    // use video thumbnail
+    elseif ( has_post_format( 'video' ) ) {
       $vid_url     = get_post_meta($post->ID, 'vid_url');
       $vid_url     = $vid_url[0];
-      $vid_service = get_video_service($vid_url);
-      $vid_id      = get_video_id($vid_url);
+      $vid_service = get_video_service( $vid_url );
+      $vid_thumb   = get_video_data( $vid_url, 'thumbnail_large' );
 
-      $hero_url = $vid_id;
+      $hero_url    = $vid_thumb;
+      $hero_class  = $vid_service;
     }
-    elseif ( is_archive() || is_category() ) {
-      $hero_url = get_header_image();
-    } 
     // has post thumbnail (featured image)
     elseif ( has_post_thumbnail() ) {
       $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
@@ -215,15 +221,15 @@ function FFW_actions(){
     // use header image from settings
     elseif ( get_header_image() != '' ) {
       $hero_url = get_header_image();
-      $hero_height = get_custom_header()->height;
-    } 
+      $hero_height = get_custom_header()->height; // unused as of 09/16/2013
+    }
     else {
       $hero_url = '';
     }
 
     // begin HTML ?>
 
-      <div id="hero" style="background-image:url('<?php echo $hero_url; ?>');">
+      <div id="hero" class="hero-<?php echo $hero_class; ?>" style="background-image:url('<?php echo $hero_url; ?>');">
         <div class="container">
           <div class="hero-inner">
 
