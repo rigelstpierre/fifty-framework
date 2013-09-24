@@ -27,7 +27,6 @@
 }
 
 
-
 /* BRADIUS
 ================================================== */
 @mixin border-radius($values) {
@@ -37,6 +36,17 @@
 }
 
 
+
+/* TRANSPARENT BACKGROUND
+================================================== */
+@mixin transparent-bg($alpha:.15,$color:#000000,$r:0,$g:0,$b:0) {
+  $rgba: rgba($color, $alpha);
+  $ie-hex-str: ie-hex-str($rgba);
+  background-color: transparent;
+  background-color: $rgba;
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+  zoom: 1;
+}
 
 
 
