@@ -208,24 +208,53 @@ function optionsframework_options() {
 
 
 
-  /**
-   * Debugging
-   * @since 1.0
-   */
-  $options[] = array(
-    'name'  => __( 'Debugging', 'FFW' ),
-    'type'  => 'heading',
-  );
-    
-    // TOGGLE ON/OF
+
+    /**
+     * Colors
+     * @since 1.0
+     */
     $options[] = array(
-      'name' => __( 'Debug Box Enable', 'FFW' ),
-      'desc' => __( 'Check this box to enable the debug box', 'FFW' ),
-      'id'   => 'enable_debug',
-      'std'  => '1',
-      'type' => 'checkbox'
+      'name'  => __( 'Colors', 'FFW' ),
+      'type'  => 'heading',
     );
+      // COLORS ENABLE
+      $options[] = array(
+        'name' => __( 'Enable Custom Colors', 'FFW' ),
+        'desc' => __( 'Check this box to enable the output of custom color styles/classes.', 'FFW' ),
+        'id'   => 'enable_colors',
+        'std'  => '1',
+        'type' => 'checkbox'
+      );
+      
+      // HEADER - BG
+      $options[] = array(
+        "name" => __( 'Header - Background Color', 'FFW' ),
+        "desc" => __( 'The background color of the header area', 'FFW' ),
+        "id"   => "header_color_bg",
+        "std"  => "1",
+        "type" => "color",
+      );
+      // HEADER - TEXT
+      $options[] = array(
+        "name" => __( 'Header - Text Color', 'FFW' ),
+        "desc" => __( 'The color of the text in the header (nav) area. This includes links', 'FFW' ),
+        "id"   => "header_color_text",
+        "std"  => "1",
+        "type" => "color",
+      );
+      // HEADER - TEXT HOVER
+      $options[] = array(
+        "name" => __( 'Header - Text Color Hover', 'FFW' ),
+        "desc" => __( 'The hover color of the links in the header (nav) area.', 'FFW' ),
+        "id"   => "header_color_text_hover",
+        "std"  => "1",
+        "type" => "color",
+      );
   
+
+
+
+
   /**
    * Blog
    * @since 1.0
@@ -255,6 +284,26 @@ function optionsframework_options() {
         'left'  => 'left',
         'right' => 'right'
       ),
+    );
+
+
+
+  /**
+   * Debugging
+   * @since 1.0
+   */
+  $options[] = array(
+    'name'  => __( 'Debugging', 'FFW' ),
+    'type'  => 'heading',
+  );
+    
+    // TOGGLE ON/OF
+    $options[] = array(
+      'name' => __( 'Debug Box Enable', 'FFW' ),
+      'desc' => __( 'Check this box to enable the debug box', 'FFW' ),
+      'id'   => 'enable_debug',
+      'std'  => '1',
+      'type' => 'checkbox'
     );
 
 

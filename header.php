@@ -36,15 +36,19 @@
 		// Google Analytics here
 	</script>
 
+	
+	<?php // Colors 
+		if ( of_get_option( 'enable_colors', '1' ) ) { include dirname(__FILE__).'/lib/css/colors.css.php'; } ?>
+
 </head>
 
 <body <?php body_class();?>>
 
 
-<header class="default">
+<header class="default header_color_bg">
 	<div class="container">
 		 		
-		<div class="logo span5">
+		<div class="logo span4">
 			<?php if( of_get_option('custom_logo','') !== '' ) : ?>
 			    <a href="<?php echo home_url(); ?>/" title="<?php get_bloginfo( 'name' ); ?>" rel="home">
 			    	<img src="<?php echo of_get_option('custom_logo'); ?>" alt="<?php get_bloginfo( 'name' ) ?>" />
@@ -56,8 +60,8 @@
 			<?php endif; ?>		
 		</div>
 
-		<nav class="nav-header span7 omega">
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
+		<nav class="nav-header span8 omega">
+			<?php wp_nav_menu( array( 'theme_location' => 'header_menu', 'menu_class' => 'nav-menu' ) ); ?>
 		</nav>
 
   <div class="clear"></div>

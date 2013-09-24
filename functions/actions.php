@@ -23,8 +23,8 @@ function FFW_actions(){
     $id = isset($args['id']) ? $args['id'] : null;
 
     ?>
-    
-    <nav id="<?php echo $id; ?>" class="pagination <?php echo $class; ?>">
+
+    <nav id="<?php echo $id; ?>" class="pagination-wrap <?php echo $class; ?>">
     <?php 
       loop_pagination( array( 
         'prev_text' => __( '<span class="pagination-nav prev meta-nav">W</span>'),
@@ -36,11 +36,6 @@ function FFW_actions(){
     <?php 
   }
   add_action('FFW_pagination', 'pagination');
-
-
-
-
-
 
 
 

@@ -57,10 +57,9 @@ if(!class_exists('mrMetaBox')) {
   define('MRMETABOX_URL', TEMPLATEPATH . '/admin/mr-meta-box/');
   require_once(MRMETABOX_URL . 'mr-meta-box.php');
 }
-// Personal Image
+// Widgets (FFW Custom)
 require_once( get_template_directory() .'/lib/widget-personal_image/plugin.php');
 require_once( get_template_directory() .'/lib/widget-social_links/plugin.php');
-
 
 
 /**
@@ -80,6 +79,8 @@ if ( of_get_option ( 'enable_slides', '1' ) ) {
   require_once( get_template_directory() .'/functions/post-types/slides.php' );
   require_once( get_template_directory() .'/functions/meta/slides.php' );
 }
+
+
 
 // Metaboxes
 require_once( get_template_directory() .'/functions/meta/post-formats.php' );
