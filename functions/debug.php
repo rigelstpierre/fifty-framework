@@ -13,10 +13,11 @@ function FFW_debug_functions() {
   function debug_box( $args = NULL ) {
 
     global $post;
+    global $wp_query;
     global $current_user;
 
     // args
-    $wp_query  = isset($args['wp_query']) ? $args['wp_query'] : false;
+    $wpquery  = isset($args['wpquery']) ? $args['wpquery'] : false;
     $post_meta = isset($args['post_meta']) ? $args['post_meta'] : false;
     $post_obj  = isset($args['post_obj']) ? $args['post_obj'] : false;
     $current_user_info  = isset($args['current_user_info']) ? $args['current_user_info'] : false;
@@ -35,7 +36,7 @@ function FFW_debug_functions() {
         </header>
         <div class="debug_box-inner">
           
-          <?php if ( $wp_query )  : ?>
+          <?php if ( $wpquery )  : ?>
             <span>$wp_query</span>
             <pre><?php print_r($wp_query); ?></pre>
           <?php endif; ?>

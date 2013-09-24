@@ -15,7 +15,7 @@
 
 
 <?php do_action('FFW_debug_box', array(
-  'wp_query'          => true,
+  'wpquery'           => true,
   'post_meta'         => true,
   'post_obj'          => true,
   'current_user_info' => true,

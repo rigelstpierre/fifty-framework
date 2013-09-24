@@ -8,6 +8,8 @@
   @include container($total-columns, $mobile-landscape, $tablet, $desktop);
 }
 
+/* SPANS (1-12)
+================================================== */
 .span1,
 .span2,
 .span3,
@@ -82,6 +84,62 @@
   float:left;
   @include media(mobile) { width:100%; }
 }
+
+/* ROW
+================================================== */
+.row {
+  width:100%;
+  float:left;
+  @include clearfix;
+  margin-bottom:20px;
+}
+
+
+/* CONTAINER TYPES -> BOX SIZES
+================================================== */
+  // CONTAINER-FULL
+  //////////////////
+  .container-full {
+    
+    // BOX HALF
+    .box-half {
+      @extend %span6;
+      height:340px;
+    }
+    // BOX THIRD
+    .box-third {
+      @extend %span4;
+      height:290px;
+    }
+    // BOX FOURTH
+    .box-fourth {
+      @extend %span3;
+      height:220px;
+    }
+    
+  }
+  // CONTAINER
+  //////////////
+  .container {
+    // BOX HALF
+    .box-half {
+      @extend %span6;
+      height:340px;
+    }
+    // BOX THIRD
+    .box-third {
+      @extend %span4;
+      height:290px;
+    }
+    // BOX FOURTH
+    .box-fourth {
+      @extend %span3;
+      height:220px;
+    }
+  }
+
+
+
 
 
 .omega, %omega { @include omega; }
