@@ -4,6 +4,7 @@ add_action( 'init', 'FFW_helper_functions' );
 
 function FFW_helper_functions() {
 
+
   /**
    * pp()
    * Pretty print data
@@ -106,6 +107,42 @@ function FFW_helper_functions() {
   add_filter( 'comment_form_defaults', 'FFW_move_textarea' );
   add_action( 'comment_form_top', 'FFW_move_textarea' );
 
+
+
+  /**
+   * get_column_box_class()
+   * Count the number of posts returned and set a class for columns accordingly
+   * @author Alexander Zizzo
+   * @since 1.1
+   * @param array('class' => '_OPTIONAL_CLASS_NAME_')
+   */
+  function get_column_count_class( $args = NULL ) {
+    global $posts;
+
+    $class = isset($args['class']) ? $args['class'] : null;
+
+    // get the number of posts and set the grid classes accordingly @TODO: refactor for container class & fourths
+    $post_count =  count($posts);
+
+    if ( $post_count == 2 && $post_count > 0 ) {
+      $column_box_class = 'box-half';
+    }
+    elseif ( $post_count >= 3 && $post_count > 0 ) {
+      $column_box_class = 'box-third';
+    }
+    return $column_box_class;
+  }
+
+
+
+
+
+
+
+
+  ////////////////////////////
+  // V I D E O 
+  ////////////////////////////
 
 
   /**
