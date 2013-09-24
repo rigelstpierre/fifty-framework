@@ -39,7 +39,7 @@
 
 /* TRANSPARENT BACKGROUND
 ================================================== */
-@mixin transparent-bg($alpha:.15,$color:#000000,$r:0,$g:0,$b:0) {
+@mixin transparent-bg($color:#000000,$alpha:.15,$r:0,$g:0,$b:0) {
   $rgba: rgba($color, $alpha);
   $ie-hex-str: ie-hex-str($rgba);
   background-color: transparent;
