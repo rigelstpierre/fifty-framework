@@ -145,7 +145,7 @@ function FFW_helper_functions() {
   function get_featured_image_url( $postID = NULL ) {
     global $post;
 
-    $post_id = !is_null([$postID) ? $postID : $post->ID;
+    $post_id = !is_null($postID) ? $postID : $post->ID;
 
     return wp_get_attachment_url( get_post_thumbnail_id( $post_id ) );
   }
