@@ -8,3 +8,4 @@ _svn
 .settings
 *.komodoproject
 .sass_cache/
+/.sass_cache/
