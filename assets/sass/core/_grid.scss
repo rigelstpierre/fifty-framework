@@ -105,16 +105,22 @@
     .box-half {
       @extend %span6;
       height:340px;
+
+      &:nth-child(2n) {margin-right:0;padding-right:0;}
     }
     // BOX THIRD
     .box-third {
       @extend %span4;
       height:290px;
+
+      &:nth-child(3n) {margin-right:0;padding-right:0;}
     }
     // BOX FOURTH
     .box-fourth {
       @extend %span3;
       height:220px;
+
+      &:nth-child(4n) {margin-right:0;padding-right:0;}
     }
     
   }
@@ -125,16 +131,22 @@
     .box-half {
       @extend %span6;
       height:340px;
+
+      &:nth-child(2n) {margin-right:0;padding-right:0;}
     }
     // BOX THIRD
     .box-third {
       @extend %span4;
       height:290px;
+
+      &:nth-child(3n) {margin-right:0;padding-right:0;}
     }
     // BOX FOURTH
     .box-fourth {
       @extend %span3;
       height:220px;
+
+      &:nth-child(4n) {margin-right:0;padding-right:0;}
     }
   }
 

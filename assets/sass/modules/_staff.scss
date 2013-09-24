@@ -7,6 +7,8 @@
 // .box-third/fourth/etc depending on section_width set in ACF
 .staff-photo {
   position:relative;
+  padding-right:5px;
+  padding-bottom:5px;
 
   .staff-overlay {
     position:absolute;top:0;left:0;
@@ -15,7 +17,7 @@
 
   // inherits .bg-cover
   .staff-photo-thumb {
-    position:absolute;top:0;left:0;
+    position:relative;
     width:100%;height:100%;
   }
 
