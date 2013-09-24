@@ -139,9 +139,19 @@
   }
 
 
+/* BOXES
+================================================== */
+.bg-cover {
+  background-repeat:none;
+  background-position:0 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
-
-
+/* HELPERS (float ends, etc)
+================================================== */
 .omega, %omega { @include omega; }
 .alpha, %alpha { @include alpha; }
 
