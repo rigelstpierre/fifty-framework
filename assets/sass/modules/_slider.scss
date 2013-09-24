@@ -79,6 +79,7 @@ $height-flex_control_thumbs:  130;
 
       .slide-content {
         position:relative;
+        width:70%;
         z-index:1000;
         display:table-cell;
         vertical-align:middle;
@@ -88,21 +89,22 @@ $height-flex_control_thumbs:  130;
         @include media(tablet) {width:90%;}
         @include media(mobile) {width:90%;}
 
-        &.left    {text-align:left;}
-        &.center  {text-align:center;}
-        &.right   {text-align:right;}
-
-
-        .details {
-          width:65%;
-          margin:0 auto;
-          font-size:initial;
-
+        &.left    {
+          text-align:left;
+          .seperator {margin: 15px 0 0 0;}
         }
+        &.center  {
+          text-align:center;
+          .seperator {margin: 15px auto 0 auto;}
+        }
+        &.right   {
+          text-align:right;
+         .seperator {margin: 15px 0 0 0;}
+        }
+
 
           .seperator {
             display:block;
-            margin: 15px auto 0 auto;
             width: 200px;
             height: 2px;
             background-color: #fff;
