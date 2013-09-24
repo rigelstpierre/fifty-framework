@@ -37,7 +37,8 @@ $slide_options_meta_box->addField(array(
 ));
 
 $slide_options_meta_box->addField(array(
-  'type'  => 'Checkbox', 
-  'id'    => 'show_text', 
-  'label' => __('Show Text: ','FFW')
+  'type'    => 'Checkbox', 
+  'id'      => 'remove_text', 
+  'label'   => __('Remove Text: ','FFW'),
+  'value'   => 1
 ));

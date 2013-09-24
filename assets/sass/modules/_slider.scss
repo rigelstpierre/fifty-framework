@@ -61,6 +61,11 @@ $height-flex_control_thumbs:  130;
       height:#{$height-slider_full}px;
       background-repeat:no-repeat;
       @include background-size(cover);
+
+      .container {
+        height:#{$height-slider_full}px;
+        display:table;
+      }
       
       .slide-overlay {
         position:absolute;top:0;left:0;
@@ -77,27 +82,27 @@ $height-flex_control_thumbs:  130;
         z-index:1000;
         display:table-cell;
         vertical-align:middle;
-        padding:50px;
         color:#ffffff;
         width:100%;
-        height:#{$height-slider_full}px;
-        // @include box-shadow(0 1px 2px rgba(0,0,0,.13), inset 3px 4px 250px rgba(0,0,0,.71));
-        
+
+        @include media(tablet) {width:90%;}
+        @include media(mobile) {width:90%;}
+
+        &.left    {text-align:left;}
+        &.center  {text-align:center;}
+        &.right   {text-align:right;}
+
+
         .details {
           width:65%;
           margin:0 auto;
           font-size:initial;
 
-          @include media(tablet) {width:90%;}
-          @include media(mobile) {width:90%;}
+        }
 
-          &.left    {text-align:left;}
-          &.center  {text-align:center;}
-          &.right   {text-align:right;}
-          
           .seperator {
-            @extend %inline-block;
-            margin:1em 0 0 0;
+            display:block;
+            margin: 15px auto 0 auto;
             width: 200px;
             height: 2px;
             background-color: #fff;
@@ -117,7 +122,6 @@ $height-flex_control_thumbs:  130;
           }
 
           .btn {}
-        }
 
       }
     }

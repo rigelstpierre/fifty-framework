@@ -113,7 +113,7 @@ function FFW_actions(){
             <?php
             //Get slide options
             $slide_class          = get_post_meta($post->ID, "_FFW_slide_class", true);         
-            $show_slide_text      = get_post_meta($post->ID, "_FFW_slide_show_text", true);
+            $hide_slide_text      = get_post_meta($post->ID, "_FFW_slide_remove_text", true);
             $slide_text_alignment = get_post_meta($post->ID, "_FFW_slide_text_alignment", true);
             $slide_thumbnail_img  = wp_get_attachment_image_src(get_post_meta($post->ID, "_FFW_slide_thumbnail", true), 'full');
             $slide_background_img = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), '' );
@@ -134,15 +134,12 @@ function FFW_actions(){
             <li id="slide<?php echo $i; ?>" data-thumb="" class="<?php echo $s_class; ?>" style="<?php echo $s_styles;?>"> 
               <div class="flex-overlay"></div>
               <div class="container">
-                <div class="slide-content">
+                <div class="slide-content <?php echo $slide_text_alignment; ?>">
 
-                  <?php if($show_slide_text) : ?>       
-                    <div class="details <?php echo $slide_text_alignment; ?>">
+                  <?php if(!$hide_slide_text) : ?>       
                       <h1><?php the_title(); ?></h1>
                       <div class="seperator"></div>
                       <?php the_content(); ?>
-                      <?php//echo wpautop(do_shortcode($slide_class)); ?>
-                    </div>
                   <?php endif; ?>
 
                 </div><!-- .slide-content -->
