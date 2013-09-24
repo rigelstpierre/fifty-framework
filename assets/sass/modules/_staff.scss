@@ -9,6 +9,7 @@
   position:relative;
   padding-right:5px;
   padding-bottom:5px;
+  overflow:hidden;
 
   &:hover {
     .staff-photo-overlay {
@@ -20,7 +21,7 @@
   .staff-photo-overlay {
     display:table;
     position:absolute;top:0;left:0;
-    width:100%;height:100%;
+    width:101%;height:101%;
     /* TRANSITION */
     visibility:hidden;
     background-color:transparent;
@@ -29,6 +30,7 @@
 
     .staff-photo-overlay-inner {
       display:table-cell;
+      vertical-align:middle;
     }
   }
 
