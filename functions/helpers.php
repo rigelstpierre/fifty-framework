@@ -67,6 +67,7 @@ function FFW_helper_functions() {
   /**
    * get_sidebar_position_class()
    * Get the sidebar position and set classes accordingly
+   * @author Alexander Zizzo
    * @since 1.0
    */
   function get_sidebar_position_class() {
@@ -134,15 +135,34 @@ function FFW_helper_functions() {
   }
 
 
+  /**
+   * get_featured_image_url()
+   * Wrapper for wp_get_attachment_url given it's frequence of use.
+   * @author Alexander Zizzo
+   * @since 1.1
+   * @param Post ID (optional, defaults to current global)
+   */
+  function get_featured_image_url( $postID = NULL ) {
+    global $post;
+
+    $post_id = !is_null([$postID) ? $postID : $post->ID;
+
+    return wp_get_attachment_url( get_post_thumbnail_id( $post_id ) );
+  }
 
 
 
 
 
 
-  ////////////////////////////
-  // V I D E O 
-  ////////////////////////////
+
+
+
+  /* ================================================================== */
+  /*                                                                    */
+  /*            V I D E O  S E R V I C E   F U N C T I O N S            */
+  /*                                                                    */
+  /* ================================================================== */    
 
 
   /**
