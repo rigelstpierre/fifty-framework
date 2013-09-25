@@ -3,7 +3,7 @@
 <?php do_action('FFW_slider_full', array(
 	'id'       => 'slider_full_header',
 	'class'    => 'slider-full',
-	'category' => 'home'
+	'category' => 'blog'
 )); ?>
 
 <div id="main" class="default blog">
