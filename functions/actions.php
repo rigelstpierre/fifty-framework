@@ -41,7 +41,7 @@ function FFW_actions(){
 
 
 
-
+ 
   /**
    * Slider
    * @author Alexander Zizzo
@@ -83,13 +83,14 @@ function FFW_actions(){
       ================================================== */ ?>
       <script>
         jQuery(window).load(function($){
-          jQuery('.flexslider').flexslider({
+          jQuery('#<?php echo $id; ?>.flexslider').flexslider({
             animation       : "<?php echo $slider_animation; ?>",
             prevText        : "<?php echo $slider_prev_text; ?>",
             nextText        : "<?php echo $slider_next_text; ?>",
             direction       : "<?php echo $slider_direction; ?>",
             slideShowSpeed  : "<?php echo $slider_speed; ?>",
             animationSpeed  : "<?php echo $slider_animation_speed; ?>",
+            useCSS          : false,
             start: function(slider){
               slider.find('ul.slides').addClass('show-lis');
             }

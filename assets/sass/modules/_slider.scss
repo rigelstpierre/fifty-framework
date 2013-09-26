@@ -9,7 +9,7 @@ $height-flex_paging:          40;
 $height-flex_control_thumbs:  130;
 
 
-
+ 
 .flexslider {
   position:relative;
   background-color:#363636;
@@ -38,17 +38,13 @@ $height-flex_control_thumbs:  130;
     height:#{$height-slider_full}px;
     @extend %ul-blank;
     /* TRANSITION */
-    li {
-      @include transition(opacity 150ms ease-in);
-      opacity:0;
-      visibility:hidden;
-    }
+    @include transition(opacity 150ms ease-in);
+    opacity:0;
+    visibility:hidden;
 
     &.show-lis {
-      li {
-        opacity:1;
-        visibility:visible;
-      }
+      opacity:1;
+      visibility:visible;
     }
 
     li {
