@@ -38,13 +38,13 @@ $height-flex_control_thumbs:  130;
     height:#{$height-slider_full}px;
     @extend %ul-blank;
     /* TRANSITION */
-    @include transition(opacity 150ms ease-in);
-    opacity:0;
-    visibility:hidden;
+    // @include transition(opacity 150ms ease-in);
+    // opacity:0;
+    // visibility:hidden;
 
     &.show-lis {
-      opacity:1;
-      visibility:visible;
+      // opacity:1;
+      // visibility:visible;
     }
 
     li {

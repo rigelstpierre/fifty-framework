@@ -92,7 +92,7 @@ function FFW_actions(){
             animationSpeed  : "<?php echo $slider_animation_speed; ?>",
             useCSS          : false,
             start: function(slider){
-              slider.find('ul.slides').addClass('show-lis');
+              slider.find('ul.slides').fadeIn(250);
             }
           });
         });
