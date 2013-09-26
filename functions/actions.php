@@ -64,11 +64,11 @@ function FFW_actions(){
       ================================================== */
         if ( $options ) {
           $slider_animation       = $options['slider_animation'];
-          $slider_direction       = $options('slider_direction');
-          $slider_prev_text       = $options('slider_prev_text');
-          $slider_next_text       = $options('slider_next_text');
-          $slider_speed           = $options('slider_slide_speed');
-          $slider_animation_speed = $options('slider_animation_speed');
+          $slider_direction       = $options['slider_direction'];
+          $slider_prev_text       = $options['slider_prev_text'];
+          $slider_next_text       = $options['slider_next_text'];
+          $slider_speed           = $options['slider_slide_speed'];
+          $slider_animation_speed = $options['slider_animation_speed'];
         } else {
           $slider_animation       = of_get_option('slider_animation');
           $slider_direction       = of_get_option('slider_direction');
