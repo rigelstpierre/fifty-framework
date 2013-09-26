@@ -54,19 +54,29 @@ function FFW_actions(){
     $class    = isset($args['class']) ? $args['class'] : null;
     $id       = isset($args['id']) ? $args['id'] : null;
     $category = isset($args['category']) ? $args['category'] : null;
+    $options  = isset($args['options']) ? $args['options'] : false;
 
     if ( of_get_option ( 'enable_slides', '1' ) ) :
 
     ?>
       
-      <?php /* GET SLIDER SETTINGS FROM OPTIONS
+      <?php /* GET SLIDER OPTIONS  | DEFAULT FALLBACKS
       ================================================== */
-        $slider_animation       = of_get_option('slider_animation');
-        $slider_direction       = of_get_option('slider_direction');
-        $slider_prev_text       = of_get_option('slider_prev_text');
-        $slider_next_text       = of_get_option('slider_next_text');
-        $slider_speed           = of_get_option('slider_slide_speed');
-        $slider_animation_speed = of_get_option('slider_animation_speed');
+        if ( $options ) {
+          $slider_animation       = $options['slider_animation'];
+          $slider_direction       = $options('slider_direction');
+          $slider_prev_text       = $options('slider_prev_text');
+          $slider_next_text       = $options('slider_next_text');
+          $slider_speed           = $options('slider_slide_speed');
+          $slider_animation_speed = $options('slider_animation_speed');
+        } else {
+          $slider_animation       = of_get_option('slider_animation');
+          $slider_direction       = of_get_option('slider_direction');
+          $slider_prev_text       = of_get_option('slider_prev_text');
+          $slider_next_text       = of_get_option('slider_next_text');
+          $slider_speed           = of_get_option('slider_slide_speed');
+          $slider_animation_speed = of_get_option('slider_animation_speed');
+        }
       ?>
       
       <?php /* FLEXSLIDER JAVASCRIPT
