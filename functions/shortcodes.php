@@ -93,6 +93,24 @@ function one_column( $atts, $content = null ) {
 add_shortcode('one_column', 'one_column');
 
 
+////////////////////////////////////
+// I C O N S
+////////////////////////////////////
+
+function ffw_icon_shortcodes( $atts ){
+    extract( shortcode_atts( array( 
+            'type'  =>  '',
+            'style' =>  ''
+        ), $atts ) );
+
+    $icon_style = 'style="' . $style . '"';
+
+    $ffw_icon = '<i class="icon ' . $type . '" '. $icon_style .'></i>';
+
+    return $ffw_icon;
+    
+}
+add_shortcode( 'icon', 'ffw_icon_shortcodes' );
 
 ////////////////////////////////////
 // S T A N D A R D
