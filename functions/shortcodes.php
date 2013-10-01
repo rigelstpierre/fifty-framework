@@ -8,7 +8,7 @@ function button_shortcode( $atts, $content = null ) {
     ), $atts));
     return '<a class="btn-tab-reg '.$type.'" href="'.$url.'">' . do_shortcode( $content ) . '</a>';
 }
-add_shortcode('button', 'button_shortcode');
+//add_shortcode('button', 'button_shortcode');
 
 
 // squish column
