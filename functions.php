@@ -43,6 +43,7 @@ require_once( get_template_directory() .'/functions/setup.php' );
 require_once( get_template_directory() .'/functions/scripts.php' );
 require_once( get_template_directory() .'/functions/load-admin.php');
 require_once( get_template_directory() .'/functions/helpers.php');
+require_once( get_template_directory() .'/functions/shortcodes.php');
 
 
 

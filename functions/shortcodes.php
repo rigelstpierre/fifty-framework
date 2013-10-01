@@ -1,35 +1,38 @@
 <?php
 
 // button
-function button_shortcode( $atts, $content = null ) {
+function ffw_button_shortcode( $atts, $content = null ) {
     extract(shortcode_atts(array(
         'type' =>  '',
         'url'   =>  '',
     ), $atts));
-    return '<a class="btn-tab-reg '.$type.'" href="'.$url.'">' . do_shortcode( $content ) . '</a>';
+
+    $ffw_button = '<a class="btn '.$type.'" href="'.$url.'">' . do_shortcode( $content ) . '</a>'
+
+    return $ffw_button;
 }
-//add_shortcode('button', 'button_shortcode');
+add_shortcode('button', 'ffw_button_shortcode');
 
 
 // squish column
-function squish_shortcode( $atts, $content = null ) {
+function ffw_squish_shortcode( $atts, $content = null ) {
     extract(shortcode_atts(array(
         '' => ''
     ), $atts));
     return '<div class="squish">' . do_shortcode( $content ) . '</div>';
 }
-add_shortcode('squish', 'squish_shortcode');
+add_shortcode('squish', 'ffw_squish_shortcode');
 
 
 
 // blockquote full
-function blockquote_full_shortcode( $atts, $content = null ) {
+function ffw_blockquote_full_shortcode( $atts, $content = null ) {
     extract(shortcode_atts(array(
         '' => ''
     ), $atts));
     return '<blockquote class="full">' . do_shortcode( $content ) . '</blockquote>';
 }
-add_shortcode('blockquote_full', 'blockquote_full_shortcode');
+add_shortcode('blockquote_full', 'ffw_blockquote_full_shortcode');
 
 
 
@@ -44,32 +47,8 @@ function row_shortcode( $atts, $content = null ) {
 }
 add_shortcode('row', 'row_shortcode');
 
-//one third
-function one_third( $atts, $content = null ) {
- 
-    extract( shortcode_atts( array(
-            'class'   =>  ''
-        ), $atts ) );
- 
-    return '<div class="one-third ' . $class . '">' . do_shortcode( $content ) . '</div>';
- 
-}
-add_shortcode('one_third', 'one_third');
-
-//two third
-function two_thirds( $atts, $content = null ) {
- 
-    extract( shortcode_atts( array(
-            'class'   =>  ''
-        ), $atts ) );
- 
-    return '<div class="two-thirds ' . $class . '">' . do_shortcode( $content ) . '</div>';
- 
-}
-add_shortcode('two_thirds', 'two_thirds');
-
 //one half
-function one_half( $atts, $content = null ) {
+function ffw_one_half( $atts, $content = null ) {
  
     extract( shortcode_atts( array(
             'class'   =>  ''
@@ -78,10 +57,61 @@ function one_half( $atts, $content = null ) {
     return '<div class="one-half ' . $class . '">' . do_shortcode( $content ) . '</div>';
  
 }
-add_shortcode('one_half', 'one_half');
+add_shortcode('one_half', 'ffw_one_half');
+
+//one third
+function ffw_one_third( $atts, $content = null ) {
+ 
+    extract( shortcode_atts( array(
+            'class'   =>  ''
+        ), $atts ) );
+ 
+    return '<div class="one-third ' . $class . '">' . do_shortcode( $content ) . '</div>';
+ 
+}
+add_shortcode('one_third', 'ffw_one_third');
+
+//two third
+function ffw_two_thirds( $atts, $content = null ) {
+ 
+    extract( shortcode_atts( array(
+            'class'   =>  ''
+        ), $atts ) );
+ 
+    return '<div class="two-thirds ' . $class . '">' . do_shortcode( $content ) . '</div>';
+ 
+}
+add_shortcode('two_thirds', 'ffw_two_thirds');
+
 
 //one column
-function one_column( $atts, $content = null ) {
+function ffw_one_fourth( $atts, $content = null ) {
+ 
+    extract( shortcode_atts( array(
+            'class'     =>  ''
+        ), $atts ) );
+ 
+    return '<div class="one-fourth' . $class . '">' . do_shortcode( $content ) . '</div>';
+ 
+}
+add_shortcode('one_fourth', 'ffw_one_fourth');
+
+//three fourths
+function ffw_three_fourths( $atts, $content = null ) {
+ 
+    extract( shortcode_atts( array(
+            'class'     =>  ''
+        ), $atts ) );
+ 
+    return '<div class="three-fourths' . $class . '">' . do_shortcode( $content ) . '</div>';
+ 
+}
+add_shortcode('three_fourths', 'ffw_three_fourths');
+
+
+
+//one column
+function ffw_one_column( $atts, $content = null ) {
  
     extract( shortcode_atts( array(
             'class'     =>  ''
@@ -90,7 +120,7 @@ function one_column( $atts, $content = null ) {
     return '<div class="full ' . $class . '">' . do_shortcode( $content ) . '</div>';
  
 }
-add_shortcode('one_column', 'one_column');
+add_shortcode('one_column', 'ffw_one_column');
 
 
 ////////////////////////////////////
