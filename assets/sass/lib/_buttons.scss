@@ -1,4 +1,5 @@
-/* _buttons.scss */
+/* _buttons-advanced.scss */
+
 
 
 /* ======================================================================== */
@@ -7,43 +8,49 @@
 /*                                                                          */
 /* ======================================================================== */    
 
-
-
 /* BTN 
  * ---
  * @include btn(20px, bold, #2a2a2a, #fbfbfb, transparent, none, 52, 15px);
  *
 =========================================================================== */
 @mixin btn(
-  $font-size:   1em,
-  $font-weight: normal,
-  $font-color:  #ffffff,
-  $bg-color-1:  #b9141e,
-  $bg-color-2:  transparent,
+  $bg_color-1:  #b9141e,
+  $font_color:  #ffffff,
+  $font_size:   1em,
+  $font_weight: normal,
+  $bg_color-2:  transparent,
   $border:      none,
   $height:      52,
   $padding:     0 25px,
-  $text-align:  center
+  $text_align:  center,
+  $b_radius:    3px
 ) {
+  // @if $bg_color-1 == nil {} 
+  //   @else { color: $myVariable; }
+
   // inline-block IE compatibility hack
-  display:-moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
-  position:       relative;
+  display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
+  position:relative;
   height:         #{$height}px;
-  line-height:    #{$height +2}px;
-  background:     $bg-color-1;
+  // line-height:    #{$height +2}px;
+  line-height:    1;
+  background:     $bg_color-1;
   border:         $border;
-  font-weight:    $font-weight;
-  font-size:      $font-size;
-  color:          $font-color;
+  font-weight:    $font_weight;
+  font-size:      $font_size;
+  color:          $font_color;
   padding:        $padding;
-  text-align:     $text-align;
+  text-align:     $text_align;
+  
+  @include border-radius($b_radius);
 
   // backface visibility hack to fix chrome bug
   @include backface; * {@include backface;}
 
-  // transition
+  // transition redundancy if mixin not applied to anchor
   @include transition(all 150ms ease-in-out);
 }
+
 
 
 
@@ -54,39 +61,35 @@
 =========================================================================== */
 @mixin btn-hover-method(
   $method:      'normal',
-  $font-color:  #fff,
-  $bg-color:    #b9141e
+  $font_color:  #2f7499,
+  $bg_color:    #ffffff
 ) {
   // NORMAL
   @if $method == 'normal' {
       &:hover {
-        color: lighten($font-color, 5);
-        background-color: darken($bg-color, 5);
+        color: lighten($font_color, 5);
+        background-color: darken($bg_color, 5);
       }
     }
   // NO CHANGE
   @if $method == 'nochange' {
     &:hover {
-      color: $font-color;
-      background-color: $bg-color;
+      color: $font_color;
+      background-color: $bg_color;
     }
   }
   // GLOW
   @if $method == 'glow-white' {
     &:hover {
       @include box-shadow(1px 1px 50px 2px rgba(white, 0.4));
-      color: darken($font-color, 15);
-    }
-  }
-  // SCALE UP
-  @if $method == 'scale-up' {
-    &:hover {
-      @include transition(transform);
-      @include transition-duration(150ms);
-      @include transform(scale(1.15));
+      color: darken($font_color, 15);
     }
   }
 }
+
+
+
+
 
 
 
@@ -110,9 +113,9 @@
   $position:        relative,
   $top:             0,
   $left:            0,
-  $width:           auto,
-  $height:          auto,
-  $bg-color:        transparent
+  $width:           30%,
+  $height:          100%,
+  $bg_color:        transparent
 ) {
   &:before {
     position:$position;
@@ -121,7 +124,7 @@
     height:#{$height};
     width:#{$width};
     // margin-top:-#{ (($height/2) + 4)/2 }px;
-    background-color:$bg-color;
+    background-color:$bg_color;
   }
 }
 
@@ -131,19 +134,45 @@
  *
 =========================================================================== */
 @mixin btn-before-font(
-  $font-size:       1.6em,
-  $font-weight:     normal,
-  $font-color:      #fff,
-  $line-height:     inherit,
-  $font-family:     "pictos"
+  $font_size:       1.6em,
+  $font_weight:     normal,
+  $font_color:      inherit,
+  $font_family:     "pictos",
+  $padding:         0 20px 0 0,
+  $line_height:     inherit
 ) {
   &:before {
-    font-size:    $font-size;
-    font-weight:  $font-weight;
-    color:        $font-color;
-    font-family:  $font-family;
+    font-size:    $font_size;
+    padding:      $padding;
+    font-weight:  $font_weight;
+    color:        $font_color;
+    font-family:  $font_family;
   }
 }
+
+
+/* BTN BEFORE ICON NAME
+ * --------------------
+ * @include btn-before-icon-name();
+ *
+=========================================================================== */
+@mixin btn-before-icon-name(
+  $icon_name:    'group'
+) {
+  &:before {
+    // GROUP / [3 people] (pictos)
+    @if $icon_name == 'group'  { content: 'g'; }
+    // HEART [<3 shape] (pictos)
+    @if $icon_name == 'heart'  { content: 'k'; }
+    // HELP/ [life preserver] (pictos)
+    @if $icon_name == 'help'   { content: 'h'; }
+    // SEARCH [magnifying glass] (pictos)
+    @if $icon_name == 'search' { content: 's'; }
+    // SEARCH [magnifying glass] (pictos)
+    @if $icon_name == 'chat'   { content: 'q'; }
+  }
+}
+
 
 
 /* BTN BEFORE ICON
@@ -152,21 +181,14 @@
  *
 =========================================================================== */
 @mixin btn-before-icon(
-  $icon:    'group'
+  $icon_char: 'W'
 ) {
   &:before {
-    // GROUP / [3 people] (pictos)
-    @if $icon == 'group'  { content: 'g'; }
-    // HEART [<3 shape] (pictos)
-    @if $icon == 'heart'  { content: 'k'; }
-    // HELP/ [life preserver] (pictos)
-    @if $icon == 'help'   { content: 'h'; }
-    // SEARCH [magnifying glass] (pictos)
-    @if $icon == 'search' { content: 's'; }
-    // SEARCH [magnifying glass] (pictos)
-    @if $icon == 'chat'   { content: 'q'; }
+    content:$icon_char;
   }
 }
+
+
 
 
 /* BTN BEFORE HOVER METHOD
@@ -175,7 +197,7 @@
  *
 =========================================================================== */
 @mixin btn-before-hover-method(
-  $method:    'normal',
+  $before_method:    'scale-115',
   $duration:  .35s
 ) {
 
@@ -187,7 +209,7 @@
   // ------------ END DEFAULTS --------------
 
   // ROTATE (spin a full circle)
-  @if $method == 'rotate' {
+  @if $before_method == 'rotate' {
     &:hover {
       &:before {
         @include transform(rotate(360deg));
@@ -195,7 +217,7 @@
     }
   }
   // TILT-RIGHT (rotate 15deg clockwise)
-  @if $method == 'tilt-right' {
+  @if $before_method == 'tilt-right' {
     &:hover {
       &:before {
         @include transform(rotate(15deg));
@@ -203,7 +225,7 @@
     }
   }
   // SCALE UP (grow by 135%)
-  @if $method == 'scale-135' {
+  @if $before_method == 'scale-135' {
     &:hover {
       &:before {
         @include transform(scale(1.35));
@@ -211,7 +233,7 @@
     }
   }
   // SCALE UP (grow by 115%)
-  @if $method == 'scale-115' {
+  @if $before_method == 'scale-115' {
     &:hover {
       &:before {
         @include transform(scale(1.15));
@@ -225,19 +247,63 @@
 
 
 
+
+
+
 /* ======================================================================== */
 /*                                                                          */
-/*                              BUTTON CLASSES                              */
+/*                               BUTTON CLASSES                             */
 /*                                                                          */
-/* ======================================================================== */   
+/* ======================================================================== */    
 
-.btn {
-  @include btn;
+
+/* 
+  BACKGROUND COLORS FROM PSD
+  ------------------------------------------------------
+  Primary Button Trans: #2f7499    0.10     #2f7499
+  Primary Button:       #2f7499    1.00     #ffffff
+
+  Secondary Button:         #ffffff    1.00     #2f7499
+  Secondary Button Trans:   #ffffff    0.10     #ffffff
+
+  BUTTON COLOR VARIABLES
+  ------------------------------------------------------
+  
+ */
+
+
+.btn, %btn {
+  @include btn(#2f7499, #ffffff, 17px, normal, transparent, none, auto, 20px 25px, 5px );
 }
-.btn-before {
+
+
+.btn-tab {
+  @extend %btn;
+
+  // PRIMARY (default)
   @include btn-before-basics();
-  @include btn-before-font();
-  @include btn-before-icon();
-  @include btn-before-hover-method();
+  @include btn-before-font(25px, normal, #ffffff, "pictos");
+  @include xbc-transparent-bg(1.0, #2f7499, 47, 116, 153);
+
+  // PRIMARY (transparent)
+  &.transparent {
+    @include xbc-transparent-bg(0.10, #2f7499, 47, 116, 153);
+    color:#2f7499;
+    &:before {color:#2f7499;}
+  }
+
+  // SECONDARY
+  &.secondary {
+    color:#2f7499;
+    &:before {color:#2f7499;} 
+    @include xbc-transparent-bg(1.00, #ffffff, 255, 255, 255);
+  }
+
+  // SECONDARY (transparent)
+  &.secondary-transparent {
+    color:#ffffff;
+    &:before {color:#ffffff;} 
+    @include xbc-transparent-bg(0.10, #ffffff, 255, 255, 255);
+  }
 }
 

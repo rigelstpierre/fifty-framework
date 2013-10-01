@@ -85,6 +85,7 @@
   @include media(mobile) { width:100%; }
 }
 
+
 /* ROW
 ================================================== */
 .row {
@@ -93,6 +94,21 @@
   @include clearfix;
   margin-bottom:20px;
 }
+
+
+
+
+/* ONE-HALF */
+.one-half       { @extend %span6; }
+/* ONE-THIRD */
+.one-third      { @extend %span4; }
+/* TWO-THIRDS */
+.two-thirds     { @extend %span8; }
+/* ONE-FOURTH */
+.one-fourth     { @extend %span3; }
+/* Three-FOURTH */
+.three-fourths  { @extend %span9; }
+
 
 
 /* CONTAINER TYPES -> BOX SIZES

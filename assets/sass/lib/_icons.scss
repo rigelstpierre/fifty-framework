@@ -15,25 +15,93 @@ i.icon,.icon  {
   text-transform:none;
 }
 
-.icon-meter:before        {content:',';}
-.icon-pulse:before        {content:'Y';}
-.icon-lock:before         {content:'(';}
-.icon-group:before        {content:'g';}
-.icon-flag:before         {content:'^';}
-.icon-chat:before         {content:'Q';}
-.icon-news:before         {content:'N';}
-.icon-piechart:before     {content:'Z';}
-.icon-settings:before     {content:'x';}
-.icon-info:before         {content:'i';}
-.icon-checkmark:before    {content:'3';}
-.icon-email:before        {content:'M';}
-.icon-pencil:before       {content:'p';}
-.icon-chat:before         {content:'w';}
-.icon-person:before       {content:'U';}
-.icon-time:before         {content:'t';}
-.icon-search:before       {content:'s';}
-.icon-marker:before       {content:'@';}
-.icon-calendar:before     {content:'\005C';}
+// METER
+.icon-meter:before,
+%icon-meter:before {
+  content:',';
+}
+// PULSE
+.icon-pulse:before,
+%icon-meter:before {
+  content:'Y';
+}
+// LOCK
+.icon-lock:before,
+%icon-meter:before {
+  content:'(';
+}
+// GROUP OF PEOPLE
+.icon-group:before,
+%icon-meter:before {
+  content:'g';
+}
+// FLAG
+.icon-flag:before,
+%icon-meter:before {
+  content:'^';
+}
+// CHAT BUBBLE
+.icon-chat:before,
+%icon-meter:before {
+  content:'Q';
+}
+// NEWS ARTICLE
+.icon-news:before,
+%icon-meter:before {
+  content:'N';
+}
+// PIE CHART
+.icon-piechart:before,
+%icon-meter:before {
+  content:'Z';
+}
+// SETTINGS (gear)
+.icon-settings:before,
+%icon-meter:before {
+  content:'x';
+}
+// INFO (i in circle)
+.icon-info:before,
+%icon-meter:before {
+  content:'i';
+}
+// CHECKMARK
+.icon-checkmark:before,
+%icon-meter:before {
+  content:'3';
+}
+.icon-email:before,
+%icon-meter:before {
+  content:'M';
+}
+.icon-pencil:before,
+%icon-meter:before {
+  content:'p';
+}
+.icon-chat:before,
+%icon-meter:before {
+  content:'w';
+}
+.icon-person:before,
+%icon-meter:before {
+  content:'U';
+}
+.icon-time:before,
+%icon-meter:before {
+  content:'t';
+}
+.icon-search:before,
+%icon-meter:before {
+  content:'s';
+}
+.icon-marker:before,
+%icon-meter:before {
+  content:'@';
+}
+.icon-calendar:before,
+%icon-meter:before {
+  content:'\005C';
+}
 
 
 

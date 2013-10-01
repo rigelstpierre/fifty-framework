@@ -255,11 +255,11 @@ $height-flex_control_thumbs:  130;
       text-indent: 0;
       text-transform: none;
       /* TRANSITION */
-      @include xbc-trans_bg(0.08, #dadada);
+      @include xbc-transparent-bg(0.08, #dadada);
       @include transition(all 150ms ease-in-out);
 
       &:hover {
-        @include xbc-trans_bg(0.25, #dadada);
+        @include xbc-transparent-bg(0.25, #dadada);
       }
 
       &.flex-prev {@include border-radius(0 5px 5px 0);}
