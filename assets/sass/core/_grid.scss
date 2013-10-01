@@ -109,6 +109,11 @@
 /* Three-FOURTH */
 .three-fourths  { @extend %span9; }
 
+//ALEX JUST TRYING TO MAKE THIS WORK FOR FULLWIDTH
+#container.full-width{
+  width:100% !important;
+}
+
 
 
 /* CONTAINER TYPES -> BOX SIZES
