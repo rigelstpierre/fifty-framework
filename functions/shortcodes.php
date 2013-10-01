@@ -7,7 +7,7 @@ function ffw_button_shortcode( $atts, $content = null ) {
         'url'   =>  '',
     ), $atts));
 
-    $ffw_button = '<a class="btn '.$type.'" href="'.$url.'">' . do_shortcode( $content ) . '</a>'
+    $ffw_button = '<a class="btn '.$type.'" href="'.$url.'">' . do_shortcode( $content ) . '</a>';
 
     return $ffw_button;
 }
