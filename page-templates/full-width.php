@@ -11,7 +11,7 @@ get_header(); ?>
 <div id="main" class="page page-default default">
   <div class="container">
         <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
-          <?php get_template_part( 'loop/loop', 'page' ); ?>
+          <?php get_template_part( 'loop/loop', 'full' ); ?>
         <?php endwhile; endif; ?>
   </div><!-- .container -->
 </div><!-- #main -->
