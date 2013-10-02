@@ -52,8 +52,8 @@ function ffw_one_half( $atts, $content = null ) {
  
     extract( shortcode_atts( array(
             'class'   =>  '',
-            'padding_left'  =>  '',
-            'padding_right' =>  ''
+            'padding_left'  =>  '10',
+            'padding_right' =>  '10'
         ), $atts ) );
 
     if( !empty( $padding_left ) || !empty( $padding_right ) ){
@@ -74,8 +74,8 @@ function ffw_one_third( $atts, $content = null ) {
  
     extract( shortcode_atts( array(
             'class'   =>  '',
-            'padding_left'  =>  '',
-            'padding_right' =>  ''
+            'padding_left'  =>  '10',
+            'padding_right' =>  '10'
         ), $atts ) );
 
     if( !empty( $padding_left ) || !empty( $padding_right ) ){
@@ -96,8 +96,8 @@ function ffw_two_thirds( $atts, $content = null ) {
  
     extract( shortcode_atts( array(
             'class'         =>  '',
-            'padding_left'  =>  '',
-            'padding_right' =>  ''
+            'padding_left'  =>  '10',
+            'padding_right' =>  '10'
         ), $atts ) );
 
     if( !empty( $padding_left ) || !empty( $padding_right ) ){
@@ -119,8 +119,8 @@ function ffw_one_fourth( $atts, $content = null ) {
  
     extract( shortcode_atts( array(
             'class'         =>  '',
-            'padding_left'  =>  '',
-            'padding_right' =>  ''
+            'padding_left'  =>  '10',
+            'padding_right' =>  '10'
         ), $atts ) );
 
     if( !empty( $padding_left ) || !empty( $padding_right ) ){
@@ -141,8 +141,8 @@ function ffw_three_fourths( $atts, $content = null ) {
  
     extract( shortcode_atts( array(
             'class'         =>  '',
-            'padding_left'  =>  '',
-            'padding_right' =>  ''
+            'padding_left'  =>  '10',
+            'padding_right' =>  '10'
         ), $atts ) );
 
     if( !empty( $padding_left ) || !empty( $padding_right ) ){
