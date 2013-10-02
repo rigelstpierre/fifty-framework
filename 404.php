@@ -2,8 +2,7 @@
 
 <div id="main" class="page page-default default">
   <div class="container">
-	<?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
-		<article class="post post-<?php echo get_the_ID(); ?>">
+		<article class="post">
 		  <header>
 		    <h1 class="post-title">
 		      404 Error - Page Not Found
@@ -14,7 +13,6 @@
 		  </div>
 		  <footer></footer>
 		</article>
-	<?php endwhile; endif; ?>
   </div><!-- .container -->
 </div><!-- #main -->
 
