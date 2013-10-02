@@ -56,7 +56,7 @@ function ffw_one_half( $atts, $content = null ) {
             'padding_right' =>  ''
         ), $atts ) );
 
-    if( !empty( $padding_left ) || !empty( $padding_right ){
+    if( !empty( $padding_left ) || !empty( $padding_right ) ){
 
         $padding_right      = 'padding-right: ' . $padding_right . '; ';
         $padding_left       = 'padding-left: ' . $padding_left . '; ';
@@ -78,7 +78,7 @@ function ffw_one_third( $atts, $content = null ) {
             'padding_right' =>  ''
         ), $atts ) );
 
-    if( !empty( $padding_left ) || !empty( $padding_right ){
+    if( !empty( $padding_left ) || !empty( $padding_right ) ){
 
         $padding_right      = 'padding-right: ' . $padding_right . '; ';
         $padding_left       = 'padding-left: ' . $padding_left . '; ';
@@ -100,7 +100,7 @@ function ffw_two_thirds( $atts, $content = null ) {
             'padding_right' =>  ''
         ), $atts ) );
 
-    if( !empty( $padding_left ) || !empty( $padding_right ){
+    if( !empty( $padding_left ) || !empty( $padding_right ) ){
 
         $padding_right      = 'padding-right: ' . $padding_right . '; ';
         $padding_left       = 'padding-left: ' . $padding_left . '; ';
@@ -123,7 +123,7 @@ function ffw_one_fourth( $atts, $content = null ) {
             'padding_right' =>  ''
         ), $atts ) );
 
-    if( !empty( $padding_left ) || !empty( $padding_right ){
+    if( !empty( $padding_left ) || !empty( $padding_right ) ){
 
         $padding_right      = 'padding-right: ' . $padding_right . '; ';
         $padding_left       = 'padding-left: ' . $padding_left . '; ';
@@ -145,7 +145,7 @@ function ffw_three_fourths( $atts, $content = null ) {
             'padding_right' =>  ''
         ), $atts ) );
 
-    if( !empty( $padding_left ) || !empty( $padding_right ){
+    if( !empty( $padding_left ) || !empty( $padding_right ) ){
 
         $padding_right      = 'padding-right: ' . $padding_right . '; ';
         $padding_left       = 'padding-left: ' . $padding_left . '; ';
