@@ -142,12 +142,13 @@ function FFW_helper_functions() {
    * @since 1.1
    * @param Post ID (optional, defaults to current global)
    */
-  function get_featured_image_url( $postID = NULL ) {
+  function get_featured_image_url( $postID = NULL, $imagesize = NULL ) {
     global $post;
 
-    $post_id = !is_null($postID) ? $postID : $post->ID;
+    $post_id    = !is_null($postID) ? $postID : $post->ID;
+    $imagesize  = !is_null($imagesize) ? $imagesize : 'full';
 
-    return wp_get_attachment_url( get_post_thumbnail_id( $post_id ) );
+    return wp_get_attachment_url( get_post_thumbnail_id( $post_id, $imagesize ) );
   } 
 
 
