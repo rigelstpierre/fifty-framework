@@ -100,6 +100,7 @@
   // CONTAINER-FULL
   //////////////////
   .container-full {
+    @include clearfix;
     
     // BOX HALF
     .box-half {
