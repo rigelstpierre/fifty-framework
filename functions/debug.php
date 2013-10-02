@@ -24,58 +24,55 @@ function FFW_debug_functions() {
     $options_framework  = isset($args['options_framework']) ? $args['options_framework'] : false;
     $query_count  = isset($args['query_count']) ? $args['query_count'] : false;
 
-
-    // check toggle from options
-
     ?>
 
-      <div id="debug_box" class="closed">
-        <header>
-          #debug_box
-          <button id="debug_box-close"></button>
-        </header>
-        <div class="debug_box-inner">
-          
-          <?php if ( $wpquery )  : ?>
-            <span>$wp_query</span>
-            <pre><?php print_r($wp_query); ?></pre>
-          <?php endif; ?>
+    <div id="debug_box" class="closed">
+      <header>
+        #debug_box
+        <button id="debug_box-close"></button>
+      </header>
+      <div class="debug_box-inner">
+        
+        <?php if ( $wpquery )  : ?>
+          <span>$wp_query</span>
+          <pre><?php print_r($wp_query); ?></pre>
+        <?php endif; ?>
 
-          <?php if ( $post_meta )  : ?>
-            <span>post meta: # <?php echo $post->ID; ?></span>
-            <pre><?php print_r(get_post_meta( $post->ID )); ?></pre>
-          <?php endif; ?>
+        <?php if ( $post_meta )  : ?>
+          <span>post meta: #<?php echo $post->ID; ?></span>
+          <pre><?php print_r(get_post_meta( $post->ID )); ?></pre>
+        <?php endif; ?>
 
-          <?php if ( $post_obj ) : ?>
-            <span>$post object</span>
-            <pre><?php print_r($post); ?></pre>
-          <?php endif; ?>
+        <?php if ( $post_obj ) : ?>
+          <span>$post_obj</span>
+          <pre><?php print_r($post); ?></pre>
+        <?php endif; ?>
 
-          <?php if ( $current_user_info ) : ?>
-            <span>$current_user</span>
-            <pre><?php print_r($current_user); ?></pre> 
-          <?php endif; ?>
-          
-          <?php if ( $options_framework) : ?>
-            <span>optionsframework_</span>
-            <pre><?php print_r(get_option( 'optionsframework_fifty_framework' )); ?></pre>
-          <?php endif; ?>
+        <?php if ( $current_user_info ) : ?>
+          <span>$current_user</span>
+          <pre><?php print_r($current_user); ?></pre> 
+        <?php endif; ?>
+        
+        <?php if ( $options_framework) : ?>
+          <span>$options_framework</span>
+          <pre><?php print_r(get_option( 'optionsframework_fifty_framework' )); ?></pre>
+        <?php endif; ?>
 
-          <?php if ( $query_count ) : ?>
-            <span>Query Count</span>
-            <?php 
-              $stat = sprintf(  
-                  '%d queries in %.3f seconds, using %.2fMB memory',
-                  get_num_queries(),
-                  timer_stop( 0, 3 ),
-                  memory_get_peak_usage() / 1024 / 1024
-              );
-            ?>
-            <pre><?php echo $visible ? $stat : "{$stat}" ; ?></pre>
-          <?php endif; ?>
+        <?php if ( $query_count ) : ?>
+          <span>Query Count</span>
+          <?php 
+            $stat = sprintf(  
+                '%d queries in %.3f seconds, using %.2fMB memory',
+                get_num_queries(),
+                timer_stop( 0, 3 ),
+                memory_get_peak_usage() / 1024 / 1024
+            );
+          ?>
+          <pre><?php echo $visible ? $stat : "{$stat}" ; ?></pre>
+        <?php endif; ?>
 
-        </div>
       </div>
+    </div>
 
     <?php 
   }

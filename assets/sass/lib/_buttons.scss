@@ -258,19 +258,15 @@
 
 
 /* 
-  BACKGROUND COLORS FROM PSD
-  ------------------------------------------------------
-  Primary Button Trans: #2f7499    0.10     #2f7499
-  Primary Button:       #2f7499    1.00     #ffffff
-
-  Secondary Button:         #ffffff    1.00     #2f7499
-  Secondary Button Trans:   #ffffff    0.10     #ffffff
-
-  BUTTON COLOR VARIABLES
-  ------------------------------------------------------
-  
+  BUTTON EXAMPLE HTML
+  --------------------
+  <div style="background-color:#ccc;width:100%;height:auto;padding:50px;margin-top:20px;margin-bottom:20px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;">
+    <a href="#" class="btn btn-tab icon-group">.btn .btn-tab</a>
+    <a href="#" class="btn btn-tab transparent icon-pulse">.btn .btn-tab .transparent</a>
+    <a href="#" class="btn btn-tab secondary icon-meter">.btn .btn-tab .secondary</a>
+    <a href="#" class="btn btn-tab secondary-transparent icon-piechart">.btn .btn-tab .secondary-transparent</a>
+  </div>
  */
-
 
 .btn, %btn {
   @include btn(#2f7499, #ffffff, 17px, normal, transparent, none, auto, 20px 25px, 5px );
