@@ -133,7 +133,11 @@ function ffw_icon_shortcodes( $atts ){
             'style' =>  ''
         ), $atts ) );
 
-    $icon_style = 'style="' . $style . '"';
+    if( !empty( $style ) ){
+
+        $icon_style = 'style="' . $style . '"';
+
+    }
 
     $ffw_icon = '<i class="icon ' . $class . '" '. $icon_style .'></i>';
 
