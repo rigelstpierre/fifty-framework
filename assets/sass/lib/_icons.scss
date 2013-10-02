@@ -98,6 +98,10 @@ i.icon,.icon  {
 %icon-meter:before {
   content:'@';
 }
+.icon-write:before,
+%icon-meter:before {
+  content:'W';
+}
 .icon-calendar:before,
 %icon-meter:before {
   content:'\005C';
