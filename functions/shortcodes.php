@@ -61,7 +61,7 @@ function ffw_one_half( $atts, $content = null ) {
         $padding_right      = 'padding-right: ' . $padding_right . '; ';
         $padding_left       = 'padding-left: ' . $padding_left . '; ';
 
-        $span_inner_styles  = 'style="' . $padding_right . $padding_left'"';   
+        $span_inner_styles  = 'style="' . $padding_right . $padding_left .'"';
     }
  
     return '<div class="one-half ' . $class . '"><div class="span-inner" ' . $span_inner_styles . '>' . do_shortcode( $content ) . '</div></div>';
@@ -83,7 +83,7 @@ function ffw_one_third( $atts, $content = null ) {
         $padding_right      = 'padding-right: ' . $padding_right . '; ';
         $padding_left       = 'padding-left: ' . $padding_left . '; ';
 
-        $span_inner_styles  = 'style="' . $padding_right . $padding_left'"';   
+        $span_inner_styles  = 'style="' . $padding_right . $padding_left .'"'; 
     }
  
     return '<div class="one-third ' . $class . '"><div class="span-inner" ' . $span_inner_styles . '>' . do_shortcode( $content ) . '</div></div>';
@@ -105,7 +105,7 @@ function ffw_two_thirds( $atts, $content = null ) {
         $padding_right      = 'padding-right: ' . $padding_right . '; ';
         $padding_left       = 'padding-left: ' . $padding_left . '; ';
 
-        $span_inner_styles  = 'style="' . $padding_right . $padding_left'"';   
+        $span_inner_styles  = 'style="' . $padding_right . $padding_left .'"';
     }
  
     return '<div class="two-thirds ' . $class . '"><div class="span-inner" ' . $span_inner_styles . '>' . do_shortcode( $content ) . '</div></div>';
@@ -128,7 +128,7 @@ function ffw_one_fourth( $atts, $content = null ) {
         $padding_right      = 'padding-right: ' . $padding_right . '; ';
         $padding_left       = 'padding-left: ' . $padding_left . '; ';
 
-        $span_inner_styles  = 'style="' . $padding_right . $padding_left'"';   
+        $span_inner_styles  = 'style="' . $padding_right . $padding_left .'"';
     }
  
     return '<div class="one-fourth' . $class . '"><div class="span-inner" ' . $span_inner_styles . '>' . do_shortcode( $content ) . '</div></div>';
@@ -150,7 +150,7 @@ function ffw_three_fourths( $atts, $content = null ) {
         $padding_right      = 'padding-right: ' . $padding_right . '; ';
         $padding_left       = 'padding-left: ' . $padding_left . '; ';
 
-        $span_inner_styles  = 'style="' . $padding_right . $padding_left'"';   
+        $span_inner_styles  = 'style="' . $padding_right . $padding_left .'"';
     }
  
     return '<div class="three-fourths' . $class . '"><div class="span-inner" ' . $span_inner_styles . '>' . do_shortcode( $content ) . '</div></div>';
