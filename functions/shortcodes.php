@@ -3,11 +3,11 @@
 // button
 function ffw_button_shortcode( $atts, $content = null ) {
     extract(shortcode_atts(array(
-        'type' =>  '',
+        'class' =>  '',
         'url'   =>  '',
     ), $atts));
 
-    $ffw_button = '<a class="btn '.$type.'" href="'.$url.'">' . do_shortcode( $content ) . '</a>';
+    $ffw_button = '<a class="btn '.$class.'" href="'.$url.'">' . do_shortcode( $content ) . '</a>';
 
     return $ffw_button;
 }
