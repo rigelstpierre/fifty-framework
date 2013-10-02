@@ -16,7 +16,7 @@
       <div class="content-inner">
         
         <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
-          <?php get_template_part( 'loop/loop', get_post_format() ); ?>
+          <?php get_template_part( 'loop/loop', 'page' ); ?>
         <?php endwhile; endif; ?>
 
       </div><!-- .content-inner -->

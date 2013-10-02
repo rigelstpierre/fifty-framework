@@ -15,93 +15,306 @@ i.icon,.icon  {
   text-transform:none;
 }
 
-// METER
+
+// UPLOAD
+.icon-upload:before,
+%icon-upload:before {
+  content:'c';
+}
+
+// LIGHTNING
+.icon-lightning:before,
+%icon-lightning:before {
+  content:'e';
+}
+
+// GROUP OF PEOPLE
+.icon-group:before,
+%icon-group:before {
+  content:'g';
+}
+
+// INFO (i in circle)
+.icon-info:before,
+%icon-info:before {
+  content:'i';
+}
+
+// CHAIN
+.icon-chain:before,
+%icon-chain:before {
+  content:'j';
+}
+
+// HEART
+.icon-heart:before,
+%icon-heart:before {
+  content:'k';
+}
+
+// FILE
+.icon-file:before,
+%icon-file:before {
+  content:'o';
+}
+
+// PENCIL
+.icon-pencil:before,
+%icon-pencil:before {
+  content:'p';
+}
+
+// MESSAGE
+.icon-message:before,
+%icon-message:before {
+  content:'q';
+}
+
+// loop
+.icon-loop:before,
+%icon-loop:before {
+  content:'r';
+}
+
+.icon-search:before,
+%icon-search:before {
+  content:'s';
+}
+
+// TIME
+.icon-time:before,
+%icon-time:before {
+  content:'t';
+}
+
+// CAMERA
+.icon-camera:before,
+%icon-camera:before {
+  content:'v';
+}
+
+// CHAT
+.icon-chat:before,
+%icon-chat:before {
+  content:'w';
+}
+
+// SETTINGS (gear)
+.icon-settings:before,
+%icon-settings:before {
+  content:'x';
+}
+
+// COG
+.icon-cog:before,
+%icon-cog:before {
+  content:'y';
+}
+
+// TAG
+.icon-tag:before,
+%icon-tag:before {
+  content:'z';
+}
+
+// LINK
+.icon-link:before,
+%icon-link:before {
+  content:'A';
+}
+
+// CLOUD
+.icon-cloud:before,
+%icon-cloud:before {
+  content:'C';
+}
+
+// CLOSE
+.icon-close:before,
+%icon-close:before {
+  content:'D';
+}
+
+// EYE
+.icon-eye:before,
+%icon-eye:before {
+  content:'E';
+}
+
+// GLOBE
+.icon-globe:before,
+%icon-globe:before {
+  content:'G';
+}
+
+// HOME
+.icon-home:before,
+%icon-home:before {
+  content:'H';
+}
+
+// key
+.icon-key:before,
+%icon-key:before {
+  content:'K';
+}
+
+// email
+.icon-email:before,
+%icon-email:before {
+  content:'M';
+}
+
+// NEWS ARTICLE
+.icon-news:before,
+%icon-news:before {
+  content:'N';
+}
+
+// picture
+.icon-picture:before,
+%icon-picture:before {
+  content:'P';
+}
+
+// POWER
+.icon-power:before,
+%icon-power:before {
+  content:'Q';
+}
+
+// send
+.icon-send:before,
+%icon-send:before {
+  content:'R';
+}
+
+// star
+.icon-star:before,
+%icon-star:before {
+  content:'S';
+}
+
+// plane
+.icon-plane:before,
+%icon-plane:before {
+  content:'P';
+}
+
+// person
+.icon-person:before,
+%icon-person:before {
+  content:'U';
+}
+
+// video
+.icon-video:before,
+%icon-video:before {
+  content:'V';
+}
+
+// write
+.icon-write:before,
+%icon-write:before {
+  content:'W';
+}
+
+// PULSE
+.icon-pulse:before,
+%icon-pulse:before {
+  content:'Y';
+}
+
+// PIE CHART
+.icon-piechart:before,
+%icon-piechart:before {
+  content:'Z';
+}
+
+// expand
+.icon-expand:before,
+%icon-expand:before {
+  content:'`';
+}
+
+// refresh
+.icon-refresh:before,
+%icon-refresh:before {
+  content:'1';
+}
+
+// checkmark
+.icon-checkmark:before,
+%icon-checkmark:before {
+  content:'3';
+}
+
+// calendar
+.icon-calendar:before,
+%icon-calendar:before {
+  content:'\005C';
+}
+
+// meter
 .icon-meter:before,
 %icon-meter:before {
   content:',';
 }
-// PULSE
-.icon-pulse:before,
-%icon-meter:before {
-  content:'Y';
-}
-// LOCK
-.icon-lock:before,
-%icon-meter:before {
-  content:'(';
-}
-// GROUP OF PEOPLE
-.icon-group:before,
-%icon-meter:before {
-  content:'g';
-}
-// FLAG
-.icon-flag:before,
-%icon-meter:before {
-  content:'^';
-}
-// CHAT BUBBLE
-.icon-chat:before,
-%icon-meter:before {
-  content:'Q';
-}
-// NEWS ARTICLE
-.icon-news:before,
-%icon-meter:before {
-  content:'N';
-}
-// PIE CHART
-.icon-piechart:before,
-%icon-meter:before {
-  content:'Z';
-}
-// SETTINGS (gear)
-.icon-settings:before,
-%icon-meter:before {
-  content:'x';
-}
-// INFO (i in circle)
-.icon-info:before,
-%icon-meter:before {
-  content:'i';
-}
-// CHECKMARK
-.icon-checkmark:before,
-%icon-meter:before {
-  content:'3';
-}
-.icon-email:before,
-%icon-meter:before {
-  content:'M';
-}
-.icon-pencil:before,
-%icon-meter:before {
-  content:'p';
-}
-.icon-chat:before,
-%icon-meter:before {
-  content:'w';
-}
-.icon-person:before,
-%icon-meter:before {
-  content:'U';
-}
-.icon-time:before,
-%icon-meter:before {
-  content:'t';
-}
-.icon-search:before,
-%icon-meter:before {
-  content:'s';
-}
+
+// marker
 .icon-marker:before,
-%icon-meter:before {
+%icon-marker:before {
   content:'@';
 }
-.icon-calendar:before,
-%icon-meter:before {
-  content:'\005C';
+
+// trash
+.icon-trash:before,
+%icon-trash:before {
+  content:'#';
 }
+
+// cart
+.icon-cart:before,
+%icon-cart:before {
+  content:'$';
+}
+
+// flag
+.icon-flag:before,
+%icon-flag:before {
+  content:'^';
+}
+
+// plus
+.icon-plus:before,
+%icon-plus:before {
+  content:'&';
+}
+
+// x
+.icon-x:before,
+%icon-x:before {
+  content:'*';
+}
+
+// lock
+.icon-lock:before,
+%icon-lock:before {
+  content:'(';
+}
+
+// unlock
+.icon-unlock:before,
+%icon-unlock:before {
+  content:')';
+}
+
+// question
+.icon-question:before,
+%icon-question:before {
+  content:'?';
+}
+
 
 
 
