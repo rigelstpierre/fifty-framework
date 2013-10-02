@@ -51,10 +51,20 @@ add_shortcode('row', 'row_shortcode');
 function ffw_one_half( $atts, $content = null ) {
  
     extract( shortcode_atts( array(
-            'class'   =>  ''
+            'class'   =>  '',
+            'padding_left'  =>  '',
+            'padding_right' =>  ''
         ), $atts ) );
+
+    if( !empty( $padding_left ) || !empty( $padding_right ){
+
+        $padding_right      = 'padding-right: ' . $padding_right . '; ';
+        $padding_left       = 'padding-left: ' . $padding_left . '; ';
+
+        $span_inner_styles  = 'style="' . $padding_right . $padding_left'"';   
+    }
  
-    return '<div class="one-half ' . $class . '">' . do_shortcode( $content ) . '</div>';
+    return '<div class="one-half ' . $class . '"><div class="span-inner" ' . $span_inner_styles . '>' . do_shortcode( $content ) . '</div></div>';
  
 }
 add_shortcode('one_half', 'ffw_one_half');
@@ -63,10 +73,20 @@ add_shortcode('one_half', 'ffw_one_half');
 function ffw_one_third( $atts, $content = null ) {
  
     extract( shortcode_atts( array(
-            'class'   =>  ''
+            'class'   =>  '',
+            'padding_left'  =>  '',
+            'padding_right' =>  ''
         ), $atts ) );
+
+    if( !empty( $padding_left ) || !empty( $padding_right ){
+
+        $padding_right      = 'padding-right: ' . $padding_right . '; ';
+        $padding_left       = 'padding-left: ' . $padding_left . '; ';
+
+        $span_inner_styles  = 'style="' . $padding_right . $padding_left'"';   
+    }
  
-    return '<div class="one-third ' . $class . '">' . do_shortcode( $content ) . '</div>';
+    return '<div class="one-third ' . $class . '"><div class="span-inner" ' . $span_inner_styles . '>' . do_shortcode( $content ) . '</div></div>';
  
 }
 add_shortcode('one_third', 'ffw_one_third');
@@ -75,10 +95,20 @@ add_shortcode('one_third', 'ffw_one_third');
 function ffw_two_thirds( $atts, $content = null ) {
  
     extract( shortcode_atts( array(
-            'class'   =>  ''
+            'class'         =>  '',
+            'padding_left'  =>  '',
+            'padding_right' =>  ''
         ), $atts ) );
+
+    if( !empty( $padding_left ) || !empty( $padding_right ){
+
+        $padding_right      = 'padding-right: ' . $padding_right . '; ';
+        $padding_left       = 'padding-left: ' . $padding_left . '; ';
+
+        $span_inner_styles  = 'style="' . $padding_right . $padding_left'"';   
+    }
  
-    return '<div class="two-thirds ' . $class . '">' . do_shortcode( $content ) . '</div>';
+    return '<div class="two-thirds ' . $class . '"><div class="span-inner" ' . $span_inner_styles . '>' . do_shortcode( $content ) . '</div></div>';
  
 }
 add_shortcode('two_thirds', 'ffw_two_thirds');
@@ -88,10 +118,20 @@ add_shortcode('two_thirds', 'ffw_two_thirds');
 function ffw_one_fourth( $atts, $content = null ) {
  
     extract( shortcode_atts( array(
-            'class'     =>  ''
+            'class'         =>  '',
+            'padding_left'  =>  '',
+            'padding_right' =>  ''
         ), $atts ) );
+
+    if( !empty( $padding_left ) || !empty( $padding_right ){
+
+        $padding_right      = 'padding-right: ' . $padding_right . '; ';
+        $padding_left       = 'padding-left: ' . $padding_left . '; ';
+
+        $span_inner_styles  = 'style="' . $padding_right . $padding_left'"';   
+    }
  
-    return '<div class="one-fourth' . $class . '">' . do_shortcode( $content ) . '</div>';
+    return '<div class="one-fourth' . $class . '"><div class="span-inner" ' . $span_inner_styles . '>' . do_shortcode( $content ) . '</div></div>';
  
 }
 add_shortcode('one_fourth', 'ffw_one_fourth');
@@ -100,10 +140,20 @@ add_shortcode('one_fourth', 'ffw_one_fourth');
 function ffw_three_fourths( $atts, $content = null ) {
  
     extract( shortcode_atts( array(
-            'class'     =>  ''
+            'class'         =>  '',
+            'padding_left'  =>  '',
+            'padding_right' =>  ''
         ), $atts ) );
+
+    if( !empty( $padding_left ) || !empty( $padding_right ){
+
+        $padding_right      = 'padding-right: ' . $padding_right . '; ';
+        $padding_left       = 'padding-left: ' . $padding_left . '; ';
+
+        $span_inner_styles  = 'style="' . $padding_right . $padding_left'"';   
+    }
  
-    return '<div class="three-fourths' . $class . '">' . do_shortcode( $content ) . '</div>';
+    return '<div class="three-fourths' . $class . '"><div class="span-inner" ' . $span_inner_styles . '>' . do_shortcode( $content ) . '</div></div>';
  
 }
 add_shortcode('three_fourths', 'ffw_three_fourths');
