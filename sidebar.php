@@ -20,7 +20,7 @@ if ( is_home() || is_front_page() || is_page() || is_single() || is_archive() ):
 		</div><!-- .sidebar-inner -->
 	<?php endif; ?>
 
-<?php elseif( is_singular( 'ffw_staff') ) : ?>
+<?php elseif( is_single( 'ffw_staff') ) : ?>
 	
 	<?php $portfolio_label = strtolower(ffw_port_get_label_singular() ); ?>
 	<?php if ( is_active_sidebar( $portfolio_label . '_default' ) ) : ?>
@@ -33,7 +33,7 @@ if ( is_home() || is_front_page() || is_page() || is_single() || is_archive() ):
 
 	<?php endif; ?>
 
-<?php elseif( is_singular( 'ffw_portfolio' ) ) : ?>
+<?php elseif( is_single( 'ffw_portfolio' ) ) : ?>
 	
 	<?php $staff_label = strtolower(ffw_staff_get_label_singular() ); ?>
 	<?php if ( is_active_sidebar( $staff_label. '_default' ) ) : ?>
