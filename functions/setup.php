@@ -117,7 +117,7 @@ function FFW_add_theme_sidebars() {
     // PORTFOLIO
       register_sidebar( array(
         'name'          => __( $portfolio_label_cap . ' Sidebar', 'FFW' ),
-        'id'            => $portfolio_label . '_default',
+        'id'            => 'portfolio_default',
         'description'   => __( 'Appears on '. $portfolio_label .' detail pages.', 'FFW' ),
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '<div class="separator"></div></aside>',
@@ -128,7 +128,7 @@ function FFW_add_theme_sidebars() {
     // STAFF
       register_sidebar( array(
         'name'          => __( $staff_label_cap . ' Sidebar', 'FFW' ),
-        'id'            => $staff_label . '_default',
+        'id'            => 'staff_default',
         'description'   => __( 'Appears on '. $staff_label .' detail pages.', 'FFW' ),
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '<div class="separator"></div></aside>',
