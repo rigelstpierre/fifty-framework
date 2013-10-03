@@ -90,27 +90,53 @@ add_action( 'init', 'FFW_add_theme_nav_menus' );
  */
 function FFW_add_theme_sidebars() {
 
-  // DEFAULT
-  register_sidebar( array(
-    'name'          => __( 'Sidebar Default', 'FFW' ),
-    'id'            => 'sidebar_default',
-    'description'   => __( 'Appears in pages and the blog.', 'FFW' ),
-    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-    'after_widget'  => '<div class="separator"></div></aside>',
-    'before_title'  => '<h3 class="widget-title">',
-    'after_title'   => '</h3>',
-  ) );
+  if( function_exists( 'register_sidebar' ) ){
 
-  // FOOTER DEFAULT
-  register_sidebar( array(
-    'name'          => __( 'Sidebar Footer Default', 'FFW' ),
-    'id'            => 'sidebar_footer_default',
-    'description'   => __( 'Default footer sidebar.', 'FFW' ),
-    'before_widget' => '<div id="%1$s" class="footer-widget widget %2$s">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h3 class="widget-title">',
-    'after_title'   => '</h3>',
-  ) );
+     // DEFAULT
+    register_sidebar( array(
+      'name'          => __( 'Sidebar Default', 'FFW' ),
+      'id'            => 'sidebar_default',
+      'description'   => __( 'Appears in pages and the blog.', 'FFW' ),
+      'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+      'after_widget'  => '<div class="separator"></div></aside>',
+      'before_title'  => '<h3 class="widget-title">',
+      'after_title'   => '</h3>',
+    ) );
+
+    if( function_exists( 'ffw_port_get_label_singular' ) && 
+        function_exists( 'ffw_staff_get_label_singular' ) ){
+
+        $portfolio_label_cap  = ucwords( ffw_port_get_label_singular() );
+        $portfolio_label    = strtolower(ffw_port_get_label_singular() );
+
+        $staff_label_cap  = ucwords( ffw_staff_get_label_singular() );
+        $staff_label    = strtolower( ffw_staff_get_label_singular() );
+
+
+    // PORTFOLIO
+      register_sidebar( array(
+        'name'          => __( $portfolio_label_cap . ' Sidebar', 'FFW' ),
+        'id'            => $portfolio_label . '_default',
+        'description'   => __( 'Appears on '. $portfolio_label .' detail pages.', 'FFW' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '<div class="separator"></div></aside>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+      ) );
+
+    // STAFF
+      register_sidebar( array(
+        'name'          => __( $staff_label_cap . ' Sidebar', 'FFW' ),
+        'id'            => $staff_label . '_default',
+        'description'   => __( 'Appears on '. $staff_label .' detail pages.', 'FFW' ),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '<div class="separator"></div></aside>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+      ) );
+    }
+  }
+
 
 }
 add_action( 'widgets_init', 'FFW_add_theme_sidebars' );
