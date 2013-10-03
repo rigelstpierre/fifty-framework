@@ -100,6 +100,7 @@
   // CONTAINER-FULL
   //////////////////
   .container-full {
+    @include clearfix;
     
     // BOX HALF
     .box-half {
@@ -123,6 +124,7 @@
       &:nth-of-type(4n) {margin-right:0;padding-right:0;}
     }
     
+    .box-inner {position:relative;}
   }
   // CONTAINER
   //////////////
@@ -148,6 +150,8 @@
 
       &:nth-of-type(4n) {margin-right:0;padding-right:0;}
     }
+
+    .box-inner {position:relative;}
   }
 
 

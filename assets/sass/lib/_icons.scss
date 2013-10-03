@@ -6,7 +6,30 @@
 i.icon,.icon  {
   font-style:normal;display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
   background-image:none !important;
+
+  &.circle {
+    width:86px;height:86px;
+    @include border-radius(43px);
+    background-color:#fff;
+    text-align:center;
+    color:$colorSecondaryDark;
+    font-size:em(32px);
+
+    &:before {
+      display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
+      // @include xbc-transparent-bg(0.50, #000); // DEBUG
+      line-height:90px;
+      text-align:center;
+    }
+  }
+  &.transparent {
+    @include xbc-transparent-bg(0.10, #fff, 255,255,255);
+    color:#fff;
+  }
+
 }
+
+
 .icon:before  {
   font-family:"pictos",$pictos;
   font-weight:normal;
@@ -14,7 +37,6 @@ i.icon,.icon  {
   font-size:inherit;
   text-transform:none;
 }
-
 
 // UPLOAD
 .icon-upload:before,
