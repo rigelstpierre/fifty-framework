@@ -106,6 +106,7 @@ function FFW_add_theme_sidebars() {
     if( function_exists( 'ffw_port_get_label_singular' ) && 
         function_exists( 'ffw_staff_get_label_singular' ) ){
 
+        //Get labels from the plugin
         $portfolio_label_cap  = ucwords( ffw_port_get_label_singular() );
         $portfolio_label    = strtolower(ffw_port_get_label_singular() );
 
