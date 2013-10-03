@@ -149,7 +149,7 @@ function FFW_helper_functions() {
     $image_size = isset($args['image_size']) ? $args['image_size'] : 'full';
 
 
-    return wp_get_attachment_url( get_post_thumbnail_id( $post_id, $image_size ) );
+    return $image_size . wp_get_attachment_url( get_post_thumbnail_id( $post_id, $image_size ) );
   } 
 
 
