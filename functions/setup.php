@@ -103,18 +103,14 @@ function FFW_add_theme_sidebars() {
       'after_title'   => '</h3>',
     ) );
 
-    if( function_exists( 'ffw_port_get_label_singular' ) && 
-        function_exists( 'ffw_staff_get_label_singular' ) ){
+    //Conditionals based around a plugin in being installed
+    if( function_exists( 'ffw_port_get_label_singular' ) ){
 
-        //Get labels from the plugin
-        $portfolio_label_cap  = ucwords( ffw_port_get_label_singular() );
-        $portfolio_label    = strtolower(ffw_port_get_label_singular() );
+      //Get labels from the plugin
+      $portfolio_label_cap  = ucwords( ffw_port_get_label_singular() );
+      $portfolio_label    = strtolower(ffw_port_get_label_singular() );
 
-        $staff_label_cap  = ucwords( ffw_staff_get_label_singular() );
-        $staff_label    = strtolower( ffw_staff_get_label_singular() );
-
-
-    // PORTFOLIO
+      // PORTFOLIO
       register_sidebar( array(
         'name'          => __( $portfolio_label_cap . ' Sidebar', 'FFW' ),
         'id'            => 'portfolio_default',
@@ -124,6 +120,14 @@ function FFW_add_theme_sidebars() {
         'before_title'  => '<h3 class="widget-title">',
         'after_title'   => '</h3>',
       ) );
+
+    } //ffw_port_get_label_singular
+        
+    //Conditionals based around a plugin in being installed
+    if( function_exists( 'ffw_staff_get_label_singular' ) ){
+
+    $staff_label_cap  = ucwords( ffw_staff_get_label_singular() );
+    $staff_label      = strtolower( ffw_staff_get_label_singular() );
 
     // STAFF
       register_sidebar( array(
@@ -135,9 +139,7 @@ function FFW_add_theme_sidebars() {
         'before_title'  => '<h3 class="widget-title">',
         'after_title'   => '</h3>',
       ) );
-    }
-  }
-
-
-}
+    } //ffw_staff_get_label_singular
+  } //register_sidebar
+} //FFW_add_theme_sidebars
 add_action( 'widgets_init', 'FFW_add_theme_sidebars' );
