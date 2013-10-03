@@ -159,8 +159,6 @@ function FFW_helper_functions() {
 
 
 
-
-
   /* ================================================================== */
   /*                                                                    */
   /*            V I D E O  S E R V I C E   F U N C T I O N S            */
