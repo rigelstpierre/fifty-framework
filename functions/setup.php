@@ -103,6 +103,17 @@ function FFW_add_theme_sidebars() {
       'after_title'   => '</h3>',
     ) );
 
+    // FOOTER DEFAULT
+    register_sidebar( array(
+      'name'          => __( 'Footer Sidebar Default', 'FFW' ),
+      'id'            => 'sidebar_footer_default',
+      'description'   => __( 'Appears in pages and the blog.', 'FFW' ),
+      'before_widget' => '<aside id="%1$s" class="footer-widget widget %2$s">',
+      'after_widget'  => '</aside>',
+      'before_title'  => '<h3 class="widget-title">',
+      'after_title'   => '</h3>',
+    ) );
+
     //Conditionals based around a plugin in being installed
     if( function_exists( 'ffw_port_get_label_singular' ) ){
 

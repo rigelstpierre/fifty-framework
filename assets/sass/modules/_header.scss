@@ -7,8 +7,8 @@ $height-header_default:   88;
 header.default {
   width:100%;
   // height:#{$height-header_default}px;
-  line-height:#{$height-header_default}px;
-  @include clearfix;
+  // line-height:#{$height-header_default}px;
+  // @include clearfix;
 
   @if $transparency-header == true {
     background-color:transparent;
@@ -19,7 +19,8 @@ header.default {
   /* LOGO
   ================================================== */
   .logo {
-    @extend %inline-block;
+    @include inline-block;
+    line-height:#{$height-header_default}px;
 
     h1,h2,h3,p,span {margin:0;}
 
@@ -30,31 +31,38 @@ header.default {
   /* NAV
   ================================================== */
   nav {
-    line-height:#{$height-header_default}px;
     text-align:right;
+    line-height:#{$height-header_default}px;
 
     ul {
-      @extend %inline-block;
-      @extend %ul-blank;
-      line-height:#{$height-header_default}px;
-
-      li {
-        text-transform: uppercase;
-        @extend %inline-block;
-        margin-right:1.5em;
-        // font-family:$default-alt;
-        // font-weight:300;
-        letter-spacing:1px;
-
-        &:last-child {margin-right:0;}
+      @if $transparency-header == true {
+        background-color:transparent;
+      } @else {
+        background-color:#ffffff;
       }
+    }
+    
+    > ul {
+      height:88px;
+      float:right;
+    }
 
-      li a {
-        color:$colorTextDefault;
+    > ul > li {
+      height:#{$height-header_default}px;
+      // line-height:#{$height-header_default}px;
+      text-transform: uppercase;
+      letter-spacing:1px;
 
-        &:hover {color:$colorAnchorDefault;}
+      &:last-child a {padding-right:0;}
+
+      > a {
+        display:block;
+        width:100%;height:100%;
+        line-height:88px;
+        padding-right:em(24px);
+        padding-left:em(4px);
       }
-    } 
+    }
+
   }
-
 }

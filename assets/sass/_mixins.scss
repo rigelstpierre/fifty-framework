@@ -27,7 +27,7 @@
 }
 
 
-/* BRADIUS
+/* BORDER RADIUS
 ================================================== */
 @mixin border-radius($values) {
   -webkit-border-radius: $values;
@@ -49,7 +49,24 @@
 }
 
 
+/* UL-BLANK
+================================================== */
+@mixin ul-blank() {
+  margin:0;padding:0;
+  list-style-type:none;
 
+  li {margin:0;padding:0;}
+}
+
+/* INLINE-BLOCK
+================================================== */
+@mixin inline-block( $lh_inherit:true ) {
+  display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
+  
+  @if $lh_inherit == true {
+    // line-height:inherit;
+  }
+}
 
 /* HEIGHTS / WIDTHS
 ================================================== */
@@ -219,4 +236,23 @@
 }
 
 
+/* PSEUDO-ICON-FONT
+================================================== */
+@mixin pseudo-icon(
+  $location:  after,
+  $content:   "u",
+  $font:      "arrrows"
+
+) {
+  &:#{$location} {
+    text-transform:none;
+    position:relative;
+    line-height:inherit;
+    color:inherit;
+    content:$content;
+    font-family:$font;
+
+    @content;
+  }
+}
 

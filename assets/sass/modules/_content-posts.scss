@@ -37,13 +37,13 @@
   } 
     // POST META
     ul.post-meta {
-      @extend %ul-blank;
+      @include ul-blank;
       font-size:initial;
 
       a {color:inherit; &:hover {text-decoration: underline;} }
 
       li {
-        @extend %inline-block;
+        @include inline-block;
         @extend %font-serif_italic;
         margin-right:7px;
         font-size:em(14px);
@@ -140,7 +140,7 @@
 
         // <h1>
         .post-format-image-title, .post-format-video-title {
-          @extend %inline-block;
+          @include inline-block;
           @extend %font-extrabold;
           color:#fff;
           margin:.5em 0;

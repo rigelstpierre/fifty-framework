@@ -20,7 +20,10 @@ $height-flex_control_thumbs:  130;
     
   }
 
-  .flex-viewport {width:100%;height:#{$height-slider_full}px;}
+  .flex-viewport {
+    width:100%;height:#{$height-slider_full}px;
+    @include backface;
+  }
 
   .flex-overlay {
     position:absolute;top:0;left:0;
@@ -36,7 +39,8 @@ $height-flex_control_thumbs:  130;
     overflow-y:hidden;
     background-color:#3a3a3a;
     height:#{$height-slider_full}px;
-    @extend %ul-blank;
+    @include ul-blank;
+    @include backface;
     /* TRANSITION */
     // @include transition(opacity 150ms ease-in);
     // opacity:0;
@@ -106,12 +110,12 @@ $height-flex_control_thumbs:  130;
           }
 
           h1 {
-            @extend %inline-block;
+            @include inline-block;
             width:70%;
             &:first-of-type {margin:0;}
           }
           p {
-            @extend %inline-block;
+            @include inline-block;
             @extend %font-serif;
             line-height:( 1.3 * 1.1em);
             font-size:1.1em;
@@ -136,13 +140,13 @@ $height-flex_control_thumbs:  130;
   }
 
   ol.flex-control-paging  {
-    @extend %ul-blank;
-    @extend %inline-block;
+    @include ul-blank;
+    @include inline-block;
     height:#{$height-flex_paging}px;
     @include clearfix;
 
     li {
-      @extend %inline-block;
+      @include inline-block;
       height:100%;
       line-height:#{$height-flex_paging}px;
       margin-right:10px;
@@ -175,7 +179,7 @@ $height-flex_control_thumbs:  130;
   /* FLEX-CONTROL-THUMBS
   ================================================== */
   ol.flex-control-thumbs  {
-    @extend %ul-blank;
+    @include ul-blank;
     width:100%;height:#{$height-flex_control_thumbs}px;
     display:table;
     background:#ffffff;

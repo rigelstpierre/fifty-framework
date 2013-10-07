@@ -28,6 +28,7 @@
 
 /* Modules & Components */
 @import "modules/header",
+        "modules/navigation",
         "modules/hero",
         "modules/footer",
         "modules/slider",
@@ -41,5 +42,5 @@
 @import "modules/portfolio";
 
 #content.full-width{
-        width:100%;
+  width:100%;
 }

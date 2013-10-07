@@ -330,4 +330,34 @@ function FFW_helper_functions() {
     }
   }
 
+
+
+
+  /**
+   * Has_Children_Walker()
+   * Use with wp_nav_menu(). Checks if <li> has child <ul> and applies a class
+   * to the parent <li> if so.
+   * @author Alexander Zizzo
+   * @since 1.1
+   */
+  class Has_Children_Walker extends Walker_Nav_Menu {
+      function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
+          $id_field = $this->db_fields['id'];
+
+          if ( is_object( $args[0] ) ) {
+              $args[0]->has_children = !empty( $children_elements[$element->$id_field] );
+          }
+
+          return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+      }
+
+      function start_el( &$output, $item, $depth, $args ) {
+          if ( $args->has_children ) {
+              $item->classes[] = 'has_children';
+          }
+
+          parent::start_el($output, $item, $depth, $args);
+      }
+  }
+
 }

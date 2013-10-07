@@ -141,3 +141,16 @@
 
 
 .hide {display:none;}
+
+
+/* Z-INDEXES
+================================================== */
+%z-below      {z-index:-1;}
+%z-zero       {z-index:0;}
+%z-base       {z-index:1;}
+%z-low        {z-index:10;}
+%z-mid        {z-index:100;}
+%z-top        {z-index:1000;}
+%z-highest    {z-index:99999;}
+
+

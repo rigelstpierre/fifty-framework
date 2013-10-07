@@ -60,8 +60,15 @@
 			<?php endif; ?>		
 		</div>
 
-		<nav class="nav-header span8 omega">
-			<?php wp_nav_menu( array( 'theme_location' => 'header_menu', 'menu_class' => 'nav-menu' ) ); ?>
+		<nav class="header_menu span8 omega">
+			<?php wp_nav_menu( array( 
+				'theme_location'  => 'header_menu', 
+				'container_class' => '',
+				'container'       => false, 
+				'menu_class'      => 'menu-header',
+				'walker'					=> new Has_Children_Walker()
+
+			) ); ?>
 		</nav>
 
   <div class="clear"></div>

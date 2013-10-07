@@ -2,11 +2,11 @@
 
 .menu-social {
   font-size:initial;
-  @extend %inline-block !optional;
-  @extend %ul-blank;
+  @include inline-block;
+  @include ul-blank;
 
   li {
-    @extend %inline-block !optional;
+    @include inline-block;
     font-size:em(50px);
     line-height:1;
 

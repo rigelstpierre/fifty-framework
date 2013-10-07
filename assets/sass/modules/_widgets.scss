@@ -14,7 +14,7 @@
     // &:first-of-type .widget-title {margin-top:10px;}
     
     .separator {
-      @extend %inline-block;
+      @include inline-block;
       width:50%;
       margin-top:2em;
       border-bottom:1px solid #ddd;
@@ -41,7 +41,7 @@
       text-align:inherit;
 
       a { 
-        @extend %inline-block; 
+        @include inline-block; 
         background-color: #f3f1f1;
       }
       img,a {
@@ -52,7 +52,7 @@
     }
 
     .standard-pi-top-text {
-      @extend %inline-block;
+      @include inline-block;
       margin:1.5em 0 0 0;
       font-size:em(14px);
       font-style:italic;
@@ -67,7 +67,7 @@
     }
 
     .standard-pi-separator {
-      @extend %inline-block;
+      @include inline-block;
       width:50%;
       margin:.8em 0 .6em 0;
       border-bottom:2px solid #353535;
