@@ -422,7 +422,7 @@ form .pure-help-inline,
 /* NEWSLETTER WRAPPER
 ================================================== */
 $ffw_newsletter_height:         80;
-.ffw_newsletter_wrapper {
+.ffw_newsletter_wrapper.gform_wrapper {
     margin:0;padding:0;
     width:100%;max-width:100%;
     height:auto;
@@ -451,31 +451,38 @@ $ffw_newsletter_height:         80;
     form {
         width:100%;height:auto;
         @include clearfix;
-        // height:#{$ffw_newsletter_height}px;
         
         .gform_body {
             float: left;
             width: 87%;
             height: 80px;
 
-            li.gfield {
-                width: 50% !important;
-                float: left;
-                clear: none;
-                margin:0 !important;
-                // height:#{$ffw_newsletter_height}px;
+            ul.gform_fields {
 
-                input {width:100% !important;height:44px;min-height:44px;max-height:44px;}
-
-                // ex: first/last name field pair
-                .gfield_complex {
-                    max-width:100% !important;
+                li.gfield {
+                    width: 50% !important;
+                    float: left;
+                    clear: none;
+                    margin:0 !important;
                     padding-right:10px !important;
 
-                    span.ginput_left {padding-right: 10px !important;}
+                    input {width:100% !important;height:44px;min-height:44px;max-height:44px;}
+
+                    // ex: first/last name field pair
+                    .gfield_complex {
+                        max-width:100% !important;
+
+                        span.ginput_left {
+                            padding-right: 6px !important;
+                        }
+
+                        span.ginput_left, span.ginput_right {
+                            input {width:100% !important;height:44px;min-height:44px;max-height:44px;}
+                        }
+
+                    }
 
                 }
-
             }
         }
 
