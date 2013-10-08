@@ -431,12 +431,13 @@ $ffw_newsletter_height:         80;
     
 
     // validation
-    .validation_error   {display:none;}
-    .gfield_error       {
+    .validation_error {display:none;}
+
+    form ul.gform_fields li.gfield.gfield_error {
         padding: 0 10px 0 0 !important;
-        margin: 0;
-        background: rgba(0, 0, 0, 0);
-        border: none;
+        margin: 0 !important;
+        background: rgba(0, 0, 0, 0) !important;
+        border: none !important;
 
         .ginput_container {max-width:100% !important;}
 
