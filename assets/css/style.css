@@ -1994,13 +1994,22 @@ form .pure-help-inline,
   max-width: 100%;
 }
 .ffw_newsletter_wrapper.gform_wrapper .validation_error {
-  display: none;
+  display: none !important;
+}
+.ffw_newsletter_wrapper.gform_wrapper .validation_message {
+  display: none !important;
 }
 .ffw_newsletter_wrapper.gform_wrapper form ul.gform_fields li.gfield.gfield_error {
   padding: 0 10px 0 0 !important;
   margin: 0 !important;
   background: rgba(0, 0, 0, 0) !important;
   border: none !important;
+}
+.ffw_newsletter_wrapper.gform_wrapper form ul.gform_fields li.gfield.gfield_error.gfield_contains_required label.gfield_label {
+  margin-top: 5px !important;
+}
+.ffw_newsletter_wrapper.gform_wrapper form ul.gform_fields li.gfield.gfield_error label.gfield_label {
+  margin-top: 5px !important;
 }
 .ffw_newsletter_wrapper.gform_wrapper form ul.gform_fields li.gfield.gfield_error .ginput_container {
   max-width: 100% !important;
