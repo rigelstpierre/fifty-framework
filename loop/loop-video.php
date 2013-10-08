@@ -1,12 +1,4 @@
 <article class="post post-format-video">
-  
-  <?php if ( is_single() ) : ?>
-    <header>
-      <h1 class="post-title">
-        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-      </h1>
-    </header>
-  <?php endif; ?>
 
   <div class="content">
     <?php // Get the ID from the URL

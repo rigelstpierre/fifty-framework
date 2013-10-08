@@ -4,9 +4,9 @@
 ================================================== */
 .post {
   width:100%;height:auto;
-  @include clearfix;
   padding-bottom:60px;
   margin-bottom:30px;
+  @include clearfix;
   
   // FIRST/LASTS
   &:first-child .post-title {margin-top:0;}
@@ -171,6 +171,24 @@
 
     }/* post-format-image-image */
   }/* post-format-image */
+
+
+
+  /* POST THUMBS
+  ================================================== */
+  .post-thumb {
+    width:25%;
+    float:left;
+
+    &.small {}
+    &.med   {}
+
+  }
+
+    .post-content {
+      width:75%;
+      float:left;
+    }
 
 
 }

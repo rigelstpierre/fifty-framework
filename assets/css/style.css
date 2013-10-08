@@ -2073,6 +2073,30 @@ form .pure-help-inline,
   border: 1px solid rgba(0, 0, 0, 0);
 }
 
+/* _social.scss */
+.menu-social {
+  font-size: initial;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.menu-social li {
+  margin: 0;
+  padding: 0;
+}
+.menu-social li {
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  font-size: 3.125em;
+  line-height: 1;
+}
+
 /* _icons.scss */
 /* ICON (pictos)
 ================================================== */
@@ -2482,30 +2506,6 @@ i.socialico.circle:before, .socialico.circle:before {
   content: "p";
 }
 
-/* _social.scss */
-.menu-social {
-  font-size: initial;
-  display: -moz-inline-stack;
-  display: inline-block;
-  zoom: 1;
-  *display: inline;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-.menu-social li {
-  margin: 0;
-  padding: 0;
-}
-.menu-social li {
-  display: -moz-inline-stack;
-  display: inline-block;
-  zoom: 1;
-  *display: inline;
-  font-size: 3.125em;
-  line-height: 1;
-}
-
 /* _buttons-advanced.scss */
 /* ======================================================================== */
 /*                                                                          */
@@ -2647,6 +2647,50 @@ i.socialico.circle:before, .socialico.circle:before {
 }
 .btn-tab.secondary-transparent:before {
   color: #ffffff;
+}
+
+/* _shapes.scss */
+/* CIRCLE-DATE
+================================================== */
+.circle-date {
+  width: 130px;
+  height: 130px;
+  display: table;
+  text-align: center;
+  -webkit-border-radius: 65px/65px 65px 65px 65px;
+  -moz-border-radius: 65px/65px 65px 65px 65px;
+  border-radius: 65px/65px 65px 65px 65px;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#1A000000,endColorstr=#1A000000);
+  zoom: 1;
+}
+.circle-date .circle-date-inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+.circle-date i, .circle-date span, .circle-date b {
+  display: block;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+  opacity: 0.5;
+  color: #353535;
+  line-height: 1;
+}
+.circle-date i {
+  font-size: 1.3125em;
+  margin-bottom: .15em;
+}
+.circle-date span {
+  font-size: 0.9375em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.circle-date b {
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 /*
@@ -7840,10 +7884,6 @@ ol.children {
 /* _content-shared.scss */
 /* #MAIN
 ================================================== */
-#main.page {
-  margin-top: 3.4em;
-}
-
 /* .content
 ================================================== */
 #content.push-left {
@@ -7979,13 +8019,15 @@ nav.pagination .pagination-nav {
 .post {
   width: 100%;
   height: auto;
-  overflow: hidden;
-  *zoom: 1;
   padding-bottom: 60px;
   margin-bottom: 30px;
+  overflow: hidden;
+  *zoom: 1;
   /* POST FORMAT: IMAGE & VIDEO
   ================================================== */
   /* post-format-image */
+  /* POST THUMBS
+  ================================================== */
 }
 .post:first-child .post-title {
   margin-top: 0;
@@ -8191,6 +8233,14 @@ nav.pagination .pagination-nav {
   -ms-transform: scale(1.05);
   -o-transform: scale(1.05);
   transform: scale(1.05);
+}
+.post .post-thumb {
+  width: 25%;
+  float: left;
+}
+.post .post-content {
+  width: 75%;
+  float: left;
 }
 
 /* Optional Post-Type Styles */
