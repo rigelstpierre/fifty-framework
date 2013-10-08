@@ -1981,6 +1981,67 @@ form .pure-help-inline,
   padding: 0;
 }
 
+/* NEWSLETTER WRAPPER
+================================================== */
+.ffw_newsletter_wrapper {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  overflow: hidden;
+  *zoom: 1;
+}
+.ffw_newsletter_wrapper form {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  *zoom: 1;
+  height: 80px;
+}
+.ffw_newsletter_wrapper form .gform_body {
+  float: left;
+  width: 87%;
+  height: 80px;
+}
+.ffw_newsletter_wrapper form .gform_body li.gfield {
+  width: 50%;
+  float: left;
+  clear: none;
+  margin: 0;
+  height: 80px;
+}
+.ffw_newsletter_wrapper form .gform_body li.gfield input {
+  width: 100% !important;
+  height: 44px;
+  min-height: 44px;
+  max-height: 44px;
+}
+.ffw_newsletter_wrapper form .gform_body li.gfield .gfield_complex {
+  padding-right: 10px;
+}
+.ffw_newsletter_wrapper form .gform_body li.gfield .gfield_complex span.ginput_left {
+  padding-right: 7px;
+}
+.ffw_newsletter_wrapper form .gform_footer {
+  float: left;
+  width: 13%;
+  clear: none;
+  margin: 0;
+  padding: 0;
+  height: 80px;
+  padding-top: 32px;
+}
+.ffw_newsletter_wrapper form .gform_footer button {
+  height: 44px;
+  min-height: 44px;
+  max-height: 44px;
+  line-height: 44px;
+  padding: 0 20px;
+  outline: 1px solid rgba(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+
 /* _icons.scss */
 /* ICON (pictos)
 ================================================== */
