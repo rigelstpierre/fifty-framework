@@ -9,17 +9,17 @@
 @mixin media($type) {
 
   @if $type == tablet {
-      @media only screen and (min-width:768px) and (max-width:959px) {
+      @media only screen and (min-width:49em) and (max-width:59em) {
           @content; 
       }
   }
   @else if $type == mobile {
-      @media only screen and (max-width: 39em) {
+      @media only screen and (max-width: 49em) {
           @content;
       }
   }
   @else if $type == mobile_landscape {
-      @media only screen and (min-width:480px) and (max-width:767px) {
+      @media only screen and (min-width:19em) and (max-width:29em) {
           @content;
       }
   }

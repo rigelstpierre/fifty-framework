@@ -20,6 +20,7 @@
         FF.regex();
         FF.lazyLoadVideo();
         FF.collapsableSidebar();
+        FF.backStretch();
         FF.debugBox();
     };
 
@@ -327,6 +328,20 @@
     }
 
 
+
+    /* BACKSTRETCH
+    ================================================== */
+    FF.backStretch = function() {
+
+
+        $('.backstretch').each(function(i){
+            var img_src = $(this).data('img-src');
+
+            $(this).backstretch(img_src);
+        });
+    }
+
+
     /* DEBUG_BOX
     ================================================== */
     FF.debugBox = function(start) {
@@ -358,6 +373,7 @@
         
         // do stuff on document ready
         FF.init();
+
 
     });
 

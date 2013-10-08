@@ -55,17 +55,18 @@ $base-line-height   : $base-font-size * 1.5;
 // $gutter-width       : 20px            !default;
 // $grid-padding       : 10px            !default;
 
-// MAGIC
-$total-columns      : 4               !default;
-$column-width       : 4em             !default;
-$gutter-width       : 1em             !default;
-$grid-padding       : $gutter-width   !default;
+// FLUID
+$column-width       : 4em;             
+$gutter-width       : 1em;             
+$grid-padding       : $gutter-width;   
 
 // BREAKPOINTS
 $mobile-portrait    : 4;
 $mobile-landscape   : 6;
-$tablet             : 8;
+$tablet             : 9;
 $desktop            : 12;
+
+$total-columns      : $mobile-portrait;
 
 
 // GRID BG
@@ -74,8 +75,8 @@ $show-grid-backgrounds    : false;
 // ADVANCED SETTINGS
 $from-direction     : left            !default;
 $omega-float        : opposite-position($from-direction)    !default;
-$container-width    : 960px           !default;
-$container-style    : fluid           !default;
+$container-width    : 59em           !default;
+$container-style    : magic;
 // $border-box-sizing  : false           !default;
 
 // IE SETTINGS
