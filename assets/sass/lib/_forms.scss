@@ -427,11 +427,24 @@ $ffw_newsletter_height:         80;
     width:100%;max-width:100%;
     height:auto;
     @include clearfix;
+    max-width:100%;
+    
 
+    // validation
+    .validation_error   {display:none;}
+    .gfield_error       {
+        padding: 0 !important;
+        margin: 0;
+        background: rgba(0, 0, 0, 0);
+        border: none;
+    }
+
+    
+    // form
     form {
         width:100%;height:auto;
         @include clearfix;
-        height:#{$ffw_newsletter_height}px;
+        // height:#{$ffw_newsletter_height}px;
         
         .gform_body {
             float: left;
@@ -443,7 +456,7 @@ $ffw_newsletter_height:         80;
                 float: left;
                 clear: none;
                 margin:0;
-                height:#{$ffw_newsletter_height}px;
+                // height:#{$ffw_newsletter_height}px;
 
                 input {width:100% !important;height:44px;min-height:44px;max-height:44px;}
 
@@ -463,7 +476,7 @@ $ffw_newsletter_height:         80;
             clear: none;
             margin: 0;
             padding: 0;
-            height: #{$ffw_newsletter_height}px;
+            // height: #{$ffw_newsletter_height}px;
             padding-top: 32px;
             
             button {

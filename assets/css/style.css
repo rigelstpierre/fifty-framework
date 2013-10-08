@@ -1991,13 +1991,22 @@ form .pure-help-inline,
   height: auto;
   overflow: hidden;
   *zoom: 1;
+  max-width: 100%;
+}
+.ffw_newsletter_wrapper .validation_error {
+  display: none;
+}
+.ffw_newsletter_wrapper .gfield_error {
+  padding: 0 !important;
+  margin: 0;
+  background: rgba(0, 0, 0, 0);
+  border: none;
 }
 .ffw_newsletter_wrapper form {
   width: 100%;
   height: auto;
   overflow: hidden;
   *zoom: 1;
-  height: 80px;
 }
 .ffw_newsletter_wrapper form .gform_body {
   float: left;
@@ -2009,7 +2018,6 @@ form .pure-help-inline,
   float: left;
   clear: none;
   margin: 0;
-  height: 80px;
 }
 .ffw_newsletter_wrapper form .gform_body li.gfield input {
   width: 100% !important;
@@ -2029,7 +2037,6 @@ form .pure-help-inline,
   clear: none;
   margin: 0;
   padding: 0;
-  height: 80px;
   padding-top: 32px;
 }
 .ffw_newsletter_wrapper form .gform_footer button {
