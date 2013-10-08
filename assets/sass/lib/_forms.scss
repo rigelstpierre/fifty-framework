@@ -395,3 +395,25 @@ form .pure-help-inline,
         padding: 0.2em 0 0.8em;
     }
 }
+
+/* INLINE-FIELDS
+================================================== */
+.inline-fields {
+    width:100%;height:auto;
+    @include clearfix;
+
+    .inline-input {
+        display:block;
+        float:left;
+        width:75%;
+        margin-right:1%;
+    }
+    .inline-submit {
+        display:block;
+        float:left;
+        width:24%;
+        font-family:"pictos";
+        text-align:center;
+        padding:0;
+    }
+}

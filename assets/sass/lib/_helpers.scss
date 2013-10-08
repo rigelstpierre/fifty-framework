@@ -85,10 +85,51 @@
     }
   }
   
+  nav {
+    width:100%;height:auto;
+    @include clearfix;
+    padding:5px 5px 0 5px;
+
+    a {
+      width:49%;height: 28px;
+      margin-right:2%;
+      margin-bottom:2%;
+      display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
+      outline:0;border:none;
+      @include border-radius(2px);
+      @include background-clip(padding-box);
+      background-color: #5d5d5d;
+      @include box-shadow(0 1px 1px rgba(1,1,1,.1), inset 0 0 2px rgba(167,167,167,.75));
+      @include background-image(linear-gradient(bottom, #434343 0%, #555 100%));
+      line-height:28px;
+      color: #fafafa;
+      text-align:center;
+      font-family: "Consolas", Monospace;
+      font-size: 13px;
+      font-weight: bold;
+      @include text-shadow(0 -1px 0 rgba(1,1,1,.75));
+
+      &:nth-child(2n) {margin-right:0;}
+
+      &:active, &.active {
+      @include box-shadow(0 1px 1px rgba(1,1,1,.1), inset 0 0 2px rgba(0,0,0,.75));
+        @include background-image(linear-gradient(bottom, #2f2f2f 0%, #1f1f1f 100%));
+        color:#F92772;
+      }
+    }
+  }
+
   .debug_box-inner {
     padding:0 5px;
     width:100%;height:auto;
     overflow:scroll;
+  }
+
+  .vardump {
+    width:100%;height:auto;
+
+    &.hide {display:none;}
+    &.show {display:block;}
   }
 
   span {
@@ -109,7 +150,7 @@
     margin:0 auto 15px 0;padding:7px;
     font-family:inherit;
     padding:10px;
-    color:#f8f8f2;
+    color:#f8f8f2 !important;
     font-weight:bold;
     // @include background-image(linear-gradient(rgba(#3a3a3a, 0.55) 0%, rgba(#3a3a3a, 0.55) 70%));
     background-color:transparent;

@@ -15,10 +15,10 @@
 
 
 <?php do_action('FFW_debug_box', array(
-  // 'wpquery'           => true,
+  'wpquery'           => true,
   'post_meta'         => true,
   'post_obj'          => true,
-  // 'current_user_info' => true,
+  'current_user_info' => true,
   'options_framework' => true,
   'query_count'       => true
 )); ?>

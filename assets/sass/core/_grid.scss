@@ -96,6 +96,10 @@
   float:left;
   @include clearfix;
   margin-bottom:20px;
+
+  &.centered {
+    text-align:center;
+  }
 }
 
 

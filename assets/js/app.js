@@ -347,14 +347,29 @@
     FF.debugBox = function(start) {
 
         var debug_box_toggle = FF.el.debug_box.find('button#debug_box-close'),
-            debug_box_inner  = FF.el.debug_box.find('.debug_box-inner');
+            debug_box_inner  = FF.el.debug_box.find('.debug_box-inner'),
+            debug_button     = FF.el.debug_box.find('nav a');
 
+        // toggle debug panel
         debug_box_toggle.toggle(function() {
             localStorage.setItem('FFW_debug_box_closed', true);
             FF.el.debug_box.removeClass('closed');
         }, function() {
             localStorage.setItem('FFW_debug_box_closed', false);
             FF.el.debug_box.addClass('closed');
+        });
+
+        // toggle individual vardumps/pretty prints
+        debug_button.toggle(function(){
+            var target = $(this).attr('name');
+
+            $('#'+target).removeClass('hide');
+            $(this).addClass('active');
+        }, function(){
+            var target = $(this).attr('name');
+
+            $('#'+target).addClass('hide');
+            $(this).removeClass('active');
         });
     }
 
