@@ -7809,11 +7809,12 @@ ol.children {
 /* _content-shared.scss */
 /* #MAIN
 ================================================== */
-/* .content
-================================================== */
-#content.page {
+#main.page {
   margin-top: 3.4em;
 }
+
+/* .content
+================================================== */
 #content.push-left {
   float: left;
 }
