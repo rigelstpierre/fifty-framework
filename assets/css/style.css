@@ -7932,6 +7932,12 @@ nav.pagination .pagination-nav {
 
 /* SECTIONS
 ================================================== */
+.section-header {
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
 .section-title {
   position: relative;
   width: 100%;
@@ -7950,6 +7956,17 @@ nav.pagination .pagination-nav {
   width: 120px;
   height: 2px;
   background-color: #353535;
+}
+
+.section-subtitle {
+  font-family: Georgia, serif;
+  font-size: 1.125em;
+  font-style: italic;
+  color: #433f3e;
+  text-align: center;
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .section-full-thirds {
