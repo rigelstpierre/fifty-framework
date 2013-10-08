@@ -433,10 +433,17 @@ $ffw_newsletter_height:         80;
     // validation
     .validation_error   {display:none;}
     .gfield_error       {
-        padding: 0 !important;
+        padding: 0 10px 0 0 !important;
         margin: 0;
         background: rgba(0, 0, 0, 0);
         border: none;
+
+        .ginput_container {max-width:100% !important;}
+
+        .ginput_complex {
+            .ginput_left input[type="text"] { max-width:100% !important; }
+            .ginput_right input[type="text"] { max-width:100% !important; }
+        }
     }
 
     
@@ -452,19 +459,21 @@ $ffw_newsletter_height:         80;
             height: 80px;
 
             li.gfield {
-                width: 50%;
+                width: 50% !important;
                 float: left;
                 clear: none;
-                margin:0;
+                margin:0 !important;
                 // height:#{$ffw_newsletter_height}px;
 
                 input {width:100% !important;height:44px;min-height:44px;max-height:44px;}
 
                 // ex: first/last name field pair
                 .gfield_complex {
-                    padding-right: 10px;
+                    max-width:100% !important;
+                    padding-right:10px !important;
 
-                    span.ginput_left {padding-right: 7px;}
+                    span.ginput_left {padding-right: 10px !important;}
+
                 }
 
             }
@@ -474,7 +483,7 @@ $ffw_newsletter_height:         80;
             float: left;
             width: 13%;
             clear: none;
-            margin: 0;
+            margin: 0 !important;
             padding: 0;
             // height: #{$ffw_newsletter_height}px;
             padding-top: 32px;
