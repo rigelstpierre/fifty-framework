@@ -23,7 +23,7 @@
 
 				<?php endwhile; endif; wp_reset_postdata(); ?>		
 
-				<?php do_action('FFW_pagination', array('id' => 'nav-below') ); ?>
+				<?php do_action('FFW_pagination', array( 'id' => 'nav-below', 'class' => 'center' ) ); ?>
 			</div>
 		</div><!-- .content -->
 	</div> <!-- .container -->

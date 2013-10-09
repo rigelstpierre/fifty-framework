@@ -1,30 +1,45 @@
 /* _mixins.scss */
 
-@import "lib/functions",
-        "lib/xbc";
+@import "lib/xbc";
 
 
-/* MEDIA QUERY MIXINS
-================================================== */
-@mixin media($type) {
 
-  @if $type == tablet {
-      @media only screen and (min-width:49em) and (max-width:59em) {
-          @content; 
-      }
-  }
-  @else if $type == mobile {
-      @media only screen and (max-width: 49em) {
-          @content;
-      }
-  }
-  @else if $type == mobile_landscape {
-      @media only screen and (min-width:19em) and (max-width:29em) {
-          @content;
-      }
-  }
+/* ================================================================ */
+/*                                                                  */
+/*                        CUSTOM FUNCTIONS                          */
+/*                                                                  */
+/* ================================================================ */
 
+/**
+ * em()
+ * -------------
+ * Calculate em value from pixels factoring in base font size (16px)
+ */
+@function em($target, $context: 16px) {
+   @if $target == 0 { @return 0 }
+   @return $target / $context + 0em;
 }
+
+/**
+ * strip-unit()
+ * Strip a value that has units to be just the integer.
+ */
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+
+
+
+
+/* ================================================================ */
+/*                                                                  */
+/*                          CUSTOM MIXINS                           */
+/*                                                                  */
+/* ================================================================ */
+
+
+
 
 
 /* BORDER RADIUS
@@ -34,8 +49,6 @@
      -moz-border-radius: $values;
           border-radius: $values;
 }
-
-
 
 /* TRANSPARENT BACKGROUND
 ================================================== */

@@ -303,3 +303,38 @@
   }
 }
 
+// BUTTON TAG CLASSES
+button {
+  position:relative;
+  font-size:initial;
+  text-transform:none;
+
+  &.no-appearance, &.empty {
+    @include appearance(none);
+    outline:0;
+    border:0;
+    background-color:transparent;
+  }
+  &.open {
+    .icon-bar {display:none;}
+    text-align:center;
+    font-size:em(24px);
+    color:$colorAnchorDefault;
+    width:34px;
+    line-height:1;
+    
+    &:before {
+      font-family:"pictos";
+      content:'*';
+    }
+    // &:before {
+    //   position:absolute;top:50%;left:50%;
+    //   margin:-9px 0 0 -9px;
+    //   width:18px;height:18px;
+    //   content:'*';
+    //   text-transform:none;
+    //   color:$colorAnchorDefault;
+    //   font-size:em(22px);
+    // }
+  }
+}

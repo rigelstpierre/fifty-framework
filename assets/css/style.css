@@ -1,7 +1,6 @@
 /* style.scss */
 /* SASS Libraries */
 /* _mixins.scss */
-/* _functions.scss */
 /* _xbc.scss */
 /* BOX-SHADOW
 ================================================== */
@@ -16,8 +15,25 @@
 /* TRANSPARENT BG
 /* USAGE:       @include trans-bg(.15,#000000,0,0,0);
 ================================================== */
-/* MEDIA QUERY MIXINS
-================================================== */
+/* ================================================================ */
+/*                                                                  */
+/*                        CUSTOM FUNCTIONS                          */
+/*                                                                  */
+/* ================================================================ */
+/**
+ * em()
+ * -------------
+ * Calculate em value from pixels factoring in base font size (16px)
+ */
+/**
+ * strip-unit()
+ * Strip a value that has units to be just the integer.
+ */
+/* ================================================================ */
+/*                                                                  */
+/*                          CUSTOM MIXINS                           */
+/*                                                                  */
+/* ================================================================ */
 /* BORDER RADIUS
 ================================================== */
 /* TRANSPARENT BACKGROUND
@@ -43,7 +59,7 @@
 ================================================== */
 /* PSEUDO-ICON-FONT
 ================================================== */
-/* Reset */
+/* Reset & Vendor Libs */
 /* _normalize.scss */
 /*! normalize.css v2.1.0 | MIT License | git.io/normalize */
 /* ==========================================================================
@@ -416,55 +432,55 @@ table {
 
 /* Base & Vars */
 /* _variables.scss */
-/* COLORS
+/* COLORS                           | **REQUIRED**
 ================================================== */
 /* STYLE OPTIONS & TOGGLES
 ================================================== */
-/* FONTS
-================================================== */
-/* SUSY BASE GRID & BASICS
+/* FONTS                            | **REQUIRED**
 ================================================== */
 /* _grid.scss */
-/* GRID CLASSES
- * Grid config located in _config.scss
+/* Grid Settings
+================================================== */
+/* Grid Mixins/Classes/Media Queries
+================================================== */
+/* MEDIA
+================================================== */
+/* CONTAINER
 ================================================== */
 .container {
-  *zoom: 1;
-  max-width: 19em;
-  _width: 19em;
-  padding-left: 1em;
-  padding-right: 1em;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
+  margin: 0 auto;
+  padding: 0 10px;
+  max-width: 960px;
 }
 .container:after {
-  content: "";
-  display: table;
+  content: "\0020";
+  display: block;
+  height: 0;
   clear: both;
+  visibility: hidden;
 }
-@media (min-width: 29em) {
+@media only screen and (min-width: 768px) and (max-width: 959px) {
   .container {
-    max-width: 29em;
+    max-width: 768px;
+    padding: 0 10px;
   }
 }
-@media (min-width: 44em) {
+@media only screen and (max-width: 767px) {
   .container {
-    max-width: 44em;
-  }
-}
-@media (min-width: 59em) {
-  .container {
-    max-width: 59em;
+    max-width: 480px;
   }
 }
 
+/* OMEGA
+================================================== */
 /* SPANS (1-12)
 ================================================== */
 .span1 {
   width: 8.333333333333332%;
   float: left;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   .span1 {
     width: 100%;
   }
@@ -474,7 +490,7 @@ table {
   width: 16.666666666666664%;
   float: left;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   .span2 {
     width: 100%;
   }
@@ -484,7 +500,7 @@ table {
   width: 25%;
   float: left;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   .span3, .container-full .box-fourth, .container .box-fourth, .footer-widgets.fourths .footer-widget, #main .sidebar, .one-fourth {
     width: 100%;
   }
@@ -494,7 +510,7 @@ table {
   width: 33.33333333333333%;
   float: left;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   .span4, .container-full .box-third, .container .box-third, .footer-widgets.thirds .footer-widget, .one-third {
     width: 100%;
   }
@@ -504,7 +520,7 @@ table {
   width: 41.66666666666667%;
   float: left;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   .span5 {
     width: 100%;
   }
@@ -514,7 +530,7 @@ table {
   width: 50%;
   float: left;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   .span6, .container-full .box-half, .container .box-half, .footer-widgets.halves .footer-widget, .one-half {
     width: 100%;
   }
@@ -524,7 +540,7 @@ table {
   width: 58.333333333333336%;
   float: left;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   .span7 {
     width: 100%;
   }
@@ -534,7 +550,7 @@ table {
   width: 66.66666666666666%;
   float: left;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   .span8, .two-thirds {
     width: 100%;
   }
@@ -544,7 +560,7 @@ table {
   width: 75%;
   float: left;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   .span9, #content, .three-fourths {
     width: 100%;
   }
@@ -554,7 +570,7 @@ table {
   width: 83.33333333333334%;
   float: left;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   .span10 {
     width: 100%;
   }
@@ -564,7 +580,7 @@ table {
   width: 91.66666666666666%;
   float: left;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   .span11 {
     width: 100%;
   }
@@ -574,7 +590,7 @@ table {
   width: 100%;
   float: left;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   .span12 {
     width: 100%;
   }
@@ -734,7 +750,7 @@ table {
 .container-full .box-half {
   height: 430px;
 }
-@media only screen and (min-width: 49em) and (max-width: 59em) {
+@media only screen and (min-width: 768px) and (max-width: 959px) {
   .container-full .box-half {
     height: 360px;
   }
@@ -747,7 +763,7 @@ table {
 .container-full .box-third {
   height: 390px;
 }
-@media only screen and (min-width: 49em) and (max-width: 59em) {
+@media only screen and (min-width: 768px) and (max-width: 959px) {
   .container-full .box-third {
     height: 310px;
     font-size: 85%;
@@ -776,7 +792,7 @@ table {
 .container .box-half {
   height: 430px;
 }
-@media only screen and (min-width: 49em) and (max-width: 59em) {
+@media only screen and (min-width: 768px) and (max-width: 959px) {
   .container .box-half {
     height: 360px;
   }
@@ -789,7 +805,7 @@ table {
 .container .box-third {
   height: 390px;
 }
-@media only screen and (min-width: 49em) and (max-width: 59em) {
+@media only screen and (min-width: 768px) and (max-width: 959px) {
   .container .box-third {
     height: 310px;
     font-size: 85%;
@@ -831,8 +847,6 @@ table {
 .omega, #main .sidebar {
   float: right;
   margin-right: 0;
-  *margin-left: -1em;
-  display: inline;
 }
 
 .alpha {
@@ -1241,7 +1255,6 @@ a {
 }
 
 /* Librarires */
-/* _functions.scss */
 /* _extenders.scss */
 /* FONT 
 ================================================== */
@@ -2108,6 +2121,13 @@ i.icon, .icon {
   *display: inline;
   background-image: none !important;
 }
+i.icon:before, .icon:before {
+  font-family: "pictos", "pictos";
+  font-weight: normal;
+  font-style: normal;
+  font-size: inherit;
+  text-transform: none;
+}
 i.icon.circle, .icon.circle {
   width: 86px;
   height: 86px;
@@ -2133,14 +2153,6 @@ i.icon.transparent, .icon.transparent {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#1AFFFFFF,endColorstr=#1AFFFFFF);
   zoom: 1;
   color: #fff;
-}
-
-.icon:before {
-  font-family: "pictos", "pictos";
-  font-weight: normal;
-  font-style: normal;
-  font-size: inherit;
-  text-transform: none;
 }
 
 .icon-upload:before {
@@ -2341,6 +2353,17 @@ i.icon.transparent, .icon.transparent {
 
 .icon-question:before {
   content: '?';
+}
+
+/* ICON-BAR
+================================================== */
+.icon-bar {
+  margin-top: 4px;
+  display: block;
+  width: 22px;
+  height: 3px;
+  border-radius: 1px;
+  background-color: #2f7499;
 }
 
 /* ARRROWS
@@ -2647,6 +2670,34 @@ i.socialico.circle:before, .socialico.circle:before {
 }
 .btn-tab.secondary-transparent:before {
   color: #ffffff;
+}
+
+button {
+  position: relative;
+  font-size: initial;
+  text-transform: none;
+}
+button.no-appearance, button.empty {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  border: 0;
+  background-color: transparent;
+}
+button.open {
+  text-align: center;
+  font-size: 1.5em;
+  color: #2f7499;
+  width: 34px;
+  line-height: 1;
+}
+button.open .icon-bar {
+  display: none;
+}
+button.open:before {
+  font-family: "pictos";
+  content: '*';
 }
 
 /* _shapes.scss */
@@ -6992,10 +7043,11 @@ Daniel Raftery <@ThirvingKings>
 header.default {
   width: 100%;
   background-color: #ffffff;
-  /* LOGO
+  /* LOGO (span4)
   ================================================== */
-  /* NAV
+  /* NAV .header_menu (span8 omega)
   ================================================== */
+  /* nav */
 }
 header.default .logo {
   display: -moz-inline-stack;
@@ -7035,10 +7087,116 @@ header.default nav > ul > li > a {
   width: 100%;
   height: 100%;
   line-height: 88px;
-  padding-right: 1.5em;
+  padding-right: 1.25em;
   padding-left: 0.25em;
 }
 
+/* ------------------------------------------------ */
+/* HEADER.DEFAULT -> DESKTOP
+/* ------------------------------------------------ */
+@media only screen and (min-width: 960px) {
+  #mobile-menu-toggle {
+    display: none;
+  }
+}
+/* ------------------------------------------------ */
+/* HEADER.DEFAULT -> TABLET
+/* ------------------------------------------------ */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  #mobile-menu-toggle {
+    display: none;
+  }
+}
+/* ------------------------------------------------ */
+/* HEADER.DEFAULT -> MOBILE
+/* ------------------------------------------------ */
+@media only screen and (max-width: 767px) {
+  header.default .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  header.default .logo {
+    width: 30%;
+    line-height: 60px;
+    padding-left: 1em;
+  }
+  header.default nav {
+    display: none;
+    width: 100%;
+    height: auto;
+    line-height: 1;
+    text-align: left;
+    border-top: 1px solid #dddddd;
+  }
+  header.default nav ul {
+    width: 100%;
+    height: auto;
+    line-height: 1;
+  }
+  header.default nav ul li {
+    display: block;
+    float: none;
+    width: 100%;
+    line-height: 1;
+    height: auto;
+    border-bottom: 1px solid #eeeeee;
+  }
+  header.default nav ul li:last-child {
+    border-bottom: 0;
+  }
+  header.default nav ul li a {
+    line-height: 40px;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  header.default nav ul li:hover > ul {
+    margin-top: 0;
+  }
+  header.default nav ul li.has_children a:after {
+    display: none;
+  }
+  header.default nav ul ul {
+    display: block;
+    position: relative;
+    margin-top: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    /* UNDO TRANSITION */
+    visibility: visible;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
+  header.default nav ul ul li:first-child {
+    border-top: 1px solid #eeeeee;
+  }
+  header.default nav ul ul li a {
+    line-height: 40px;
+    padding: 0 0 0 1em;
+    color: #a3a3a3;
+  }
+  header.default nav ul ul li a:before {
+    text-transform: none;
+    position: relative;
+    line-height: inherit;
+    color: inherit;
+    content: "t";
+    font-family: "arrrows";
+    padding: 0 .35em 0 .15em;
+  }
+
+  #mobile-menu-toggle {
+    display: block;
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    padding-right: 1em;
+    float: right;
+    line-height: 60px;
+    height: 60px;
+  }
+}
 /* _navigation.scss */
 /**
  * Dropdown <UL>
@@ -7046,17 +7204,20 @@ header.default nav > ul > li > a {
  * Basic styling for unordered lists with child <ul> ("dropdowns"). 
  * <ul> must be a child of a <nav> in order to qualify as a dropdown.
  */
-nav ul {
+nav.menu {
+  /* nav.menu ul */
+}
+nav.menu ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
   width: auto;
 }
-nav ul li {
+nav.menu ul li {
   margin: 0;
   padding: 0;
 }
-nav ul li a {
+nav.menu ul li a {
   display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
@@ -7068,25 +7229,25 @@ nav ul li a {
   -o-transition: all 100ms linear;
   transition: all 100ms linear;
 }
-nav ul > li {
+nav.menu ul > li {
   position: relative;
   display: block;
   float: left;
 }
-nav ul > li:hover > a {
+nav.menu ul > li:hover > a {
   color: #2f7499;
 }
-nav ul > li:hover > ul {
+nav.menu ul > li:hover > ul {
   /* TRANISTION */
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
   visibility: visible;
   margin-top: 0px;
 }
-nav ul > li.has_children {
+nav.menu ul > li.has_children {
   /* Requires use of Has_Children_Walker() */
 }
-nav ul > li.has_children > a:after {
+nav.menu ul > li.has_children > a:after {
   text-transform: none;
   position: relative;
   line-height: inherit;
@@ -7096,17 +7257,17 @@ nav ul > li.has_children > a:after {
   padding: 0 0 0 8px;
   margin: 0;
 }
-nav ul > li a {
+nav.menu ul > li a {
   color: #433f3e;
 }
-nav ul > li a:hover {
+nav.menu ul > li a:hover {
   color: #2f7499;
 }
-nav ul > li:last-child ul {
+nav.menu ul > li:last-child ul {
   left: auto;
   right: 0;
 }
-nav ul ul {
+nav.menu ul ul {
   position: absolute;
   z-index: 9999;
   min-width: 210px;
@@ -7125,7 +7286,7 @@ nav ul ul {
   visibility: hidden;
   margin-top: 20px;
 }
-nav ul ul li {
+nav.menu ul ul li {
   display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
@@ -7135,18 +7296,66 @@ nav ul ul li {
   border-bottom: 1px solid #fafafa;
   border-top: 1px solid #f5f5f5;
 }
-nav ul ul li:first-child {
+nav.menu ul ul li:first-child {
   border-top: none;
 }
-nav ul ul li:last-child {
+nav.menu ul ul li:last-child {
   border-bottom: none;
 }
-nav ul ul li a {
+nav.menu ul ul li a {
   padding: 15px 10px;
 }
-nav ul ul li a:hover {
+nav.menu ul ul li a:hover {
   background-color: #2f7499;
   color: #fff;
+}
+
+/* nav.menu */
+/**
+* Pagination
+* -------------------
+* Small enhancement over the default wordpress pagination function
+*/
+nav.pagination {
+  margin-top: 3.4375em;
+  width: 100%;
+  text-align: center;
+}
+nav.pagination.left {
+  text-align: left;
+}
+nav.pagination.center {
+  text-align: center;
+}
+nav.pagination.right {
+  text-align: right;
+}
+nav.pagination .loop-pagination {
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+nav.pagination .page-numbers {
+  font-size: 100%;
+  padding: .5em 1em;
+  border: 1px solid #e1e1e1;
+  background-color: #E6E6E6;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+nav.pagination .page-numbers.current {
+  background-color: #f0f0f0;
+  border: 1px solid #eaeaea;
+}
+nav.pagination .page-numbers:hover, nav.pagination .page-numbers:active {
+  background-color: #d7d7d7;
+}
+nav.pagination .pagination-nav {
+  font-family: "arrrows";
+  font-size: 1.25em;
+  line-height: 1;
 }
 
 /* _hero.scss */
@@ -7154,7 +7363,7 @@ nav ul ul li a:hover {
 ================================================== */
 #hero {
   width: 100%;
-  height: 300px;
+  height: 450px;
   background-color: #363636;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -7170,7 +7379,7 @@ nav ul ul li a:hover {
   position: relative;
   display: table;
   text-align: center;
-  height: 300px;
+  height: 450px;
 }
 #hero .hero-inner {
   display: table-cell;
@@ -7290,21 +7499,11 @@ footer.default .footer-inner {
 .flexslider ul.slides li .slide-content {
   position: relative;
   width: 70%;
-  z-index: 1000;
+  z-index: 100;
   display: table-cell;
   vertical-align: middle;
   color: #ffffff;
   width: 100%;
-}
-@media only screen and (min-width: 49em) and (max-width: 59em) {
-  .flexslider ul.slides li .slide-content {
-    width: 90%;
-  }
-}
-@media only screen and (max-width: 49em) {
-  .flexslider ul.slides li .slide-content {
-    width: 90%;
-  }
 }
 .flexslider ul.slides li .slide-content.left {
   text-align: left;
@@ -7335,10 +7534,16 @@ footer.default .footer-inner {
   display: inline-block;
   zoom: 1;
   *display: inline;
-  width: 70%;
+  width: 80%;
+  font-size: 4.25em;
+  line-height: 1.15;
 }
 .flexslider ul.slides li .slide-content h1:first-of-type {
   margin: 0;
+}
+.flexslider ul.slides li .slide-content h2 {
+  font-size: 2.625em;
+  line-height: 1.25;
 }
 .flexslider ul.slides li .slide-content p {
   display: -moz-inline-stack;
@@ -7354,6 +7559,7 @@ footer.default .footer-inner {
   height: 40px;
   bottom: 0;
   position: absolute;
+  z-index: 1000;
   text-align: center;
 }
 .flexslider ol.flex-control-paging {
@@ -7548,6 +7754,26 @@ footer.default .footer-inner {
   right: 0px;
 }
 
+/* ------------------------------------------------ */
+/* FLEXSLIDER -> MOBILE
+/* ------------------------------------------------ */
+@media only screen and (max-width: 767px) {
+  .flexslider .flex-viewport {
+    height: 450px;
+  }
+  .flexslider ul.slides {
+    height: 450px;
+  }
+  .flexslider ul.slides li {
+    height: 450px;
+  }
+  .flexslider ul.slides li .container {
+    height: 450px;
+  }
+  .flexslider ul.slides li .slide-overlay {
+    height: 450px;
+  }
+}
 /* _widgets.scss */
 .widget-area {
   font-size: initial;
@@ -7884,12 +8110,19 @@ ol.children {
 /* _content-shared.scss */
 /* #MAIN
 ================================================== */
+#main.page {
+  margin-top: 3.4375em;
+}
+#main.single {
+  margin-top: 3.4375em;
+}
+
 /* .content
 ================================================== */
 #content.push-left {
   float: left;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   #content.push-left {
     float: right;
   }
@@ -7897,7 +8130,7 @@ ol.children {
 #content.push-left .content-inner {
   padding-left: 2em;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   #content.push-left .content-inner {
     padding-left: 0;
   }
@@ -7908,7 +8141,7 @@ ol.children {
 #content.push-right .content-inner {
   padding-right: 2em;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   #content.push-right .content-inner {
     padding-right: 0;
   }
@@ -7924,7 +8157,7 @@ ol.children {
 #main .sidebar.push-left {
   float: left;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   #main .sidebar.push-left {
     float: right;
   }
@@ -7933,7 +8166,7 @@ ol.children {
   padding-right: 2em;
   text-align: right;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   #main .sidebar.push-left .sidebar-inner {
     padding-right: 0;
     text-align: left;
@@ -7945,29 +8178,10 @@ ol.children {
 #main .sidebar.push-right .sidebar-inner {
   padding-left: 2em;
 }
-@media only screen and (max-width: 49em) {
+@media only screen and (max-width: 767px) {
   #main .sidebar.push-right .sidebar-inner {
     padding-left: 0;
   }
-}
-
-/* PAGINATION
-================================================== */
-nav.pagination {
-  margin-top: 30px;
-  width: 100%;
-  text-align: center;
-}
-nav.pagination .pagination-wrap {
-  display: -moz-inline-stack;
-  display: inline-block;
-  zoom: 1;
-  *display: inline;
-}
-nav.pagination .pagination-nav {
-  font-family: "arrrows";
-  font-size: 1.25em;
-  line-height: 1;
 }
 
 /* SECTIONS
@@ -8029,6 +8243,16 @@ nav.pagination .pagination-nav {
   /* POST THUMBS
   ================================================== */
 }
+.post.page h1 {
+  font-size: 4.25em;
+}
+.post.single h1 {
+  font-size: 4.25em;
+}
+.post.archive h1 {
+  font-size: 2.625em;
+  margin-top: 0;
+}
 .post:first-child .post-title {
   margin-top: 0;
 }
@@ -8041,7 +8265,7 @@ nav.pagination .pagination-nav {
   margin-bottom: 0;
 }
 .post .post-title {
-  font-size: 1.5em;
+  line-height: 1.15;
   font-weight: 900;
   -webkit-transition: color 150ms ease-in-out;
   -moz-transition: color 150ms ease-in-out;

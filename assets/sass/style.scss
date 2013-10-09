@@ -2,10 +2,9 @@
  
 /* SASS Libraries */
 @import "compass",
-        "susy",
-        "mixins";
+        "ffw";
 
-/* Reset */
+/* Reset & Vendor Libs */
 @import "vendor/normalize";
 
 /* Base & Vars */
@@ -17,8 +16,7 @@
         "core/body";
 
 /* Librarires */
-@import "lib/functions",
-        "lib/extenders",
+@import "lib/extenders",
         "lib/helpers",
         "lib/forms",
         "lib/social",

@@ -3,13 +3,13 @@
 // VARIABLES
 ///////////////////////////////////
 $height-slider_full:          600;
+$height-slider_mobile:        450;
 $height-flex_direction_nav:   57;
 $width-flex_direction_nav:    60;
 $height-flex_paging:          40;
 $height-flex_control_thumbs:  130;
 
 
- 
 .flexslider {
   position:relative;
   background-color:#363636;
@@ -79,14 +79,14 @@ $height-flex_control_thumbs:  130;
       .slide-content {
         position:relative;
         width:70%;
-        z-index:1000;
+        z-index:100;
         display:table-cell;
         vertical-align:middle;
         color:#ffffff;
         width:100%;
 
-        @include media(tablet) {width:90%;}
-        @include media(mobile) {width:90%;}
+        // @include media(tablet) {width:90%;}
+        // @include media(mobile) {width:90%;}
 
         &.left    {
           text-align:left;
@@ -108,11 +108,18 @@ $height-flex_control_thumbs:  130;
             height: 2px;
             background-color: #fff;
           }
-
+          
+          // SLIDE CONTENT TYPOGRAPHY
           h1 {
             @include inline-block;
-            width:70%;
+            width:80%;
+            font-size:em(68px);
+            line-height:1.15;
             &:first-of-type {margin:0;}
+          }
+          h2 {
+            font-size:em(42px);
+            line-height:1.25;
           }
           p {
             @include inline-block;
@@ -136,6 +143,7 @@ $height-flex_control_thumbs:  130;
     // margin:0 auto;
     bottom:0;
     position:absolute;
+    z-index:1000;
     text-align:center;
   }
 
@@ -288,3 +296,23 @@ $height-flex_control_thumbs:  130;
     .flex-direction-nav li:last-child {right:0px;}
   }
 }
+
+
+
+  /* ------------------------------------------------ */
+  /* FLEXSLIDER -> MOBILE
+  /* ------------------------------------------------ */
+  @include media(mobile) {
+    .flexslider {
+      .flex-viewport {height:#{$height-slider_mobile}px;}
+      
+      ul.slides {
+          height:#{$height-slider_mobile}px;
+        li {
+          height:#{$height-slider_mobile}px;
+          .container {height:#{$height-slider_mobile}px;}
+          .slide-overlay {height:#{$height-slider_mobile}px;}
+        }
+      }
+    }
+  }

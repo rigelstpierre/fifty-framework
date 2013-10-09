@@ -6,7 +6,7 @@
  * Basic styling for unordered lists with child <ul> ("dropdowns"). 
  * <ul> must be a child of a <nav> in order to qualify as a dropdown.
  */
-nav {
+nav.menu {
 
   ul {
     @include ul-blank();
@@ -140,5 +140,47 @@ nav {
 
     }
 
+  }/* nav.menu ul */
+}/* nav.menu */
+
+
+ /**
+ * Pagination
+ * -------------------
+ * Small enhancement over the default wordpress pagination function
+ */
+nav.pagination {
+  margin-top:em(55px);
+  width:100%;
+  text-align:center;
+
+  &.left   {text-align:left;}
+  &.center {text-align:center;}
+  &.right  {text-align:right;}
+  
+  .loop-pagination {
+    @include inline-block;
   }
+
+  .page-numbers {
+    font-size: 100%;
+    padding: .5em 1em;
+    border: 1px solid #e1e1e1;
+    background-color: #E6E6E6;
+    @include border-radius(3px); 
+
+    &.current { background-color: lighten(#E6E6E6, 4);border: 1px solid #eaeaea;}
+
+    &:hover, &:active {background-color: darken(#E6E6E6, 6);}
+  }
+
+  .pagination-nav {
+     font-family:"arrrows";
+     font-size:em(20px);
+     line-height:1;
+
+     &.prev {}
+     &.next {}
+   }
 }
+

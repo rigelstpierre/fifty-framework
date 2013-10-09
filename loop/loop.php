@@ -1,4 +1,14 @@
-<article class="post post-<?php echo get_the_ID(); ?>">
+<?php
+  if ( is_single() || is_singular() ) {
+    $post_class = 'single';
+  } elseif ( is_archive() || is_home() || is_front_page() ) {
+    $post_class = 'archive';
+  } elseif ( is_page() ) {
+    $post_class = 'page';
+  }
+?>
+
+<article class="post <?php echo $post_class; ?> post-<?php echo get_the_ID(); ?>">
   <header>
     <h1 class="post-title">
       <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>

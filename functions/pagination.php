@@ -23,8 +23,8 @@ function loop_pagination( $args = array() ) {
     'total'        => $max_num_pages,
     'current'      => $current,
     'prev_next'    => true,
-    //'prev_text'  => __( '&laquo; Previous' ), // This is the WordPress default.
-    //'next_text'  => __( 'Next &raquo;' ), // This is the WordPress default.
+    'prev_text'  => __( '&laquo; Previous' ), // This is the WordPress default.
+    'next_text'  => __( 'Next &raquo;' ), // This is the WordPress default.
     'show_all'     => false,
     'end_size'     => 1,
     'mid_size'     => 1,
@@ -32,7 +32,7 @@ function loop_pagination( $args = array() ) {
     'type'         => 'plain',
 
     // Begin loop_pagination() arguments.
-    'before'       => '<div class="pagination loop-pagination">',
+    'before'       => '<div class="loop-pagination">',
     'after'        => '</div>',
     'echo'         => true,
   );
@@ -48,7 +48,7 @@ function loop_pagination( $args = array() ) {
     if ( !empty( $search_permastruct ) )
       $defaults['base'] = user_trailingslashit( trailingslashit( get_search_link() ) . 'page/%#%' );
   }
-  /**/
+  */
 
   /* Allow developers to overwrite the arguments with a filter. */
   $args = apply_filters( 'loop_pagination_args', $args );

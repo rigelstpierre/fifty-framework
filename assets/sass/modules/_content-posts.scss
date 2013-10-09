@@ -7,6 +7,11 @@
   padding-bottom:60px;
   margin-bottom:30px;
   @include clearfix;
+
+  &.page { h1{font-size:em(68px);}}
+  &.single { h1{font-size:em(68px);}}
+  &.archive { h1{font-size:em(42px);margin-top:0;}}
+
   
   // FIRST/LASTS
   &:first-child .post-title {margin-top:0;}
@@ -18,7 +23,7 @@
 
     // POST TITLE
     .post-title {
-      font-size:em(24px);
+      line-height:1.15;
       font-weight:900;
       @include transition(color 150ms ease-in-out);
 
@@ -27,7 +32,7 @@
   
   // CONTENT
   .content {
-
+    
   }
 
   // FOOTER

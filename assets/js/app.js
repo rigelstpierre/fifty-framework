@@ -22,15 +22,17 @@
         FF.collapsableSidebar();
         FF.backStretch();
         FF.debugBox();
+        FF.hamburgerNav();
     };
 
     /* SET ELEMENTS
     ================================================== */
     FF.setElements = function(){
         FF.el = {};
-        FF.el.page_overlay = $('.page-overlay');
-        FF.el.page_wrap    = $('.page-wrap');
-        FF.el.debug_box    = $('#debug_box');
+        FF.el.page_overlay          = $('.page-overlay');
+        FF.el.page_wrap             = $('.page-wrap');
+        FF.el.mobile_menu_btn       = $('#mobile-menu-toggle');
+        FF.el.debug_box             = $('#debug_box');
     };
 
 
@@ -333,12 +335,29 @@
     ================================================== */
     FF.backStretch = function() {
 
-
         $('.backstretch').each(function(i){
             var img_src = $(this).data('img-src');
 
             $(this).backstretch(img_src);
         });
+    }
+
+
+    /* HAMBURGER NAV
+    ================================================== */
+    FF.hamburgerNav = function() {
+
+        FF.el.mobile_menu_btn.toggle(function(e){
+            $(this).addClass('open');
+            var nav = $(this).siblings('nav');
+            nav.slideToggle(150);
+
+        }, function(e){
+            $(this).removeClass('open');
+            var nav = $(this).siblings('nav');
+            nav.slideToggle(150);
+        });
+
     }
 
 

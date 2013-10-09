@@ -7,6 +7,16 @@ i.icon,.icon  {
   font-style:normal;display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
   background-image:none !important;
 
+  &:before  {
+    font-family:"pictos",$pictos;
+    font-weight:normal;
+    font-style:normal;
+    font-size:inherit;
+    text-transform:none;
+  }
+
+  // CIRCLE
+  ///////////////////
   &.circle {
     width:86px;height:86px;
     @include border-radius(43px);
@@ -22,6 +32,8 @@ i.icon,.icon  {
       text-align:center;
     }
   }
+  // TRANSPARENT
+  ///////////////////
   &.transparent {
     @include xbc-transparent-bg(0.10, #fff, 255,255,255);
     color:#fff;
@@ -30,314 +42,70 @@ i.icon,.icon  {
 }
 
 
-.icon:before  {
-  font-family:"pictos",$pictos;
-  font-weight:normal;
-  font-style:normal;
-  font-size:inherit;
-  text-transform:none;
+.icon-upload:before, %icon-upload:before                { content:'c'; }
+.icon-lightning:before, %icon-lightning:before          { content:'e'; }
+.icon-group:before, %icon-group:before                  { content:'g'; }
+.icon-info:before, %icon-info:before                    { content:'i'; }
+.icon-chain:before, %icon-chain:before                  { content:'j'; }
+.icon-heart:before, %icon-heart:before                  { content:'k'; }
+.icon-file:before, %icon-file:before                    { content:'o'; }
+.icon-pencil:before, %icon-pencil:before                { content:'p'; }
+.icon-message:before, %icon-message:before              { content:'q'; }
+.icon-loop:before, %icon-loop:before                    { content:'r'; }
+.icon-search:before, %icon-search:before                { content:'s'; }
+.icon-time:before, %icon-time:before                    { content:'t'; }
+.icon-camera:before, %icon-camera:before                { content:'v'; }
+.icon-chat:before, %icon-chat:before                    { content:'w'; }
+.icon-settings:before, %icon-settings:before            { content:'x'; }
+.icon-cog:before, %icon-cog:before                      { content:'y'; }
+.icon-tag:before, %icon-tag:before                      { content:'z'; }
+.icon-link:before, %icon-link:before                    { content:'A'; }
+.icon-cloud:before, %icon-cloud:before                  { content:'C'; }
+.icon-close:before, %icon-close:before                  { content:'D'; }
+.icon-eye:before, %icon-eye:before                      { content:'E'; }
+.icon-globe:before, %icon-globe:before                  { content:'G'; }
+.icon-home:before, %icon-home:before                    { content:'H'; }
+.icon-key:before, %icon-key:before                      { content:'K'; }
+.icon-email:before, %icon-email:before                  { content:'M'; }
+.icon-news:before, %icon-news:before                    { content:'N'; }
+.icon-picture:before, %icon-picture:before              { content:'P'; }
+.icon-power:before, %icon-power:before                  { content:'Q'; }
+.icon-send:before, %icon-send:before                    { content:'R'; }
+.icon-star:before, %icon-star:before                    { content:'S'; }
+.icon-plane:before, %icon-plane:before                  { content:'P'; }
+.icon-person:before, %icon-person:before                { content:'U'; }
+.icon-video:before, %icon-video:before                  { content:'V'; }
+.icon-write:before, %icon-write:before                  { content:'W'; }
+.icon-pulse:before, %icon-pulse:before                  { content:'Y'; }
+.icon-piechart:before, %icon-piechart:before            { content:'Z'; }
+.icon-expand:before, %icon-expand:before                { content:'`'; }
+.icon-refresh:before, %icon-refresh:before              { content:'1'; }
+.icon-checkmark:before, %icon-checkmark:before          { content:'3'; }
+.icon-calendar:before, %icon-calendar:before            { content:'\005C'; }
+.icon-meter:before, %icon-meter:before                  { content:','; }
+.icon-marker:before, %icon-marker:before                { content:'@'; }
+.icon-trash:before, %icon-trash:before                  { content:'#'; }
+.icon-cart:before, %icon-cart:before                    { content:'$'; }
+.icon-flag:before, %icon-flag:before                    { content:'^'; }
+.icon-plus:before, %icon-plus:before                    { content:'&'; }
+.icon-x:before, %icon-x:before                          { content:'*'; }
+.icon-lock:before, %icon-lock:before                    { content:'('; }
+.icon-unlock:before, %icon-unlock:before                { content:')'; }
+.icon-question:before, %icon-question:before            { content:'?'; }
+
+
+
+/* ICON-BAR
+================================================== */
+.icon-bar {
+  margin-top: 4px;
+  display: block;
+  width: 22px;
+  height: 3px;
+  border-radius: 1px;
+  // background-color:$colorTextDefault;
+  background-color:$colorAnchorDefault;
 }
-
-// UPLOAD
-.icon-upload:before,
-%icon-upload:before {
-  content:'c';
-}
-
-// LIGHTNING
-.icon-lightning:before,
-%icon-lightning:before {
-  content:'e';
-}
-
-// GROUP OF PEOPLE
-.icon-group:before,
-%icon-group:before {
-  content:'g';
-}
-
-// INFO (i in circle)
-.icon-info:before,
-%icon-info:before {
-  content:'i';
-}
-
-// CHAIN
-.icon-chain:before,
-%icon-chain:before {
-  content:'j';
-}
-
-// HEART
-.icon-heart:before,
-%icon-heart:before {
-  content:'k';
-}
-
-// FILE
-.icon-file:before,
-%icon-file:before {
-  content:'o';
-}
-
-// PENCIL
-.icon-pencil:before,
-%icon-pencil:before {
-  content:'p';
-}
-
-// MESSAGE
-.icon-message:before,
-%icon-message:before {
-  content:'q';
-}
-
-// loop
-.icon-loop:before,
-%icon-loop:before {
-  content:'r';
-}
-
-.icon-search:before,
-%icon-search:before {
-  content:'s';
-}
-
-// TIME
-.icon-time:before,
-%icon-time:before {
-  content:'t';
-}
-
-// CAMERA
-.icon-camera:before,
-%icon-camera:before {
-  content:'v';
-}
-
-// CHAT
-.icon-chat:before,
-%icon-chat:before {
-  content:'w';
-}
-
-// SETTINGS (gear)
-.icon-settings:before,
-%icon-settings:before {
-  content:'x';
-}
-
-// COG
-.icon-cog:before,
-%icon-cog:before {
-  content:'y';
-}
-
-// TAG
-.icon-tag:before,
-%icon-tag:before {
-  content:'z';
-}
-
-// LINK
-.icon-link:before,
-%icon-link:before {
-  content:'A';
-}
-
-// CLOUD
-.icon-cloud:before,
-%icon-cloud:before {
-  content:'C';
-}
-
-// CLOSE
-.icon-close:before,
-%icon-close:before {
-  content:'D';
-}
-
-// EYE
-.icon-eye:before,
-%icon-eye:before {
-  content:'E';
-}
-
-// GLOBE
-.icon-globe:before,
-%icon-globe:before {
-  content:'G';
-}
-
-// HOME
-.icon-home:before,
-%icon-home:before {
-  content:'H';
-}
-
-// key
-.icon-key:before,
-%icon-key:before {
-  content:'K';
-}
-
-// email
-.icon-email:before,
-%icon-email:before {
-  content:'M';
-}
-
-// NEWS ARTICLE
-.icon-news:before,
-%icon-news:before {
-  content:'N';
-}
-
-// picture
-.icon-picture:before,
-%icon-picture:before {
-  content:'P';
-}
-
-// POWER
-.icon-power:before,
-%icon-power:before {
-  content:'Q';
-}
-
-// send
-.icon-send:before,
-%icon-send:before {
-  content:'R';
-}
-
-// star
-.icon-star:before,
-%icon-star:before {
-  content:'S';
-}
-
-// plane
-.icon-plane:before,
-%icon-plane:before {
-  content:'P';
-}
-
-// person
-.icon-person:before,
-%icon-person:before {
-  content:'U';
-}
-
-// video
-.icon-video:before,
-%icon-video:before {
-  content:'V';
-}
-
-// write
-.icon-write:before,
-%icon-write:before {
-  content:'W';
-}
-
-// PULSE
-.icon-pulse:before,
-%icon-pulse:before {
-  content:'Y';
-}
-
-// PIE CHART
-.icon-piechart:before,
-%icon-piechart:before {
-  content:'Z';
-}
-
-// expand
-.icon-expand:before,
-%icon-expand:before {
-  content:'`';
-}
-
-// refresh
-.icon-refresh:before,
-%icon-refresh:before {
-  content:'1';
-}
-
-// checkmark
-.icon-checkmark:before,
-%icon-checkmark:before {
-  content:'3';
-}
-
-// calendar
-.icon-calendar:before,
-%icon-calendar:before {
-  content:'\005C';
-}
-
-// meter
-.icon-meter:before,
-%icon-meter:before {
-  content:',';
-}
-
-// marker
-.icon-marker:before,
-%icon-marker:before {
-  content:'@';
-}
-
-// trash
-.icon-trash:before,
-%icon-trash:before {
-  content:'#';
-}
-
-// cart
-.icon-cart:before,
-%icon-cart:before {
-  content:'$';
-}
-
-// flag
-.icon-flag:before,
-%icon-flag:before {
-  content:'^';
-}
-
-// plus
-.icon-plus:before,
-%icon-plus:before {
-  content:'&';
-}
-
-// x
-.icon-x:before,
-%icon-x:before {
-  content:'*';
-}
-
-// lock
-.icon-lock:before,
-%icon-lock:before {
-  content:'(';
-}
-
-// unlock
-.icon-unlock:before,
-%icon-unlock:before {
-  content:')';
-}
-
-// question
-.icon-question:before,
-%icon-question:before {
-  content:'?';
-}
-
-
 
 
 /* ARRROWS
@@ -409,7 +177,6 @@ i.socialico,.socialico  {
     auto auto
   );
 }
-
 
 
 

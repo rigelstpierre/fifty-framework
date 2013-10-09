@@ -1,7 +1,7 @@
 /* _variables.scss */
 
 
-/* COLORS
+/* COLORS                           | **REQUIRED**
 ================================================== */
 
 $colorPrimary:          #2a2a2a;
@@ -17,6 +17,7 @@ $colorTertiaryDark:     #cccccc;
 $colorTertiaryLight:    #cccccc;
 
 $colorTextDefault:      #433f3e;
+$colorTextLight:        #a3a3a3;
 $colorAnchorDefault:    #2f7499;
 
 
@@ -29,7 +30,7 @@ $transparency-header:     false;
 
 
 
-/* FONTS
+/* FONTS                            | **REQUIRED**
 ================================================== */
 $default:       "opensans", Helvetica, Arial, sans-serif;
 $default-alt:   "opensans-condensed", "Helvetica Neue";
@@ -39,48 +40,3 @@ $arrrows:       "arrrows";
 $social:        "socialico";
 $socialico:     "socialico";
 
-
-
-
-
-/* SUSY BASE GRID & BASICS
-================================================== */
-$base-font-size     : 16px;
-$base-line-height   : $base-font-size * 1.5;
-
-
-// FIXED
-// $total-columns      : 12              !default;
-// $column-width       : 60px            !default;
-// $gutter-width       : 20px            !default;
-// $grid-padding       : 10px            !default;
-
-// FLUID
-$column-width       : 4em;             
-$gutter-width       : 1em;             
-$grid-padding       : $gutter-width;   
-
-// BREAKPOINTS
-$mobile-portrait    : 4;
-$mobile-landscape   : 6;
-$tablet             : 9;
-$desktop            : 12;
-
-$total-columns      : $mobile-portrait;
-
-
-// GRID BG
-$show-grid-backgrounds    : false;
-
-// ADVANCED SETTINGS
-$from-direction     : left            !default;
-$omega-float        : opposite-position($from-direction)    !default;
-$container-width    : 59em           !default;
-$container-style    : magic;
-// $border-box-sizing  : false           !default;
-
-// IE SETTINGS
-$breakpoint-media-output  : true      !default;
-$breakpoint-ie-output     : true      !default;
-// Danger Zone! Only set as 'true' in IE-specific style sheets.
-$breakpoint-raw-output    : false     !default;

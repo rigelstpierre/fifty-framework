@@ -60,7 +60,12 @@
 			<?php endif; ?>		
 		</div>
 
-		<nav class="header_menu span8 omega">
+		<button id="mobile-menu-toggle" class="no-appearance">
+			<span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+		</button>
+		<nav class="menu header_menu span8 omega">
 			<?php wp_nav_menu( array( 
 				'theme_location'  => 'header_menu', 
 				'container_class' => '',
@@ -74,6 +79,3 @@
   <div class="clear"></div>
 	</div>
 </header><!-- header.default.<header_class> -->
-
-
-

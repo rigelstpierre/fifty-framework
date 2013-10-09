@@ -15,20 +15,27 @@ function FFW_actions(){
 
   /**
    * Pagination
+   * @author Alexander Zizzo
+   * @package Fifty Framework
    * @since 1.0
    */
   function pagination( $args = NULL ) {
 
-    $class = isset($args['class']) ? $args['class'] : null;
-    $id = isset($args['id']) ? $args['id'] : null;
+    // ex: text align class (.left, .center, .right)
+    $class     = isset($args['class']) ? $args['class'] : null;
+    // optional ID
+    $id        = isset($args['id']) ? $args['id'] : null;
+    // prev & next text
+    $prev_text = isset($args['prev_text']) ? $args['prev_text'] : 'W';
+    $next_text = isset($args['next_text']) ? $args['next_text'] : 'w';
 
     ?>
-
-    <nav id="<?php echo $id; ?>" class="pagination-wrap <?php echo $class; ?>">
+    
+    <nav id="<?php echo $id; ?>" class="pagination <?php echo $class; ?>">
     <?php 
       loop_pagination( array( 
-        'prev_text' => __( '<span class="pagination-nav prev meta-nav">W</span>'),
-        'next_text' => __( '<span class="pagination-nav next meta-nav">w</span>')
+        'prev_text' => __( '<span class="pagination-nav prev meta-nav">'.$prev_text.'</span>'),
+        'next_text' => __( '<span class="pagination-nav next meta-nav">'.$next_text.'</span>')
       ) ); 
     ?>
     </nav>
@@ -252,10 +259,15 @@ function FFW_actions(){
     
     // begin HTML ?>
     
-    <?php // SINGLE OR PAGE
-      if ( is_single() || is_page() ) : ?>
+    <?php // PAGE
+      if ( is_page() ) : ?>
 
-      <h1 class="page-title"><?php the_title(); ?></h1>
+      <!-- <h1 class="page-title"><?php the_title(); ?></h1> -->
+
+    <?php // SINGLE
+     elseif ( is_single() || is_singular() ) : ?>
+
+     <!-- No Hero Title -->
 
     <?php // ARCHIVE
       elseif ( is_archive() && !is_category() ): ?>
