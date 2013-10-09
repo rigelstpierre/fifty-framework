@@ -8,9 +8,9 @@
   margin-bottom:30px;
   @include clearfix;
 
-  &.page { h1{font-size:em(68px);}}
-  &.single { h1{font-size:em(68px);}}
-  &.archive { h1{font-size:em(42px);margin-top:0;}}
+  &.page {}
+  &.single {}
+  &.archive { h1,h2 {margin-top:0;}}
 
   
   // FIRST/LASTS

@@ -1236,6 +1236,46 @@ a {
   box-sizing: border-box;
 }
 
+h1 {
+  font-size: 4.25em;
+  line-height: 1.15;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 2.25em;
+  line-height: 1.25;
+  font-weight: 900;
+}
+
+h3 {
+  font-size: 1.5em;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+h4 {
+  font-size: 1.5em;
+  line-height: 1.35;
+  font-weight: normal;
+}
+
+h5 {
+  font-size: 1.125em;
+  line-height: 1.35;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: normal;
+  color: #7c7c7c;
+}
+
+h6 {
+  font-size: 0.875em;
+  line-height: 1.15;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
 .menu-menu-1-container {
   float: right;
 }
@@ -7535,15 +7575,9 @@ footer.default .footer-inner {
   zoom: 1;
   *display: inline;
   width: 80%;
-  font-size: 4.25em;
-  line-height: 1.15;
 }
 .flexslider ul.slides li .slide-content h1:first-of-type {
   margin: 0;
-}
-.flexslider ul.slides li .slide-content h2 {
-  font-size: 2.625em;
-  line-height: 1.25;
 }
 .flexslider ul.slides li .slide-content p {
   display: -moz-inline-stack;
@@ -8243,14 +8277,7 @@ ol.children {
   /* POST THUMBS
   ================================================== */
 }
-.post.page h1 {
-  font-size: 4.25em;
-}
-.post.single h1 {
-  font-size: 4.25em;
-}
-.post.archive h1 {
-  font-size: 2.625em;
+.post.archive h1, .post.archive h2 {
   margin-top: 0;
 }
 .post:first-child .post-title {

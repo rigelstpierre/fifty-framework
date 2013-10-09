@@ -10,9 +10,9 @@
 
 <article class="post <?php echo $post_class; ?> post-<?php echo get_the_ID(); ?>">
   <header>
-    <h1 class="post-title">
+    <h2 class="post-title">
       <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-    </h1>
+    </h2>
   </header>
   <div class="content">
     <?php the_content(); ?>

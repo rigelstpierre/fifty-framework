@@ -113,13 +113,7 @@ $height-flex_control_thumbs:  130;
           h1 {
             @include inline-block;
             width:80%;
-            font-size:em(68px);
-            line-height:1.15;
             &:first-of-type {margin:0;}
-          }
-          h2 {
-            font-size:em(42px);
-            line-height:1.25;
           }
           p {
             @include inline-block;
