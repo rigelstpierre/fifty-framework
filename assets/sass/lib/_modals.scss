@@ -8,9 +8,9 @@ $modal-overlay-bg-transparency  : 0.75;
 $modal-bg-color                 : #fff;
 $modal-text-color               : #313131;
 $modal-box-shadow               : true;
+$modal-border-radius            : 3px;
 $modal-header-bg-color          : #fafafa;
-$modal-body-bg-color            : inherit;
-$modal-footer-bg-color          : inherit;
+$modal-footer-bg-color          : #fafafa;
 
 
 
@@ -45,6 +45,12 @@ $modal-footer-bg-color          : inherit;
   color:$modal-text-color;  
   /* DEFAULT - same as .medium */
   width:500px;margin-left:-250px;
+  font-size:initial;
+  @include border-radius($modal-border-radius);
+  /* BOX SHADOW */
+  @if $modal-box-shadow == true {
+    @include box-shadow(0px 0px 7px -3px rgba(black, 0.15));
+  }
   /* TRANSITION */
   @include transition(transform);
   @include transition-duration(0);
@@ -71,7 +77,7 @@ $modal-footer-bg-color          : inherit;
 
   // BUTTON (.modal-close)
   button {
-    position:absolute;top:10px;right:10px;
+    position:absolute;top:12px;right:10px;
     z-index:1100;
     @include button-empty();
     font-size:initial;
@@ -81,22 +87,36 @@ $modal-footer-bg-color          : inherit;
       font-size:em(20px);
       content:'*';
     }
+    &:hover {color:$colorAnchorDefault;}
   }
   
   header, main, footer {width:100%;height:auto;}
   
   // HEADER (.modal-header)
   header {
-    padding:20px 20px 0px 20px;
+    @include border-radius($modal-border-radius $modal-border-radius 0 0);
+    padding:17px 20px 13px 20px;
+    background-color: $modal-header-bg-color;
+    border-bottom:1px solid darken($modal-header-bg-color,3);
+    line-height:1;
+    font-size:em(17px);
+    text-transform: uppercase;
+    font-weight:bold;
   }
 
   // MAIN (.modal-body)
   .modal-body {
-    padding:20px;
+    font-size:em(16px);
+    font-family:$serif;
+    background-color: transparent;
+    padding:15px 20px;
   }
 
   // FOOTER (.modal-footer)
   footer {
+    @include border-radius(0 0 $modal-border-radius $modal-border-radius);
+    background-color: $modal-footer-bg-color;
+    border-top:1px solid darken($modal-footer-bg-color,3);
     padding:0px 20px 20px 20px;
   }
 }

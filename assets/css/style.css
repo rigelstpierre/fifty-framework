@@ -1252,23 +1252,25 @@ h2 {
 
 h3 {
   font-size: 1.5em;
-  line-height: 1.35;
+  line-height: 1.25;
   font-weight: 900;
 }
 
 h4 {
   font-size: 1.5em;
-  line-height: 1.35;
+  line-height: 1.15;
   font-weight: normal;
+  margin-top: 0;
 }
 
 h5 {
   font-size: 1.125em;
-  line-height: 1.35;
+  line-height: 1.25;
   font-family: Georgia, serif;
   font-style: italic;
   font-weight: normal;
   color: #7c7c7c;
+  margin-top: 0;
 }
 
 h6 {
@@ -1276,6 +1278,7 @@ h6 {
   line-height: 1.15;
   font-weight: 900;
   text-transform: uppercase;
+  margin-top: 0;
 }
 
 .menu-menu-1-container {
@@ -7123,6 +7126,14 @@ Daniel Raftery <@ThirvingKings>
   /* DEFAULT - same as .medium */
   width: 500px;
   margin-left: -250px;
+  font-size: initial;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  /* BOX SHADOW */
+  -webkit-box-shadow: 0px 0px 7px -3px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 0px 7px -3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 7px -3px rgba(0, 0, 0, 0.15);
   /* TRANSITION */
   -webkit-transition: -webkit-transform;
   -moz-transition: -moz-transform;
@@ -7178,7 +7189,7 @@ Daniel Raftery <@ThirvingKings>
 }
 .modal button {
   position: absolute;
-  top: 10px;
+  top: 12px;
   right: 10px;
   z-index: 1100;
   -webkit-appearance: none;
@@ -7194,17 +7205,37 @@ Daniel Raftery <@ThirvingKings>
   font-size: 1.25em;
   content: '*';
 }
+.modal button:hover {
+  color: #2f7499;
+}
 .modal header, .modal main, .modal footer {
   width: 100%;
   height: auto;
 }
 .modal header {
-  padding: 20px 20px 0px 20px;
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+  padding: 17px 20px 13px 20px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #f2f2f2;
+  line-height: 1;
+  font-size: 1.0625em;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 .modal .modal-body {
-  padding: 20px;
+  font-size: 1em;
+  font-family: Georgia, serif;
+  background-color: transparent;
+  padding: 15px 20px;
 }
 .modal footer {
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+  background-color: #fafafa;
+  border-top: 1px solid #f2f2f2;
   padding: 0px 20px 20px 20px;
 }
 

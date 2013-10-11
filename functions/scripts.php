@@ -24,6 +24,7 @@ function FFW_scripts_styles(){
   wp_register_script('scrollTo', get_template_directory_uri() . '/assets/js/vendor/jquery.scrollTo.js', array('jquery'),'',true );
   wp_register_script('easing', get_template_directory_uri() . '/assets/js/vendor/jquery.easing.min.js', array('jquery'),'',true );
   wp_register_script('skrollr', get_template_directory_uri() . '/assets/js/vendor/skrollr.js', array('jquery'),'',true );
+  wp_register_script('fitvid', get_template_directory_uri() . '/assets/js/vendor/jquery.fitvid.min.js', array('jquery'),'',true );
   wp_register_script('animo', get_template_directory_uri() . '/assets/js/vendor/animo.js', array('jquery'),'',true );
   wp_register_script('magnific-popup', get_template_directory_uri() . '/assets/js/vendor/jquery.magnific-popup.min.js', array('jquery'),'',true );
   wp_register_script('backstretch', get_template_directory_uri() . '/assets/js/vendor/jquery.backstretch.min.js', array('jquery'),'',true );
@@ -53,6 +54,7 @@ function FFW_scripts_styles(){
     wp_enqueue_script('scrollTo');
     // wp_enqueue_script('skrollr');
     wp_enqueue_script('flexslider');
+    wp_enqueue_script('fitvid');
     wp_enqueue_script('animo');
     // wp_enqueue_script('magnific-popup');
     wp_enqueue_script('backstretch');
