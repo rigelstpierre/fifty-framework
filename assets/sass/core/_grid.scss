@@ -261,7 +261,7 @@
     text-align:center;
     padding:25px 20px;
 
-    h1,h2,h3,h4,h5 {
+    h1,h2,h3,h4,h5,h6 {
       @include transition(all 100ms ease-in-out);
       margin:0;padding:0;line-height:1.4;text-transform:uppercase;font-weight:bold;color:$colorTextDefault;
     }
