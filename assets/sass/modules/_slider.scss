@@ -52,6 +52,8 @@ $height-flex_control_thumbs:  130;
     }
 
     /* TYPOGRAPHY */
+    h6 {margin-bottom:.5em;}
+    p {margin-top:0px;}
     
 
     li {
@@ -309,6 +311,10 @@ $height-flex_control_thumbs:  130;
           height:#{$height-slider_mobile}px;
           .container {height:#{$height-slider_mobile}px;}
           .slide-overlay {height:#{$height-slider_mobile}px;}
+
+          .slide-content {
+            font-size:85%;
+          }
         }
       }
     }

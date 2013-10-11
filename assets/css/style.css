@@ -2131,6 +2131,15 @@ form .pure-help-inline,
   border: 1px solid rgba(0, 0, 0, 0);
 }
 
+/* ------------------------------------------------ */
+/* FFW_NEWSLETTER_WRAPPER -> MOBILE
+/* ------------------------------------------------ */
+@media only screen and (max-width: 767px) {
+  .ffw_newsletter_wrapper.gform_wrapper form .gform_body ul.gform_fields li.gfield {
+    width: 100% !important;
+    float: none !important;
+  }
+}
 /* _social.scss */
 .menu-social {
   font-size: initial;
@@ -7681,6 +7690,12 @@ footer.default .footer-inner {
   margin: 0;
   padding: 0;
 }
+.flexslider ul.slides h6 {
+  margin-bottom: .5em;
+}
+.flexslider ul.slides p {
+  margin-top: 0px;
+}
 .flexslider ul.slides li {
   display: none;
   /* hidden */
@@ -7982,6 +7997,9 @@ footer.default .footer-inner {
   }
   .flexslider ul.slides li .slide-overlay {
     height: 450px;
+  }
+  .flexslider ul.slides li .slide-content {
+    font-size: 85%;
   }
 }
 /* _widgets.scss */

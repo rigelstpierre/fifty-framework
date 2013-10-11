@@ -434,6 +434,8 @@ $ffw_newsletter_height:         80;
     .validation_error {display:none !important;}
     .validation_message {display:none !important}
 
+
+    // GRAVITY FORMS ERROR VALIDATION
     form ul.gform_fields li.gfield.gfield_error {
         padding: 0 10px 0 0 !important;
         margin: 0 !important;
@@ -507,9 +509,25 @@ $ffw_newsletter_height:         80;
                 outline: 1px solid rgba(0, 0, 0, 0);
                 border: 1px solid rgba(0, 0, 0, 0);
             }
-
         }
-        
     }
-
 }
+
+    /* ------------------------------------------------ */
+    /* FFW_NEWSLETTER_WRAPPER -> MOBILE
+    /* ------------------------------------------------ */
+    @include media(mobile) {
+      .ffw_newsletter_wrapper.gform_wrapper {
+
+        form {
+            .gform_body {
+                ul.gform_fields {
+                    li.gfield {
+                        width:100% !important;
+                        float:none !important;
+                    }
+                }
+            }
+        }
+      }
+    }
