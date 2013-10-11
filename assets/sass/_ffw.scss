@@ -269,3 +269,13 @@
   }
 }
 
+
+
+/* EMPTY-BUTTON
+================================================== */
+@mixin button-empty() {
+  @include appearance(none);
+  outline:0;
+  border:0;
+  background-color:transparent;
+}

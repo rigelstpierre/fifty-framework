@@ -59,6 +59,8 @@
 ================================================== */
 /* PSEUDO-ICON-FONT
 ================================================== */
+/* EMPTY-BUTTON
+================================================== */
 /* Reset & Vendor Libs */
 /* _normalize.scss */
 /*! normalize.css v2.1.0 | MIT License | git.io/normalize */
@@ -434,13 +436,13 @@ table {
 /* _variables.scss */
 /* COLORS                           | **REQUIRED**
 ================================================== */
-/* STYLE OPTIONS & TOGGLES
+/* GRID SETTINGS                    | **REQUIRED**
+================================================== */
+/* STYLE OPTIONS & TOGGLES        
 ================================================== */
 /* FONTS                            | **REQUIRED**
 ================================================== */
 /* _grid.scss */
-/* Grid Settings
-================================================== */
 /* Grid Mixins/Classes/Media Queries
 ================================================== */
 /* MEDIA
@@ -7074,6 +7076,136 @@ Daniel Raftery <@ThirvingKings>
   100% {
     transform: rotate3d(80, 70, 10, 180deg);
   }
+}
+
+/* _modals.scss */
+/* MODAL SETTINGS
+================================================== */
+/* MODAL-OVERLAY
+================================================== */
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background-color: transparent;
+  background-color: rgba(49, 49, 49, 0.75);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#BF313131,endColorstr=#BF313131);
+  zoom: 1;
+  /* TRANSITION */
+  -webkit-transition: all 200ms linear;
+  -moz-transition: all 200ms linear;
+  -o-transition: all 200ms linear;
+  transition: all 200ms linear;
+  z-index: 0;
+  visibility: hidden;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+.modal-overlay.show {
+  z-index: 1000;
+  visibility: visible;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+/* MODAL
+================================================== */
+.modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  height: auto;
+  background-color: white;
+  color: #313131;
+  /* DEFAULT - same as .medium */
+  width: 500px;
+  margin-left: -250px;
+  /* TRANSITION */
+  -webkit-transition: -webkit-transform;
+  -moz-transition: -moz-transform;
+  -o-transition: -o-transform;
+  transition: transform;
+  -webkit-transition-duration: 0;
+  -moz-transition-duration: 0;
+  -o-transition-duration: 0;
+  transition-duration: 0;
+  -webkit-transform: scale(0.85);
+  -moz-transform: scale(0.85);
+  -ms-transform: scale(0.85);
+  -o-transform: scale(0.85);
+  transform: scale(0.85);
+  z-index: -100;
+  visibility: hidden;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+.modal.show {
+  -webkit-transition: -webkit-transform;
+  -moz-transition: -moz-transform;
+  -o-transition: -o-transform;
+  transition: transform;
+  -webkit-transition-duration: 250ms;
+  -moz-transition-duration: 250ms;
+  -o-transition-duration: 250ms;
+  transition-duration: 250ms;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  z-index: 1100;
+  visibility: visible;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+.modal.small {
+  width: 300px;
+  margin-left: -150px;
+}
+.modal.medium {
+  width: 500px;
+  margin-left: -250px;
+}
+.modal.large {
+  width: 750px;
+  margin-left: -375px;
+}
+.modal br {
+  display: none;
+}
+.modal button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1100;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  border: 0;
+  background-color: transparent;
+  font-size: initial;
+}
+.modal button:before {
+  font-family: "pictos";
+  font-size: 1.25em;
+  content: '*';
+}
+.modal header, .modal main, .modal footer {
+  width: 100%;
+  height: auto;
+}
+.modal header {
+  padding: 20px 20px 0px 20px;
+}
+.modal .modal-body {
+  padding: 20px;
+}
+.modal footer {
+  padding: 0px 20px 20px 20px;
 }
 
 /* Modules & Components */

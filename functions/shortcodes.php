@@ -1,5 +1,9 @@
 <?php
 
+////////////////////////////////////
+// B A S I C S
+////////////////////////////////////
+
 // button
 function ffw_button_shortcode( $atts, $content = null ) {
     extract(shortcode_atts(array(
@@ -34,6 +38,24 @@ function ffw_blockquote_full_shortcode( $atts, $content = null ) {
 }
 add_shortcode('blockquote_full', 'ffw_blockquote_full_shortcode');
 
+
+////////////////////////////////////
+// M O D A L S
+////////////////////////////////////
+function ffw_modal( $atts, $content = null ) {
+    extract(shortcode_atts(array(
+        'size' => '',
+        'target' => '',
+        'type' => '',
+        'name' => ''
+    ), $atts));
+
+    $modal_str = '<a class="modal-trigger '.$type.'" href="javascript:;" data-id="#'.$target.'">'.$name.'</a>';
+    $modal_str .= '<div class="modal" id="'.$target.'"><button class="modal-close"></button><div class="modal-body">'. do_shortcode( $content ) .'</div></div>';
+
+    return $modal_str;
+}
+add_shortcode('modal', 'ffw_modal');
 
 
 

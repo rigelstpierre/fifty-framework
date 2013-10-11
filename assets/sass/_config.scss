@@ -21,9 +21,25 @@ $colorTextLight:        #a3a3a3;
 $colorAnchorDefault:    #2f7499;
 
 
+/* GRID SETTINGS                    | **REQUIRED**
+================================================== */
+$widescreen             : 1140;
+$desktop                : 960;
+$tablet                 : 768;
+$mobile-landscape       : 480;
+$mobile-portrait        : 320;
+$mobile                 : $mobile-landscape;
+
+$columns                : 12;
+$margin                 : 10px;
+$padding                : 10px;
+
+$responsive             : true;
+$from-direction         : left;
 
 
-/* STYLE OPTIONS & TOGGLES
+
+/* STYLE OPTIONS & TOGGLES        
 ================================================== */
 $transparency-header:     false;
 
@@ -32,11 +48,11 @@ $transparency-header:     false;
 
 /* FONTS                            | **REQUIRED**
 ================================================== */
-$default:       "opensans", Helvetica, Arial, sans-serif;
-$default-alt:   "opensans-condensed", "Helvetica Neue";
-$serif:         Georgia, serif;
-$pictos:        "pictos";
-$arrrows:       "arrrows";
-$social:        "socialico";
-$socialico:     "socialico";
+$default      :       "opensans", Helvetica, Arial, sans-serif;
+$default-alt  :   "opensans-condensed", "Helvetica Neue";
+$serif        :         Georgia, serif;
+$pictos       :        "pictos";
+$arrrows      :       "arrrows";
+$social       :        "socialico";
+$socialico    :     "socialico";
 

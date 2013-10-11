@@ -1,20 +1,5 @@
 /* _grid.scss */
 
-/* Grid Settings
-================================================== */
-    $widescreen             : 1140;
-    $desktop                : 960;
-    $tablet                 : 768;
-    $mobile-landscape       : 480;
-    $mobile-portrait        : 320;
-    $mobile                 : $mobile-landscape;
-
-    $columns                : 12;
-    $margin                 : 10px;
-    $padding                : 10px;
-
-    $responsive             : true;
-    $from-direction         : left;
 
 /* Grid Mixins/Classes/Media Queries
 ================================================== */
@@ -58,10 +43,6 @@
   // MQ -> Widescreen (UNUSED)
   // @if $type == widescreen {
   //   @media only screen and ( min-width: $widescreen_min ) { @content; }
-  // }
-  // MQ -> Desktop (OLD)
-  // @else if $type == desktop {
-  //   @media only screen and ( min-width: $desktop_min ) and ( max-width: $widescreen_max ) { @content; }
   // }
   // MQ -> Desktop
   @if $type == desktop {

@@ -15,10 +15,10 @@
         FF.setVars();
         FF.basics();
         FF.scroll();
-        FF.modalEffects();
         FF.fauxPlaceholders();
         FF.regex();
         FF.lazyLoadVideo();
+        FF.modals();
         FF.collapsableSidebar();
         FF.backStretch();
         FF.debugBox();
@@ -33,6 +33,8 @@
         FF.el.page_wrap             = $('.page-wrap');
         FF.el.mobile_menu_btn       = $('#mobile-menu-toggle');
         FF.el.debug_box             = $('#debug_box');
+        FF.el.modal                 = $('.modal');
+        FF.el.modal_close           = $('.modal button.modal-close');
     };
 
 
@@ -120,85 +122,53 @@
     };
 
 
-    /* MODAL EFFECTS
+    /* MODALS (Magnific Popup)
     ================================================== */
-    FF.modalEffects = function() {
+    FF.modals = function() {
 
-        var overlay = $('.md-overlay');
+        // move all modals to the #modals bay
+        FF.el.modal.appendTo('#modals');
 
-        if (!overlay) { return; }
+        // append the modal overlay to the body
+        $('body').append('<div class="modal-overlay"></div>');
+        var $modal_overlay = $('.modal-overlay');
+        
+        // set the width/height to the body w/h
+        $modal_overlay.width($('body').width()).height($('body').height());
 
-        [].slice.call( $('.md-trigger') ).forEach( function(el, i) {
+        // modal trigger click function
+        $('.modal-trigger, [role="modal-trigger"]').click(function(e) {
+            e.preventDefault();
 
-            var modal_id = $(el).attr('href'),
-              modal = $( modal_id ),
-              close = modal.find('.md-close');
+            // set relative vars
+            var modal_id        = $(this).data('id'),
+                modal_target    = $(modal_id);
 
-            // remove modal
-            function removeModal(hasPerspective) {
-              modal.removeClass('md-show');
+            // modal show func
+            function modal_show() {
+                $modal_overlay.addClass('show');
+                modal_target.addClass('show');
+            } modal_show();
 
-              if ( hasPerspective ) {
-                  document.documentElement.removeClass('md-perspective');
-              }
+            // modal hide func
+            function modal_close() {
+                modal_target.removeClass('show');
+                $modal_overlay.removeClass('show');
             }
 
-            // remove handler
-            function removeModalHandler() {
-              removeModal( $(el).hasClass('md-setperspective') );
-              overlay.removeClass('md-show');
-
-              return false;
-            }
-
-            // scroll to top of modal on click
-            function scrollModalOffset(id) {
-
-                var md_id       = $(el).attr('href'),
-                    md          = $( md_id ),
-                    md_offset   = md.offset().top;
-
-                    // console.log(md_id);
-
-                    if(md && md.offset() && (md_id === '#MODAL_ID_1' || md_id === '#MODAL_ID_2') ){
-                        if(/(iPhone|iPod)\sOS\s6/.test(navigator.userAgent)){
-                            $('html, body').animate({
-                                scrollTop: md.offset().top - 30
-                            }, 250, 'swing');
-                        } else {
-                            $('html, body').animate({
-                                scrollTop: md.offset().top - 30
-                            }, 250, 'swing');
-                        }
-                    }
-            }
-
-            // open modal
-            el.addEventListener( 'click', function( ev ) {
-
-                ev.preventDefault();
-
-                modal.addClass('md-show');
-                overlay.addClass('md-show');
-                overlay.unbind( 'click', removeModalHandler );
-                overlay.bind( 'click', removeModalHandler );
-
-                if( $(el).hasClass('md-setperspective') ) {
-                    setTimeout( function() {
-                        document.documentElement.addClass('md-perspective');
-                    }, 25 );
-                }
-
-                scrollModalOffset();
-
+            // esc keyup
+            $(document).keyup(function(event) { 
+                if (event.keyCode == 27) { modal_close(); } 
             });
+            // close button
+            FF.el.modal_close.click(function() { modal_close(); });
+            // click anywhere on overlay
+            $modal_overlay.click(function() { modal_close(); })
 
-            // close modal
-            close.click(function(ev){
-                ev.stopPropagation();
-                removeModalHandler();
-            })
-        });    
+        });
+
+
+
     };
 
 

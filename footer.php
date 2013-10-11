@@ -13,6 +13,8 @@
   </div><!-- .container -->
 </footer>
 
+<section id="modals"></section>
+
 
 <?php do_action('FFW_debug_box', array(
   'wpquery'           => true,

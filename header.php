@@ -29,7 +29,8 @@
 	</script>
 
 	<!--[if lt IE 9]>
-		<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/xbc.js"></script>
+		<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/polyfills/xbc.js"></script>
+		<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/polyfills/html5shiv.js"></script>
 	<![endif]-->
 
 	<script>
