@@ -7740,19 +7740,19 @@ footer.default .footer-inner {
   text-align: left;
 }
 .flexslider ul.slides li .slide-content.left .seperator {
-  margin: 15px 0 0 0;
+  margin: 15px 0 15px 0;
 }
 .flexslider ul.slides li .slide-content.center {
   text-align: center;
 }
 .flexslider ul.slides li .slide-content.center .seperator {
-  margin: 15px auto 0 auto;
+  margin: 15px auto 15px auto;
 }
 .flexslider ul.slides li .slide-content.right {
   text-align: right;
 }
 .flexslider ul.slides li .slide-content.right .seperator {
-  margin: 15px 0 0 0;
+  margin: 15px 0 15px 0;
 }
 .flexslider ul.slides li .slide-content .seperator {
   display: block;
