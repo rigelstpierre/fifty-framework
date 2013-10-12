@@ -20,6 +20,7 @@
         FF.lazyLoadVideo();
         FF.modals();
         FF.collapsableSidebar();
+        FF.fitVids();
         FF.backStretch();
         FF.debugBox();
         FF.hamburgerNav();
@@ -167,8 +168,6 @@
 
         });
 
-
-
     };
 
 
@@ -245,6 +244,14 @@
             }, 350);
         
         });
+    }
+
+
+    /* FITVIDS
+    ================================================== */
+    FF.fitVids = function() {
+
+        $('.slide-content, section').fitVids();
     }
 
 
