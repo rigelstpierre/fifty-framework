@@ -59,27 +59,35 @@
     ================================================== */
     FF.scroll = function(){
 
-        var duration        = 500,
-            easing          = 'swing',
-            scroll_offset   = 15;
-
-        // <a> method
-        $('a[href^="#"].scroll').click(function(e){
-            var $self = $(this);
-            var destination = $($self.attr('href'));
+        // <a> method manual
+        $('a.scroll, li.scroll > a').click(function(e){
             e.preventDefault();
-            // if destination is valid, scroll to
-            if(destination && destination.offset()){
-                if(/(iPhone|iPod)\sOS\s6/.test(navigator.userAgent)){
-                    $('html, body').animate({
-                        scrollTop: $(destination).offset().top
-                    }, duration, easing);
-                } else {
-                    $('html, body').animate({
-                        scrollTop: $(destination).offset().top - (scroll_offset)
-                    }, duration, easing);
+
+            var $this       = $(this),
+                target_id   = $this.attr('href'),
+                target      = $(target_id),
+                // duration    = (target.offset().top - $(window).scrollTop());
+                duration    = 650;
+
+            animate_scrollTop(target, duration, 'easeInOutExpo', 0);
+
+            console.log(duration);
+
+            // animate_scrollTop();
+            function animate_scrollTop(target, duration, easing, offset){
+                if(target){
+                    if(/(iPhone|iPod)\sOS\s6/.test(navigator.userAgent)){
+                        $('html, body').animate({
+                            scrollTop: target.offset().top
+                        }, duration, easing);
+                    } else {
+                        $('html, body').animate({
+                            scrollTop: target.offset().top - (offset)
+                        }, duration, easing);
+                    }
                 }
             }
+
         });
     };
     
@@ -145,16 +153,23 @@
             var modal_id        = $(this).data('id'),
                 modal_target    = $(modal_id);
 
+            // set modal negative top margin
+            modal_target.css('margin-top', '-'+(modal_target.height() / 2)+'px');
+
             // modal show func
             function modal_show() {
                 $modal_overlay.addClass('show');
-                modal_target.addClass('show');
+                setTimeout(function(){
+                    modal_target.addClass('show');
+                }, 250)
             } modal_show();
 
             // modal hide func
             function modal_close() {
                 modal_target.removeClass('show');
-                $modal_overlay.removeClass('show');
+                setTimeout(function(){
+                    $modal_overlay.removeClass('show');
+                }, 150)
             }
 
             // esc keyup

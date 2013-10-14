@@ -7116,7 +7116,7 @@ Daniel Raftery <@ThirvingKings>
 /* MODAL-OVERLAY
 ================================================== */
 .modal-overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -7127,10 +7127,10 @@ Daniel Raftery <@ThirvingKings>
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#BF313131,endColorstr=#BF313131);
   zoom: 1;
   /* TRANSITION */
-  -webkit-transition: all 200ms linear;
-  -moz-transition: all 200ms linear;
-  -o-transition: all 200ms linear;
-  transition: all 200ms linear;
+  -webkit-transition: all 100ms linear;
+  -moz-transition: all 100ms linear;
+  -o-transition: all 100ms linear;
+  transition: all 100ms linear;
   z-index: 0;
   visibility: hidden;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
@@ -7168,16 +7168,16 @@ Daniel Raftery <@ThirvingKings>
   -moz-transition: -moz-transform;
   -o-transition: -o-transform;
   transition: transform;
-  -webkit-transition-duration: 0;
-  -moz-transition-duration: 0;
-  -o-transition-duration: 0;
-  transition-duration: 0;
+  -webkit-transition-duration: 250ms;
+  -moz-transition-duration: 250ms;
+  -o-transition-duration: 250ms;
+  transition-duration: 250ms;
   -webkit-transform: scale(0.85);
   -moz-transform: scale(0.85);
   -ms-transform: scale(0.85);
   -o-transform: scale(0.85);
   transform: scale(0.85);
-  z-index: -100;
+  z-index: 0;
   visibility: hidden;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;

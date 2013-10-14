@@ -18,12 +18,12 @@ $modal-footer-bg-color          : #fafafa;
 /* MODAL-OVERLAY
 ================================================== */
 .modal-overlay {
-  position:absolute;top:0;left:0;
+  position:fixed;top:0;left:0;
   width:100%;height:100%;
   cursor:pointer;
   @include xbc-transparent-bg($modal-overlay-bg-transparency, $modal-overlay-bg-color);
   /* TRANSITION */
-  @include transition(all 200ms linear);
+  @include transition(all 100ms linear);
   z-index:0;
   visibility: hidden;
   @include opacity(0);
@@ -39,7 +39,7 @@ $modal-footer-bg-color          : #fafafa;
 /* MODAL
 ================================================== */
 .modal {
-  position:fixed;left:50%;top:50%;
+  position:fixed;left:50%;top:50%; 
   height:auto;
   background-color:$modal-bg-color;
   color:$modal-text-color;  
@@ -53,9 +53,9 @@ $modal-footer-bg-color          : #fafafa;
   }
   /* TRANSITION */
   @include transition(transform);
-  @include transition-duration(0);
+  @include transition-duration(250ms);
   @include transform(scale(0.85));
-  z-index:-100;
+  z-index:0;
   visibility: hidden;
   @include opacity(0);
 
