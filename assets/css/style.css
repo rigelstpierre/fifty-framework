@@ -8317,6 +8317,9 @@ footer.default .footer-inner {
   -moz-background-clip: padding;
   background-clip: padding-box;
 }
+.comment-wrap .avatar-wrap img {
+  border: 1px solid #dadada;
+}
 .comment-wrap .comment-comment {
   -webkit-box-flex: 4;
   -moz-box-flex: 4;
