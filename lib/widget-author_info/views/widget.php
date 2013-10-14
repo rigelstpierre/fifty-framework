@@ -6,7 +6,7 @@
 			<div class="standard-pi-pic">
 				<a href="javascript:;">
 					<?php echo get_avatar( get_the_author_meta( 'ID' ), 120 ); ?>
-				</a> 
+				</a>  
 			</div><!-- /.standard-pi-pic -->
 
 			<span class="standard-pi-top-text">
