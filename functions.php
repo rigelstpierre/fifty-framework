@@ -59,7 +59,7 @@ if(!class_exists('mrMetaBox')) {
   require_once(MRMETABOX_URL . 'mr-meta-box.php');
 }
 // Widgets (FFW Custom)
-require_once( get_template_directory() .'/lib/widget-personal_image/plugin.php');
+require_once( get_template_directory() .'/lib/widget-author_info/plugin.php');
 require_once( get_template_directory() .'/lib/widget-social_links/plugin.php');
 
 

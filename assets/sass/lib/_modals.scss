@@ -51,6 +51,7 @@ $modal-footer-bg-color          : #fafafa;
   @if $modal-box-shadow == true {
     @include box-shadow(0px 0px 7px -3px rgba(black, 0.15));
   }
+  
   /* TRANSITION */
   @include transition(transform);
   @include transition-duration(250ms);

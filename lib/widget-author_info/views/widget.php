@@ -4,8 +4,8 @@
 		
 		<?php echo $args['before_widget']; ?>
 			<div class="standard-pi-pic">
-				<a href="<?php echo $image_url; ?>">
-					<img src="<?php echo $image_src; ?>" alt="" />
+				<a href="javascript:;">
+					<?php echo get_avatar( get_the_author_meta( 'ID' ), 120 ); ?>
 				</a>
 			</div><!-- /.standard-pi-pic -->
 

@@ -24,6 +24,38 @@
 				<a class="socialico socialico-twitter circle" href="<?php echo $social_link_twitter; ?>"></a>
 			</li>
 		<?php endif; ?>
+
+		<?php if( '' != trim( $social_link_linkedin ) ) : ?>		
+			<li class="social-link">
+				<a class="socialico socialico-linkedin circle" href="<?php echo $social_link_linkedin; ?>"></a>
+			</li>
+		<?php endif; ?>
+
+		<?php if( '' != trim( $social_link_dribbble ) ) : ?>		
+			<li class="social-link">
+				<a class="socialico socialico-dribbble circle" href="<?php echo $social_link_dribbble; ?>"></a>
+			</li>
+		<?php endif; ?>
+
+		<?php if( '' != trim( $social_link_flickr ) ) : ?>		
+			<li class="social-link">
+				<a class="socialico socialico-flickr circle" href="<?php echo $social_link_flickr; ?>"></a>
+			</li>
+		<?php endif; ?>
+
+		<?php if( '' != trim( $social_link_youtube ) ) : ?>		
+			<li class="social-link">
+				<a class="socialico socialico-youtube circle" href="<?php echo $social_link_youtube; ?>"></a>
+			</li>
+		<?php endif; ?>
+
+		<?php if( '' != trim( $social_link_vimeo ) ) : ?>		
+			<li class="social-link">
+				<a class="socialico socialico-vimeo circle" href="<?php echo $social_link_vimeo; ?>"></a>
+			</li>
+		<?php endif; ?>
+
+		
 	</ul>
 	
 <?php echo $args['after_widget']; ?>

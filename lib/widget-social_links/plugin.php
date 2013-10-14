@@ -14,11 +14,18 @@ class FFW_Social_Links extends WP_Widget {
 	 
 	public function __construct() {
 
+
+
 		$widget_opts = array(
-			'social_link_title' 		 => __( 'Title', 'FFW' ),
+			'social_link_title'      => __( 'Title', 'FFW' ),
 			'social_link_facebook'   => __( 'Facebook URL', 'FFW' ),
 			'social_link_googleplus' => __( 'Google Plus URL', 'FFW' ),
 			'social_link_twitter'    => __( 'Twitter URL', 'FFW' ),
+			'social_link_linkedin'   => __( 'LinkedIn URL', 'FFW' ),
+			'social_link_dribbble'   => __( 'Dribbble URL', 'FFW' ),
+			'social_link_flickr'     => __( 'Flickr URL', 'FFW' ),
+			'social_link_youtube'    => __( 'YouTube URL', 'FFW' ),
+			'social_link_vimeo'      => __( 'Vimeo URL', 'FFW' ),
 		);	
 		$this->WP_Widget( 'ffw-social-links', __( 'Social Links', 'FFW' ), $widget_opts );
 		
@@ -52,6 +59,11 @@ class FFW_Social_Links extends WP_Widget {
 		$social_link_facebook   = empty( $instance['social_link_facebook']) ? '' : apply_filters( 'social_link_facebook', $instance['social_link_facebook'] );
 		$social_link_googleplus = empty( $instance['social_link_googleplus']) ? '' : apply_filters( 'social_link_googleplus', $instance['social_link_googleplus'] );
 		$social_link_twitter    = empty( $instance['social_link_twitter']) ? '' : apply_filters( 'social_link_twitter', $instance['social_link_twitter'] );
+		$social_link_linkedin   = empty( $instance['social_link_linkedin']) ? '' : apply_filters( 'social_link_linkedin', $instance['social_link_linkedin'] );
+		$social_link_dribbble   = empty( $instance['social_link_dribbble']) ? '' : apply_filters( 'social_link_dribbble', $instance['social_link_dribbble'] );
+		$social_link_flickr     = empty( $instance['social_link_flickr']) ? '' : apply_filters( 'social_link_flickr', $instance['social_link_flickr'] );
+		$social_link_youtube    = empty( $instance['social_link_youtube']) ? '' : apply_filters( 'social_link_youtube', $instance['social_link_youtube'] );
+		$social_link_vimeo      = empty( $instance['social_link_vimeo']) ? '' : apply_filters( 'social_link_vimeo', $instance['social_link_vimeo'] );
 		
 		// Display the widget
 		include( plugin_dir_path( __FILE__ ) .  'views/widget.php' );
@@ -73,6 +85,11 @@ class FFW_Social_Links extends WP_Widget {
 		$instance['social_link_facebook']   = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['social_link_facebook'] );
 		$instance['social_link_googleplus'] = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['social_link_googleplus'] );
 		$instance['social_link_twitter']    = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['social_link_twitter'] );
+		$instance['social_link_linkedin']   = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['social_link_linkedin'] );
+		$instance['social_link_dribbble']   = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['social_link_dribbble'] );
+		$instance['social_link_flickr']     = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['social_link_flickr'] );
+		$instance['social_link_youtube']    = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['social_link_youtube'] );
+		$instance['social_link_vimeo']      = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['social_link_vimeo'] );
 		
 		return $instance;
 		
@@ -88,10 +105,15 @@ class FFW_Social_Links extends WP_Widget {
 		$instance = wp_parse_args(
 			(array)$instance,
 			array(
-				'social_link_title' 		 => '',
+				'social_link_title'      => '',
 				'social_link_facebook'   => '',
 				'social_link_googleplus' => '',
-				'social_link_twitter'    => ''
+				'social_link_twitter'    => '',
+				'social_link_linkedin'   => '',
+				'social_link_dribbble'   => '',
+				'social_link_flickr'     => '',
+				'social_link_youtube'    => '',
+				'social_link_vimeo'      => '',
 			)
 		);
     
@@ -99,6 +121,11 @@ class FFW_Social_Links extends WP_Widget {
 		$social_link_facebook   = esc_url( $instance['social_link_facebook'] );
 		$social_link_googleplus = esc_url( $instance['social_link_googleplus'] );
 		$social_link_twitter    = esc_url( $instance['social_link_twitter'] );
+		$social_link_linkedin   = esc_url( $instance['social_link_linkedin'] );
+		$social_link_dribbble   = esc_url( $instance['social_link_dribbble'] );
+		$social_link_flickr     = esc_url( $instance['social_link_flickr'] );
+		$social_link_youtube    = esc_url( $instance['social_link_youtube'] );
+		$social_link_vimeo      = esc_url( $instance['social_link_vimeo'] );
     
 		// Display the admin form
 		include( plugin_dir_path( __FILE__ ) .  'views/admin.php' );

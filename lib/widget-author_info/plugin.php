@@ -1,11 +1,11 @@
 <?php
 /**
- * A widget for displaying a personal image and an optional description for displaying in the sidebar
+ * A widget for displaying an author image and info and an optional description for displaying in the sidebar
  * of Standard.
  *
  * version 1.0
  */
-class Standard_Personal_Image extends WP_Widget {
+class Standard_Author_info extends WP_Widget {
 
 	/*--------------------------------------------------------*
 	 * Constructor
@@ -14,12 +14,12 @@ class Standard_Personal_Image extends WP_Widget {
 	public function __construct() {
 
 		$widget_opts = array(
-			'classname'   => __( 'personal-image', 'standard' ), 
-			'description' => __( 'Display a personal image and an optional description.', 'standard' ),
+			'classname'   => __( 'author-info', 'standard' ), 
+			'description' => __( 'Display an author info image and an optional description.', 'standard' ),
 			'top_text'    => __( 'Optional text as a heading', 'standard' ),
 			'author_name' => __( 'The author/user name', 'standard' ),
 		);	
-		$this->WP_Widget( 'ffw-standard-personal-image', __( 'Personal Image', 'standard' ), $widget_opts );
+		$this->WP_Widget( 'ffw-standard-author-info', __( 'Author Image &amp; Info', 'standard' ), $widget_opts );
 		
 		// We don't want to load these on the Appearance Options because we're overiding window.send_to_editor there, too.
 		global $pagenow;
@@ -121,8 +121,8 @@ class Standard_Personal_Image extends WP_Widget {
 	
 		wp_enqueue_style( 'thickbox' );
 		
-		wp_register_style( 'standard-personal-image', get_template_directory_uri() . '/lib/widget-personal_image/css/admin.css' );
-		wp_enqueue_style( 'standard-personal-image' );
+		wp_register_style( 'standard-author-info', get_template_directory_uri() . '/lib/widget-author_info/css/admin.css' );
+		wp_enqueue_style( 'standard-author-info' );
 		
 	} // end register_admin_styles
 
@@ -142,8 +142,8 @@ class Standard_Personal_Image extends WP_Widget {
 			wp_enqueue_script('thickbox');
 	
 			// admin
-			wp_register_script( 'standard-personal-image', get_template_directory_uri() . '/lib/widget-personal_image/js/admin.js', array( 'jquery', 'media-upload','thickbox') );
-			wp_enqueue_script( 'standard-personal-image' );
+			wp_register_script( 'standard-author-info', get_template_directory_uri() . '/lib/widget-author_info/js/admin.js', array( 'jquery', 'media-upload','thickbox') );
+			wp_enqueue_script( 'standard-author-info' );
 		
 		} // end if
 		
@@ -155,11 +155,11 @@ class Standard_Personal_Image extends WP_Widget {
 	 */
 	public function register_widget_styles() {
 	
-		wp_register_style( 'standard-personal-image-widget', get_template_directory_uri() . '/lib/widget-personal_image/css/widget.css' );
-		wp_enqueue_style( 'standard-personal-image-widget' );
+		wp_register_style( 'standard-author-info-widget', get_template_directory_uri() . '/lib/widget-author_info/css/widget.css' );
+		wp_enqueue_style( 'standard-author-info-widget' );
 	
 	} // end register_widget_styles
 
 } // end class
-add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Personal_Image" );' ) ); 
+add_action( 'widgets_init', create_function( '', 'register_widget( "Standard_Author_info" );' ) ); 
 ?>
