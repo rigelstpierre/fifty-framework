@@ -43,7 +43,7 @@
     ================================================== */
     FF.setVars = function() {
         // jquery easing plugin init
-        jQuery.easing.def = "string";
+        // jQuery.easing.def = "string";
     }
     
 
