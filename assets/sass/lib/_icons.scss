@@ -15,8 +15,8 @@ i.icon,.icon  {
     text-transform:none;
   }
 
-  // CIRCLE
-  ///////////////////
+  // CIRCLE (used in events landing)
+  ///////////////////////////////////
   &.circle {
     width:86px;height:86px;
     @include border-radius(43px);
@@ -143,12 +143,43 @@ i.socialico,.socialico  {
   font-size:inherit;
 
 }
-// REGULAR
-.socialico-facebook:before        {content:'F';}
-.socialico-twitter:before         {content:'L';}
-.socialico-googleplus:before      {content:'G';}
-.socialico-flickr:before          {content:'N';}
-.socialico-vimeo:before           {content:'V';}
+// SERVICES
+.socialico-dribbble {
+  &:before  {content:'d';}
+  &:hover   {color:#d4386b !important;}
+}
+.socialico-facebook {
+  &:before  {content:'f';}
+  &:hover   {color:#3c599d !important;}
+}
+.socialico-flickr {
+  &:before  {content:'n';}
+  &:hover   {color:#694db4 !important;}
+}
+.socialico-googleplus {
+  &:before  {content:'g';}
+  &:hover   {color:#bc3426 !important;}
+}
+.socialico-linkedin {
+  &:before  {content:'i';}
+  &:hover   {color:#0085ae !important;}
+}
+.socialico-tumblr {
+  &:before  {content:'o';}
+  &:hover   {color:#2c4661 !important;}
+}
+.socialico-twitter {
+  &:before  {content:'l';}
+  &:hover   {color:#4bc4e6 !important;}
+}
+.socialico-vimeo {
+  &:before  {content:'v';}
+  &:hover   {color:#0fbab2 !important;}
+}
+.socialico-youtube {
+  &:before  {content:'x';}
+  &:hover   {color:#911d1e !important;}
+}
 
 
 [data-icon]:before {

@@ -125,6 +125,10 @@
       @include border-radius(32px);
       @include background-clip(padding-box);
     }
+
+    img {
+      border: 1px solid #dadada;
+    }
   }
 
   /* COMMENT  */
