@@ -1,0 +1,52 @@
+.social-links {
+	background: #fff;
+	-webkit-box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2), transparent 0 0 0, transparent 0 0 0, transparent 0 0 0, transparent 0 0 0;
+	-moz-box-shadow: inset	0 1px 2px 0 rgba(0, 0, 0, 0.2),transparent 0 0 0,transparent 0 0 0,transparent 0 0 0,transparent 0 0 0;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), transparent 0 0 0, transparent 0 0 0, transparent 0 0 0, transparent 0 0 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* SOCIALICO (backup redundany if already in theme)
+================================================== */
+i.socialico,.socialico  {
+  font-style:normal;display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
+  background-image:none !important;
+  
+}
+.circle:before {
+  text-transform:lowercase;
+}
+.socialico:before {
+  font-family:"socialico",$social;
+  font-weight:normal; 
+  font-style:normal;
+  font-size:inherit;
+}
+.socialico-dribbble:before    {content:'d';}
+.socialico-dribbble:hover     {color:#d4386b !important;}
+
+.socialico-facebook:before    {content:'f';}
+.socialico-facebook:hover     {color:#3c599d !important;}
+
+.socialico-flickr:before      {content:'n';}
+.socialico-flickr:hover       {color:#694db4 !important;}
+
+.socialico-googleplus:before  {content:'g';}
+.socialico-googleplus:hover   {color:#bc3426 !important;}
+
+.socialico-linkedin:before    {content:'i';}
+.socialico-linkedin:hover     {color:#0085ae !important;}
+
+.socialico-tumblr:before      {content:'o';}
+.socialico-tumblr:hover       {color:#2c4661 !important;}
+
+.socialico-twitter:before     {content:'l';}
+.socialico-twitter:hover      {color:#4bc4e6 !important;}
+
+.socialico-vimeo:before       {content:'v';}
+.socialico-vimeo:hover        {color:#0fbab2 !important;}
+
+.socialico-youtube:before     {content:'x';}
+.socialico-youtube:hover      {color:#911d1e !important;}
