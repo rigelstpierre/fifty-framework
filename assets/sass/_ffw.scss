@@ -236,7 +236,7 @@
         @if $margin_right == true   { margin-right:1%; &:last-of-type {margin-right:0;} }
     }
     
-    @if $width == fourth  { 
+    @if $width == fourth  {  
          width:25%;
         
         @if $margin_right == true and $margin_left == false { 
