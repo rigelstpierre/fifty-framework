@@ -22,7 +22,7 @@ function FFW_scripts_styles(){
   // vendor
   wp_register_script('flexslider', get_template_directory_uri() . '/assets/js/vendor/jquery.flexslider.js', array('jquery'),'',true );
   wp_register_script('scrollTo', get_template_directory_uri() . '/assets/js/vendor/jquery.scrollTo.js', array('jquery'),'',true );
-  wp_register_script('easing', get_template_directory_uri() . '/assets/js/vendor/jquery.easing.min.js', array('jquery'),'',true );
+  wp_register_script('easing', get_template_directory_uri() . '/assets/js/vendor/jquery.easing.1.3.js', array('jquery'),'',true );
   wp_register_script('skrollr', get_template_directory_uri() . '/assets/js/vendor/skrollr.js', array('jquery'),'',true );
   wp_register_script('fitvid', get_template_directory_uri() . '/assets/js/vendor/jquery.fitvid.min.js', array('jquery'),'',true );
   wp_register_script('animo', get_template_directory_uri() . '/assets/js/vendor/animo.js', array('jquery'),'',true );
