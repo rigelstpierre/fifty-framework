@@ -10,7 +10,7 @@ if ( ! is_active_sidebar( 'sidebar_default' ) && ! is_active_sidebar( 'sidebar_f
 
 <?php /* DEFAULT
 ================================================== */ 
-if ( is_home() || is_front_page() || is_page() || is_single() || is_archive() ): ?>
+if ( is_home() || is_front_page() || is_page() || is_single() || is_archive() || is_search() ): ?>
 
   <?php if ( is_active_sidebar( 'sidebar_default' ) ) : ?>
   	<div class="sidebar-inner">
