@@ -285,7 +285,7 @@ function FFW_actions(){
     <?php // CATEGORY
       elseif ( is_category() ) : ?>
 
-      <h1 class="page-title"><?php the_category(); ?></h1>
+      <h1 class="page-title"><?php single_cat_title(); ?></h1>
 
     <?php // ELSE
       else: ?>
