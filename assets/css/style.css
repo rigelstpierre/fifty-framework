@@ -59,6 +59,18 @@
 ================================================== */
 /* PSEUDO-ICON-FONT
 ================================================== */
+/* TABLE / TABLE CELL
+================================================== */
+.table {
+  display: table;
+  text-align: center;
+}
+
+.table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
 /* EMPTY-BUTTON
 ================================================== */
 /* Reset & Vendor Libs */

@@ -388,6 +388,9 @@ function FFW_actions(){
    * @since 1.0
    */
   function display_comment_form() {
+
+    global $user_login, $user_identity;
+
     $args = array(
       'id_form'           => 'commentform',
       'id_submit'         => 'submit',
@@ -406,7 +409,7 @@ function FFW_actions(){
       'logged_in_as'          => 
         '<p class="logged-in-as">' .
           sprintf(
-          __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ),
+          __( '<small>Commenting as <span class="user_identity">%2$s</span>. <a href="%3$s" title="Log out of this account">Log out</a> or <a href="%1$s" title="Edit profile">Edit Profile</a>.</small>' ),
             admin_url( 'profile.php' ),
             $user_identity,
             wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) )

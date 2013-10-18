@@ -236,7 +236,7 @@
         @if $margin_right == true   { margin-right:1%; &:last-of-type {margin-right:0;} }
     }
     
-    @if $width == fourth  { 
+    @if $width == fourth  {  
          width:25%;
         
         @if $margin_right == true and $margin_left == false { 
@@ -268,6 +268,22 @@
     @content;
   }
 }
+
+/* TABLE / TABLE CELL
+================================================== */
+// table
+@mixin table($text_align: center){
+  display:table;
+  text-align:$text_align;
+}
+  .table {@include table;}
+
+// table-cell  
+@mixin table-cell(){
+  display:table-cell;
+  vertical-align:middle;
+}
+  .table-cell {@include table-cell;}
 
 
 
