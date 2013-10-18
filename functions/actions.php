@@ -286,7 +286,9 @@ function FFW_actions(){
       elseif ( is_category() ) : ?>
 
       <h1 class="page-title"><?php single_cat_title(); ?></h1>
-
+    <?php 
+    elseif( is_search() ) : ?>
+    <h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'ffw' ), get_search_query() ); ?></h1>
     <?php // ELSE
       else: ?>
 
