@@ -265,7 +265,7 @@ function FFW_actions(){
       <!-- <h1 class="page-title"><?php the_title(); ?></h1> -->
 
     <?php // SINGLE
-     elseif ( is_single() || is_singular() ) : ?>
+     elseif ( is_single() || is_singular() || is_post_type_archive( 'ffw_events' ) ) : ?>
 
      <!-- No Hero Title -->
 
