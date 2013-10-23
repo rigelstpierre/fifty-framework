@@ -1,0 +1,121 @@
+/* _content-shared.scss */
+
+
+/* #MAIN
+================================================== */
+#main {
+
+  &.default {}
+  &.blog    {}
+  &.page    {margin-top:em(55px);}
+  &.single  {margin-top:em(55px);}
+}
+
+
+  /* .content
+  ================================================== */
+  #content{
+    @extend %span9;
+        
+    &.push-left {
+      float:left;
+      @include media(mobile) { float:right; }
+      .content-inner {
+        padding-left:2em;
+        @include media(mobile) { padding-left:0; }
+      }
+
+    }
+    &.push-right {
+      float:right;
+      .content-inner {
+        padding-right:2em;
+        @include media(mobile) { padding-right:0; }
+      }
+    }
+  }
+
+    /* ARTICLE
+    ================================================== */
+    article {
+
+    }
+
+
+
+
+  /* SIDEBAR
+  ================================================== */
+  #main .sidebar{
+    @extend %span3;
+    @extend %omega;
+
+    a {
+      &:hover {text-decoration:underline;}
+    }
+
+    &.push-left {
+      float:left;
+      @include media(mobile) { float:right; }
+      .sidebar-inner {
+        padding-right:2em;text-align:right;
+        @include media(mobile) { padding-right:0; text-align:left; }
+      }
+    }
+    &.push-right {
+      float:right;
+      .sidebar-inner {
+        padding-left:2em;
+        @include media(mobile) { padding-left:0; }
+      }
+    }
+
+    .sidebar-inner {
+      
+    }
+
+    // COLLAPSABLE
+    &.collapsable {
+      
+    }
+  }
+
+
+
+
+
+/* SECTIONS
+================================================== */
+.section-header {
+  margin:0 auto;
+  text-align:center;
+  margin-bottom:40px;
+}
+.section-title {
+  position:relative;
+  width:100%;
+  text-align:center;
+  padding-bottom:40px;
+  margin-bottom:30px;
+  margin-top:50px;
+
+  &:after {
+    content:'';
+    display:block;
+    position:absolute;bottom:20px;left:50%;
+    margin:-1px 0 0 -60px;
+    width:120px;height:2px;
+    background-color:#353535;
+  }
+}
+.section-subtitle {
+  font-family:$serif;
+  font-size:em(18px);
+  font-style:italic;
+  color:$colorTextDefault;
+  text-align:center;
+  font-weight:normal;
+  margin-top:0;
+  margin-bottom:0;
+}
+  .section-full-thirds {height:390px;}
