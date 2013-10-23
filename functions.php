@@ -34,6 +34,7 @@ define( $theme_prefix . 'CSS_DIR', get_template_directory_uri().'/assets/css' );
 
 
 
+
 /**
  * Set Up ACF Fields
  * @since  1.1
@@ -46,15 +47,16 @@ if( !$acf ){
     require_once( get_template_directory() . '/functions/acf_register_fields.php' );
 }
 
+
 /**
  * Theme Setup
  * @since 1.0
  */
 require_once( get_template_directory() .'/functions/setup.php' );
 require_once( get_template_directory() .'/functions/scripts.php' );
-require_once( get_template_directory() .'/functions/load-admin.php' );
-require_once( get_template_directory() .'/functions/helpers.php' );
-require_once( get_template_directory() .'/functions/shortcodes.php' );
+require_once( get_template_directory() .'/functions/load-admin.php');
+require_once( get_template_directory() .'/functions/helpers.php');
+require_once( get_template_directory() .'/functions/shortcodes.php');
 
 /**
  * Load Hybrid Core Framework
