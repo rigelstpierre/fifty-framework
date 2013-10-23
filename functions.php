@@ -38,9 +38,13 @@ define( $theme_prefix . 'CSS_DIR', get_template_directory_uri().'/assets/css' );
  * Set Up ACF Fields
  * @since  1.1
  */
-include_once('advanced-custom-fields/acf.php');
-define( 'ACF_LITE', true );
-require_once( get_template_directory() . '/functions/acf_register_fields.php' );
+global $acf;
+ 
+if( !$acf ){
+    define( 'ACF_LITE' , false );
+    include_once('advanced-custom-fields/acf.php' );
+    require_once( get_template_directory() . '/functions/acf_register_fields.php' );
+}
 
 /**
  * Theme Setup
@@ -51,6 +55,23 @@ require_once( get_template_directory() .'/functions/scripts.php' );
 require_once( get_template_directory() .'/functions/load-admin.php' );
 require_once( get_template_directory() .'/functions/helpers.php' );
 require_once( get_template_directory() .'/functions/shortcodes.php' );
+
+/**
+ * Load Hybrid Core Framework
+ * @since  1.1
+ */
+/* Load the core theme framework. */
+
+/*
+require_once( trailingslashit( get_template_directory() ) . 'hybrid-core/hybrid.php' );
+new Hybrid();
+
+add_action( 'after_setup_theme', 'ffw_hybrid_core_setup', 10 );
+function ffw_hybrid_core_setup() {
+
+
+}
+*/
 
 
 
