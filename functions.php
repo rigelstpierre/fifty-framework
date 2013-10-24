@@ -84,7 +84,7 @@ function ffw_hybrid_core_setup() {
  */
 
 // Mr MetaBox
-if(!class_exists('mrMetaBox')) {
+if( !class_exists( 'mrMetaBox') ) {
   define('MRMETABOX_URL', TEMPLATEPATH . '/admin/mr-meta-box/');
   require_once(MRMETABOX_URL . 'mr-meta-box.php');
 }
@@ -128,13 +128,15 @@ if ( of_get_option ( 'enable_debug', '1' ) ) {
  * Admin Styles
  * @since 1.0
  */
-function FFW_add_admin_styles_scripts() {
+function FFW_add_admin_styles_scripts()
+{
 
   wp_register_script( 'widget-admin-style', get_template_directory_uri() . '/lib/js/admin.widgets.js' );
   wp_enqueue_script( 'widget-admin-style' );
 
   wp_register_style( 'ffw-admin-scripts', get_template_directory_uri() . '/lib/css/admin.css' );
   wp_enqueue_style( 'ffw-admin-scripts' );
+
 }
 add_action( 'admin_print_styles', 'FFW_add_admin_styles_scripts' );
 

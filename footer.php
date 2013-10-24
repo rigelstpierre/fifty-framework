@@ -15,15 +15,19 @@
 
 <section id="modals"></section>
 
+<?php 
 
-<?php do_action('FFW_debug_box', array(
+$footer_args = array(
   'wpquery'           => true,
   'post_meta'         => true,
   'post_obj'          => true,
   'current_user_info' => true,
   'options_framework' => true,
   'query_count'       => true
-)); ?>
+);
+
+do_action('FFW_debug_box', $footer_args );
+?>
 
 
 <?php wp_footer(); ?>	

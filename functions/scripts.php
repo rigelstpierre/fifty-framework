@@ -1,13 +1,14 @@
 <?php
-add_action('init', 'FFW_scripts_styles');
-
 /**
  * FFW_scripts_styles
  * Add the scripts & styles. Some examples may be left commented out. 
  * @since 1.0
  * @author Alexander Zizzo
  */
-function FFW_scripts_styles(){
+
+add_action('init', 'FFW_scripts_styles');
+function FFW_scripts_styles()
+{
 
   /**
    * Styles
@@ -46,7 +47,9 @@ function FFW_scripts_styles(){
   /**
    * Enqueue Scripts & Styles
    */
-  add_action('wp_enqueue_scripts', function(){
+  add_action('wp_enqueue_scripts', 'FFW_enqueue_scripts' );
+  function FFW_enqueue_scripts()
+  {
     wp_enqueue_style('style');
     
     wp_enqueue_script('jquery');
@@ -62,7 +65,7 @@ function FFW_scripts_styles(){
 
     // if ( is_page('example') ) { wp_enqueue_script('example'); }
 
-  });
+  }
   
 
   /**
@@ -71,10 +74,13 @@ function FFW_scripts_styles(){
   // wp_register_style( 'admin',  get_stylesheet_directory_uri().'/admin/admin.css' );
   // wp_register_script('admin', get_template_directory_uri().'/admin/admin.js', array('jquery'));
   
-  add_action('admin_enqueue_scripts', function(){
+  add_action('admin_enqueue_scripts', 'FFW_admin_scripts' );
+  function FFW_admin_scripts()
+  {
     // wp_enqueue_style('admin');
     // wp_enqueue_script('admin');
-  });
+  }
+  
 }
 
 

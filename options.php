@@ -8,7 +8,8 @@
  * @since 1.0
  */
  
-function optionsframework_option_name() {
+function optionsframework_option_name()
+{
     $optionsframework_settings = get_option( 'optionsframework' );
     $optionsframework_settings['id'] = 'options_'.$theme_prefix.'themes';
     update_option( 'optionsframework', $optionsframework_settings);
@@ -16,7 +17,8 @@ function optionsframework_option_name() {
 
 
 // Begin options
-function optionsframework_options() {
+function optionsframework_options()
+{
 
   $options = array();
   
