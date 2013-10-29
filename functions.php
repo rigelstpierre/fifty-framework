@@ -57,6 +57,8 @@ require_once( get_template_directory() .'/functions/scripts.php' );
 require_once( get_template_directory() .'/functions/load-admin.php');
 require_once( get_template_directory() .'/functions/helpers.php');
 require_once( get_template_directory() .'/functions/shortcodes.php');
+require_once( get_template_directory() .'/functions/gravityforms.php');
+
 
 /**
  * Load Hybrid Core Framework
