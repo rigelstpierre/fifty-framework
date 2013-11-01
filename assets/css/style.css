@@ -7701,6 +7701,21 @@ footer.default .footer-inner {
   padding: 50px 0;
 }
 
+footer.fifty {
+  width: 100%;
+  height: auto;
+  min-height: 30px;
+  background-color: #2F2F2F;
+  color: #737373;
+  padding: 15px 0;
+  font-size: .70em;
+  font-style: oblique;
+  text-align: right;
+}
+footer.fifty a {
+  color: #737373;
+}
+
 /* _slider.scss */
 .flexslider {
   position: relative;

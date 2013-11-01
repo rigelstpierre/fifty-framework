@@ -12,6 +12,11 @@
     </div><!-- .footer-inner -->
   </div><!-- .container -->
 </footer>
+<footer class="fifty">
+  <div class="container">
+    Designed and Developed by <a href="http://fiftyandfifty.org">Fifty & Fifty</a>
+  </div>
+</footer>
 
 <section id="modals"></section>
 
