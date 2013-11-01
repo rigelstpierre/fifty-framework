@@ -7715,6 +7715,9 @@ footer.fifty {
 footer.fifty a {
   color: #737373;
 }
+footer.fifty a:hover {
+  opacity: .8;
+}
 
 /* _slider.scss */
 .flexslider {

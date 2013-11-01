@@ -33,5 +33,9 @@ footer.fifty{
 
   a{
     color:#737373;
+
+    &:hover{
+      opacity:.8;
+    }
   }
 }

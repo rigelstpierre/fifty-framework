@@ -14,7 +14,7 @@
 </footer>
 <footer class="fifty">
   <div class="container">
-    Designed and Developed by <a href="http://fiftyandfifty.org">Fifty & Fifty</a>
+    Designed and Developed by <a href="http://fiftyandfifty.org">Fifty & Fifty</a>.
   </div>
 </footer>
 
