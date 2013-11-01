@@ -21,6 +21,7 @@
       float:left;
       @include media(mobile) { float:right; }
       .content-inner {
+        margin-bottom: 3.5em;
         padding-left:2em;
         @include media(mobile) { padding-left:0; }
       }
@@ -29,6 +30,7 @@
     &.push-right {
       float:right;
       .content-inner {
+        margin-bottom: 3.5em;
         padding-right:2em;
         @include media(mobile) { padding-right:0; }
       }

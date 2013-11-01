@@ -7685,7 +7685,6 @@ footer.default {
   width: 100%;
   height: auto;
   min-height: 120px;
-  margin-top: 3.5em;
   background-color: #363636;
   color: #fafafa;
   /* --------------------------------------------------- */
@@ -8442,6 +8441,7 @@ ol.children {
   }
 }
 #content.push-left .content-inner {
+  margin-bottom: 3.5em;
   padding-left: 2em;
 }
 @media only screen and (max-width: 767px) {
@@ -8453,6 +8453,7 @@ ol.children {
   float: right;
 }
 #content.push-right .content-inner {
+  margin-bottom: 3.5em;
   padding-right: 2em;
 }
 @media only screen and (max-width: 767px) {
