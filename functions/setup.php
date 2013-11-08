@@ -17,7 +17,9 @@
  * @return void
  */
 
-
+/**
+ * Simple function to set up the theme. 
+ */
 function FFW_add_theme_features()
 {
   // Text Domain
@@ -74,7 +76,11 @@ function FFW_add_theme_nav_menus()
     'footer_menu' => __( 'Footer Menu', 'FFW' )
   ) );
 
-
+  /**
+   * I believe this function is a fallback for the nav menu
+   * @todo    Remove "standard" from the function here and wherever it's called
+   * @return  void
+   */
   function standard_fallback_nav_menu( )
   {
     wp_page_menu( 'show_home=1&include=-1' );

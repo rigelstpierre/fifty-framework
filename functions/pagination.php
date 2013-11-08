@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * This function is a manual pagination solution when the wp standard isn't available. 
+ * @param  array  $args [description]
+ * @return [type]       [description]
+ */
 function loop_pagination( $args = array() ) {
   global $wp_rewrite, $wp_query;
 

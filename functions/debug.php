@@ -1,8 +1,11 @@
 <?php 
 
-add_action( 'init', 'FFW_debug_functions' );
-
-function FFW_debug_functions() {
+/**
+ * This function adds the debug box in the bottom right hand corner
+ * @todo  Make the actual box look nicer 
+ */
+function FFW_debug_functions() 
+{
 
   /**
    * debug_box()
@@ -10,7 +13,8 @@ function FFW_debug_functions() {
    * @author Alexander Zizzo
    * @since 1.0
    */
-  function debug_box( $args = NULL ) {
+  function debug_box( $args = NULL ) 
+  {
 
     global $post;
     global $wp_query;
@@ -32,7 +36,7 @@ function FFW_debug_functions() {
 
     <div id="debug_box" class="closed">
       <header>
-        #debug_box
+        Debug Box
         <button id="debug_box-close"></button>
       </header>
 
@@ -105,3 +109,4 @@ function FFW_debug_functions() {
   add_action('FFW_debug_box', 'debug_box');
 
 }
+add_action( 'init', 'FFW_debug_functions' );

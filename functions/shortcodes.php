@@ -4,7 +4,12 @@
 // B A S I C S
 ////////////////////////////////////
 
-// button
+/**
+ * Shortode for buttons. 
+ * @param  [array]  $atts    Attributes passed in by the shortcode
+ * @param  [string] $content The text used in the button area
+ * @return [string]          Returns the button with a class if needed
+ */
 function ffw_button_shortcode( $atts, $content = null )
 {
     extract( shortcode_atts( array(
@@ -19,7 +24,13 @@ function ffw_button_shortcode( $atts, $content = null )
 add_shortcode( 'button', 'ffw_button_shortcode' );
 
 
-// squish column
+/**
+ * Not Sure what this does, yet. 
+ * @todo   Explain this function
+ * @param  [array]  $atts    Attributes passed in by the shortcode
+ * @param  [string] $content Returns content
+ * @return [string]          Obvi
+ */
 function ffw_squish_shortcode( $atts, $content = null ) 
 {
     extract( shortcode_atts( array(
@@ -31,7 +42,13 @@ add_shortcode( 'squish', 'ffw_squish_shortcode' );
 
 
 
-// blockquote full
+/**
+ * Adds a class for <blockquote>
+ * @param  [array]  $atts    Attributes passed in by the shortcode
+ * @param  [string]   $content [description]
+ * @return [type]          [description]
+ * @since  1.0
+ */
 function ffw_blockquote_full_shortcode( $atts, $content = null )
 {
     extract( shortcode_atts( array(
@@ -45,6 +62,14 @@ add_shortcode( 'blockquote_full', 'ffw_blockquote_full_shortcode' );
 ////////////////////////////////////
 // M O D A L S
 ////////////////////////////////////
+
+/**
+ * Gives the user an ability to add a modal in the content
+ * @param  [array]  $atts       $size, $target, $type, $name
+ * @param  [string] $content    Contents of the modal from the user
+ * @return [string]             The modal
+ * @since  1.0
+ */
 function ffw_modal( $atts, $content = null ) 
 {
     extract( shortcode_atts( array(

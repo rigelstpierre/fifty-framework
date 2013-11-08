@@ -1,6 +1,4 @@
 <?php
-add_action('init', 'FFW_actions');
-
 /**
  * FFW_actions
  * Theme actions - used in some cases in place of template parts for more
@@ -8,18 +6,16 @@ add_action('init', 'FFW_actions');
  * @since 1.0
  * @author Alexander Zizzo
  */
-function FFW_actions(){
-
-
-
-
+function FFW_actions()
+{
   /**
    * Pagination
    * @author Alexander Zizzo
    * @package Fifty Framework
    * @since 1.0
    */
-  function pagination( $args = NULL ) {
+  function pagination( $args = NULL ) 
+  {
 
     // ex: text align class (.left, .center, .right)
     $class     = isset($args['class']) ? $args['class'] : null;
@@ -54,7 +50,8 @@ function FFW_actions(){
    * @author Alexander Zizzo
    * @since 1.0
    */
-  function slider_full( $args = NULL ) {
+  function slider_full( $args = NULL ) 
+  {
 
     global $post;
 
@@ -123,17 +120,17 @@ function FFW_actions(){
 
       <?php /* START THE LOOP IF WE HAVE SLIDES
       ================================================== */
-      if(have_posts()) :?>
+      if( have_posts() ) : ?>
         <div id="<?php echo $id; ?>" class="flexslider <?php echo $class; ?>">
           <ul class="slides">
 
             <?php $i = 1; while (have_posts()) : the_post(); ?>
             <?php
             //Get slide options
-            $slide_class          = get_post_meta($post->ID, "_FFW_slide_class", true);         
-            $hide_slide_text      = get_post_meta($post->ID, "_FFW_slide_remove_text", true);
-            $slide_text_alignment = get_post_meta($post->ID, "_FFW_slide_text_alignment", true);
-            $slide_thumbnail_img  = wp_get_attachment_image_src(get_post_meta($post->ID, "_FFW_slide_thumbnail", true), 'full');
+            $slide_class          = get_post_meta( $post->ID, "_FFW_slide_class", true );
+            $hide_slide_text      = get_post_meta( $post->ID, "_FFW_slide_remove_text", true );
+            $slide_text_alignment = get_post_meta( $post->ID, "_FFW_slide_text_alignment", true );
+            $slide_thumbnail_img  = wp_get_attachment_image_src( get_post_meta( $post->ID, "_FFW_slide_thumbnail", true ), 'full' );
             $slide_background_img = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), '' );
             // reset vars to first array items
             $slide_background_img = $slide_background_img[0];
@@ -141,8 +138,8 @@ function FFW_actions(){
             
             $s_styles = "";
             $s_class  = "";
-            if($slide_background_img){
-              $s_styles .= "background-image: url(".$slide_background_img.");";           
+            if( $slide_background_img ){
+              $s_styles .= "background-image: url( ".$slide_background_img." );"; 
               $s_styles .= "background-repeat: no-repeat;";
               $s_styles .= "background-position: center center;";
               $s_styles .= "background-size: cover;"; 
@@ -154,7 +151,7 @@ function FFW_actions(){
               <div class="container">
                 <div class="slide-content <?php echo $slide_text_alignment; ?>">
 
-                  <?php if(!$hide_slide_text) : ?>       
+                  <?php if( !$hide_slide_text ) : ?>       
                       <h1><?php the_title(); ?></h1>
                       <div class="seperator"></div>
                       <?php the_content(); ?>
@@ -178,15 +175,7 @@ function FFW_actions(){
     <?php endif;
 
   }
-  add_action('FFW_slider_full', 'slider_full');
-
-
-
-
-
-
-
-
+  add_action( 'FFW_slider_full', 'slider_full' );
 
 
 
@@ -199,7 +188,8 @@ function FFW_actions(){
 
   // HERO_BEFORE
   ///////////////////////////////////////
-  function hero_before( $args = NULL ) {
+  function hero_before( $args = NULL ) 
+  {
 
     global $post;
 
@@ -250,7 +240,8 @@ function FFW_actions(){
 
   // HERO
   ///////////////////////////////////////
-  function hero( $args = NULL ) {
+  function hero( $args = NULL ) 
+  {
     
     global $post;
 
@@ -303,7 +294,8 @@ function FFW_actions(){
 
   // HERO_AFTER
   ///////////////////////////////////////
-  function hero_after( $args = NULL ) {
+  function hero_after( $args = NULL ) 
+  {
 
     // begin HTML ?>
     
@@ -438,8 +430,9 @@ function FFW_actions(){
         )
       ),
     );
-    comment_form($args);
+    comment_form( $args );
   }
-  add_action('FFW_comment_form', 'display_comment_form');
+  add_action( 'FFW_comment_form', 'display_comment_form' );
 
 }
+add_action('init', 'FFW_actions');

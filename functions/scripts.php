@@ -5,7 +5,6 @@
  * @since 1.0
  * @author Alexander Zizzo
  */
-
 add_action('init', 'FFW_scripts_styles');
 function FFW_scripts_styles()
 {
