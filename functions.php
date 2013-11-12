@@ -37,9 +37,13 @@ define( $theme_prefix . 'CSS_DIR', get_template_directory_uri().'/assets/css' );
  * Set Up ACF Fields
  * @since  1.1
  */
-include_once('advanced-custom-fields/acf.php');
-define( 'ACF_LITE', true );
-require_once( get_template_directory() . '/functions/acf_register_fields.php' );
+global $acf;
+ 
+if( !$acf ){
+    define( 'ACF_LITE' , false );
+    include_once('advanced-custom-fields/acf.php' );
+    require_once( get_template_directory() . '/functions/acf_register_fields.php' );
+}
 
 
 /**
@@ -51,6 +55,25 @@ require_once( get_template_directory() .'/functions/scripts.php' );
 require_once( get_template_directory() .'/functions/load-admin.php');
 require_once( get_template_directory() .'/functions/helpers.php');
 require_once( get_template_directory() .'/functions/shortcodes.php');
+require_once( get_template_directory() .'/functions/gravityforms.php');
+
+
+/**
+ * Load Hybrid Core Framework
+ * @since  1.1
+ */
+/* Load the core theme framework. */
+
+/*
+require_once( trailingslashit( get_template_directory() ) . 'hybrid-core/hybrid.php' );
+new Hybrid();
+
+add_action( 'after_setup_theme', 'ffw_hybrid_core_setup', 10 );
+function ffw_hybrid_core_setup() {
+
+
+}
+*/
 
 
 /**
@@ -59,7 +82,7 @@ require_once( get_template_directory() .'/functions/shortcodes.php');
  */
 
 // Mr MetaBox
-if(!class_exists('mrMetaBox')) {
+if( !class_exists( 'mrMetaBox') ) {
   define('MRMETABOX_URL', TEMPLATEPATH . '/admin/mr-meta-box/');
   require_once(MRMETABOX_URL . 'mr-meta-box.php');
 }
@@ -103,13 +126,15 @@ if ( of_get_option ( 'enable_debug', '1' ) ) {
  * Admin Styles
  * @since 1.0
  */
-function FFW_add_admin_styles_scripts() {
+function FFW_add_admin_styles_scripts()
+{
 
   wp_register_script( 'widget-admin-style', get_template_directory_uri() . '/lib/js/admin.widgets.js' );
   wp_enqueue_script( 'widget-admin-style' );
 
   wp_register_style( 'ffw-admin-scripts', get_template_directory_uri() . '/lib/css/admin.css' );
   wp_enqueue_style( 'ffw-admin-scripts' );
+
 }
 add_action( 'admin_print_styles', 'FFW_add_admin_styles_scripts' );
 

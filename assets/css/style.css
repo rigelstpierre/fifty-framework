@@ -7685,7 +7685,6 @@ footer.default {
   width: 100%;
   height: auto;
   min-height: 120px;
-  margin-top: 3.5em;
   background-color: #363636;
   color: #fafafa;
   /* --------------------------------------------------- */
@@ -7699,6 +7698,24 @@ footer.default .footer-inner {
   width: 100%;
   height: auto;
   padding: 50px 0;
+}
+
+footer.fifty {
+  width: 100%;
+  height: auto;
+  min-height: 30px;
+  background-color: #2F2F2F;
+  color: #737373;
+  padding: 15px 0;
+  font-size: .70em;
+  font-style: oblique;
+  text-align: right;
+}
+footer.fifty a {
+  color: #737373;
+}
+footer.fifty a:hover {
+  opacity: .8;
 }
 
 /* _slider.scss */
@@ -8424,6 +8441,7 @@ ol.children {
   }
 }
 #content.push-left .content-inner {
+  margin-bottom: 3.5em;
   padding-left: 2em;
 }
 @media only screen and (max-width: 767px) {
@@ -8435,6 +8453,7 @@ ol.children {
   float: right;
 }
 #content.push-right .content-inner {
+  margin-bottom: 3.5em;
   padding-right: 2em;
 }
 @media only screen and (max-width: 767px) {

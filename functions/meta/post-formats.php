@@ -16,20 +16,20 @@
  */
 $post_format_metaboxes = array(
   'video' => array(
-    'title'             => __('Video Embed', 'FFW'),
+    'title'             => __( 'Video Embed', 'FFW' ),
     'applicableto'      => 'post',
     'location'          => 'normal',
     'display_condition' => 'post-format-video',
     'priority'          => 'low',
     'fields'            => array(
       'vid_url'         => array(
-        'title'       => __('Video URL', 'FFW'),
+        'title'       => __( 'Video URL', 'FFW' ),
         'type'        => 'text',
         'description' => '',
         'size'        => 60
       ),
       'vid_title_toggle'   => array(
-        'title'       => __('Use video title', 'FFW'),
+        'title'       => __( 'Use video title', 'FFW' ),
         'type'        => 'checkbox',
         'description' => '',
         'size'        => 60
@@ -37,20 +37,20 @@ $post_format_metaboxes = array(
     )
   ),
   'quote' => array(
-    'title'             => __('Quote', 'FFW'),
+    'title'             => __( 'Quote', 'FFW' ),
     'applicableto'      => 'post',
     'location'          => 'normal',
     'display_condition' => 'post-format-quote',
     'priority'          => 'low',
     'fields'            => array(
       'quote_author'         => array(
-        'title'       => __('Quote Author', 'FFW'),
+        'title'       => __( 'Quote Author', 'FFW' ),
         'type'        => 'text',
         'description' => '',
         'size'        => 60
       ),
       'quote_occupation'   => array(
-        'title'       => __('Quote Occupation', 'FFW'),
+        'title'       => __( 'Quote Occupation', 'FFW' ),
         'type'        => 'text',
         'description' => '',
         'size'        => 60
@@ -70,7 +70,8 @@ $post_format_metaboxes = array(
  */
 add_action( 'admin_init', 'add_post_format_metaboxes' );
  
-function add_post_format_metaboxes() {
+function add_post_format_metaboxes() 
+{
   global $post_format_metaboxes;
 
   if ( ! empty( $post_format_metaboxes ) ) {
@@ -89,7 +90,9 @@ function add_post_format_metaboxes() {
  * show_metaboxes()
  * Display the metaboxes in the backend
  */
-function show_metaboxes( $post, $args ) {
+function show_metaboxes( $post, $args ) 
+{
+
   global $post_format_metaboxes;
 
   $custom = get_post_custom( $post->ID );
@@ -137,7 +140,8 @@ function show_metaboxes( $post, $args ) {
  */
 add_action( 'save_post', 'save_metaboxes' );
  
-function save_metaboxes( $post_id ) {
+function save_metaboxes( $post_id ) 
+{
   global $post_format_metaboxes;
 
   // verify nonce
@@ -190,7 +194,8 @@ function save_metaboxes( $post_id ) {
  */
 add_action( 'admin_print_scripts', 'display_metaboxes', 1000 );
 
-function display_metaboxes() {
+function display_metaboxes() 
+{
     global $post_format_metaboxes;
     if ( get_post_type() == "post" ) :
         ?>

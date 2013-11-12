@@ -10,7 +10,8 @@ if ( ! function_exists( 'FFW_comment' ) ) :
  * @author Alexander Zizzo
  * @since 1.0
  */
-function FFW_comment( $comment, $args, $depth ) {
+function FFW_comment( $comment, $args, $depth ) 
+{
 
   // set comment type (ping/track back or comments) with switch
   $GLOBALS['comment'] = $comment;

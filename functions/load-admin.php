@@ -2,11 +2,14 @@
 /**
  * Load Admin Panel
  * @author Alexander Zizzo
+ * @uses  Options Framework
  * @since 1.0
  */
 if ( !function_exists( 'optionsframework_init' ) ) {
+
   define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/admin/' );
   require_once ( get_template_directory() . '/admin/options-framework.php' );
+
 }
 
 
@@ -16,15 +19,21 @@ if ( !function_exists( 'optionsframework_init' ) ) {
  * errors if the Options Framework plugin has been disabled.
  */
 if ( !function_exists( 'of_get_option' ) ) {
-  function of_get_option($name, $default = false ) {
+
+  function of_get_option($name, $default = false )
+  {
+  
     $optionsframework_settings = get_option( 'optionsframework' );
     // Gets the unique option id
     $option_name = $optionsframework_settings['id'];
+  
     if ( get_option($option_name) ) {
       $options = get_option($option_name);
     }
+  
     if ( isset($options[$name]) ) {
       return $options[$name];
+  
     } else {
       return $default;
     }
