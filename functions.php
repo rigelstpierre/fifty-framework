@@ -33,8 +33,6 @@ define( $theme_prefix . 'JS_DIR', get_template_directory_uri().'/assets/js' );
 define( $theme_prefix . 'CSS_DIR', get_template_directory_uri().'/assets/css' );
 
 
-
-
 /**
  * Set Up ACF Fields
  * @since  1.1
@@ -53,8 +51,6 @@ require_once( get_template_directory() .'/functions/scripts.php' );
 require_once( get_template_directory() .'/functions/load-admin.php');
 require_once( get_template_directory() .'/functions/helpers.php');
 require_once( get_template_directory() .'/functions/shortcodes.php');
-
-
 
 
 /**
