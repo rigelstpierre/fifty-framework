@@ -41,6 +41,15 @@ function optionsframework_options()
       'type' => 'upload'
     );
 
+    // TOGGLE CORE APP.JS
+    $options[] = array(
+      'name' => __( 'Application Javascript', 'FFW' ),
+      'desc' => __( 'Toggle on/off the parent theme (fifty-framework) application javascript (app.js)', 'FFW' ),
+      'id'   => 'toggle_app_js',
+      'std'  => '0',
+      'type' => 'checkbox'
+    );
+
 
 
   /**
