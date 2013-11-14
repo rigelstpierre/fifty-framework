@@ -366,7 +366,31 @@ function FFW_actions()
 
 
 
+  
+  /**
+   * Mobile Nav Toggle
+   * Display the hamburger nav icon and html markup
+   * @author Alexander Zizzo
+   * @since 1.2
+   * @param $class (optional)
+   */
+  function mobile_nav_toggle( $args = NULL )
+  {
+    // args
+    $class    = isset($args['class']) ? $args['class'] : null;
 
+    ?>
+    <div class="mobile-menu-toggle-wrap" class="mobile-only <?php echo $class; ?>">
+      <button id="mobile-menu-toggle" class="no-appearance">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <?php
+
+  }
+  add_action('FFW_mobile_nav_toggle', 'mobile_nav_toggle');
 
 
 

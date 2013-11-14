@@ -38,7 +38,6 @@ function FFW_scripts_styles()
   }
   
 
-
   /**
    * Ajax Localize
    */
@@ -55,6 +54,7 @@ function FFW_scripts_styles()
     wp_enqueue_style('style');
     
     wp_enqueue_script('jquery');
+    
     wp_enqueue_script('easing');
     wp_enqueue_script('scrollTo');
     // wp_enqueue_script('skrollr');
