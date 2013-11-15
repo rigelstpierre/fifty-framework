@@ -152,7 +152,7 @@ function FFW_actions()
                 <div class="slide-content <?php echo $slide_text_alignment; ?>">
 
                   <?php if( !$hide_slide_text ) : ?>       
-                      <h1><?php the_title(); ?></h1>
+                      <h1 class="slide-title"><?php the_title(); ?></h1>
                       <div class="seperator"></div>
                       <?php the_content(); ?>
                   <?php endif; ?>
