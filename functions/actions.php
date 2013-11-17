@@ -396,6 +396,62 @@ function FFW_actions()
 
 
 
+  /**
+   * SVG Control
+   * @author Alexander Zizzo
+   * @package Fifty Framework
+   * @since 1.2
+   */
+  function svg_control( $args = NULL ) 
+  {
+    // parameters
+    $debug  = isset($args['debug']) ? $args['debug'] : null;
+    $file   = isset($args['file']) ? $args['file'] : null;
+    $path   = isset($args['path']) ? $args['path'] : null;
+    $class  = isset($args['class']) ? $args['class'] : null;
+    $width  = isset($args['width']) ? $args['width'] : null;
+    $height = isset($args['height']) ? $args['height'] : null;
+    $id     = isset($args['id']) ? $args['id'] : null;
+    $fills  = isset($args['fills']) ? $args['fills'] : null;
+
+    // svg path
+    if ( $path ) {
+      // if path is given, use it
+      $svg_file         = get_stylesheet_directory() . $path . $file . '.svg';
+      $svg_file_string  = file_get_contents($svg_file);
+    } else {
+      // otherwise use the default path (assets/images/svgs/...)
+      $svg_file         = get_stylesheet_directory() . '/assets/images/svgs/' . $file . '.svg';
+      $svg_file_string  = file_get_contents($svg_file);
+    }
+
+    // load SVG as XML (SimpleXMLElement Object)
+    $xml = simplexml_load_string($svg_file_string);
+
+    // make sure amount of fills passed in params match the count of paths in SVG
+    if ( count($fills) == count($xml->path) ) {
+      // loop through SVG attributes and assign fills to paths
+      for ($i = 0; $i < count($xml->path); $i++) {
+        $xml->path[$i]->attributes()->fill = $fills[$i];
+      }
+      // DEBUG - check new written path fills
+      if ( $debug ) foreach( $xml->path as $s ) { pp($s); }
+    }
+    // DEBUG - pretty print modified xml object
+    if ( $debug ) pp($xml);
+
+    // svg string with wrapper div for sizing
+    $svg_str .= '<div class="svg_wrap" style="width:'.$width.';height:'.$height.';">';
+    $svg_str .= $xml->asXML(); //modified XML/SVG
+    $svg_str .= '</div>';
+
+    echo $svg_str;
+
+
+  }
+  add_action('FFW_svg_control', 'svg_control');
+
+
 
   /**
    * Comment Form
