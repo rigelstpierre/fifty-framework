@@ -396,6 +396,8 @@ function FFW_actions()
 
 
 
+
+
   /**
    * SVG Control
    * @author Alexander Zizzo
@@ -405,14 +407,15 @@ function FFW_actions()
   function svg_control( $args = NULL ) 
   {
     // parameters
-    $debug  = isset($args['debug']) ? $args['debug'] : null;
-    $file   = isset($args['file']) ? $args['file'] : null;
-    $path   = isset($args['path']) ? $args['path'] : null;
-    $class  = isset($args['class']) ? $args['class'] : null;
-    $width  = isset($args['width']) ? $args['width'] : null;
-    $height = isset($args['height']) ? $args['height'] : null;
-    $id     = isset($args['id']) ? $args['id'] : null;
-    $fills  = isset($args['fills']) ? $args['fills'] : null;
+    $debug       = isset($args['debug']) ? $args['debug'] : null;
+    $file        = isset($args['file']) ? $args['file'] : null;
+    $path        = isset($args['path']) ? $args['path'] : null;
+    $class       = isset($args['class']) ? $args['class'] : null;
+    $width       = isset($args['width']) ? $args['width'] : null;
+    $height      = isset($args['height']) ? $args['height'] : null;
+    $id          = isset($args['id']) ? $args['id'] : null;
+    $fills       = isset($args['fills']) ? $args['fills'] : null;
+    $hover_fills = isset($args['hover_fills']) ? $args['hover_fills'] : null;
 
     // svg path
     if ( $path ) {
@@ -436,12 +439,19 @@ function FFW_actions()
       }
       // DEBUG - check new written path fills
       if ( $debug ) foreach( $xml->path as $s ) { pp($s); }
+    } else {
+      print 'Fill count mismatch';
     }
     // DEBUG - pretty print modified xml object
     if ( $debug ) pp($xml);
 
+    // inline styles for hover via CSS [INCOMPLETE]
+    $svg_style_str  = '<style>';
+    $svg_style_str .= '</style>';
+
+
     // svg string with wrapper div for sizing
-    $svg_str .= '<div class="svg_wrap" style="width:'.$width.';height:'.$height.';">';
+    $svg_str .= '<div class="svg_wrap" id="'.$id.'" style="width:'.$width.';height:'.$height.';">';
     $svg_str .= $xml->asXML(); //modified XML/SVG
     $svg_str .= '</div>';
 
@@ -450,6 +460,7 @@ function FFW_actions()
 
   }
   add_action('FFW_svg_control', 'svg_control');
+
 
 
 
