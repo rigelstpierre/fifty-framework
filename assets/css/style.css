@@ -2195,7 +2195,6 @@ i.icon, .icon {
   display: inline-block;
   zoom: 1;
   *display: inline;
-  background-image: none !important;
 }
 i.icon:before, .icon:before {
   font-family: "pictos", "pictos";
