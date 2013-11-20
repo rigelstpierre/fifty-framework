@@ -2255,6 +2255,10 @@ i.icon.transparent, .icon.transparent {
   content: 'k';
 }
 
+.icon-notepad:before {
+  content: 'n';
+}
+
 .icon-file:before {
   content: 'o';
 }
