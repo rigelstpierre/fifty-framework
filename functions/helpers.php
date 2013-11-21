@@ -128,8 +128,11 @@ function FFW_helper_functions() {
     if ( $post_count == 2 && $post_count > 0 ) {
       $column_box_class = 'box-half';
     }
-    elseif ( $post_count >= 3 && $post_count > 0 ) {
+    elseif ( $post_count >= 3 && $post_count > 0 && $post_count != 4 ) {
       $column_box_class = 'box-third';
+    }
+    elseif ( $post_count >= 4 && $post_count >0 && ($post_count % $post_count == 0)) {
+      $column_box_class = 'box-fourth';
     }
     return $column_box_class;
   }
