@@ -488,6 +488,20 @@ if( function_exists( "register_field_group" ) ) {
 						'display' => 'row',
 						'sub_fields' => array(
 							array(
+								'key'           => 'field_fiftyand50',
+								'label'         => 'Container ID',
+								'name'          => 'container_id',
+								'type'          => 'text',
+								'instructions'  => 'Give the container of the flex element an ID',
+								'column_width'  => '',
+								'default_value' => 'n',
+								'placeholder'   => '',
+								'prepend'       => '',
+								'append'        => '',
+								'formatting'    => 'none',
+								'maxlength'     => '',
+							),
+							array(
 								'key' => 'field_5242045e3da4c',
 								'label' => 'Section Width',
 								'name' => 'section_width',
