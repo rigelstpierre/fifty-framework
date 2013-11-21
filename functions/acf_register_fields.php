@@ -192,7 +192,7 @@ if( function_exists( "register_field_group" ) ) {
 								'taxonomy' => array(
 									0 => 'staff_category:29',
 									1 => 'staff_category:33',
-									1 => 'staff_category:15',
+									2 => 'staff_category:15',
 								),
 								'filters' => array(
 									0 => 'search',
