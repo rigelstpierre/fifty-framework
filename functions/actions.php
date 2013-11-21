@@ -257,14 +257,15 @@ function FFW_actions()
 
     // args
     $class           = isset($args['class']) ? $args['class'] : null;
-    $hide_page_title = is_null($args['hide_page_title']) ? false : true;
+    $hide_page_title = isset($args['hide_page_title']) ? $args['hide_page_title'] : false;
+
     
     // begin HTML ?>
     
     <?php // PAGE
       if ( is_page() ) : ?>
       
-      <?php if ( $hide_page_title == true ): ?>
+      <?php if ( $hide_page_title ): ?>
         <h1 class="page-title"><?php the_title(); ?></h1>
       <?php endif; ?>
 
