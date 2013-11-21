@@ -611,7 +611,7 @@ table {
 }
 
 .span-center {
-  float: none;
+  float: none !important;
   margin: 0 auto;
 }
 

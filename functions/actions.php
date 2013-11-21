@@ -1,4 +1,18 @@
 <?php
+
+/**
+  * FFW Actions
+  * List of contents
+  * -----------------------
+  * pagination();
+  * slider_full();
+  * hero (before/after)();
+  * post_details();
+  * mobile_nav_toggle();
+  * svg_control();
+ */
+
+
 /**
  * FFW_actions
  * Theme actions - used in some cases in place of template parts for more
@@ -246,14 +260,17 @@ function FFW_actions()
     global $post;
 
     // args
-    $class    = isset($args['class']) ? $args['class'] : null;
+    $class           = isset($args['class']) ? $args['class'] : null;
+    $hide_page_title = isset($args['hide_page_title']) ? $args['hide_page_title'] : false;
     
     // begin HTML ?>
     
     <?php // PAGE
       if ( is_page() ) : ?>
-
-      <!-- <h1 class="page-title"><?php the_title(); ?></h1> -->
+      
+      <?php if ( !$hide_page_title ): ?>
+        <h1 class="page-title"><?php the_title(); ?></h1>
+      <?php endif; ?>
 
     <?php // SINGLE
      elseif ( is_single() || is_singular() || is_post_type_archive( 'ffw_events' ) || is_post_type_archive( 'ffw_portfolio' ) ) : ?>
