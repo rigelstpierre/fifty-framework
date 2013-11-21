@@ -210,9 +210,6 @@ function FFW_actions()
     // args
     $class    = isset($args['class']) ? $args['class'] : null;
 
-    // vars
-    $hero_class = '';
-
     // is archive or category
     
     if ( is_archive() || is_category() ) {
@@ -243,7 +240,7 @@ function FFW_actions()
 
     // begin HTML ?>
 
-      <div id="hero" class="hero-<?php echo $hero_class; ?>" style="background-image:url('<?php echo $hero_url; ?>');">
+      <div id="hero" class="hero-<?php echo $class; ?>" style="background-image:url('<?php echo $hero_url; ?>');">
         <div class="container">
           <div class="hero-inner">
 
@@ -256,19 +253,18 @@ function FFW_actions()
   ///////////////////////////////////////
   function hero( $args = NULL ) 
   {
-    
     global $post;
 
     // args
     $class           = isset($args['class']) ? $args['class'] : null;
-    $hide_page_title = !is_null($args['hide_page_title']) ? true : false;
+    $hide_page_title = is_null($args['hide_page_title']) ? false : true;
     
     // begin HTML ?>
     
     <?php // PAGE
       if ( is_page() ) : ?>
       
-      <?php if ( $hide_page_title ): ?>
+      <?php if ( $hide_page_title == true ): ?>
         <h1 class="page-title"><?php the_title(); ?></h1>
       <?php endif; ?>
 
