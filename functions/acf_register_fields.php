@@ -494,7 +494,7 @@ if( function_exists( "register_field_group" ) ) {
 								'type'          => 'text',
 								'instructions'  => 'Give the container of the flex element an ID',
 								'column_width'  => '',
-								'default_value' => 'n',
+								'default_value' => '',
 								'placeholder'   => '',
 								'prepend'       => '',
 								'append'        => '',
