@@ -120,9 +120,9 @@ if( function_exists( "register_field_group" ) ) {
 						),
 					),
 					array(
-						'label' => 'Staff',
-						'name' => 'staff_layout',
-						'display' => 'row',
+						'label'      => 'Staff',
+						'name'       => 'staff_layout',
+						'display'    => 'row',
 						'sub_fields' => array(
 							array(
 								'key'           => 'field_fiftyand50staffID',
