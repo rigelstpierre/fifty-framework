@@ -180,19 +180,14 @@ if( function_exists( "register_field_group" ) ) {
 								'maxlength'     => '',
 							),
 							array(
-								'key' => 'field_523b3a72f05f3',
-								'label' => 'Staff Members',
-								'name' => 'staff_members',
-								'type' => 'relationship',
-								'column_width' => '',
+								'key'           => 'field_523b3a72f05f3',
+								'label'         => 'Staff Members',
+								'name'          => 'staff_members',
+								'type'          => 'relationship',
+								'column_width'  => '',
 								'return_format' => 'object',
-								'post_type' => array(
+								'post_type'     => array(
 									0 => 'ffw_staff',
-								),
-								'taxonomy' => array(
-									0 => 'staff_category:29',
-									1 => 'staff_category:33',
-									2 => 'staff_category:15',
 								),
 								'filters' => array(
 									0 => 'search',
