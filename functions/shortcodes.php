@@ -277,3 +277,59 @@ function raw_shortcode( $atts, $content )
     return do_shortcode( $content );
 }
 add_shortcode( 'raw', 'raw_shortcode' );
+
+
+////////////////////////////////////
+// S V G
+////////////////////////////////////
+function ffw_svg( $atts )
+{
+    extract( shortcode_atts( array( 
+        'debug'  =>  '',
+        'file'   =>  '',
+        'path'   =>  '',
+        'type'   =>  '',
+        'width'  =>  '',
+        'height' =>  '',
+        'id'     =>  '',
+        'fills'  =>  ''
+    ), $atts ) );
+
+
+    if ( $path ) {
+      // if path is given, use it
+      $svg_file         = get_stylesheet_directory() . $path . $file . '.svg';
+      $svg_file_string  = file_get_contents($svg_file);
+    } else {
+      // otherwise use the default path (assets/images/svgs/...)
+      $svg_file         = get_stylesheet_directory() . '/assets/images/svgs/' . $file . '.svg';
+      $svg_file_string  = file_get_contents($svg_file);
+    }
+
+    // load SVG as XML (SimpleXMLElement Object)
+    $xml = simplexml_load_string($svg_file_string);
+
+    // make sure amount of fills passed in params match the count of paths in SVG
+    if ( count($fills) == count($xml->path) ) {
+      // loop through SVG attributes and assign fills to paths
+      for ($i = 0; $i < count($xml->path); $i++) {
+        $xml->path[$i]->attributes()->fill = $fills[$i];
+      }
+      // DEBUG - check new written path fills
+      if ( $debug ) foreach( $xml->path as $s ) { pp($s); }
+    } else {
+      print 'Fill count mismatch';
+    }
+    // DEBUG - pretty print modified xml object
+    if ( $debug ) pp($xml);
+    
+    // svg string with wrapper div for sizing
+    $svg_str .= '<div class="svg_wrap" id="'.$id.'" style="width:'.$width.';height:'.$height.';">';
+    $svg_str .= $xml->asXML(); //modified XML/SVG
+    $svg_str .= '</div>';
+
+
+    echo $svg_str;
+    
+}
+add_shortcode( 'svg', 'ffw_svg' );
