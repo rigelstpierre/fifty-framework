@@ -354,13 +354,14 @@ function FFW_helper_functions() {
           return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
       }
 
-      function start_el( &$output, $item, $depth = 0, $args ) {
+      function start_el( &$output, $item, $depth = 0, $args, $id = 0 ) {
           if ( $args->has_children ) {
               $item->classes[] = 'has_children';
           }
 
           parent::start_el($output, $item, $depth, $args);
       }
+      apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id);
   }
 
 }
