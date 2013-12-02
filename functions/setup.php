@@ -60,6 +60,15 @@ function FFW_add_theme_features()
 add_action( 'after_setup_theme', 'FFW_add_theme_features', 11 );
 
 
+/**
+ * Strict Standards Toggle
+ * @since 1.2
+ */
+$strict_standards_toggle_off = true;
+if ( $strict_standards_toggle_off ) {
+  ini_set('display_errors', '0');     # don't show any errors...
+  error_reporting(E_ALL | E_STRICT);  # ...but do log them
+}
 
 
 
