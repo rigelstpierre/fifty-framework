@@ -361,7 +361,7 @@ function FFW_helper_functions() {
 
           parent::start_el($output, $item, $depth, $args);
       }
-      apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id);
   }
+  apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id);
 
 }
