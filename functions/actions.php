@@ -208,16 +208,19 @@ function FFW_actions()
     global $post;
 
     // args
-    $class = isset($args['class']) ? $args['class'] : null;
-    $bg    = isset($args['class']) ? $args['class'] : false;
+    $class     = isset($args['class']) ? $args['class'] : null;
+    $bg        = isset($args['bg']) ? $args['bg'] : null;
+    $staff_bg  = isset($args['staff_bg']) ? $args['staff_bg'] : null;
+    $events_bg = isset($args['events_bg']) ? $args['events_bg'] : null;
 
-    // if bg override
+
+    // bg override
     if ( $bg == false ) {
       $hero_url = '';
     }
-    // is archive or category
-    elseif ( is_archive() || is_category() ) {
-      $hero_url = get_header_image();
+    // staff post type
+    elseif ( $staff_bg == false && 'ffw_staff' == get_post_type() ) {
+      $hero_url = '';
     }
     // use video thumbnail
     elseif ( has_post_format( 'video' ) ) {
@@ -237,6 +240,10 @@ function FFW_actions()
     elseif ( get_header_image() != '' ) {
       $hero_url = get_header_image();
       $hero_height = get_custom_header()->height; // unused as of 09/16/2013
+    }
+    // is archive or category
+    elseif ( is_archive() || is_category() ) {
+      $hero_url = get_header_image();
     }
     else {
       $hero_url = '';
