@@ -1,4 +1,18 @@
 <?php
+
+/**
+  * FFW Actions
+  * List of contents
+  * -----------------------
+  * pagination();
+  * slider_full();
+  * hero (before/after)();
+  * post_details();
+  * mobile_nav_toggle();
+  * svg_control();
+ */
+
+
 /**
  * FFW_actions
  * Theme actions - used in some cases in place of template parts for more
@@ -152,7 +166,7 @@ function FFW_actions()
                 <div class="slide-content <?php echo $slide_text_alignment; ?>">
 
                   <?php if( !$hide_slide_text ) : ?>       
-                      <h1><?php the_title(); ?></h1>
+                      <h1 class="slide-title"><?php the_title(); ?></h1>
                       <div class="seperator"></div>
                       <?php the_content(); ?>
                   <?php endif; ?>
@@ -194,15 +208,29 @@ function FFW_actions()
     global $post;
 
     // args
-    $class    = isset($args['class']) ? $args['class'] : null;
+    $class     = isset($args['class']) ? $args['class'] : null;
+    $bg        = isset($args['bg']) ? $args['bg'] : true;
+    $height    = isset($args['height']) ? $args['height'] : true;
+    $staff_bg  = isset($args['staff_bg']) ? $args['staff_bg'] : null;
+    $events_bg = isset($args['events_bg']) ? $args['events_bg'] : null;
 
-    // vars
-    $hero_class = '';
 
+    //////////////////////////////
+    // HERO URL PAGE LOGIC
+    //////////////////////////////
+
+
+    // bg override
+    if ( $bg == false ) {
+      $hero_url = '';
+    }
     // is archive or category
-    
-    if ( is_archive() || is_category() ) {
+    elseif ( is_archive() || is_category() && $bg != false ) {
       $hero_url = get_header_image();
+    }
+    // staff post type
+    elseif ( $staff_bg == false && 'ffw_staff' == get_post_type() ) {
+      $hero_url = '';
     }
     // use video thumbnail
     elseif ( has_post_format( 'video' ) ) {
@@ -227,10 +255,19 @@ function FFW_actions()
       $hero_url = '';
     }
 
+
+    //////////////////////////////
+    // HERO HEIGHT OVERRIDE
+    //////////////////////////////
+    if ( $height ) {
+      $hero_height = $height;
+      $hero_height_inline = 'height:'.$hero_height.'px;';
+    }
+
     // begin HTML ?>
 
-      <div id="hero" class="hero-<?php echo $hero_class; ?>" style="background-image:url('<?php echo $hero_url; ?>');">
-        <div class="container">
+      <div id="hero" class="hero-<?php echo $class; ?>" style="background-image:url('<?php echo $hero_url; ?>');<?php echo $hero_height_inline; ?>">
+        <div class="container" style="<?php echo $hero_height_inline; ?>">
           <div class="hero-inner">
 
     <?php // end HTML
@@ -242,21 +279,30 @@ function FFW_actions()
   ///////////////////////////////////////
   function hero( $args = NULL ) 
   {
-    
     global $post;
 
     // args
-    $class    = isset($args['class']) ? $args['class'] : null;
+    $class           = isset($args['class']) ? $args['class'] : null;
+    $show_page_title = isset($args['show_page_title']) ? $args['show_page_title'] : false;
+    $text_override   = isset($args['text_override']) ? $args['text_override'] : false;
+
     
     // begin HTML ?>
-    
+
+    <?php // TEXT_OVERRIDE
+      if ( $text_override ) : ?>
+      
+      <h1 class="page-title"><?php echo $text_override; ?></h1>
+
     <?php // PAGE
-      if ( is_page() ) : ?>
+      elseif ( is_page() ) : ?>
+      
+      <?php if ( $show_page_title ): ?>
+        <h1 class="page-title"><?php the_title(); ?></h1>
+      <?php endif; ?>
 
-      <!-- <h1 class="page-title"><?php the_title(); ?></h1> -->
-
-    <?php // SINGLE
-     elseif ( is_single() || is_singular() || is_post_type_archive( 'ffw_events' ) || is_post_type_archive( 'ffw_portfolio' ) ) : ?>
+    <?php // CUSTOM POST TYPES
+     elseif ( is_single() || is_singular() || is_post_type_archive( 'ffw_events' ) || is_post_type_archive( 'ffw_portfolio' ) && $show_page_title == false ) : ?>
 
      <!-- No Hero Title -->
 
@@ -366,9 +412,100 @@ function FFW_actions()
 
 
 
+  
+  /**
+   * Mobile Nav Toggle
+   * Display the hamburger nav icon and html markup
+   * @author Alexander Zizzo
+   * @since 1.2
+   * @param $class (optional)
+   */
+  function mobile_nav_toggle( $args = NULL )
+  {
+    // args
+    $class    = isset($args['class']) ? $args['class'] : null;
+
+    ?>
+    <div class="mobile-menu-toggle-wrap" class="mobile-only <?php echo $class; ?>">
+      <button id="mobile-menu-toggle" class="no-appearance">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <?php
+
+  }
+  add_action('FFW_mobile_nav_toggle', 'mobile_nav_toggle');
 
 
 
+
+
+
+
+  /**
+   * SVG Control
+   * @author Alexander Zizzo
+   * @package Fifty Framework
+   * @since 1.2
+   */
+  function svg_control( $args = NULL ) 
+  {
+    // parameters
+    $debug       = isset($args['debug']) ? $args['debug'] : null;
+    $file        = isset($args['file']) ? $args['file'] : null;
+    $path        = isset($args['path']) ? $args['path'] : null;
+    $class       = isset($args['class']) ? $args['class'] : null;
+    $width       = isset($args['width']) ? $args['width'] : null;
+    $height      = isset($args['height']) ? $args['height'] : null;
+    $id          = isset($args['id']) ? $args['id'] : null;
+    $fills       = isset($args['fills']) ? $args['fills'] : null;
+    $hover_fills = isset($args['hover_fills']) ? $args['hover_fills'] : null;
+
+    // svg path
+    if ( $path ) {
+      // if path is given, use it
+      $svg_file         = get_stylesheet_directory() . $path . $file . '.svg';
+      $svg_file_string  = file_get_contents($svg_file);
+    } else {
+      // otherwise use the default path (assets/images/svgs/...)
+      $svg_file         = get_stylesheet_directory() . '/assets/images/svgs/' . $file . '.svg';
+      $svg_file_string  = file_get_contents($svg_file);
+    }
+
+    // load SVG as XML (SimpleXMLElement Object)
+    $xml = simplexml_load_string($svg_file_string);
+
+    // make sure amount of fills passed in params match the count of paths in SVG
+    if ( count($fills) == count($xml->path) ) {
+      // loop through SVG attributes and assign fills to paths
+      for ($i = 0; $i < count($xml->path); $i++) {
+        $xml->path[$i]->attributes()->fill = $fills[$i];
+      }
+      // DEBUG - check new written path fills
+      if ( $debug ) foreach( $xml->path as $s ) { pp($s); }
+    } else {
+      print 'Fill count mismatch';
+    }
+    // DEBUG - pretty print modified xml object
+    if ( $debug ) pp($xml);
+
+    // inline styles for hover via CSS [INCOMPLETE]
+    $svg_style_str  = '<style>';
+    $svg_style_str .= '</style>';
+
+
+    // svg string with wrapper div for sizing
+    $svg_str .= '<div class="svg_wrap" id="'.$id.'" style="width:'.$width.';height:'.$height.';">';
+    $svg_str .= $xml->asXML(); //modified XML/SVG
+    $svg_str .= '</div>';
+
+    echo $svg_str;
+
+
+  }
+  add_action('FFW_svg_control', 'svg_control');
 
 
 

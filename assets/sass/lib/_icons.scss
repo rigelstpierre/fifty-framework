@@ -5,7 +5,7 @@
 ================================================== */
 i.icon,.icon  {
   font-style:normal;display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
-  background-image:none !important;
+  // background-image:none !important;
 
   &:before  {
     font-family:"pictos",$pictos;
@@ -48,6 +48,7 @@ i.icon,.icon  {
 .icon-info:before, %icon-info:before                    { content:'i'; }
 .icon-chain:before, %icon-chain:before                  { content:'j'; }
 .icon-heart:before, %icon-heart:before                  { content:'k'; }
+.icon-notepad:before, %icon-notepad:before              { content:'n'; }
 .icon-file:before, %icon-file:before                    { content:'o'; }
 .icon-pencil:before, %icon-pencil:before                { content:'p'; }
 .icon-message:before, %icon-message:before              { content:'q'; }
@@ -92,7 +93,6 @@ i.icon,.icon  {
 .icon-lock:before, %icon-lock:before                    { content:'('; }
 .icon-unlock:before, %icon-unlock:before                { content:')'; }
 .icon-question:before, %icon-question:before            { content:'?'; }
-
 
 
 /* ICON-BAR

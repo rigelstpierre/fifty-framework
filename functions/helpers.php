@@ -128,8 +128,11 @@ function FFW_helper_functions() {
     if ( $post_count == 2 && $post_count > 0 ) {
       $column_box_class = 'box-half';
     }
-    elseif ( $post_count >= 3 && $post_count > 0 ) {
+    elseif ( $post_count >= 3 && $post_count > 0 && $post_count != 4 ) {
       $column_box_class = 'box-third';
+    }
+    elseif ( $post_count >= 4 && $post_count >0 && ($post_count % $post_count == 0)) {
+      $column_box_class = 'box-fourth';
     }
     return $column_box_class;
   }
@@ -341,7 +344,7 @@ function FFW_helper_functions() {
    * @since 1.1
    */
   class Has_Children_Walker extends Walker_Nav_Menu {
-      function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
+      function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
           $id_field = $this->db_fields['id'];
 
           if ( is_object( $args[0] ) ) {
@@ -351,11 +354,10 @@ function FFW_helper_functions() {
           return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
       }
 
-      function start_el( &$output, $item, $depth, $args ) {
+      function start_el( &$output, $item, $depth = 0, $args, $id = 0 ) {
           if ( $args->has_children ) {
               $item->classes[] = 'has_children';
           }
-
           parent::start_el($output, $item, $depth, $args);
       }
   }

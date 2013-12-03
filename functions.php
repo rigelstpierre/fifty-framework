@@ -33,8 +33,6 @@ define( $theme_prefix . 'JS_DIR', get_template_directory_uri().'/assets/js' );
 define( $theme_prefix . 'CSS_DIR', get_template_directory_uri().'/assets/css' );
 
 
-
-
 /**
  * Set Up ACF Fields
  * @since  1.1
@@ -76,8 +74,6 @@ function ffw_hybrid_core_setup() {
 
 }
 */
-
-
 
 
 /**

@@ -73,7 +73,6 @@
 				'container'       => false, 
 				'menu_class'      => 'menu-header',
 				'walker'					=> new Has_Children_Walker()
-
 			) ); ?>
 		</nav>
 

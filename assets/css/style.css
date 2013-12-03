@@ -610,6 +610,11 @@ table {
   }
 }
 
+.span-center {
+  float: none !important;
+  margin: 0 auto;
+}
+
 /* ROW
 ================================================== */
 .row {
@@ -2195,7 +2200,6 @@ i.icon, .icon {
   display: inline-block;
   zoom: 1;
   *display: inline;
-  background-image: none !important;
 }
 i.icon:before, .icon:before {
   font-family: "pictos", "pictos";
@@ -2253,6 +2257,10 @@ i.icon.transparent, .icon.transparent {
 
 .icon-heart:before {
   content: 'k';
+}
+
+.icon-notepad:before {
+  content: 'n';
 }
 
 .icon-file:before {

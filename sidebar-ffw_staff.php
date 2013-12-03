@@ -9,12 +9,21 @@ if ( ! is_active_sidebar( 'staff_default' ) ) {
   return;
 }
 ?>
-	
-<?php if ( is_active_sidebar( 'staff_default' ) ) : ?>
-	<div class="sidebar-inner">
-		<div class="widget-area">
-			<?php dynamic_sidebar( 'staff_default' ); ?>
-		</div><!-- .widget-area -->
-	</div><!-- .sidebar-inner -->
 
-<?php endif; ?>
+<?php // Check if sidebars are enabled via options
+  if ( of_get_option ( 'toggle_sidebar', '1' ) ) : ?>
+
+
+
+  <?php if ( is_active_sidebar( 'staff_default' ) ) : ?>
+    <div class="sidebar-inner">
+      <div class="widget-area">
+        <?php dynamic_sidebar( 'staff_default' ); ?>
+      </div><!-- .widget-area -->
+    </div><!-- .sidebar-inner -->
+
+  <?php endif; ?>
+
+  
+
+<?php endif; // sidebar toggle check ?>
