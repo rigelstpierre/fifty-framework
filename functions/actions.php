@@ -210,8 +210,14 @@ function FFW_actions()
     // args
     $class     = isset($args['class']) ? $args['class'] : null;
     $bg        = isset($args['bg']) ? $args['bg'] : true;
+    $height    = isset($args['height']) ? $args['height'] : true;
     $staff_bg  = isset($args['staff_bg']) ? $args['staff_bg'] : null;
     $events_bg = isset($args['events_bg']) ? $args['events_bg'] : null;
+
+
+    //////////////////////////////
+    // HERO URL PAGE LOGIC
+    //////////////////////////////
 
 
     // bg override
@@ -249,10 +255,19 @@ function FFW_actions()
       $hero_url = '';
     }
 
+
+    //////////////////////////////
+    // HERO HEIGHT OVERRIDE
+    //////////////////////////////
+    if ( $height ) {
+      $hero_height = $height;
+      $hero_height_inline = 'height:'.$hero_height.'px;';
+    }
+
     // begin HTML ?>
 
-      <div id="hero" class="hero-<?php echo $class; ?>" style="background-image:url('<?php echo $hero_url; ?>');">
-        <div class="container">
+      <div id="hero" class="hero-<?php echo $class; ?>" style="background-image:url('<?php echo $hero_url; ?>');<?php echo $hero_height_inline; ?>">
+        <div class="container" style="<?php echo $hero_height_inline; ?>">
           <div class="hero-inner">
 
     <?php // end HTML
@@ -278,7 +293,7 @@ function FFW_actions()
       if ( $text_override ) : ?>
       
       <h1 class="page-title"><?php echo $text_override; ?></h1>
-      
+
     <?php // PAGE
       elseif ( is_page() ) : ?>
       
