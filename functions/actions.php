@@ -214,7 +214,7 @@ function FFW_actions()
     $staff_bg  = isset($args['staff_bg']) ? $args['staff_bg'] : null;
     $events_bg = isset($args['events_bg']) ? $args['events_bg'] : null;
 
-
+ 
     //////////////////////////////
     // HERO URL PAGE LOGIC
     //////////////////////////////
