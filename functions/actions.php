@@ -208,34 +208,37 @@ function FFW_actions()
     global $post;
 
     // args
-    $class    = isset($args['class']) ? $args['class'] : null;
+    $class = isset($args['class']) ? $args['class'] : null;
+    $bg    = isset($args['class']) ? $args['class'] : false;
 
     // is archive or category
     
-    if ( is_archive() || is_category() ) {
-      $hero_url = get_header_image();
-    }
-    // use video thumbnail
-    elseif ( has_post_format( 'video' ) ) {
-      $vid_url     = get_post_meta($post->ID, 'vid_url');
-      $vid_url     = $vid_url[0];
-      $vid_service = get_video_service( $vid_url );
-      $vid_thumb   = get_video_data( $vid_url, 'thumbnail_large' );
+    if ( !$bg ) {
+      if ( is_archive() || is_category() ) {
+        $hero_url = get_header_image();
+      }
+      // use video thumbnail
+      elseif ( has_post_format( 'video' ) ) {
+        $vid_url     = get_post_meta($post->ID, 'vid_url');
+        $vid_url     = $vid_url[0];
+        $vid_service = get_video_service( $vid_url );
+        $vid_thumb   = get_video_data( $vid_url, 'thumbnail_large' );
 
-      $hero_url    = $vid_thumb;
-      $hero_class  = $vid_service;
-    }
-    // has post thumbnail (featured image)
-    elseif ( has_post_thumbnail() ) {
-      $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-    }
-    // use header image from settings
-    elseif ( get_header_image() != '' ) {
-      $hero_url = get_header_image();
-      $hero_height = get_custom_header()->height; // unused as of 09/16/2013
-    }
-    else {
-      $hero_url = '';
+        $hero_url    = $vid_thumb;
+        $hero_class  = $vid_service;
+      }
+      // has post thumbnail (featured image)
+      elseif ( has_post_thumbnail() ) {
+        $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+      }
+      // use header image from settings
+      elseif ( get_header_image() != '' ) {
+        $hero_url = get_header_image();
+        $hero_height = get_custom_header()->height; // unused as of 09/16/2013
+      }
+      else {
+        $hero_url = '';
+      }
     }
 
     // begin HTML ?>
