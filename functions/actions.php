@@ -269,19 +269,25 @@ function FFW_actions()
     // args
     $class           = isset($args['class']) ? $args['class'] : null;
     $show_page_title = isset($args['show_page_title']) ? $args['show_page_title'] : false;
+    $text_override   = isset($args['text_override']) ? $args['text_override'] : false;
 
     
     // begin HTML ?>
-    
+
+    <?php // TEXT_OVERRIDE
+      if ( $text_override ) : ?>
+      
+      <h1 class="page-title"><?php echo $text_override; ?></h1>
+      
     <?php // PAGE
-      if ( is_page() ) : ?>
+      elseif ( is_page() ) : ?>
       
       <?php if ( $show_page_title ): ?>
         <h1 class="page-title"><?php the_title(); ?></h1>
       <?php endif; ?>
 
-    <?php // SINGLE
-     elseif ( is_single() || is_singular() || is_post_type_archive( 'ffw_events' ) || is_post_type_archive( 'ffw_portfolio' ) ) : ?>
+    <?php // CUSTOM POST TYPES
+     elseif ( is_single() || is_singular() || is_post_type_archive( 'ffw_events' ) || is_post_type_archive( 'ffw_portfolio' ) && $show_page_title == false ) : ?>
 
      <!-- No Hero Title -->
 
