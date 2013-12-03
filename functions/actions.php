@@ -213,7 +213,7 @@ function FFW_actions()
 
     // is archive or category
     
-    if ( !$bg ) {
+    if ( $bg != false ) {
       if ( is_archive() || is_category() ) {
         $hero_url = get_header_image();
       }
