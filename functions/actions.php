@@ -210,7 +210,7 @@ function FFW_actions()
     // args
     $class     = isset($args['class']) ? $args['class'] : null;
     $bg        = isset($args['bg']) ? $args['bg'] : true;
-    $height    = isset($args['height']) ? $args['height'] : auto;
+    $height    = isset($args['height']) ? $args['height'] : 'auto';
     $staff_bg  = isset($args['staff_bg']) ? $args['staff_bg'] : null;
     $events_bg = isset($args['events_bg']) ? $args['events_bg'] : null;
 
