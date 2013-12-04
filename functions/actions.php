@@ -228,6 +228,10 @@ function FFW_actions()
     elseif ( is_archive() || is_category() && $bg != false ) {
       $hero_url = get_header_image();
     }
+    // dntly_campaigns
+    elseif ( 'dntly_campaigns' == get_post_type() && is_archive() ) {
+      $hero_url = get_header_image();
+    }
     // staff post type
     elseif ( $staff_bg == false && 'ffw_staff' == get_post_type() ) {
       $hero_url = '';
