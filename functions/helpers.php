@@ -32,6 +32,21 @@ function FFW_helper_functions() {
 
 
   /**
+   * get_parent_page_title
+   * Get the name of the parent page, if not, get current page title
+   * @author Alexander Zizzo
+   * @since 1.25
+   */
+  function get_parent_page_title( $args = NULL )
+  {
+    $parent_page_name =  empty( $post->post_parent ) ? get_the_title( $post->ID ) : get_the_title( $post->post_parent );
+    echo $parent_page_name;
+  }
+
+
+
+
+  /**
    * set_widget_count_class
    * Do a switch after getting the # of widgets to set the css class,
    * and return it to echo out inside the parent element
