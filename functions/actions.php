@@ -588,7 +588,12 @@ function FFW_actions()
   function analytics_js()
   {
     if ( of_get_option ( 'analytics_js_code') ) {
-      echo of_get_option( 'analytics_js_code' );
+      $analytics_str  = '<script>';
+      $analytics_str .= of_get_option( 'analytics_js_code' );
+      $analytics_str .= '</script>';
+
+      echo $analytics_str;
+      
     } else {
       return null;
     }
