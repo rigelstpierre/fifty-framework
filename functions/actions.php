@@ -520,8 +520,8 @@ function FFW_actions()
    * @author Alexander Zizzo
    * @since 1.0
    */
-  function display_comment_form() {
-
+  function display_comment_form() 
+  {
     global $user_login, $user_identity;
 
     $args = array(
@@ -574,6 +574,26 @@ function FFW_actions()
     comment_form( $args );
   }
   add_action( 'FFW_comment_form', 'display_comment_form' );
+
+
+
+
+
+  /**
+   * Analytics
+   * Include analytics code from theme options for use in header/footer. Abitrary name convention for any support
+   * @author Alexander Zizzo
+   * @since 1.3
+   */
+  function analytics_js()
+  {
+    if ( of_get_option ( 'analytics_js_code') ) {
+      echo of_get_option( 'analytics_js_code' );
+    } else {
+      return null;
+    }
+  }
+  add_action( 'FFW_analytics_code', 'analytics_js' );
 
 }
 add_action('init', 'FFW_actions');

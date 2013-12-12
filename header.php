@@ -32,19 +32,14 @@
 		<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/polyfills/xbc.js"></script>
 		<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/polyfills/html5shiv.js"></script>
 	<![endif]-->
-
-	<script>
-		// Google Analytics here
-	</script>
-
 	
-	<?php // Colors 
-		if ( of_get_option( 'enable_colors', '1' ) ) { include dirname(__FILE__).'/lib/css/colors.css.php'; } ?>
+	<?php /* COLORS */ if ( of_get_option( 'enable_colors', '1' ) ) { include dirname(__FILE__).'/lib/css/colors.css.php'; } ?>
 
 </head>
 
 <body <?php body_class();?>>
 
+<?php /* ANALYTICS */ do_action( 'FFW_analytics_code' ); ?>
 
 <header class="default header_color_bg">
 	<div class="container">

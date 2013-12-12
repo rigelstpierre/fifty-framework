@@ -309,6 +309,33 @@ function optionsframework_options()
 
 
 
+
+
+
+
+  /**
+   * Analytics
+   * @since 1.0
+   */
+  $options[] = array(
+    'name'  => __( 'Analytics', 'FFW' ),
+    'type'  => 'heading'
+  );
+
+    // CUSTOM LOGO
+    $options[] = array(
+      'name' => __( 'Analytics Javascript Code', 'FFW' ),
+      'desc' => __( '<b>IMPORTANT</b> - DO NOT include the &lt;script&gt; opening and closing tags.', 'FFW' ),
+      'std'  => '',
+      'id'   => 'analytics_js_code',
+      'type' => 'textarea'
+    );
+
+
+
+
+
+
   /**
    * Debugging
    * @since 1.0
