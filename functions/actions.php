@@ -584,16 +584,22 @@ function FFW_actions()
    * Include analytics code from theme options for use in header/footer. Abitrary name convention for any support
    * @author Alexander Zizzo
    * @since 1.3
+   * @return (string) $analytics_str OR null
+   * @todo Make 'smarter', detect if <script> tags accidentally in string, sanitize, etc.
    */
-  function analytics_js()
+  function analytics_js( $args = NULL )
   {
+    // params/args
+    $in_footer = isset($args['in_footer']) ? $args['in_footer'] : false;
+
+    // if we have the option set, create the analytics script string, otherwise return NULL.
     if ( of_get_option ( 'analytics_js_code') ) {
-      $analytics_str  = '<script>';
+      $analytics_str  = '<script type="text/javascript">';
       $analytics_str .= of_get_option( 'analytics_js_code' );
       $analytics_str .= '</script>';
 
       echo $analytics_str;
-      
+
     } else {
       return null;
     }

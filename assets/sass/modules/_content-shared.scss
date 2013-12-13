@@ -16,7 +16,8 @@
   ================================================== */
   #content{
     @extend %span9;
-        
+    
+    // PUSH LEFT 
     &.push-left {
       float:left;
       @include media(mobile) { float:right; }
@@ -25,8 +26,9 @@
         padding-left:2em;
         @include media(mobile) { padding-left:0; }
       }
-
     }
+
+    // PUSH RIGHT
     &.push-right {
       float:right;
       .content-inner {
@@ -35,6 +37,9 @@
         @include media(mobile) { padding-right:0; }
       }
     }
+
+    // FULL WIDTH
+    &.full-width, &.full { width:100%; }
   }
 
     /* ARTICLE

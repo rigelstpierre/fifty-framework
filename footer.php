@@ -31,7 +31,7 @@ $footer_args = array(
   'query_count'       => true
 );
 
-do_action('FFW_debug_box', $footer_args );
+//do_action('FFW_debug_box', $footer_args );
 ?>
 
 
