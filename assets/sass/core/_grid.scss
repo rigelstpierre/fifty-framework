@@ -214,6 +214,10 @@
     position:relative;
     width:100%;
     height:100%;
+    // BACKGROUND COVER
+    background-repeat:no-repeat;
+    background-position:50% 50%;
+    @include background-size(cover);
   }
   &.has_footer .box-inner {height:75%;}
     

@@ -30,11 +30,11 @@
         <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 
 
-          <div class="box box-fourth has_footer has_hover_overlay">
+          <div class="box box-fourth box-media has_footer has_hover_overlay">
             <a href="<?php the_permalink(); ?>">
               <div class="box-hover-overlay"></div>
-              <main class="box-inner">
-                <div class="box-image backstretch" data-img-src="<?php echo get_featured_image_url(); ?>"></div>
+              <main class="box-inner" style="background-image:url('<?php echo get_featured_image_url(); ?>');">
+                <!-- <div class="box-image backstretch" data-img-src="<?php //echo get_featured_image_url(); ?>"></div> -->
               </main>
               <footer>
                 <h6><?php the_title(); ?></h6>
