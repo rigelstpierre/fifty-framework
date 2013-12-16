@@ -7,14 +7,14 @@
       $vid_service   = get_video_service($vid_url);
       $vid_id        = get_video_id($vid_url);
       $vid_use_title = get_post_meta($post->ID, 'vid_title_toggle');
-      $vid_title     = get_video_data($vid_url, 'title' );
+      $vid_title     = get_video_data($vid_url, 'title', true );
     ?>
     <?php 
       if( has_post_thumbnail() ) { 
         $vid_img_url    = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
         $vid_img_class  = '';
       } else {
-        $vid_img_url    = get_video_data($vid_url, 'thumbnail_large' );
+        $vid_img_url    = get_video_data($vid_url, 'thumbnail_large', true );
         $vid_img_class  = 'fallback';
       }
     ?>

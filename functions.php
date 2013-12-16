@@ -60,6 +60,13 @@ require_once( get_template_directory() .'/functions/helpers.php');
 require_once( get_template_directory() .'/functions/shortcodes.php');
 require_once( get_template_directory() .'/functions/gravityforms.php');
 
+/**
+ * Classes
+ * @since 1.3
+ */
+require_once( get_template_directory() .'/functions/classes/video-services.class.php');
+
+
 
 /**
  * Load Hybrid Core Framework
