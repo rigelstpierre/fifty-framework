@@ -114,6 +114,9 @@
     width:120px;height:2px;
     background-color:#353535;
   }
+
+  &.white {color:#fff; &:after {background-color:#fff;} }
+  &.baseline {margin-top:0;}
 }
 .section-subtitle {
   font-family:$serif;

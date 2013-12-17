@@ -10,6 +10,10 @@ $height-flex_paging:          40;
 $height-flex_control_thumbs:  130;
 
 
+.flex-header {
+  background-color:#3A3A3A;
+}
+
 .flexslider {
   position:relative;
   background-color:#363636;
@@ -19,7 +23,7 @@ $height-flex_control_thumbs:  130;
   &.slider-full {
     
   }
-
+  
   .flex-viewport {
     width:100%;height:#{$height-slider_full}px;
     @include backface;
@@ -90,8 +94,14 @@ $height-flex_control_thumbs:  130;
         color:#ffffff;
         width:100%;
 
+
+        .slide-content-left {float:left;width:60%;}
+        .slide-content-right {float:left;width:40%;}
+
         // @include media(tablet) {width:90%;}
         // @include media(mobile) {width:90%;}
+
+        &.clearafter {@include clearfix;}
 
         &.left    {
           text-align:left;

@@ -299,11 +299,19 @@
             var embed_code = buildEmbed(video_service, video_id);
 
             // remove inner elements
+            $this.find('iframe').remove();
             $this.find('img').remove();
+            $this.find('.media-image-overlay').css('opacity', 0);
+            $this.find('.media-image-icon').hide();
+            $this.css('background-image', '');
             $this.find('.post-format-video-overlay').remove();
 
             // append the generated embed code
-            $this.append(embed_code);
+            if ( $this.find('iframe').length <= 0 ) {
+                $this.append(embed_code);
+            } else {
+                // nothing
+            }
         });
     }
 

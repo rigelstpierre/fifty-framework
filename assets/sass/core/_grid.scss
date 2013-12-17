@@ -219,7 +219,12 @@
     background-position:50% 50%;
     @include background-size(cover);
   }
-  &.has_footer .box-inner {height:75%;}
+  &.has_footer {
+
+    .box-inner {height:75%;}
+
+    &:hover footer h6 {color:#fff;}
+  }
     
   // IMAGE
   .box-image {
