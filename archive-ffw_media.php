@@ -90,7 +90,7 @@
 <!-- ================== -->
 <div id="media_bar">
   <!-- // LEFT // -->
-  <div class="left">
+  <div class="left span6">
     <!-- ================== -->
     <!--    #MEDIA_SORT     -->
     <!-- ================== -->
@@ -102,19 +102,30 @@
     </ul>
   </div>
   <!-- // RIGHT // -->
-  <div class="right">
+  <div class="right span6">
     <!-- ================== -->
     <!--   #MEDIA_SEARCH    -->
     <!-- ================== -->
-    <div id="media_search" class="media-search-wrap">
-<!--       <form action="/" method="get">
-          <fieldset>
-              <input type="text" name="s" id="search" value="<?php the_search_query(); ?>" />
-              <input type="image" alt="Search" src="<?php bloginfo( 'template_url' ); ?>/images/search.png" />
+    <div id="media_search" class="media-search inline-search">
+      <form action="/" method="get">
+          <fieldset class="inline-fields">
+              <input class="inline-input" type="text" name="s" id="search" value="<?php the_search_query(); ?>" placeholder="Search"/>
+              <input type="hidden" name="post_type" value="ffw_media" />
           </fieldset>
-      </form> -->
+      </form>
     </div>
-  </div>
+    <div id="media_select" class="media-select inline-dropdown">
+      <fieldset class="inline-fields">
+        <select class="inline-select" name="ffw_media_select" id="ffw_media_select">
+          <option value="example1">Example 1</option>
+          <option value="example2">Example 2</option>
+          <option value="example3">Example 3</option>
+          <option value="example4">Example 4</option>
+          <option value="example5">Example 5</option>
+        </select>
+      </fieldset>
+    </div>
+  </div><!-- .right (span6) -->
 </div>
 
 <!-- ================== -->

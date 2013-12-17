@@ -105,6 +105,12 @@
 }
 
 
+/* PREFIX/SUFFIX PADDING (left/right)
+================================================== */
+@mixin pad( $position, $value:0) {
+  padding-#{$position}: $value;
+}
+
 
 /* SPANS (1-12)
 ================================================== */
