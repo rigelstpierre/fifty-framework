@@ -1,42 +1,26 @@
 <?php get_header(); ?>
 
-<?php //do_action('FFW_hero_before'); ?>
-<?php //do_action('FFW_hero', array('text_override' => 'Media')); ?>
-<?php //do_action('FFW_hero_after'); ?>
 
- 
-         
-<script>
-jQuery(window).load(function($){
-  jQuery('#slider_ffw_media.flexslider').flexslider({
-    animation       : "slide",
-    prevText        : "N",
-    nextText        : "n",
-    direction       : "horizontal",
-    slideShowSpeed  : "7000",
-    animationSpeed  : "600",
-    useCSS          : false,
-    start: function(slider){
-      slider.find('ul.slides').fadeIn(250);
-    }
-  });
-});
-</script>
+<!-- // FLEXSLIDER JS // -->         
+<?php do_action( 'FFW_flexslider_js', array() ); ?>
 
-<?php 
+<?php // FFW_MEDIA_QUERY
   $ffw_media_featured_args = array (
     'post_type'  => 'ffw_media',
-    'tax_query'  => array( array(
-      'taxonomy' => 'media_category', 
-      'field'    => 'slug', 
-      'terms'    => 'featured'
-    ) )
+    'meta_query' => array( array(
+       'key'     => 'ffw_media_type_featured',
+       'value'   => array(1),
+       'compare' => '>=',
+    ) ) 
   );
   $ffw_media_query = new WP_Query( $ffw_media_featured_args );
 ?>
 
-
+<!-- =================== -->
+<!--  #SLIDER_FFW_MEDIA  -->
+<!-- =================== -->
 <div id="slider_ffw_media" class="container-full flexslider">
+  <h2 class="section-title white slider-title" style="">Featured Media</h2>
   <ul class="slides">
     
     <?php if( $ffw_media_query->have_posts() ) : while( $ffw_media_query->have_posts() ) : $ffw_media_query->the_post(); ?>
@@ -76,44 +60,73 @@ jQuery(window).load(function($){
                     
                   
                   </a>
-
               
             </div><!-- .slide-content-left -->
 
             <div class="slide-content-right" style="color:#fff;">
-              <?php the_title(); ?>
+              <h3><?php the_title(); ?></h3>
+
+              <?php do_action('FFW_post_details', array(
+                'wrapper' => 'div',
+                'author'  => false,
+                'class'   => 'slide-meta'
+              )); ?>
+
+              <?php the_content(); ?>
             </div>
 
-          </div>
-        </div>
+          </div><!-- .slide-content.clearafter -->
+        </div><!-- .container -->
       </li>
 
     <?php endwhile; endif; wp_reset_query(); ?>
 
   </ul>
-</div>
+</div><!-- #slider_ffw_media.container-full.flexslider -->
 
 
-
+<!-- ================== -->
+<!--     #MEDIA_BAR     -->
+<!-- ================== -->
 <div id="media_bar">
+  <!-- // LEFT // -->
   <div class="left">
-    <ul class="menu-media_bar" id="menu_media_bar">
+    <!-- ================== -->
+    <!--    #MEDIA_SORT     -->
+    <!-- ================== -->
+    <ul class="menu-media_bar" id="media_sort">
       <li class="active"><a href="#all">All</a></li>
       <li><a href="#videos">Videos</a></li>
       <li><a href="#photos">Photos</a></li>
       <li><a href="#resources">Resources</a></li>
     </ul>
   </div>
+  <!-- // RIGHT // -->
   <div class="right">
-    
+    <!-- ================== -->
+    <!--   #MEDIA_SEARCH    -->
+    <!-- ================== -->
+    <div id="media_search" class="media-search-wrap">
+<!--       <form action="/" method="get">
+          <fieldset>
+              <input type="text" name="s" id="search" value="<?php the_search_query(); ?>" />
+              <input type="image" alt="Search" src="<?php bloginfo( 'template_url' ); ?>/images/search.png" />
+          </fieldset>
+      </form> -->
+    </div>
   </div>
 </div>
 
+<!-- ================== -->
+<!--        #MAIN       -->
+<!-- ================== -->
 <div id="main" class="default blog">
   <div class="container-full">
     <h2 class="section-title">All Media</h2>
 
-
+    <!-- ================== -->
+    <!--      #CONTENT      -->
+    <!-- ================== -->
     <div id="content" class="full archive media">
       <div class="content-inner">
         <h1 class="archive-title"></h1>
@@ -136,12 +149,16 @@ jQuery(window).load(function($){
           </div>
 
         <?php endwhile; endif; ?>
-
+        
+        <!-- ================== -->
+        <!--     PAGINATION     -->
+        <!-- ================== -->
         <?php do_action('FFW_pagination', array('id' => 'nav-below') ); ?>
+
       </div><!-- .content-inner -->
     </div><!-- .content -->
 
-  </div><!-- .container -->
+  </div><!-- .container-full -->
 </div><!-- #main -->
 
 <?php get_footer(); ?>

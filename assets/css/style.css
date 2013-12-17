@@ -44,6 +44,8 @@
 ================================================== */
 /* HEIGHTS / WIDTHS
 ================================================== */
+/* SLIDER HEIGHTS
+================================================== */
 /* BACKFACE VISIBILITY FIX
 /* apply to elements with flicker bug on transform
 ================================================== */
@@ -1346,7 +1348,7 @@ h6 {
 }
 
 /* FAMILIES */
-.flexslider ul.slides li .slide-content p {
+.flexslider ul.slides > li .slide-content p {
   font-family: Georgia, serif, Georgia, serif;
 }
 
@@ -7676,7 +7678,7 @@ nav.pagination .pagination-nav {
   -o-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 0 0;
+  background-position: 50% 50%;
 }
 #hero.hero-youtube {
   background-position: -20%;
@@ -7736,10 +7738,6 @@ footer.fifty a:hover {
 }
 
 /* _slider.scss */
-.flex-header {
-  background-color: #3A3A3A;
-}
-
 .flexslider {
   position: relative;
   background-color: #363636;
@@ -7799,7 +7797,7 @@ footer.fifty a:hover {
 .flexslider ul.slides p {
   margin-top: 0px;
 }
-.flexslider ul.slides li {
+.flexslider ul.slides > li {
   display: none;
   /* hidden */
   position: relative;
@@ -7812,12 +7810,17 @@ footer.fifty a:hover {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  /* SLIDE CONTENT
+  ================================================== */
+  /* .slide-content */
+  /* SLIDE-META
+  ================================================== */
 }
-.flexslider ul.slides li .container {
+.flexslider ul.slides > li .container {
   height: 600px;
   display: table;
 }
-.flexslider ul.slides li .slide-overlay {
+.flexslider ul.slides > li .slide-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -7830,7 +7833,7 @@ footer.fifty a:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
   opacity: 0.4;
 }
-.flexslider ul.slides li .slide-content {
+.flexslider ul.slides > li .slide-content {
   position: relative;
   width: 70%;
   z-index: 100;
@@ -7839,53 +7842,64 @@ footer.fifty a:hover {
   color: #ffffff;
   width: 100%;
 }
-.flexslider ul.slides li .slide-content .slide-content-left {
+.flexslider ul.slides > li .slide-content .slide-content-left {
   float: left;
-  width: 60%;
+  width: 65%;
 }
-.flexslider ul.slides li .slide-content .slide-content-right {
+.flexslider ul.slides > li .slide-content .slide-content-right {
   float: left;
-  width: 40%;
+  width: 35%;
+  padding: 0 0 0 1.875em;
 }
-.flexslider ul.slides li .slide-content.clearafter {
+.flexslider ul.slides > li .slide-content .slide-content-right h1, .flexslider ul.slides > li .slide-content .slide-content-right h2, .flexslider ul.slides > li .slide-content .slide-content-right h3 {
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
+.flexslider ul.slides > li .slide-content .slide-content-right p {
+  font-family: "opensans", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-size: 1em;
+  margin-top: 0.9375em;
+}
+.flexslider ul.slides > li .slide-content.clearafter {
   overflow: hidden;
   *zoom: 1;
 }
-.flexslider ul.slides li .slide-content.left {
+.flexslider ul.slides > li .slide-content.left {
   text-align: left;
 }
-.flexslider ul.slides li .slide-content.left .seperator {
+.flexslider ul.slides > li .slide-content.left .seperator {
   margin: 15px 0 15px 0;
 }
-.flexslider ul.slides li .slide-content.center {
+.flexslider ul.slides > li .slide-content.center {
   text-align: center;
 }
-.flexslider ul.slides li .slide-content.center .seperator {
+.flexslider ul.slides > li .slide-content.center .seperator {
   margin: 15px auto 15px auto;
 }
-.flexslider ul.slides li .slide-content.right {
+.flexslider ul.slides > li .slide-content.right {
   text-align: right;
 }
-.flexslider ul.slides li .slide-content.right .seperator {
+.flexslider ul.slides > li .slide-content.right .seperator {
   margin: 15px 0 15px 0;
 }
-.flexslider ul.slides li .slide-content .seperator {
+.flexslider ul.slides > li .slide-content .seperator {
   display: block;
   width: 200px;
   height: 2px;
   background-color: #fff;
 }
-.flexslider ul.slides li .slide-content h1 {
+.flexslider ul.slides > li .slide-content h1 {
   display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
   *display: inline;
   width: 80%;
 }
-.flexslider ul.slides li .slide-content h1:first-of-type {
+.flexslider ul.slides > li .slide-content h1:first-of-type {
   margin: 0;
 }
-.flexslider ul.slides li .slide-content p {
+.flexslider ul.slides > li .slide-content p {
   display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
@@ -7893,6 +7907,29 @@ footer.fifty a:hover {
   line-height: 1.43em;
   font-size: 1.1em;
   font-style: italic;
+}
+.flexslider ul.slides > li .slide-meta {
+  margin: 0;
+  padding: 0;
+}
+.flexslider ul.slides > li .slide-meta span.author-pre-text {
+  display: none;
+}
+.flexslider ul.slides > li .slide-meta span {
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  color: #adadad;
+  font-family: Georgia, serif;
+  font-size: 0.875em;
+  margin-right: 7px;
+}
+.flexslider ul.slides > li .slide-meta span:last-child {
+  margin-right: 0;
+}
+.flexslider ul.slides > li .slide-meta span a {
+  color: inherit;
 }
 .flexslider .flex-control-nav-wrap {
   width: 100%;
@@ -8571,6 +8608,12 @@ ol.children {
 .section-title.baseline {
   margin-top: 0;
 }
+.section-title.slider-title {
+  background-color: #3A3A3A;
+  margin: 0;
+  padding-top: 50px;
+  padding-bottom: 40px;
+}
 
 .section-subtitle {
   font-family: Georgia, serif;
@@ -8908,6 +8951,8 @@ ol.children {
 }
 
 /* _media.scss */
+/* MEDIA BAR
+================================================== */
 #media_bar {
   position: relative;
   width: 100%;
@@ -8960,7 +9005,23 @@ ol.children {
   transition: all 150ms linear;
 }
 
-/* SLIDER
+/* MEDIA SLIDER
+================================================== */
+#slider_ffw_media {
+  background: transparent;
+}
+#slider_ffw_media .flex-viewport,
+#slider_ffw_media ul.slides,
+#slider_ffw_media ul.slides li,
+#slider_ffw_media ul.slides li .container,
+#slider_ffw_media ul.slides li .slide-overlay {
+  height: 505px;
+}
+#slider_ffw_media ul.slides li .container {
+  margin-top: -20px;
+}
+
+/* MEDIA IMAGE
 ================================================== */
 .media-image {
   display: block;

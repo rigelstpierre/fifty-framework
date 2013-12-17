@@ -1,5 +1,8 @@
 /* _media.scss */
 
+
+/* MEDIA BAR
+================================================== */
 #media_bar {
   position:relative;
   width:100%;height:54px;
@@ -45,7 +48,18 @@
 
 
 
-/* SLIDER
+/* MEDIA SLIDER
+================================================== */
+#slider_ffw_media {
+  background:transparent;
+  
+  @include slider_heights(#{$height-slider_media}px);
+
+  ul.slides li .container {margin-top: -20px;}
+}
+
+
+/* MEDIA IMAGE
 ================================================== */
 .media-image {
   display:block;

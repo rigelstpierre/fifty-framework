@@ -3,7 +3,6 @@
 @import "lib/xbc";
 
 
-
 /* ================================================================ */
 /*                                                                  */
 /*                        CUSTOM FUNCTIONS                          */
@@ -101,6 +100,17 @@
   @if $important == 'important' or $important == '!' {
     width:$width !important;min-width:$width !important;max-width:$width !important;
   }
+}
+
+
+/* SLIDER HEIGHTS
+================================================== */
+@mixin slider_heights( $height:600 ) {
+  .flex-viewport, 
+  ul.slides, 
+  ul.slides li, 
+  ul.slides li .container,
+  ul.slides li .slide-overlay { height:$height; }
 }
 
 

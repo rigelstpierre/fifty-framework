@@ -57,6 +57,53 @@ function FFW_actions()
 
 
 
+  /**
+   * Flexslider JS
+   * @author Alexander Zizzo
+   * @since 1.3
+   * @param (string) $selector
+   * @param (string) $animation
+   * @param (string) $prev
+   * @param (string) $next
+   * @param (string) $direction
+   * @param (string) $slide_speed
+   * @param (string) $animation_speed
+   * @param (string) $css
+   */
+  function flexslider_js( $args = NULL )
+  {
+    // args/params
+    $selector         = isset($args['selector']) ? $args['selector'] : '.flexslider';
+    $animation       = isset($args['animation']) ? $args['animation'] : 'slide';
+    $prev            = isset($args['prev']) ? $args['prev'] : 'N';
+    $next            = isset($args['next']) ? $args['next'] : 'n';
+    $direction       = isset($args['direction']) ? $args['direction'] : 'horizontal';
+    $slide_speed     = isset($args['slide_speed']) ? $args['slide_speed'] : '7000';
+    $animation_speed = isset($args['slide_speed']) ? $args['slide_speed'] : '600';
+    $css             = isset($args['css']) ? $args['css'] : false;
+
+    // JS
+    ?>
+      <script>
+      jQuery(window).load(function($){
+        jQuery('<?php echo $selector; ?>').flexslider({
+          animation       : "<?php echo $animation; ?>",
+          prevText        : "<?php echo $prev; ?>",
+          nextText        : "<?php echo $next; ?>",
+          direction       : "<?php echo $direction; ?>",
+          slideShowSpeed  : "<?php echo $slide_speed; ?>",
+          animationSpeed  : "<?php echo $animation_speed; ?>",
+          useCSS          : false,
+          start: function(slider){
+            slider.find('ul.slides').fadeIn(250);
+          }
+        });
+      });
+      </script>
+    <?php
+  }
+  add_action( 'FFW_flexslider_js', 'flexslider_js' );
+
 
  
   /**
@@ -377,36 +424,64 @@ function FFW_actions()
   function post_details( $args = NULL ) {
 
     global $post;
-    $class    = isset($args['class']) ? $args['class'] : null;
+    $class    = isset($args['class']) ? $args['class'] : 'post-meta';
+    $wrapper  = isset($args['wrapper']) ? $args['wrapper'] : 'ul';
+    $category = isset($args['category']) ? $args['category'] : false;
+    $type     = isset($args['type']) ? $args['type'] : false;
     $author   = isset($args['author']) ? $args['author'] : true;
     $date     = isset($args['date']) ? $args['date'] : true;
     $comments = isset($args['comments']) ? $args['comments'] : true;
     
     ?>
       
-      <ul class="post-meta <?php echo $class; ?>">
-        <?php if ( $author ) : ?>
-          <li class="post-author">
-              <span>By </span>
+    <?php if ( $wrapper == 'ul') : ?>
+      <ul class="<?php echo $class; ?>">
+      <?php $child_tag = 'li'; ?>
+    <?php elseif ($wrapper == 'div') : ?>
+      <div class="<?php echo $class; ?>">
+      <?php $child_tag = 'span'; ?>
+    <?php endif; ?>
+      
+        <?php /* CATEGORY
+        ================================================== */ if ( $category ) : ?>
+          <<?php echo $child_tag; ?> class="post-category">
+              <i class="icon icon-video"></i>
+              <?php the_category(); ?>
+          </<?php echo $child_tag; ?>>
+        <?php endif; ?>
+
+        <?php /* AUTHOR
+        ================================================== */ if ( $author ) : ?>
+          <<?php echo $child_tag; ?> class="post-author">
+              <span class="author-pre-text">By </span>
               <i class="icon icon-person"></i>
               <?php the_author(); ?>
-          </li>
+          </<?php echo $child_tag; ?>>
         <?php endif; ?>
-        <?php if ( $date ) : ?>
-          <li class="post-time">
+
+        <?php /* DATE/TIME
+        ================================================== */ if ( $date ) : ?>
+          <<?php echo $child_tag; ?> class="post-time">
               <i class="icon icon-calendar"></i>
               <time class="entry-date" datetime="<?php the_time(); ?>"><?php the_time('F j, Y'); ?></time>
-          </li>
+          </<?php echo $child_tag; ?>>
         <?php endif; ?>
-        <?php if ( $comments ) : ?>
-          <li class="post-comments">
+
+        <?php /* COMMENTS
+        ================================================== */ if ( $comments ) : ?>
+          <<?php echo $child_tag; ?> class="post-comments">
             <a href="<?php the_permalink(); ?>/#comments">
               <i class="icon icon-chat"></i>
               <?php echo get_comments_number(); ?> Comments
             </a>
-          </li>
+          </<?php echo $child_tag; ?>>
         <?php endif; ?>
-      </ul>
+
+      <?php if ( $wrapper == 'ul') : ?>
+        </ul>
+      <?php elseif ($wrapper == 'div') : ?>
+        </div>
+      <?php endif; ?>
 
     <?php 
   }
