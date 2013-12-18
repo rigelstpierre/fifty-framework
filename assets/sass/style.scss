@@ -5,7 +5,8 @@
         "ffw"; 
 
 /* Reset & Vendor Libs */
-@import "vendor/normalize";
+@import "vendor/normalize",
+        "vendor/addthis";
 
 /* Base & Vars */
 @import "config",

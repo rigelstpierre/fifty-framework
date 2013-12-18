@@ -50,3 +50,6 @@ i.socialico,.socialico  {
 
 .socialico-youtube:before     {content:'x';}
 .socialico-youtube:hover      {color:#911d1e !important;}
+
+.socialico-email:before     {font-family:$pictos;content:'m';}
+.socialico-email:hover      {color:#e83e24 !important;}

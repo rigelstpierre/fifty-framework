@@ -519,7 +519,179 @@ function FFW_actions()
 
 
 
+  /**
+   * Social Sharing Javascript
+   * Add AddThis JS and SharePop JS inline as needed (required when using an email sharing action)
+   * @author Alexander Zizzo
+   * @since 1.3
+   */
+  function social_share_js( $args = NULL )
+  {
+    // args
+    $addthis  = isset($args['addthis']) ? $args['addthis'] : false;
+    $sharepop = isset($args['sharepop']) ? $args['sharepop'] : true;
 
+    ?>
+    <?php if ( $addthis ) : ?>
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-527a9fd51bbed3ea"></script>
+    <?php endif; ?>
+    
+    <?php if ( $sharepop ) : ?>
+      <script type="text/javascript">function sharePop(url) { window.open( url, "myWindow", "status = 1, height = 500, width = 500, resizable = 0"); }</script>
+    <?php endif; ?>
+
+    <?php
+  } 
+  add_action('FFW_social_share_js', 'social_share_js');
+
+
+
+
+  /**
+   * Add This JS
+   * @author Alexander Zizzo
+   * @since 1.3
+   */
+  function addthis_js( $args = NULL )
+  {
+    // args
+    $label    = isset($args['label']) ? $args['label'] : true;
+    $class    = isset($args['class']) ? $args['class'] : 'ffw_addthis_custom_styles';
+    $facebook = isset($args['facebook']) ? $args['facebook'] : true;
+    $twitter  = isset($args['twitter']) ? $args['twitter'] : true;
+    $email    = isset($args['email']) ? $args['email'] : true;
+    $print    = isset($args['print']) ? $args['print'] : false;
+    $more     = isset($args['more']) ? $args['more'] : false;
+
+    ?>
+        
+      <div class="<?php echo $class; ?> addthis_toolbox addthis_default_style addthis_32x32_style">
+        
+        <?php if ( $label ) : ?>
+          <span class="addthis_label">SHARE</span>
+        <?php endif; ?>
+
+        <?php if ( $facebook ) : ?>
+          <a class="addthis_button_preferred_1"></a>
+        <?php endif; ?>
+        
+        <?php if ( $twitter ) : ?>
+          <a class="addthis_button_preferred_2"></a>
+        <?php endif; ?>
+        
+        <?php if ( $email ) : ?>
+          <a class="addthis_button_preferred_3"></a>
+        <?php endif; ?>
+        
+        <?php if ( $print ) : ?>
+          <a class="addthis_button_preferred_4"></a>
+        <?php endif; ?>
+        
+        <?php if ( $more ) : ?>
+          <a class="addthis_button_compact"></a>
+          <a class="addthis_counter addthis_bubble_style"></a>
+        <?php endif; ?>
+      </div>
+  
+    <?php
+  } 
+  add_action('FFW_addthis_js', 'addthis_js');
+
+
+      /**
+       * Add This JS BEFORE
+       * @since 1.3
+       */
+      function addthis_js_before( $args = NULL )
+      {
+        // args
+        $pubid  = isset($args['pubid']) ? $args['pubid'] : 'xa-52b0d9094246c363';
+
+        ?>
+          <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $pubid; ?>"></script>
+        <?php
+      }
+      add_action('FFW_addthis_js_before', 'addthis_js_before');
+
+
+
+
+
+  /**
+   * Social Share Menu
+   * Display a social sharing menu
+   * @author Alexander Zizzo
+   * @since 1.3
+   * @param $class (optional)
+   */
+  function social_share_menu( $args = NULL )
+  {
+    // args/params
+    $class       = isset($args['class']) ? $args['class'] : null;
+    $facebook    = isset($args['facebook']) ? $args['facebook'] : true;
+    $google_plus = isset($args['google_plus']) ? $args['google_plus'] : false;
+    $twitter     = isset($args['twitter']) ? $args['twitter'] : true;
+    $email       = isset($args['email']) ? $args['email'] : false;
+
+  ?>
+    
+    <ul class="menu-social <?php echo $class; ?>">
+
+        <?php if ( $facebook ) : ?>
+        <li class="social-link">
+          <a class="socialico socialico-facebook circle" href="javascript:sharePop('https://www.facebook.com/sharer/sharer.php?u=<?php get_permalink(); ?>');"></a>
+        </li>
+        <?php endif; ?>
+
+        <?php if ( $google_plus ) : ?>
+        <li class="social-link">
+          <a class="socialico socialico-googleplus circle" href="http://plus.google.com/fiftyandfifty"></a>
+        </li>
+        <?php endif; ?>
+
+        <?php if ( $twitter ) : ?>
+        <li class="social-link">
+          <a class="socialico socialico-twitter circle" href="javascript:sharePop('http://twitter.com/intent/tweet?text='<?php get_the_title(); ?>'+'<?php get_permalink(); ?>')"></a>
+        </li>
+        <?php endif; ?>
+        
+        <?php if ( $email_alt ) : ?>
+          <li class="social-link social-link-email">
+            <a class="icon icon-email circle" href="mailto:" target="_blank"></a>
+          </li>
+        <?php endif; ?>
+      </ul>
+    <?php
+
+  }
+  add_action('FFW_social_share_menu', 'social_share_menu');
+
+
+
+  /**
+   * Check Gmail Cookie Status
+   */
+  function check_gmail_cookie( $args = NULL ) {
+    ?>
+
+      <script>
+        function logged_in_to_gmail() { 
+          console.log('Logged in to Gmail');
+        }
+        function not_logged_in_to_gmail() { 
+          console.log('Not logged in to Gmail');
+        }
+      </script>
+      <img style="display:none;"
+           class="gmail_check" 
+           onload="logged_in_to_gmail()"
+           onerror="not_logged_in_to_gmail()"
+           src="https://mail.google.com/mail/photos/img/photos/public/AIbEiAIAAABDCKa_hYq24u2WUyILdmNhcmRfcGhvdG8qKDI1ODFkOGViM2I5ZjUwZmZlYjE3MzQ2YmQyMjAzMjFlZTU3NjEzOTYwAZwSCm_MMUDjh599IgoA2muEmEZD"
+      />
+
+    <?php
+  }
+  add_action('FFW_check_gmail_cookie', 'check_gmail_cookie');
 
 
 

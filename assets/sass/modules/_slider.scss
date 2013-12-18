@@ -3,7 +3,6 @@
 // VARIABLES
 ///////////////////////////////////
 $height-slider_full:          600;
-$height-slider_media:         505;
 $height-slider_mobile:        450;
 $height-flex_direction_nav:   57;
 $width-flex_direction_nav:    60;
@@ -94,12 +93,13 @@ $height-flex_control_thumbs:  130;
         color:#ffffff;
         width:100%;
 
-
+        // use spans instead ex (span8)
         .slide-content-left {
-          float:left;width:65%;
+          // float:left;width:65%;
         }
+        // use spans instead ex (span4)
         .slide-content-right {
-          float:left;width:35%;
+          // float:left;width:35%;
           padding:0 0 0 em(30px);
         
           h1,h2,h3 {margin-top:5px;margin-bottom:3px;}

@@ -19,6 +19,12 @@
 <!-- =================== -->
 <!--  #SLIDER_FFW_MEDIA  -->
 <!-- =================== -->
+
+<?php do_action('FFW_social_share_js', array('addthis' => true, 'sharepop' => true)); ?>
+
+<?php do_action('FFW_addthis_js_before'); ?>
+
+
 <div id="slider_ffw_media" class="container-full flexslider">
   <h2 class="section-title white slider-title" style="">Featured Media</h2>
   <ul class="slides">
@@ -33,12 +39,11 @@
         $ffw_media_meta_media_type_service   = substr($ffw_media_meta_media_type[0], 10);
       ?>
 
-
       <li class="" data-thumb="" style="background-image:url('');">
         <div class="container">
           <div class="slide-content clearafter">
             
-            <div class="slide-content-left">
+            <div class="slide-content-left span8">
                 <?php if ( $ffw_media_meta_media_type[0] == 'ffw_media_youtube' || $ffw_media_meta_media_type[0] == 'ffw_media_vimeo' ) : ?>
                   <a 
                     href="javascript:;" 
@@ -63,7 +68,7 @@
               
             </div><!-- .slide-content-left -->
 
-            <div class="slide-content-right" style="color:#fff;">
+            <div class="slide-content-right span4" style="color:#fff;">
               <h3><?php the_title(); ?></h3>
 
               <?php do_action('FFW_post_details', array(
@@ -73,6 +78,11 @@
               )); ?>
 
               <?php the_content(); ?>
+
+              <footer>
+                <?php //do_action('FFW_social_share_menu', array('email' => true)); ?>
+                <?php do_action('FFW_addthis_js'); ?>
+              </footer>
             </div>
 
           </div><!-- .slide-content.clearafter -->
@@ -83,6 +93,8 @@
 
   </ul>
 </div><!-- #slider_ffw_media.container-full.flexslider -->
+
+
 
 
 <!-- ================== -->
@@ -141,9 +153,10 @@
     <div id="content" class="full archive media">
       <div class="content-inner">
         <h1 class="archive-title"></h1>
+
         <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 
-
+  
           <div class="box box-fourth box-media has_footer has_hover_overlay">
             <a href="<?php the_permalink(); ?>">
               <div class="box-hover-overlay"></div>
