@@ -239,8 +239,6 @@ div[class*="span"] {
   &.has_footer {
 
     .box-inner {height:75%;}
-
-    &:hover footer h6 {color:#fff;}
   }
     
   // IMAGE
@@ -323,7 +321,7 @@ div[class*="span"] {
       footer {
         @include xbc-transparent-bg(0.90, #2f7499, 47, 116, 153);
 
-        h1,h2,h3,h4,h5 {color:#fff;}
+        h1,h2,h3,h4,h5,h6 {color:#fff;}
         span, em {color:#b2c7d4;}
       }
     }

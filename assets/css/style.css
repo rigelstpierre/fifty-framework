@@ -765,9 +765,6 @@ table {
 .box.has_footer .box-inner {
   height: 75%;
 }
-.box.has_footer:hover footer h6 {
-  color: #fff;
-}
 .box .box-image {
   width: 100%;
   height: 100%;
@@ -870,7 +867,7 @@ table {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#E62F7499,endColorstr=#E62F7499);
   zoom: 1;
 }
-.box.has_hover_overlay:hover footer h1, .box.has_hover_overlay:hover footer h2, .box.has_hover_overlay:hover footer h3, .box.has_hover_overlay:hover footer h4, .box.has_hover_overlay:hover footer h5 {
+.box.has_hover_overlay:hover footer h1, .box.has_hover_overlay:hover footer h2, .box.has_hover_overlay:hover footer h3, .box.has_hover_overlay:hover footer h4, .box.has_hover_overlay:hover footer h5, .box.has_hover_overlay:hover footer h6 {
   color: #fff;
 }
 .box.has_hover_overlay:hover footer span, .box.has_hover_overlay:hover footer em {
