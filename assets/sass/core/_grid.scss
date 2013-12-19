@@ -112,15 +112,12 @@
 }
 
 
-/* SPAN SUBSTRING SELECTOR -- INHERITANCE
+/* SPAN PADDING CLASSES
 ================================================== */
-div[class*="span"] {
-  // .inner {padding:0 30px;}
-}
-  
-  .pad-sides-small  {padding:0 10px;}
-  .pad-sides-medium {padding:0 15px;}
-  .pad-sides-large  {padding:0 30px;}
+
+.pad-sides-small  {padding:0 10px;}
+.pad-sides-medium {padding:0 15px;}
+.pad-sides-large  {padding:0 30px;}
 
 
 /* SPANS (1-12)
