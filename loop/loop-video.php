@@ -45,6 +45,8 @@
   </div>
 
   <footer>
+    <?php //do_action('FFW_addthis_js_before'); ?>
+    <?php //do_action('FFW_addthis_js'); ?>
     <?php do_action('FFW_post_details'); ?>
   </footer>
 </article>

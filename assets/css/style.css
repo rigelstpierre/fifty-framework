@@ -537,7 +537,7 @@ table {
 }
 
 /* Base & Vars */
-/* _variables.scss */
+/* _config.scss */
 /* COLORS                           | **REQUIRED**
 ================================================== */
 /* GRID SETTINGS                    | **REQUIRED**
@@ -582,6 +582,20 @@ table {
 ================================================== */
 /* PREFIX/SUFFIX PADDING (left/right)
 ================================================== */
+/* SPAN SUBSTRING SELECTOR -- INHERITANCE
+================================================== */
+.pad-sides-small {
+  padding: 0 10px;
+}
+
+.pad-sides-medium {
+  padding: 0 15px;
+}
+
+.pad-sides-large {
+  padding: 0 30px;
+}
+
 /* SPANS (1-12)
 ================================================== */
 .span1 {
@@ -9249,13 +9263,14 @@ ol.children {
   margin-top: -40px;
 }
 
-/* MEDIA IMAGE
+/* MEDIA IMAGE (.box [thumbnail])
 ================================================== */
 .media-image {
   display: block;
   position: relative;
   width: 100%;
   height: 380px;
+  background-color: #2a2a2a;
 }
 .media-image.video .media-image-icon:before {
   content: '4';
@@ -9315,4 +9330,45 @@ ol.children {
   transition: opacity 150ms linear;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
+}
+
+/* BOX-MEDIA
+================================================== */
+.box.box-media {
+  /* .box-media-fallback */
+}
+.box.box-media.box-media-fallback a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.box.box-media.box-media-fallback a .box-inner {
+  position: relative;
+  background-color: #3a3a3a;
+}
+.box.box-media.box-media-fallback a .box-inner:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  margin: -30px 0 0 -30px;
+  content: 'P';
+  /* FONT */
+  text-align: center;
+  line-height: 1;
+  font-family: "pictos";
+  font-size: 4em;
+  color: #fafafa;
+  /* TRANSITION */
+  -webkit-transition: opacity 100ms linear;
+  -moz-transition: opacity 100ms linear;
+  -o-transition: opacity 100ms linear;
+  transition: opacity 100ms linear;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=65);
+  opacity: 0.65;
+}
+.box.box-media.box-media-fallback:hover a .box-inner:before {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
 }
