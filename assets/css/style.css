@@ -524,10 +524,10 @@ table {
   display: none;
 }
 .ffw_addthis_custom_styles .addthis_button_twitter > span:before {
-  content: 'F';
+  content: 'L';
 }
 .ffw_addthis_custom_styles .addthis_button_facebook > span:before {
-  content: 'L';
+  content: 'F';
 }
 .ffw_addthis_custom_styles .addthis_button_email > span:before {
   line-height: 34px;
@@ -582,7 +582,7 @@ table {
 ================================================== */
 /* PREFIX/SUFFIX PADDING (left/right)
 ================================================== */
-/* SPAN SUBSTRING SELECTOR -- INHERITANCE
+/* SPAN PADDING CLASSES
 ================================================== */
 .pad-sides-small {
   padding: 0 10px;
@@ -967,7 +967,7 @@ table {
 /* BOXES
 ================================================== */
 .bg-cover {
-  background-repeat: none;
+  background-repeat: no-repeat;
   background-position: 50% 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
