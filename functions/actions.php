@@ -555,17 +555,24 @@ function FFW_actions()
   function addthis_js( $args = NULL )
   {
     // args
-    $label    = isset($args['label']) ? $args['label'] : true;
-    $class    = isset($args['class']) ? $args['class'] : 'ffw_addthis_custom_styles';
-    $facebook = isset($args['facebook']) ? $args['facebook'] : true;
-    $twitter  = isset($args['twitter']) ? $args['twitter'] : true;
-    $email    = isset($args['email']) ? $args['email'] : true;
-    $print    = isset($args['print']) ? $args['print'] : false;
-    $more     = isset($args['more']) ? $args['more'] : false;
+    $label        = isset($args['label']) ? $args['label'] : true;
+    $default_size = isset($args['default_size']) ? $args['default_size'] : true;
+    $class        = isset($args['class']) ? $args['class'] : 'ffw_addthis_custom_styles';
+    $facebook     = isset($args['facebook']) ? $args['facebook'] : true;
+    $twitter      = isset($args['twitter']) ? $args['twitter'] : true;
+    $email        = isset($args['email']) ? $args['email'] : true;
+    $print        = isset($args['print']) ? $args['print'] : false;
+    $more         = isset($args['more']) ? $args['more'] : false;
 
+    // conditional class settings
+    if ( $default_size ) {
+      $addthis_default_style_classes = 'addthis_default_style addthis_32x32_style';
+    } else {
+      $addthis_default_style_classes = null;
+    }
     ?>
         
-      <div class="<?php echo $class; ?> addthis_toolbox addthis_default_style addthis_32x32_style">
+      <div class="<?php echo $class; ?> addthis_toolbox <?php echo $addthis_default_style_classes; ?>">
         
         <?php if ( $label ) : ?>
           <span class="addthis_label">SHARE</span>
