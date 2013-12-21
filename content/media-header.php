@@ -1,16 +1,41 @@
 <?php 
 if( is_archive( 'ffw_media' ) ) { 
-    print '<pre>'; print_r( $post ); print '</pre>'; 
+
+    if( is_tax( 'media_type' ) ) {
+
+      
+
+      // FFW_MEDIA_QUERY
+      $ffw_media_featured_args = array (
+        'post_type'  => 'ffw_media',
+        'tax_query'  => array(
+          array(
+            'taxonomy'  => 'media_type',
+            'field'      => 'slug',
+            'terms'     => array( get_query_var( $wp_query->query_vars['taxonomy'] ) )
+          )),
+        'meta_query' => array( array(
+           'key'     => 'ffw_media_type_featured',
+           'value'   => array(1),
+           'compare' => '>=',
+        ) ) 
+      );
+      $ffw_media_query = new WP_Query( $ffw_media_featured_args );
+
+  } else {
+
     // FFW_MEDIA_QUERY
-    $ffw_media_featured_args = array (
-      'post_type'  => 'ffw_media',
-      'meta_query' => array( array(
-         'key'     => 'ffw_media_type_featured',
-         'value'   => array(1),
-         'compare' => '>=',
-      ) ) 
-    );
-    $ffw_media_query = new WP_Query( $ffw_media_featured_args );
+      $ffw_media_featured_args = array (
+        'post_type'  => 'ffw_media',
+        'meta_query' => array( array(
+           'key'     => 'ffw_media_type_featured',
+           'value'   => array(1),
+           'compare' => '>=',
+        ) ) 
+      );
+      $ffw_media_query = new WP_Query( $ffw_media_featured_args );
+
+  }
   ?>
 
   <!-- =================== -->
@@ -23,7 +48,7 @@ if( is_archive( 'ffw_media' ) ) {
 
 
   <div id="slider_ffw_media" class="container-full flexslider">
-    <h2 class="section-title white slider-title" style="">Featured Media</h2>
+      <h2 class="section-title white slider-title" style="">Featured Media</h2>
     <ul class="slides">
       
       <?php if( $ffw_media_query->have_posts() ) : while( $ffw_media_query->have_posts() ) : $ffw_media_query->the_post(); ?>
