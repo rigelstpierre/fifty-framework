@@ -3,7 +3,13 @@
 <!-- ================== -->
 <div id="main" class="default blog">
   <div class="container-full">
-    <h2 class="section-title">All Media</h2>
+    <?php if( is_search() ) : ?>
+      <h2 class="section-title"><?php printf( __(  'Search Results for: %s', 'ffw' ), get_search_query() ); ?></h2>
+    <?php elseif( is_category() ) : ?>
+      <h2 class="section-title">Category</h2>
+    <?php else :  ?>
+      <h2 class="section-title">All Media</h2>
+    <?php endif; ?>
 
     <!-- ================== -->
     <!--      #CONTENT      -->
