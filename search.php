@@ -9,7 +9,7 @@
 
 	<div id="main" class="default blog">
 		<div class="container">
-			<h2 class="section-title">Search</h2>
+			<h2 class="section-title"><?php printf( __(  'Search Results for: %s', 'ffw' ), get_search_query() );  ?></h2>
 
 			<div class="sidebar push-<?php sidebar_position_class(); ?>">
 				<?php get_sidebar(); ?>
