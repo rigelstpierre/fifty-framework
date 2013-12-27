@@ -356,7 +356,8 @@ function FFW_actions()
      elseif ( is_single() || is_singular() || is_post_type_archive( 'ffw_events' ) || is_post_type_archive( 'ffw_portfolio' ) && $show_page_title == false ) : ?>
 
      <!-- No Hero Title -->
-
+  <?php  elseif( is_search() ) : ?>
+      <h1 class="page-title">Search Results</h1>
     <?php // ARCHIVE
       elseif ( is_archive() && !is_category() ): ?>
 
@@ -370,18 +371,11 @@ function FFW_actions()
         ?>
       </h1>
 
-    <?php // CATEGORY
-      elseif ( is_category() ) : ?>
-
+    <?php  elseif ( is_category() ) : ?>
       <h1 class="page-title"><?php single_cat_title(); ?></h1>
-    <?php 
-    elseif( is_search() ) : ?>
-    <h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'ffw' ), get_search_query() ); ?></h1>
-    <?php // ELSE
-      else: ?>
-
+    
+    <?php else: ?>
       <h1 class="page-title"><?php the_title(); ?></h1>
-
     <?php endif; ?>
 
     <?php // end HTML
