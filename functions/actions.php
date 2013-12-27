@@ -847,8 +847,11 @@ function FFW_actions()
     $in_footer = isset($args['in_footer']) ? $args['in_footer'] : false;
 
     // if we have the option set, create the analytics script string, otherwise return NULL.
-    if ( of_get_option ( 'analytics_js_code') ) {
-      $analytics_str  = '<script type="text/javascript">';
+		if ( of_get_option ( 'analytics_js_code') ) {
+			$analytics_str  = '<!-- ==================== -->';
+      $analytics_str .= '<!--       ANALYTICS      -->';
+      $analytics_str .= '<!-- ==================== -->';
+      $analytics_str .= '<script type="text/javascript">';
       $analytics_str .= of_get_option( 'analytics_js_code' );
       $analytics_str .= '</script>';
 

@@ -1,6 +1,6 @@
 <?php 
 if( is_archive( 'ffw_media' ) ) { 
-    print '<pre>'; print_r( $post ); print '</pre>'; 
+    // print '<pre>'; print_r( $post ); print '</pre>'; 
     // FFW_MEDIA_QUERY
     $ffw_media_featured_args = array (
       'post_type'  => 'ffw_media',
