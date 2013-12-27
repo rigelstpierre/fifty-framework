@@ -22,7 +22,9 @@
 
 						<?php get_template_part( 'loop/loop', get_post_format() ); ?>
 
-					<?php endwhile; endif; ?>
+					<?php endwhile; else : ?> 
+						<p>Sorry, your search returned no results.</p>
+					<?php endif; ?>
 
 					<?php do_action('FFW_pagination', array('id' => 'nav-below') ); ?>
 				</div>
@@ -33,13 +35,7 @@
 	</div>
 <?php else : ?>
 	
-	<?php do_action('FFW_hero_before'); ?>
-	<?php do_action('FFW_hero'); ?>
-	<?php do_action('FFW_hero_after'); ?>
-
-	<?php get_template_part( 'content/media', 'bar' ); ?>
-
-	<?php get_template_part( 'content/media', 'main' ); ?>
+	<?php get_template_part( 'search', $search_post_type ); ?>
 
 	
 <?php endif; ?>

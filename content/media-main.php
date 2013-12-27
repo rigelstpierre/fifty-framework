@@ -48,7 +48,12 @@
             </a>
           </div>
 
-        <?php endwhile; endif; ?>
+        <?php endwhile; else : ?>
+        <div class="container">
+            <p>Sorry, your search return no media.</p>  
+        </div>        
+        
+        <?php  endif; ?>
         
         <!-- ================== -->
         <!--     PAGINATION     -->
