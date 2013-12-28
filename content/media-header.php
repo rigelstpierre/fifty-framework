@@ -49,13 +49,11 @@ if( is_archive( 'ffw_media' ) ) {
       <?php 
         if( is_tax( 'media_type' ) ) : 
           $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
-          
-      
-      ?>
-        <h2 class="section-title white slider-title" style="">Featured <?php echo $term->name; ?></h2>
-    <?php else : ?>
-        <h2 class="section-title white slider-title" style="">Featured Media</h2>
-    <?php endif; ?>
+        ?>
+          <h2 class="section-title white slider-title" style="">Featured <?php echo $term->name; ?></h2>
+      <?php else : ?>
+          <h2 class="section-title white slider-title" style="">Featured Media</h2>
+      <?php endif; ?>
     <ul class="slides">
       
       <?php if( $ffw_media_query->have_posts() ) : while( $ffw_media_query->have_posts() ) : $ffw_media_query->the_post(); ?>
@@ -203,6 +201,7 @@ if( is_archive( 'ffw_media' ) ) {
         </div><!-- .container -->
       </li>
 
+      </pre>
     <?php endwhile; endif; wp_reset_query(); ?>
 
   </ul>

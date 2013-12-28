@@ -177,7 +177,7 @@ function FFW_helper_functions() {
    */
   function get_featured_image_url( $args = NULL ) {
     global $post;
-
+    
     $post_id    = isset($args['post_id']) ? $args['post_id'] : $post->ID;
     $image_size = isset($args['image_size']) ? $args['image_size'] : 'full';
 
