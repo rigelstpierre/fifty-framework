@@ -828,6 +828,30 @@ function FFW_actions()
 
 
   /**
+   * Adjust WP ADMIN BAR
+   * Adjust the position of the #wpadminbar, or rather, the element following it,
+   * to fix display when logged in
+   * @since 1.35
+   * @author Alexander Zizzo
+   */
+  function adjust_wpadminbar( $element_name = NULL )
+  {
+    if ( is_user_logged_in() ) : ?>
+
+      <style>
+        <?php echo $element_name; ?> { margin-top:32px; }
+      </style>
+
+    <?php endif;
+  }
+  add_action( 'FFW_adjust_wpadminbar', 'adjust_wpadminbar' );
+
+
+
+
+
+
+  /**
    * Analytics
    * Include analytics code from theme options for use in header/footer. Abitrary name convention for any support
    * @author Alexander Zizzo
