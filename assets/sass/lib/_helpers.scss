@@ -160,3 +160,20 @@
   }
 
 }/* #debug_box */
+
+
+/* VIEWPORT HELPERS
+================================================== */
+.mobile-only { 
+  display:none; 
+  @include media(mobile) { display:block; } 
+}
+.tablet-only { 
+  display:none; 
+  @include media(tablet) { display:block; } 
+}
+.desktop-only {
+  display:block;
+  @include media(mobile) { display:none; } 
+  @include media(tablet) { display:none; } 
+}
