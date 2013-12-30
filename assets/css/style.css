@@ -1726,7 +1726,10 @@ h6 {
 }
 @media only screen and (max-width: 767px) {
   .mobile-only {
-    display: block;
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
   }
 }
 
@@ -1735,13 +1738,13 @@ h6 {
 }
 @media only screen and (min-width: 768px) and (max-width: 959px) {
   .tablet-only {
-    display: block;
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
   }
 }
 
-.desktop-only {
-  display: block;
-}
 @media only screen and (max-width: 767px) {
   .desktop-only {
     display: none;

@@ -166,14 +166,13 @@
 ================================================== */
 .mobile-only { 
   display:none; 
-  @include media(mobile) { display:block; } 
+  @include media(mobile) { display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline; } 
 }
 .tablet-only { 
   display:none; 
-  @include media(tablet) { display:block; } 
+  @include media(tablet) { display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline; } 
 }
 .desktop-only {
-  display:block;
   @include media(mobile) { display:none; } 
   @include media(tablet) { display:none; } 
 }
