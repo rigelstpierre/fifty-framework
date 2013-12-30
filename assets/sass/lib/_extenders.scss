@@ -98,7 +98,14 @@
   @include clearfix;
 }
   .third, %third {
-    width: 33.33333333333333%;float:left;
+    width: 33.33333333333333%;
+    float:left;
+
+    @include media(mobile) {
+      float:none;
+      width:100%;
+      margin-bottom:em(20px);
+    }
   }
 
 

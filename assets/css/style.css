@@ -1500,6 +1500,13 @@ h6 {
   width: 33.33333333333333%;
   float: left;
 }
+@media only screen and (max-width: 767px) {
+  .third {
+    float: none;
+    width: 100%;
+    margin-bottom: 1.25em;
+  }
+}
 
 /* INLINE BLOCK
 ================================================== */
