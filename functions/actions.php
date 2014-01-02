@@ -284,7 +284,7 @@ function FFW_actions()
       $hero_url = '';
     }
     // use video thumbnail
-    elseif ( has_post_format( 'video' ) ) {
+    elseif ( has_post_format( 'video' ) && !is_archive() && !is_front_page() && !is_home() ) {
       $vid_url     = get_post_meta($post->ID, 'vid_url');
       $vid_url     = $vid_url[0];
       $vid_service = get_video_service( $vid_url );
