@@ -293,6 +293,10 @@ function FFW_actions()
       $hero_url    = $vid_thumb;
       $hero_class  = $vid_service;
     }
+    // is index.php
+    elseif ( get_option('page_for_posts' ) == get_the_ID() ) {
+      $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+    }
     // has post thumbnail (featured image)
     elseif ( has_post_thumbnail() ) {
       $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
@@ -354,7 +358,6 @@ function FFW_actions()
 
     <?php // CUSTOM POST TYPES
      elseif ( is_single() || is_singular() || is_post_type_archive( 'ffw_events' ) || is_post_type_archive( 'ffw_portfolio' ) && $show_page_title == false ) : ?>
-
      <!-- No Hero Title -->
   <?php  elseif( is_search() ) : ?>
       <h1 class="page-title">Search Results</h1>
