@@ -40,13 +40,10 @@
       </div>
       <img class="lazyload-img" src="<?php echo $vid_img_url; ?>" class="" alt="<?php the_title(); ?>">
     </a>
-
-
   </div>
 
-  <footer>
-    <?php //do_action('FFW_addthis_js_before'); ?>
-    <?php //do_action('FFW_addthis_js'); ?>
-    <?php do_action('FFW_post_details'); ?>
-  </footer>
+  <?php get_template_part( 'loop/loop', 'meta' ); ?>
+
+  <?php //do_action('FFW_addthis_js_before'); ?>
+  <?php //do_action('FFW_addthis_js'); ?>
 </article>

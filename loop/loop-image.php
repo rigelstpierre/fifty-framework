@@ -32,7 +32,5 @@
     </a>
 
   </div>
-  <footer>
-    <?php do_action('FFW_post_details'); ?>
-  </footer>
+  <?php get_template_part( 'loop/loop', 'meta' ); ?>
 </article>
