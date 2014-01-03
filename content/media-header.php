@@ -1,7 +1,7 @@
 <?php 
 if( is_archive( 'ffw_media' ) ) { 
 
-    if( is_tax( 'media_type' ) ) {
+  if( is_tax( 'media_type' ) ) {
 
       // FFW_MEDIA_QUERY
       $ffw_media_featured_args = array (
@@ -35,6 +35,7 @@ if( is_archive( 'ffw_media' ) ) {
 
   } 
   ?>
+
 
   <!-- =================== -->
   <!--  #SLIDER_FFW_MEDIA  -->

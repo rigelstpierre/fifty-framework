@@ -284,7 +284,7 @@ function FFW_actions()
       $hero_url = '';
     }
     // use video thumbnail
-    elseif ( has_post_format( 'video' ) ) {
+    elseif ( has_post_format( 'video' ) && !is_archive() && !is_front_page() && !is_home() ) {
       $vid_url     = get_post_meta($post->ID, 'vid_url');
       $vid_url     = $vid_url[0];
       $vid_service = get_video_service( $vid_url );
@@ -292,6 +292,10 @@ function FFW_actions()
 
       $hero_url    = $vid_thumb;
       $hero_class  = $vid_service;
+    }
+    // is index.php
+    elseif ( get_option('page_for_posts' ) == get_the_ID() ) {
+      $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
     }
     // has post thumbnail (featured image)
     elseif ( has_post_thumbnail() ) {
@@ -354,7 +358,6 @@ function FFW_actions()
 
     <?php // CUSTOM POST TYPES
      elseif ( is_single() || is_singular() || is_post_type_archive( 'ffw_events' ) || is_post_type_archive( 'ffw_portfolio' ) && $show_page_title == false ) : ?>
-
      <!-- No Hero Title -->
   <?php  elseif( is_search() ) : ?>
       <h1 class="page-title">Search Results</h1>
@@ -828,6 +831,30 @@ function FFW_actions()
 
 
   /**
+   * Adjust WP ADMIN BAR
+   * Adjust the position of the #wpadminbar, or rather, the element following it,
+   * to fix display when logged in
+   * @since 1.35
+   * @author Alexander Zizzo
+   */
+  function adjust_wpadminbar( $element_name = NULL )
+  {
+    if ( is_user_logged_in() ) : ?>
+
+      <style>
+        <?php echo $element_name; ?> { margin-top:32px; }
+      </style>
+
+    <?php endif;
+  }
+  add_action( 'FFW_adjust_wpadminbar', 'adjust_wpadminbar' );
+
+
+
+
+
+
+  /**
    * Analytics
    * Include analytics code from theme options for use in header/footer. Abitrary name convention for any support
    * @author Alexander Zizzo
@@ -841,8 +868,11 @@ function FFW_actions()
     $in_footer = isset($args['in_footer']) ? $args['in_footer'] : false;
 
     // if we have the option set, create the analytics script string, otherwise return NULL.
-    if ( of_get_option ( 'analytics_js_code') ) {
-      $analytics_str  = '<script type="text/javascript">';
+		if ( of_get_option ( 'analytics_js_code') ) {
+			$analytics_str  = '<!-- ==================== -->';
+      $analytics_str .= '<!--       ANALYTICS      -->';
+      $analytics_str .= '<!-- ==================== -->';
+      $analytics_str .= '<script type="text/javascript">';
       $analytics_str .= of_get_option( 'analytics_js_code' );
       $analytics_str .= '</script>';
 

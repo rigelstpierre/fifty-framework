@@ -7,6 +7,5 @@
   <div class="content">
     <?php the_content(); ?>
   </div>
-  <footer>
-  </footer>
+  <footer></footer>
 </article>

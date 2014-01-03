@@ -1500,6 +1500,14 @@ h6 {
   width: 33.33333333333333%;
   float: left;
 }
+@media only screen and (max-width: 767px) {
+  .third {
+    float: none;
+    width: 100%;
+    margin-bottom: 1.25em;
+    padding-right: 0;
+  }
+}
 
 /* INLINE BLOCK
 ================================================== */
@@ -1719,6 +1727,43 @@ h6 {
 }
 
 /* #debug_box */
+/* VIEWPORT HELPERS
+================================================== */
+.mobile-only {
+  display: none;
+}
+@media only screen and (max-width: 767px) {
+  .mobile-only {
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+  }
+}
+
+.tablet-only {
+  display: none;
+}
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .tablet-only {
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .desktop-only {
+    display: none;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .desktop-only {
+    display: none;
+  }
+}
+
 /* _forms.scss */
 /*!
 Pure v0.3.0
