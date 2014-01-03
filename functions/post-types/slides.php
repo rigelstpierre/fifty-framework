@@ -49,7 +49,8 @@ if ( ! class_exists( 'FFW_Slides_Post_Type' ) ) {
           'supports'        => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
           'capability_type' => 'post',
           'rewrite'         => array("slug" => "slides"), // Permalinks format
-          'has_archive'     => false
+          'has_archive'     => false,
+          'menu_icon'       => 'dashicons-slides',
       ); 
       
       $args = apply_filters( 'FFW_slides_args', $args);
@@ -135,21 +136,7 @@ if ( ! class_exists( 'FFW_Slides_Post_Type' ) ) {
     }
     
 
-    /**
-     * Displays the custom post type icon in the dashboard
-     */
-    function slides_icon() 
-    { 
-    ?>
-        <style type="text/css" media="screen">
-            #menu-posts-slides .wp-menu-image {
-                background: url(<?php echo get_template_directory_uri(). '/assets/images/post-types/slides-icon.png'; ?>) no-repeat 6px -17px !important;
-            }
-        #menu-posts-slides:hover .wp-menu-image, #menu-posts-slides.wp-has-current-submenu .wp-menu-image {
-                background-position: 6px 7px !important;
-            }
-        </style>
-    <?php }
+
 
   }
 
