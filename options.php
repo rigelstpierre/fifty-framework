@@ -311,8 +311,6 @@ function optionsframework_options()
 
 
 
-
-
   /**
    * Analytics
    * @since 1.0
@@ -345,7 +343,7 @@ function optionsframework_options()
     'type'  => 'heading',
   );
     
-    // TOGGLE ON/OF
+    // TOGGLE ON/OF DEBUGGING BOX
     $options[] = array(
       'name' => __( 'Debug Box Enable', 'FFW' ),
       'desc' => __( 'Check this box to enable the debug box', 'FFW' ),
@@ -353,6 +351,35 @@ function optionsframework_options()
       'std'  => '1',
       'type' => 'checkbox'
     );
+
+    // TOGGLE WPADMINBAR
+    /* 
+      Example WPADMINBAR <style> output:
+      ----------------------------------
+      <style type="text/css" media="screen">
+        html, * html body { margin-top: 32px !important; }
+        @media screen and ( max-width: 782px ) { html, * html body { margin-top: 46px !important; } }
+      </style>
+     */
+    $options[] = array(
+      'name'    => __( 'Toggle WPADMINBAR', 'FFW' ),
+      'desc'    => __( 'Toggle on/off the top fixed bar when logged in', 'FFW' ),
+      'id'      => 'toggle_wpadminbar',
+      'std'     => '1',
+      'type' => 'select',
+      'options' => array(
+        'wpadminbar_on'    => 'Leave admin bar as normal', 
+        'wpadminbar_off'   => 'Turn OFF (hide) the admin bar', 
+        'wpadminbar_fixed' => 'Turn ON fixed positioning for the admin bar'
+      ),
+    );
+    // $options[] = array(
+    //   'name' => __( 'Toggle WPADMINBAR Fixed', 'FFW' ),
+    //   'desc' => __( 'Toggle the WP Admin Bar to be fixed (helpful for layouts with fixed navs/headers', 'FFW' ),
+    //   'id'   => 'toggle_wpadminbar_fixed',
+    //   'std'  => '0',
+    //   'type' => 'checkbox'
+    // );
 
 
 

@@ -831,23 +831,68 @@ function FFW_actions()
 
 
   /**
-   * Adjust WP ADMIN BAR
+   * WPADMINBAR_ADJUST
    * Adjust the position of the #wpadminbar, or rather, the element following it,
    * to fix display when logged in
    * @since 1.35
    * @author Alexander Zizzo
    */
-  function adjust_wpadminbar( $element_name = NULL )
+  function style_override( $style_args = NULL )
   {
+    // If user is logged in
     if ( is_user_logged_in() ) : ?>
 
       <style>
-        <?php echo $element_name; ?> { margin-top:32px; }
+        <?php 
+        // Foreach style argument passed, used the key as the selector, and the value as the style properties
+        foreach( $style_args as $key => $sa ) : ?>
+          <?php echo $key; ?> { <?php echo $sa; ?> }
+        <?php endforeach; ?>
       </style>
+
+    <?php endif; 
+  }
+  add_action( 'FFW_style_override', 'style_override' );
+
+
+
+
+
+  /**
+   * WP ADMIN BAR
+   * Adjust the styling of the #wpadminbar 
+   * @since 1.36
+   * @author Alexander Zizzo
+   * @see fifty-framework/functions/options.php -> 'toggle_wpadminbar' ID
+   */
+  function wpadminbar( $args = NULL )
+  {
+    // If user is logged in and the option is set
+    if ( is_user_logged_in() && of_get_option( 'toggle_wpadminbar', '1' ) && of_get_option( 'toggle_wpadminbar' ) !== 'wpadminbar_on' ) :
+
+      // If the option is set to hide the admin bar
+      if ( of_get_option( 'toggle_wpadminbar' ) == 'wpadminbar_off' ) : ?>
+          
+        <?php do_action( 'FFW_style_override', array(
+          '#wpadminbar'       => 'display:none !important;',
+          'html, * html body' => 'margin-top: 0px !important;'
+        )); ?>
+
+      <?php endif; 
+
+      // If the option is set the admin bar to fixed positioning
+      if ( of_get_option( 'toggle_wpadminbar' ) == 'wpadminbar_fixed' ) : ?>
+
+        <?php do_action( 'FFW_style_override', array(
+          '#wpadminbar'       => 'position:fixed !important;',
+          'html, * html body' => 'margin-top: 32px !important;'
+        )); ?>
+
+      <?php endif; ?>
 
     <?php endif;
   }
-  add_action( 'FFW_adjust_wpadminbar', 'adjust_wpadminbar' );
+  add_action( 'FFW_wpadminbar', 'wpadminbar' );
 
 
 
