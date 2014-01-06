@@ -3,59 +3,72 @@ if( is_archive( 'ffw_media' ) ) {
 
   if( is_tax( 'media_type' ) ) {
 
-    // FFW_MEDIA_QUERY
-    $ffw_media_featured_args = array (
-      'post_type'  => 'ffw_media',
-      'tax_query'  => array(
-        array(
-          'taxonomy'  => 'media_type',
-          'field'      => 'slug',
-          'terms'     => array( get_query_var( $wp_query->query_vars['taxonomy'] ) )
-        )),
-      'meta_query' => array( array(
-         'key'     => 'ffw_media_type_featured',
-         'value'   => array(1),
-         'compare' => '>=',
-      ) ) 
-    );
-    $ffw_media_query = new WP_Query( $ffw_media_featured_args );
+      // FFW_MEDIA_QUERY
+      $ffw_media_featured_args = array (
+        'post_type'  => 'ffw_media',
+        'tax_query'  => array(
+          array(
+            'taxonomy' => 'media_type',
+            'field'    => 'slug',
+            'terms'    => array( get_query_var( $wp_query->query_vars['taxonomy'] ) )
+          )),
+        'meta_query' => array( array(
+           'key'     => 'ffw_media_type_featured',
+           'value'   => array(1),
+           'compare' => '>=',
+        ) ) 
+      );
+      $ffw_media_query = new WP_Query( $ffw_media_featured_args );
 
   } else {
 
-    // FFW_MEDIA_QUERY (else)
-    $ffw_media_featured_args = array (
-      'post_type'  => 'ffw_media',
-      'meta_query' => array( array(
-         'key'     => 'ffw_media_type_featured',
-         'value'   => array(1),
-         'compare' => '>=',
-      ) ) 
-    );
-    $ffw_media_query = new WP_Query( $ffw_media_featured_args );
-  }
-?>
+    // FFW_MEDIA_QUERY
+      $ffw_media_featured_args = array (
+        'post_type'  => 'ffw_media',
+        'meta_query' => array( array(
+           'key'     => 'ffw_media_type_featured',
+           'value'   => array(1),
+           'compare' => '>=',
+        ) ) 
+      );
+      $ffw_media_query = new WP_Query( $ffw_media_featured_args );
+
+  } 
+  ?>
+
 
   <!-- =================== -->
   <!--  #SLIDER_FFW_MEDIA  -->
   <!-- =================== -->
 
-  <?php do_action('FFW_social_share_js', array('addthis' => true, 'sharepop' => true)); ?>
+  <?php do_action('FFW_social_share_js', array('addthis' => true, 'sharepop' => true) ); ?>
 
   <?php do_action('FFW_addthis_js_before'); ?>
 
 
   <div id="slider_ffw_media" class="container-full flexslider">
-      <h2 class="section-title white slider-title" style="">Featured Media</h2>
+      <?php 
+        if( is_tax( 'media_type' ) ) : 
+          $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
+        ?>
+          <h2 class="section-title white slider-title" style="">Featured <?php echo $term->name; ?></h2>
+      <?php else : ?>
+          <h2 class="section-title white slider-title" style="">Featured Media</h2>
+      <?php endif; ?>
     <ul class="slides">
       
       <?php if( $ffw_media_query->have_posts() ) : while( $ffw_media_query->have_posts() ) : $ffw_media_query->the_post(); ?>
-
+  
         <?php 
+
+
           $ffw_media_meta_media_type           = get_post_meta( $post->ID, 'ffw_media_type' );
-          $ffw_media_meta_media_type_id        = get_post_meta( $post->ID, 'ffw_media_type_id' );
-          $ffw_media_meta_media_type_url       = get_post_meta( $post->ID, 'ffw_media_type_url' );
-          $ffw_media_meta_media_type_thumbnail = get_post_meta( $post->ID, 'ffw_media_type_thumbnail' );
+          $ffw_media_meta_media_type_id        = get_post_meta( $post->ID, 'ffw_media_type_id', true );
+          $ffw_media_meta_media_type_url       = get_post_meta( $post->ID, 'ffw_media_type_url', true );
+          $ffw_media_meta_media_type_thumbnail = get_post_meta( $post->ID, 'ffw_media_type_thumbnail', true );
           $ffw_media_meta_media_type_service   = substr($ffw_media_meta_media_type[0], 10);
+
+
         ?>
 
         <li class="" data-thumb="" style="background-image:url('');">
@@ -74,8 +87,9 @@ if( is_archive( 'ffw_media' ) ) {
                     <div class="media-image-overlay"></div>
                     <div class="media-image-icon"></div>
                       
-
+  
                   <?php else: ?>
+              
                     <a href="javascript:" class="media-image photo">
                       <div class="media-image-overlay"></div>
                       <div class="media-image-icon"></div>
@@ -188,6 +202,7 @@ if( is_archive( 'ffw_media' ) ) {
         </div><!-- .container -->
       </li>
 
+      </pre>
     <?php endwhile; endif; wp_reset_query(); ?>
 
   </ul>
