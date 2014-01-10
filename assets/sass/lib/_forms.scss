@@ -430,6 +430,7 @@ $height-inline-search   : 54;
   border-left:1px solid #dedede;
   border-right:1px solid #dedede;
 
+  // @TODO convert to font awesome
   &:after {
     position:absolute;top:50%;right:15px;
     height:16px;

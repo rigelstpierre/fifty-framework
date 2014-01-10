@@ -44,6 +44,10 @@
 
 <?php /* ANALYTICS */ do_action( 'FFW_analytics_code' ); ?>
 
+
+<!-- ==================== -->
+<!--        HEADER        -->
+<!-- ==================== -->
 <header class="default header_color_bg">
 	<div class="container">
 		 		

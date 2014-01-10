@@ -101,8 +101,19 @@ function FFW_helper_functions() {
    * @since 1.0
    */
   function get_sidebar_position_class() {
-    $sidebar_position_class = of_get_option ( 'sidebar_position_blog' );
-    return $sidebar_position_class;
+
+    // If the sidebar is toggled off, content area is full width
+    if ( of_get_option( 'toggle_sidebar') ) {
+      // Get sidebar positioning class
+      $sidebar_position_class = of_get_option ( 'sidebar_position_blog' );
+      return 'push-'.$sidebar_position_class;
+    } elseif ( !of_get_option( 'toggle_sidebar' ) ) {
+      // There is no sidebar, do not push content area
+      $sidebar_on_off = 'push-none';
+      return $sidebar_on_off;
+    }
+
+    
   }
   function sidebar_position_class() {
     echo get_sidebar_position_class();

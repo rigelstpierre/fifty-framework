@@ -12,12 +12,16 @@
 }
 
 
-  /* .content
+  /* #content
   ================================================== */
   #content{
     @extend %span9;
     
-    // PUSH LEFT 
+    //////////////////////////////////////////
+    // S I D E B A R  C L A S S E S 
+    //////////////////////////////////////////
+
+    // PUSH LEFT (sidebar)
     &.push-left {
       float:left;
       @include media(mobile) { float:right; }
@@ -27,14 +31,22 @@
         @include media(mobile) { padding-left:0; }
       }
     }
-
-    // PUSH RIGHT
+    // PUSH RIGHT (sidebar)
     &.push-right {
       float:right;
       .content-inner {
         margin-bottom: 3.5em;
         padding-right:2em;
         @include media(mobile) { padding-right:0; }
+      }
+    }
+    &.push-none {
+      width:100%;
+      float:none;
+      .content-inner {
+        margin-bottom: 3.5em;
+        padding-right:0;
+        @include media(mobile) { padding-right:0; padding-left:0; }
       }
     }
 
