@@ -48,6 +48,10 @@ get_header(); ?>
         <pre><?php var_dump(get_post_thumbnail_id( get_the_ID() )); ?></pre>
         <pre><?php var_dump(get_post_meta( $post->ID, '_wp_attachment_metadata', $single = false )); ?></pre>
 
+
+        <h3>Options Framework Values</h3>
+        <pre><?php var_dump(of_get_option('toggle_app_js')); ?></pre>
+
         
 
         <h3>Post ID</h3>
