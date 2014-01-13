@@ -1471,7 +1471,7 @@ h6 {
 }
 
 .post.post-format-image .post-format-image-image .post-format-image-content .post-format-image-icon, .post.post-format-image .post-format-image-image .post-format-video-content .post-format-image-icon, .post.post-format-image .post-format-video-image .post-format-image-content .post-format-image-icon, .post.post-format-image .post-format-video-image .post-format-video-content .post-format-image-icon, .post.post-format-video .post-format-image-image .post-format-image-content .post-format-image-icon, .post.post-format-video .post-format-image-image .post-format-video-content .post-format-image-icon, .post.post-format-video .post-format-video-image .post-format-image-content .post-format-image-icon, .post.post-format-video .post-format-video-image .post-format-video-content .post-format-image-icon, .post.post-format-image .post-format-image-image .post-format-image-content .post-format-video-icon, .post.post-format-image .post-format-image-image .post-format-video-content .post-format-video-icon, .post.post-format-image .post-format-video-image .post-format-image-content .post-format-video-icon, .post.post-format-image .post-format-video-image .post-format-video-content .post-format-video-icon, .post.post-format-video .post-format-image-image .post-format-image-content .post-format-video-icon, .post.post-format-video .post-format-image-image .post-format-video-content .post-format-video-icon, .post.post-format-video .post-format-video-image .post-format-image-content .post-format-video-icon, .post.post-format-video .post-format-video-image .post-format-video-content .post-format-video-icon {
-  font-family: "pictos";
+  font-family: "fontawesome";
 }
 
 /* PARAGRAPHS */
@@ -2245,8 +2245,6 @@ form .pure-help-inline,
   height: 16px;
   margin-top: -7px;
   z-index: 10;
-  content: 's';
-  font-family: "pictos";
   color: #2f7499;
   font-size: 1.125em;
   line-height: 1;
@@ -2489,7 +2487,7 @@ i.icon, .icon {
   *display: inline;
 }
 i.icon:before, .icon:before {
-  font-family: "pictos", "pictos";
+  font-family: "fontawesome", "fontawesome";
   font-weight: normal;
   font-style: normal;
   font-size: inherit;
@@ -2570,7 +2568,7 @@ i.icon.transparent, .icon.transparent {
   content: '\f079';
 }
 
-.icon-search:before {
+.icon-search:before, .inline-search:after, .circle-icon-paper, .circle-icon-list, .circle-icon-pencil {
   content: '\f002';
 }
 
@@ -2578,7 +2576,7 @@ i.icon.transparent, .icon.transparent {
   content: '\f017';
 }
 
-.icon-camera:before {
+.icon-camera:before, .media-image.photo {
   content: '\f030';
 }
 
@@ -2634,7 +2632,7 @@ i.icon.transparent, .icon.transparent {
   content: '\f022';
 }
 
-.icon-picture:before {
+.icon-picture:before, .post.post-format-image .post-format-image-image .post-format-image-content .post-format-image-icon:before, .post.post-format-image .post-format-image-image .post-format-video-content .post-format-image-icon:before, .post.post-format-image .post-format-video-image .post-format-image-content .post-format-image-icon:before, .post.post-format-image .post-format-video-image .post-format-video-content .post-format-image-icon:before, .post.post-format-video .post-format-image-image .post-format-image-content .post-format-image-icon:before, .post.post-format-video .post-format-image-image .post-format-video-content .post-format-image-icon:before, .post.post-format-video .post-format-video-image .post-format-image-content .post-format-image-icon:before, .post.post-format-video .post-format-video-image .post-format-video-content .post-format-image-icon:before {
   content: '\f03e';
 }
 
@@ -2660,6 +2658,10 @@ i.icon.transparent, .icon.transparent {
 
 .icon-video:before {
   content: '\f03d';
+}
+
+.icon-play:before, .post.post-format-image .post-format-image-image .post-format-image-content .post-format-video-icon:before, .post.post-format-image .post-format-image-image .post-format-video-content .post-format-video-icon:before, .post.post-format-image .post-format-video-image .post-format-image-content .post-format-video-icon:before, .post.post-format-image .post-format-video-image .post-format-video-content .post-format-video-icon:before, .post.post-format-video .post-format-image-image .post-format-image-content .post-format-video-icon:before, .post.post-format-video .post-format-image-image .post-format-video-content .post-format-video-icon:before, .post.post-format-video .post-format-video-image .post-format-image-content .post-format-video-icon:before, .post.post-format-video .post-format-video-image .post-format-video-content .post-format-video-icon:before, .media-image.video {
+  content: '\f04b';
 }
 
 .icon-write:before {
@@ -2906,7 +2908,6 @@ i.socialico.circle:before, .socialico.circle:before {
   font-size: 27px;
 }
 .circle-icon-paper:before {
-  font-family: "pictos", "pictos";
   font-weight: normal;
   font-style: normal;
   font-size: inherit;
@@ -2935,7 +2936,6 @@ i.socialico.circle:before, .socialico.circle:before {
   line-height: 60px;
 }
 .circle-icon-list:before {
-  font-family: "pictos", "pictos";
   font-weight: normal;
   font-style: normal;
   font-size: inherit;
@@ -2963,7 +2963,6 @@ i.socialico.circle:before, .socialico.circle:before {
   font-size: 27px;
 }
 .circle-icon-pencil:before {
-  font-family: "pictos", "pictos";
   font-weight: normal;
   font-style: normal;
   font-size: inherit;
@@ -9097,9 +9096,6 @@ ol.children {
   -o-transition: all 250ms linear;
   transition: all 250ms linear;
 }
-.post.post-format-image .post-format-image-image .post-format-image-content .post-format-image-icon:before, .post.post-format-image .post-format-image-image .post-format-video-content .post-format-image-icon:before, .post.post-format-image .post-format-video-image .post-format-image-content .post-format-image-icon:before, .post.post-format-image .post-format-video-image .post-format-video-content .post-format-image-icon:before, .post.post-format-video .post-format-image-image .post-format-image-content .post-format-image-icon:before, .post.post-format-video .post-format-image-image .post-format-video-content .post-format-image-icon:before, .post.post-format-video .post-format-video-image .post-format-image-content .post-format-image-icon:before, .post.post-format-video .post-format-video-image .post-format-video-content .post-format-image-icon:before {
-  content: 'P';
-}
 .post.post-format-image .post-format-image-image .post-format-image-content .post-format-video-icon, .post.post-format-image .post-format-image-image .post-format-video-content .post-format-video-icon, .post.post-format-image .post-format-video-image .post-format-image-content .post-format-video-icon, .post.post-format-image .post-format-video-image .post-format-video-content .post-format-video-icon, .post.post-format-video .post-format-image-image .post-format-image-content .post-format-video-icon, .post.post-format-video .post-format-image-image .post-format-video-content .post-format-video-icon, .post.post-format-video .post-format-video-image .post-format-image-content .post-format-video-icon, .post.post-format-video .post-format-video-image .post-format-video-content .post-format-video-icon {
   display: block;
   margin: 0 auto;
@@ -9129,7 +9125,6 @@ ol.children {
   *display: inline;
   padding-top: 2px;
   padding-left: 4px;
-  content: '4';
 }
 .post.post-format-image .post-format-image-image .post-format-image-content .post-format-image-title, .post.post-format-image .post-format-image-image .post-format-image-content .post-format-video-title, .post.post-format-image .post-format-image-image .post-format-video-content .post-format-image-title, .post.post-format-image .post-format-image-image .post-format-video-content .post-format-video-title, .post.post-format-image .post-format-video-image .post-format-image-content .post-format-image-title, .post.post-format-image .post-format-video-image .post-format-image-content .post-format-video-title, .post.post-format-image .post-format-video-image .post-format-video-content .post-format-image-title, .post.post-format-image .post-format-video-image .post-format-video-content .post-format-video-title, .post.post-format-video .post-format-image-image .post-format-image-content .post-format-image-title, .post.post-format-video .post-format-image-image .post-format-image-content .post-format-video-title, .post.post-format-video .post-format-image-image .post-format-video-content .post-format-image-title, .post.post-format-video .post-format-image-image .post-format-video-content .post-format-video-title, .post.post-format-video .post-format-video-image .post-format-image-content .post-format-image-title, .post.post-format-video .post-format-video-image .post-format-image-content .post-format-video-title, .post.post-format-video .post-format-video-image .post-format-video-content .post-format-image-title, .post.post-format-video .post-format-video-image .post-format-video-content .post-format-video-title {
   display: -moz-inline-stack;
@@ -9366,12 +9361,6 @@ ol.children {
   height: 380px;
   background-color: #2a2a2a;
 }
-.media-image.video .media-image-icon:before {
-  content: '4';
-}
-.media-image.photo .media-image-icon:before {
-  content: 'P';
-}
 .media-image:hover .media-image-overlay {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
@@ -9404,10 +9393,8 @@ ol.children {
   /* FONT */
   text-align: center;
   line-height: 90px;
-  font-family: "pictos";
   font-size: 2.3125em;
   color: #2f7499;
-  content: '';
 }
 
 .media-image-overlay {

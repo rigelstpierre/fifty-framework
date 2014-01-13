@@ -35,13 +35,13 @@ $blog_query = new WP_Query( $blog_args ); ?>
 			</header>
 
 
-			<div class="sidebar collapsable collapsed push-<?php sidebar_position_class(); ?>">
+			<div class="sidebar collapsable collapsed <?php sidebar_position_class(); ?>">
 				<div id="sidebar-toggle"></div>
 				<?php get_sidebar(); ?>
 			</div><!-- #sidebar -->
 			
 			
-			<div id="content" class="push-<?php sidebar_position_class(); ?>">
+			<div id="content" class="<?php sidebar_position_class(); ?>">
 				<div class="content-inner">
 					<?php while( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
 					<article class="post post-<?php echo get_the_ID(); ?>">

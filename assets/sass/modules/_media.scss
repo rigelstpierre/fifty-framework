@@ -101,13 +101,15 @@ $height-slider_media:         auto;
   // VIDEO (youtube/vimeo)
   &.video {
 
-    .media-image-icon:before {content:'4';}
+    // .media-image-icon:before {content:'4';} @DEPRECATED pictos
+    @extend %icon-play:before;
   }
 
   // PHOTO (flickr gallery)
   &.photo  {
     
-    .media-image-icon:before {content:'P';}
+    // .media-image-icon:before {content:'P';} @DEPRECATED pictos
+    @extend %icon-camera:before;
   }
 
   &:hover .media-image-overlay {@include opacity(0);}
@@ -128,10 +130,10 @@ $height-slider_media:         auto;
     /* FONT */
     text-align:center;
     line-height:90px;
-    font-family:$pictos;
     font-size:em(37px);
     color:#2f7499;
-    content:'';
+    // font-family:$pictos;
+    // content:'';
   } 
 }
 

@@ -7,12 +7,12 @@
 <div id="main" class="default blog">
 	<div class="container">
 		<h2 class="section-title">From the Blog</h2>
-		<div class="sidebar push-<?php sidebar_position_class(); ?>">
+		<div class="sidebar <?php sidebar_position_class(); ?>">
 			<?php get_sidebar(); ?>
 		</div><!-- #sidebar -->
 
 
-		<div id="content" class="push-<?php sidebar_position_class(); ?>">
+		<div id="content" class="<?php sidebar_position_class(); ?>">
 			<div class="content-inner">
 				<h1 class="archive-title"></h1>
 				<?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>

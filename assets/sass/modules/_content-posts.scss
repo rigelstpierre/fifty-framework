@@ -105,7 +105,6 @@
           display:block;
           margin:0 auto;
           width:86px;height:86px;
-          @extend %font-pictos;
           font-size:em(34px);
           text-align:center;
           line-height:92px;
@@ -116,15 +115,16 @@
           /* TRANSITION */
           @include transition(all 250ms linear);
           
+          @extend %font-fa;
+          
           &:before {
-            content:'P';
+            @extend %icon-picture:before;
           }
         }
         .post-format-video-icon {
           display:block;
           margin:0 auto;
           width:86px;height:86px;
-          @extend %font-pictos;
           font-size:em(34px);
           text-align:center;
           line-height:92px;
@@ -135,11 +135,12 @@
           /* TRANSITION */
           @include transition(all 250ms linear);
           
+          @extend %font-fa;
           &:before {
             display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
             padding-top:2px;
             padding-left:4px;
-            content:'4';
+            @extend %icon-play:before;
           }
         }
 

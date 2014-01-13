@@ -8,7 +8,8 @@ i.icon,.icon  {
   // background-image:none !important;
 
   &:before  {
-    font-family:"pictos",$pictos;
+    // font-family:"pictos",$pictos;
+    font-family:"fontawesome",$fa;
     font-weight:normal;
     font-style:normal;
     font-size:inherit;
@@ -81,6 +82,7 @@ i.icon,.icon  {
 .icon-plane:before, %icon-plane:before                  { content:'\f072'; }    // PICTOS: 'P'      |   FA: fa-plane
 .icon-person:before, %icon-person:before                { content:'\f007'; }    // PICTOS: 'U'      |   FA: fa-user
 .icon-video:before, %icon-video:before                  { content:'\f03d'; }    // PICTOS: 'V'      |   FA: fa-video-camera
+.icon-play:before, %icon-play:before                    { content:'\f04b'; }    // PICTOS: 'V'      |   FA: fa-play
 .icon-write:before, %icon-write:before                  { content:'\f044'; }    // PICTOS: 'W'      |   FA: fa-pencil-square-o
 .icon-pulse:before, %icon-pulse:before                  { content:'\f0ae'; }    // PICTOS: 'Y'      |   FA: fa-tasks
 .icon-piechart:before, %icon-piechart:before            { content:'\f080'; }    // PICTOS: 'Z'      |   FA: fa-bar-chart-o
@@ -246,8 +248,10 @@ i.socialico,.socialico  {
   color:#fff;
   font-size:$font-size;
 
+  @extend %icon-search:before;
+
   &:before {
-    font-family:"pictos",$pictos;
+    // font-family:"pictos",$pictos;
     font-weight:normal;
     font-style:normal;
     font-size:inherit;
