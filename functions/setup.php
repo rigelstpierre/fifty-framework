@@ -36,6 +36,14 @@ function FFW_add_theme_features()
     'audio', 'video', 'gallery', 'image', 'link', 'quote'
   ) );
 
+  // Custom Post Types
+  $ffw_post_types = array(
+    'ffw_portfolio',
+    'ffw_staff',
+    'ffw_media',
+    'ffw_faq'
+  );
+
   // Custom Header
   $custom_header_args = array(
       'default-image'          => '',

@@ -251,7 +251,6 @@ function FFW_actions()
   ///////////////////////////////////////
   function hero_before( $args = NULL ) 
   {
-
     global $post;
 
     // args
@@ -266,24 +265,28 @@ function FFW_actions()
     // HERO URL PAGE LOGIC
     //////////////////////////////
 
-
-    // bg override
+    /* bg override
+    ========================================================================================== */
     if ( $bg == false ) {
       $hero_url = '';
     }
-    // is archive or category
+    /* is archive or category
+    ========================================================================================== */
     elseif ( is_archive() || is_category() && $bg != false ) {
       $hero_url = get_header_image();
     }
-    // dntly_campaigns
+    /* dntly_campaigns
+    ========================================================================================== */
     elseif ( 'dntly_campaigns' == get_post_type() && is_archive() ) {
       $hero_url = get_header_image();
     }
-    // staff post type
+    /* staff post type
+    ========================================================================================== */
     elseif ( $staff_bg == false && 'ffw_staff' == get_post_type() ) {
       $hero_url = '';
     }
-    // use video thumbnail
+    /* use video thumbnail
+    ========================================================================================== */
     elseif ( has_post_format( 'video' ) && !is_archive() && !is_front_page() && !is_home() ) {
       $vid_url     = get_post_meta($post->ID, 'vid_url');
       $vid_url     = $vid_url[0];
@@ -293,15 +296,18 @@ function FFW_actions()
       $hero_url    = $vid_thumb;
       $hero_class  = $vid_service;
     }
-    // is index.php
+    /* is index.php
+    ========================================================================================== */
     elseif ( get_option('page_for_posts' ) == get_the_ID() ) {
       $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
     }
-    // has post thumbnail (featured image)
+    /* has post thumbnail (featured image)
+    ========================================================================================== */
     elseif ( has_post_thumbnail() ) {
       $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
     }
-    // use header image from settings
+    /* use header image from settings
+    ========================================================================================== */
     elseif ( get_header_image() != '' ) {
       $hero_url = get_header_image();
       $hero_height = get_custom_header()->height; // unused as of 09/16/2013
@@ -334,35 +340,51 @@ function FFW_actions()
   ///////////////////////////////////////
   function hero( $args = NULL ) 
   {
-    global $post;
+    global $post, $ffw_post_types;
 
     // args
     $class           = isset($args['class']) ? $args['class'] : null;
-    $show_page_title = isset($args['show_page_title']) ? $args['show_page_title'] : false;
+    $show_page_title = isset($args['show_page_title']) ? $args['show_page_title'] : true;
     $text_override   = isset($args['text_override']) ? $args['text_override'] : false;
 
-    
     // begin HTML ?>
 
-    <?php // TEXT_OVERRIDE
-      if ( $text_override ) : ?>
-      
-      <h1 class="page-title"><?php echo $text_override; ?></h1>
 
-    <?php // PAGE
-      elseif ( is_page() ) : ?>
+    <?php /* TEXT_OVERRIDE
+    ========================================================================================== */
+    if ( $text_override ) : ?>
+    <h1 class="page-title"><?php echo $text_override; ?></h1>
+
+    <?php /* IS_PAGE
+    ========================================================================================== */
+    elseif ( is_page() ) : ?>
       
       <?php if ( $show_page_title ): ?>
         <h1 class="page-title"><?php the_title(); ?></h1>
       <?php endif; ?>
 
-    <?php // CUSTOM POST TYPES
-     elseif ( is_single() || is_singular() || is_post_type_archive( 'ffw_events' ) || is_post_type_archive( 'ffw_portfolio' ) && $show_page_title == false ) : ?>
-     <!-- No Hero Title -->
-  <?php  elseif( is_search() ) : ?>
+    <?php /* CUSTOM POST TYLES
+    /* is_post_type_archive( 'ffw_events' ) || is_post_type_archive( 'ffw_portfolio' )
+    ========================================================================================== */
+    elseif ( is_single() || is_single($ffw_post_types) && $show_page_title == false ) : ?>
+     
+      <h1 class="page-title"><?php the_title(); ?></h1>
+
+    <?php /* IS_SEARCH
+    ========================================================================================== */ 
+    elseif( is_search() ) : ?>
+
       <h1 class="page-title">Search Results</h1>
-    <?php // ARCHIVE
-      elseif ( is_archive() && !is_category() ): ?>
+
+    <?php  /* IS_CATEGORY
+    ========================================================================================== */
+    elseif ( is_category() || is_archive() || is_page() ) : ?>
+
+      <h1 class="page-title"><?php single_cat_title(); ?></h1>
+
+    <?php /* IS_ARCHIVE
+    ========================================================================================== */
+    elseif ( is_archive() && !is_category() ): ?>
 
       <h1 class="page-title">
         <?php
@@ -374,10 +396,15 @@ function FFW_actions()
         ?>
       </h1>
 
-    <?php  elseif ( is_category() ) : ?>
+    <?php  /* IS_CATEGORY
+    ========================================================================================== */
+    elseif ( is_category() ) : ?>
       <h1 class="page-title"><?php single_cat_title(); ?></h1>
-    
-    <?php else: ?>
+
+
+    <?php /* ELSE
+    ========================================================================================== */ 
+    else: ?>
       <h1 class="page-title"><?php the_title(); ?></h1>
     <?php endif; ?>
 

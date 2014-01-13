@@ -352,6 +352,18 @@ function optionsframework_options()
       'type' => 'checkbox'
     );
 
+
+    // SHOW TEMPLATE NAME IN JS CONSOLE
+    $options[] = array(
+      'name' => __( 'Template Debugging', 'FFW' ),
+      'desc' => __( 'Check box to show page template name in JS console', 'FFW' ),
+      'id'   => 'debug_template_name',
+      'std'  => '0',
+      'type' => 'checkbox'
+    );
+
+    
+
     // TOGGLE WPADMINBAR
     /* 
       Example WPADMINBAR <style> output:
@@ -373,13 +385,6 @@ function optionsframework_options()
         'wpadminbar_fixed' => 'Turn ON fixed positioning for the admin bar'
       ),
     );
-    // $options[] = array(
-    //   'name' => __( 'Toggle WPADMINBAR Fixed', 'FFW' ),
-    //   'desc' => __( 'Toggle the WP Admin Bar to be fixed (helpful for layouts with fixed navs/headers', 'FFW' ),
-    //   'id'   => 'toggle_wpadminbar_fixed',
-    //   'std'  => '0',
-    //   'type' => 'checkbox'
-    // );
 
 
 

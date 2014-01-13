@@ -107,17 +107,17 @@ function FFW_helper_functions() {
       // Get sidebar positioning class
       $sidebar_position_class = of_get_option ( 'sidebar_position_blog' );
       return 'push-'.$sidebar_position_class;
+      
     } elseif ( !of_get_option( 'toggle_sidebar' ) ) {
       // There is no sidebar, do not push content area
       $sidebar_on_off = 'push-none';
       return $sidebar_on_off;
     }
-
-    
   }
-  function sidebar_position_class() {
-    echo get_sidebar_position_class();
-  }
+    // Display (echo)
+    function sidebar_position_class() {
+      echo get_sidebar_position_class();
+    }
 
 
 
