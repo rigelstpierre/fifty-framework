@@ -4,6 +4,10 @@
         <label for="<?php echo $this->get_field_id( 'social_link_title' ); ?>"><?php _e( 'Title (Optional):', 'FFW' ); ?></label>
         <input id="<?php echo $this->get_field_id( 'social_link_title' ); ?>" name="<?php echo $this->get_field_name( 'social_link_title' ); ?>" type="text" value="<?php echo $social_link_title; ?>"/>
     </div>
+    
+
+    <hr style="margin-bottom:20px;margin-top:20px;"/>
+    
 
     <div class="social_link_facebook option" style="margin-top:10px;">
         <label for="<?php echo $this->get_field_id( 'social_link_facebook' ); ?>"><?php _e( 'Facebook URL:', 'FFW' ); ?></label>
@@ -49,6 +53,9 @@
         <label for="<?php echo $this->get_field_id( 'social_link_vimeo' ); ?>"><?php _e( 'Vimeo URL:', 'FFW' ); ?></label>
         <input id="<?php echo $this->get_field_id( 'social_link_vimeo' ); ?>" name="<?php echo $this->get_field_name( 'social_link_vimeo' ); ?>" type="text" value="<?php echo $social_link_vimeo; ?>"/>
     </div>
+
+    
+
 
 
     

@@ -26,6 +26,7 @@ class FFW_Social_Links extends WP_Widget {
 			'social_link_flickr'     => __( 'Flickr URL', 'FFW' ),
 			'social_link_youtube'    => __( 'YouTube URL', 'FFW' ),
 			'social_link_vimeo'      => __( 'Vimeo URL', 'FFW' ),
+			'social_link_instagram'  => __( 'Instagram URL', 'FFW' ),
 		);	
 		$this->WP_Widget( 'ffw-social-links', __( 'Social Links', 'FFW' ), $widget_opts );
 		
@@ -91,7 +92,7 @@ class FFW_Social_Links extends WP_Widget {
 		$instance['social_link_flickr']     = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['social_link_flickr'] );
 		$instance['social_link_youtube']    = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['social_link_youtube'] );
 		$instance['social_link_vimeo']      = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['social_link_vimeo'] );
-		$instance['social_link_instagram']      = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['social_link_instagram'] );
+		$instance['social_link_instagram']  = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['social_link_instagram'] );
 		
 		return $instance;
 		

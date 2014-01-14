@@ -22,6 +22,6 @@
   /*background-image:url('data:image/png;base64,');*/
   background-image: url('../../assets/images/icn-widget-highlight.png');
   background-repeat: no-repeat;
-  padding-left: 35px;
-  background-position:8px 6px;
+  padding-left: 25px;
+  background-position:8px 50%;
 }

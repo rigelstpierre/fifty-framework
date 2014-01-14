@@ -4,8 +4,8 @@
     
     	<label for="<?php echo $this->get_field_id( 'image_src' ); ?>"><?php _e( 'Author Image:', 'standard' ); ?></label>
 
-		<div class="author_info_preview_image_container">
-	    	<img src="<?php echo $image_src; ?>" alt="" class="preview_image" />
+		<div class="author_info_preview_image_container" style="width:100%;">
+	    	<img src="<?php echo $image_src; ?>" alt="" class="preview_image"  style="width:100%;height:auto;"/>
 	    </div><!-- /.preview_image_container -->
     	
     	<span class="description"><?php _e( 'Maximum width is 300 pixels.', 'standard' ); ?></span>
