@@ -301,6 +301,9 @@ function FFW_actions()
     elseif ( get_option('page_for_posts' ) == get_the_ID() || is_front_page() ) {
       $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
     }
+    elseif ( basename( get_page_template() ) == 'index.php' ) {
+      $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+    }
     /* has post thumbnail (featured image)
     ========================================================================================== */
     elseif ( has_post_thumbnail() ) {
