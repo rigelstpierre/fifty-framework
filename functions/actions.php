@@ -273,6 +273,13 @@ function FFW_actions()
 
       if ( $debug ) { ?> <script>console.log('BG OVERRIDE');</script><?php }
     }
+    /* is index.php
+    ========================================================================================== */
+    elseif ( get_option('page_for_posts' ) == get_the_ID() ) {
+      $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+
+      if ( $debug ) { ?> <script>console.log('IS INDEX.PHP');</script><?php }
+    }
     /* is archive or category   v1.35 removed is_archive() from logic
     ========================================================================================== */
     elseif ( is_category() && $bg != false ) {
@@ -306,13 +313,6 @@ function FFW_actions()
       $hero_class  = $vid_service;
 
       if ( $debug ) { ?> <script>console.log('USE VIDEO THUMBNAIL');</script><?php }
-    }
-    /* is index.php
-    ========================================================================================== */
-    elseif ( get_option('page_for_posts' ) == get_the_ID() || is_front_page() ) {
-      $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-
-      if ( $debug ) { ?> <script>console.log('IS INDEX.PHP');</script><?php }
     }
     /* has post thumbnail (featured image)
     ========================================================================================== */
