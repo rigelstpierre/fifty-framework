@@ -275,7 +275,7 @@ function FFW_actions()
     }
     /* is archive or category
     ========================================================================================== */
-    elseif ( ( is_archive() && get_option('page_for_posts' != get_the_ID() ) || is_category() && $bg != false ) {
+    elseif ( ( is_archive() && get_option('page_for_posts') != get_the_ID() ) || is_category() && $bg != false ) {
       $hero_url = get_header_image();
 
       if ( $debug ) { ?> <script>console.log('IS ARCHIVE OR CATEGORY');</script><?php }
@@ -317,7 +317,7 @@ function FFW_actions()
     /* has post thumbnail (featured image)
     ========================================================================================== */
     elseif ( has_post_thumbnail() ) {
-      $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+      $hero_url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID) );
 
       if ( $debug ) { ?> <script>console.log('HAS POST THUMBNAIL');</script><?php }
     }
