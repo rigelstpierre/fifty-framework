@@ -251,7 +251,7 @@ function FFW_actions()
   ///////////////////////////////////////
   function hero_before( $args = NULL ) 
   {
-    global $post;
+    global $post, $template;
 
     // args
     $class     = isset($args['class']) ? $args['class'] : null;
@@ -261,6 +261,11 @@ function FFW_actions()
     $events_bg = isset($args['events_bg']) ? $args['events_bg'] : null;
     $debug     = isset($args['debug']) ? $args['debug'] : false; 
 
+    // template name get
+    $template    = explode( '/', $template );
+    $array_count = count( $template );
+    $array_count = $array_count - 1;
+    $template    = $template[$array_count];
  
     //////////////////////////////
     // HERO URL PAGE LOGIC
@@ -275,7 +280,7 @@ function FFW_actions()
     }
     /* is index.php
     ========================================================================================== */
-    elseif ( get_option('page_for_posts' ) == get_the_ID() ) {
+    elseif ( get_option('page_for_posts' ) == get_the_ID() || $template == 'index.php' ) {
       $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 
       if ( $debug ) { ?> <script>console.log('IS INDEX.PHP');</script><?php }

@@ -36,6 +36,7 @@
 <?php /* DEBUG TEMPLATE NAME IN JS CONSOLE
 ================================================== */ 
 if ( of_get_option('debug_template_name') ) : 
+  
   global $post, $wp_query, $template;
   $page_name     = get_post( $post )->post_name;
   $query_count   = get_num_queries();
