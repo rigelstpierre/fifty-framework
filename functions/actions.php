@@ -266,6 +266,10 @@ function FFW_actions()
     $array_count = count( $template );
     $array_count = $array_count - 1;
     $template    = $template[$array_count];
+
+    if( isset( get_option( 'page_for_posts') ) ) {
+      $posts_for_page_id = get_option( 'page_for_posts');
+    }
  
     //////////////////////////////
     // HERO URL PAGE LOGIC
@@ -281,7 +285,7 @@ function FFW_actions()
     /* is index.php
     ========================================================================================== */
     elseif ( get_option('page_for_posts' ) == get_the_ID() || $template == 'index.php' ) {
-      $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+      $hero_url = wp_get_attachment_url( get_post_thumbnail_id( $posts_for_page_id ) );
 
       if ( $debug ) { ?> <script>console.log('IS INDEX.PHP');</script><?php }
     }
@@ -964,8 +968,8 @@ function FFW_actions()
     $in_footer = isset($args['in_footer']) ? $args['in_footer'] : false;
 
     // if we have the option set, create the analytics script string, otherwise return NULL.
-		if ( of_get_option ( 'analytics_js_code') ) {
-			$analytics_str  = '<!-- ==================== -->';
+    if ( of_get_option ( 'analytics_js_code') ) {
+      $analytics_str  = '<!-- ==================== -->';
       $analytics_str .= '<!--       ANALYTICS      -->';
       $analytics_str .= '<!-- ==================== -->';
       $analytics_str .= '<script type="text/javascript">';
