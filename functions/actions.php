@@ -267,9 +267,9 @@ function FFW_actions()
     $array_count = $array_count - 1;
     $template    = $template[$array_count];
 
-    if( isset( get_option( 'page_for_posts') ) ) {
-      $posts_for_page_id = get_option( 'page_for_posts');
-    }
+    // if( isset( get_option( 'page_for_posts') ) ) {
+    //   $posts_for_page_id = get_option( 'page_for_posts');
+    // }
  
     //////////////////////////////
     // HERO URL PAGE LOGIC
@@ -285,7 +285,7 @@ function FFW_actions()
     /* is index.php
     ========================================================================================== */
     elseif ( get_option('page_for_posts' ) == get_the_ID() || $template == 'index.php' ) {
-      $hero_url = wp_get_attachment_url( get_post_thumbnail_id( $posts_for_page_id ) );
+      $hero_url = wp_get_attachment_url( get_post_thumbnail_id( get_option('page_for_posts' ) ) );
 
       if ( $debug ) { ?> <script>console.log('IS INDEX.PHP');</script><?php }
     }
