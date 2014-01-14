@@ -73,7 +73,7 @@
 
             animate_scrollTop(target, duration, 'easeInOutExpo', 0);
 
-            console.log(duration);
+            // console.log(duration);
 
             // animate_scrollTop();
             function animate_scrollTop(target, duration, easing, offset){
@@ -283,7 +283,7 @@
                 width           = $this.width(),
                 height          = $this.height();
 
-                console.log(width, height);
+                // console.log(width, height);
 
             // embed code builder function
             function buildEmbed(service, id) {

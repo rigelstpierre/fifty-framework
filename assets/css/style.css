@@ -2476,6 +2476,34 @@ form .pure-help-inline,
   line-height: 1;
 }
 
+.social-link.circle {
+  width: 86px;
+  height: 86px;
+  -webkit-border-radius: 43px;
+  -moz-border-radius: 43px;
+  border-radius: 43px;
+  background-color: #fff;
+  text-align: center;
+  color: #363636;
+  font-size: 2em;
+}
+.social-link.circle.small {
+  width: 32px;
+  height: 32px;
+  font-size: 1.375em;
+}
+.social-link.circle.small a:before {
+  line-height: 34px;
+}
+.social-link.circle:before {
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  line-height: 90px;
+  text-align: center;
+}
+
 /* _icons.scss */
 /* ICON (pictos)
 ================================================== */
@@ -2492,25 +2520,6 @@ i.icon:before, .icon:before {
   font-style: normal;
   font-size: inherit;
   text-transform: none;
-}
-i.icon.circle, .icon.circle {
-  width: 86px;
-  height: 86px;
-  -webkit-border-radius: 43px;
-  -moz-border-radius: 43px;
-  border-radius: 43px;
-  background-color: #fff;
-  text-align: center;
-  color: #363636;
-  font-size: 2em;
-}
-i.icon.circle:before, .icon.circle:before {
-  display: -moz-inline-stack;
-  display: inline-block;
-  zoom: 1;
-  *display: inline;
-  line-height: 90px;
-  text-align: center;
 }
 i.icon.transparent, .icon.transparent {
   background-color: transparent;
@@ -2805,72 +2814,93 @@ i.socialico.circle:before, .socialico.circle:before {
 }
 
 .socialico:before {
-  font-family: "socialico", "socialico";
+  font-family: "fontawesome", "fontawesome";
   font-weight: normal;
   font-style: normal;
   font-size: inherit;
 }
 
 .socialico-dribbble:before {
-  content: 'd';
+  content: '\f17d';
 }
 .socialico-dribbble:hover {
   color: #d4386b !important;
 }
 
 .socialico-facebook:before {
-  content: 'f';
+  content: '\f09a';
 }
 .socialico-facebook:hover {
   color: #3c599d !important;
 }
 
 .socialico-flickr:before {
-  content: 'n';
+  content: '\f16e';
 }
 .socialico-flickr:hover {
   color: #694db4 !important;
 }
 
 .socialico-googleplus:before {
-  content: 'g';
+  content: '\f0d4';
 }
 .socialico-googleplus:hover {
   color: #bc3426 !important;
 }
 
 .socialico-linkedin:before {
-  content: 'i';
+  content: '\f08c';
 }
 .socialico-linkedin:hover {
   color: #0085ae !important;
 }
 
 .socialico-tumblr:before {
-  content: 'o';
+  content: '\f173';
 }
 .socialico-tumblr:hover {
   color: #2c4661 !important;
 }
 
 .socialico-twitter:before {
-  content: 'l';
+  content: '\f099';
 }
 .socialico-twitter:hover {
   color: #4bc4e6 !important;
 }
 
 .socialico-vimeo:before {
-  content: 'v';
+  content: '\f194';
 }
 .socialico-vimeo:hover {
   color: #0fbab2 !important;
 }
 
 .socialico-youtube:before {
-  content: 'x';
+  content: '\f166';
 }
 .socialico-youtube:hover {
+  color: #911d1e !important;
+}
+
+.socialico-instagram:before {
+  content: '\f16d';
+}
+.socialico-instagram:hover {
+  color: #911d1e !important;
+}
+
+.socialico-git:before {
+  content: '\f113';
+}
+.socialico-git:hover {
+  color: #911d1e !important;
+}
+
+.socialico-windows:before {
+  content: '\f17a';
+}
+.socialico-windows:hover {
   color: #911d1e !important;
 }
 

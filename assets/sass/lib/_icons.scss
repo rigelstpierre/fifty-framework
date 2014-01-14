@@ -16,30 +16,12 @@ i.icon,.icon  {
     text-transform:none;
   }
 
-  // CIRCLE (used in events landing)
-  ///////////////////////////////////
-  &.circle {
-    width:86px;height:86px;
-    @include border-radius(43px);
-    background-color:#fff;
-    text-align:center;
-    color:$colorSecondaryDark;
-    font-size:em(32px);
-
-    &:before {
-      display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
-      // @include xbc-transparent-bg(0.50, #000); // DEBUG
-      line-height:90px;
-      text-align:center;
-    }
-  }
   // TRANSPARENT
   ///////////////////
   &.transparent {
     @include xbc-transparent-bg(0.10, #fff, 255,255,255);
     color:#fff;
   }
-
 }
 
 
@@ -154,7 +136,8 @@ i.socialico,.socialico  {
   }
 }
 .socialico:before {
-  font-family:"socialico",$social;
+  // font-family:"socialico",$social;
+  font-family:"fontawesome",$fa;
   font-weight:normal; 
   font-style:normal;
   font-size:inherit;
@@ -162,41 +145,54 @@ i.socialico,.socialico  {
 }
 // SERVICES
 .socialico-dribbble {
-  &:before  {content:'d';}
+  &:before  {content:'\f17d';}                  // PICTOS: 'd'  |  FA: ''
   &:hover   {color:#d4386b !important;}
 }
 .socialico-facebook {
-  &:before  {content:'f';}
+  &:before  {content:'\f09a';}                  // PICTOS: 'f'  |  FA: ''
   &:hover   {color:#3c599d !important;}
 }
 .socialico-flickr {
-  &:before  {content:'n';}
+  &:before  {content:'\f16e';}                  // PICTOS: 'n'  |  FA: ''
   &:hover   {color:#694db4 !important;}
 }
 .socialico-googleplus {
-  &:before  {content:'g';}
+  &:before  {content:'\f0d4';}                  // PICTOS: 'g'  |  FA: ''
   &:hover   {color:#bc3426 !important;}
 }
 .socialico-linkedin {
-  &:before  {content:'i';}
+  &:before  {content:'\f08c';}                  // PICTOS: 'i'  |  FA: ''
   &:hover   {color:#0085ae !important;}
 }
 .socialico-tumblr {
-  &:before  {content:'o';}
+  &:before  {content:'\f173';}                  // PICTOS: 'o'  |  FA: ''
   &:hover   {color:#2c4661 !important;}
 }
 .socialico-twitter {
-  &:before  {content:'l';}
+  &:before  {content:'\f099';}                  // PICTOS: 'l'  |  FA: ''
   &:hover   {color:#4bc4e6 !important;}
 }
 .socialico-vimeo {
-  &:before  {content:'v';}
+  &:before  {content:'\f194';}                  // PICTOS: 'v'  |  FA: ''
   &:hover   {color:#0fbab2 !important;}
 }
 .socialico-youtube {
-  &:before  {content:'x';}
+  &:before  {content:'\f166';}                  // PICTOS: 'x'  |  FA: ''
   &:hover   {color:#911d1e !important;}
 }
+.socialico-instagram {
+  &:before  {content:'\f16d';}                  // PICTOS: 'x'  |  FA: ''
+  &:hover   {color:#911d1e !important;}
+}
+.socialico-git {
+  &:before  {content:'\f113';}                  // PICTOS: 'x'  |  FA: ''
+  &:hover   {color:#911d1e !important;}
+}
+.socialico-windows {
+  &:before  {content:'\f17a';}                  // PICTOS: 'x'  |  FA: ''
+  &:hover   {color:#911d1e !important;}
+}
+
 
 
 [data-icon]:before {

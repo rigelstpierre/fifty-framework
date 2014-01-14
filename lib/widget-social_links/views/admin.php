@@ -20,6 +20,11 @@
         <input id="<?php echo $this->get_field_id( 'social_link_twitter' ); ?>" name="<?php echo $this->get_field_name( 'social_link_twitter' ); ?>" type="text" value="<?php echo $social_link_twitter; ?>"/>
     </div>
 
+    <div class="social_link_instagram option" style="margin-top:10px;">
+        <label for="<?php echo $this->get_field_id( 'social_link_instagram' ); ?>"><?php _e( 'Instagram URL:', 'FFW' ); ?></label>
+        <input id="<?php echo $this->get_field_id( 'social_link_instagram' ); ?>" name="<?php echo $this->get_field_name( 'social_link_instagram' ); ?>" type="text" value="<?php echo $social_link_instagram; ?>"/>
+    </div>
+
     <div class="social_link_linkedin option" style="margin-top:10px;">
         <label for="<?php echo $this->get_field_id( 'social_link_linkedin' ); ?>"><?php _e( 'LinkedIn URL:', 'FFW' ); ?></label>
         <input id="<?php echo $this->get_field_id( 'social_link_linkedin' ); ?>" name="<?php echo $this->get_field_name( 'social_link_linkedin' ); ?>" type="text" value="<?php echo $social_link_linkedin; ?>"/>
@@ -44,6 +49,7 @@
         <label for="<?php echo $this->get_field_id( 'social_link_vimeo' ); ?>"><?php _e( 'Vimeo URL:', 'FFW' ); ?></label>
         <input id="<?php echo $this->get_field_id( 'social_link_vimeo' ); ?>" name="<?php echo $this->get_field_name( 'social_link_vimeo' ); ?>" type="text" value="<?php echo $social_link_vimeo; ?>"/>
     </div>
+
 
     
     

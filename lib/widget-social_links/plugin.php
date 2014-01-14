@@ -64,6 +64,7 @@ class FFW_Social_Links extends WP_Widget {
 		$social_link_flickr     = empty( $instance['social_link_flickr']) ? '' : apply_filters( 'social_link_flickr', $instance['social_link_flickr'] );
 		$social_link_youtube    = empty( $instance['social_link_youtube']) ? '' : apply_filters( 'social_link_youtube', $instance['social_link_youtube'] );
 		$social_link_vimeo      = empty( $instance['social_link_vimeo']) ? '' : apply_filters( 'social_link_vimeo', $instance['social_link_vimeo'] );
+		$social_link_instagram  = empty( $instance['social_link_instagram']) ? '' : apply_filters( 'social_link_instagram', $instance['social_link_instagram'] );
 		
 		// Display the widget
 		include( plugin_dir_path( __FILE__ ) .  'views/widget.php' );
@@ -90,6 +91,7 @@ class FFW_Social_Links extends WP_Widget {
 		$instance['social_link_flickr']     = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['social_link_flickr'] );
 		$instance['social_link_youtube']    = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['social_link_youtube'] );
 		$instance['social_link_vimeo']      = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['social_link_vimeo'] );
+		$instance['social_link_instagram']      = preg_replace( '/<script\b[^>]*>(.*?)<\/script>/is', '', $new_instance['social_link_instagram'] );
 		
 		return $instance;
 		
@@ -114,6 +116,7 @@ class FFW_Social_Links extends WP_Widget {
 				'social_link_flickr'     => '',
 				'social_link_youtube'    => '',
 				'social_link_vimeo'      => '',
+				'social_link_instagram'  => '',
 			)
 		);
     
@@ -126,6 +129,7 @@ class FFW_Social_Links extends WP_Widget {
 		$social_link_flickr     = esc_url( $instance['social_link_flickr'] );
 		$social_link_youtube    = esc_url( $instance['social_link_youtube'] );
 		$social_link_vimeo      = esc_url( $instance['social_link_vimeo'] );
+		$social_link_instagram  = esc_url( $instance['social_link_instagram'] );
     
 		// Display the admin form
 		include( plugin_dir_path( __FILE__ ) .  'views/admin.php' );
