@@ -259,7 +259,7 @@ function FFW_actions()
     $height    = isset($args['height']) ? $args['height'] : 'auto';
     $staff_bg  = isset($args['staff_bg']) ? $args['staff_bg'] : null;
     $events_bg = isset($args['events_bg']) ? $args['events_bg'] : null;
-    $debug     = isset($args['debug']) ? $args['debug'] : false;
+    $debug     = isset($args['debug']) ? $args['debug'] : false; 
 
  
     //////////////////////////////
@@ -271,28 +271,28 @@ function FFW_actions()
     if ( $bg == false ) {
       $hero_url = '';
 
-      if ( $debug ) ?> <script>console.log('BG OVERRIDE');</script><?php 
+      if ( $debug ) { ?> <script>console.log('BG OVERRIDE');</script><?php }
     }
     /* is archive or category
     ========================================================================================== */
-    elseif ( ( is_archive() && get_option('page_for_posts') != get_the_ID() ) || is_category() && $bg != false ) {
+    elseif ( ( is_archive() && get_option('page_for_posts' != get_the_ID() ) || is_category() && $bg != false ) {
       $hero_url = get_header_image();
 
-      if ( $debug ) ?> <script>console.log('IS ARCHIVE OR CATEGORY');</script><?php 
+      if ( $debug ) { ?> <script>console.log('IS ARCHIVE OR CATEGORY');</script><?php }
     }
     /* dntly_campaigns
     ========================================================================================== */
     elseif ( 'dntly_campaigns' == get_post_type() && is_archive() ) {
       $hero_url = get_header_image();
 
-      if ( $debug ) ?> <script>console.log('DNTLY_CAMPAIGNS');</script><?php 
+      if ( $debug ) { ?> <script>console.log('DNTLY_CAMPAIGNS');</script><?php }
     }
     /* staff post type
     ========================================================================================== */
     elseif ( $staff_bg == false && 'ffw_staff' == get_post_type() ) {
       $hero_url = '';
 
-      if ( $debug ) ?> <script>console.log('FFW_STAFF');</script><?php 
+      if ( $debug ) { ?> <script>console.log('FFW_STAFF');</script><?php }
     }
     /* use video thumbnail
     ========================================================================================== */
@@ -305,21 +305,21 @@ function FFW_actions()
       $hero_url    = $vid_thumb;
       $hero_class  = $vid_service;
 
-      if ( $debug ) ?> <script>console.log('USE VIDEO THUMBNAIL');</script><?php 
+      if ( $debug ) { ?> <script>console.log('USE VIDEO THUMBNAIL');</script><?php }
     }
     /* is index.php
     ========================================================================================== */
-    elseif ( get_option('page_for_posts' ) == get_the_ID() ) {
+    elseif ( get_option('page_for_posts' ) == get_the_ID() || is_front_page() ) {
       $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 
-      if ( $debug ) ?> <script>console.log('IS INDEX.PHP');</script><?php 
+      if ( $debug ) { ?> <script>console.log('IS INDEX.PHP');</script><?php }
     }
     /* has post thumbnail (featured image)
     ========================================================================================== */
-    elseif ( has_post_thumbnail() && ( get_option('page_for_posts' ) != get_the_ID() ) ) {
+    elseif ( has_post_thumbnail() ) {
       $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 
-      if ( $debug ) ?> <script>console.log('HAS POST THUMBNAIL');</script><?php 
+      if ( $debug ) { ?> <script>console.log('HAS POST THUMBNAIL');</script><?php }
     }
     /* use header image from settings
     ========================================================================================== */
@@ -327,12 +327,12 @@ function FFW_actions()
       $hero_url = get_header_image();
       $hero_height = get_custom_header()->height; // unused as of 09/16/2013
 
-      if ( $debug ) ?> <script>console.log('USE HEADER IMAGE');</script><?php 
+      if ( $debug ) { ?> <script>console.log('USE HEADER IMAGE');</script><?php }
     }
     else {
       $hero_url = '';
 
-      if ( $debug ) ?> <script>console.log('ELSE');</script><?php 
+      if ( $debug ) { ?> <script>console.log('ELSE');</script><?php }
     }
 
 
