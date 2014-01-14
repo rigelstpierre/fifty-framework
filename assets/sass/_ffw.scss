@@ -266,6 +266,23 @@
 }
 
 
+/* MP0
+================================================== */
+@mixin mp0() {
+  margin:0;
+  padding:0;
+}
+
+
+/* HIDE TEXT
+================================================== */
+@mixin hide-text() {
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+}
+
+
 /* PSEUDO-ICON-FONT
 ================================================== */
 @mixin pseudo-icon(
@@ -340,4 +357,19 @@
   outline:0;
   border:0;
   background-color:transparent;
+}
+
+
+
+
+/* COVER IMAGE
+================================================== */
+@mixin cover-image( $padding:50%, $max_width:350, $max_height:350 ) {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  @include background-size(cover);
+  // margin: 0 auto 1em;
+  max-height: #{max_height}px;
+  max-width: #{max_width}px;
+  padding:$padding;
 }

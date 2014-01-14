@@ -437,10 +437,10 @@ $height-inline-search   : 54;
     margin-top:-7px;
     z-index:10;
     // content:'s';
-    // font-family:$pictos;
+    font-family:$fa;
     @extend %icon-search:before;
     color:$colorAnchorDefault;
-    font-size:em(18px);
+    font-size:em(14px);
     line-height:1;
     cursor:pointer;
   }

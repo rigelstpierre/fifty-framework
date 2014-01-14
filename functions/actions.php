@@ -298,7 +298,7 @@ function FFW_actions()
     }
     /* is index.php
     ========================================================================================== */
-    elseif ( get_option('page_for_posts' ) == get_the_ID() ) {
+    elseif ( get_option('page_for_posts' ) == get_the_ID() || is_front_page() ) {
       $hero_url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
     }
     /* has post thumbnail (featured image)
