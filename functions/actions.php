@@ -273,9 +273,9 @@ function FFW_actions()
 
       if ( $debug ) { ?> <script>console.log('BG OVERRIDE');</script><?php }
     }
-    /* is archive or category
+    /* is archive or category   v1.35 removed is_archive() from logic
     ========================================================================================== */
-    elseif ( ( is_archive() && get_option('page_for_posts') != get_the_ID() ) || is_category() && $bg != false ) {
+    elseif ( is_category() && $bg != false ) {
       $hero_url = get_header_image();
 
       if ( $debug ) { ?> <script>console.log('IS ARCHIVE OR CATEGORY');</script><?php }
