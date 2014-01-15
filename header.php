@@ -25,7 +25,7 @@
 		var template_url 			= '<?php bloginfo("template_url"); ?>/';
 		var front_page   			= '<?php echo is_front_page(); ?>';
 		var page_name 				= "<?php global $post; echo get_post( $post )->post_name; ?>";
-		var iOS 							= ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
+		var iOS 					= ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
 	</script>
 
 	<!--[if lt IE 9]>
