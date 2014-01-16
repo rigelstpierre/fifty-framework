@@ -2851,14 +2851,14 @@ i.socialico.circle:before, .socialico.circle:before {
 }
 
 .socialico-googleplus:before {
-  content: '\f0d4';
+  content: '\f0d5';
 }
 .socialico-googleplus:hover {
   color: #bc3426 !important;
 }
 
 .socialico-linkedin:before {
-  content: '\f08c';
+  content: '\f0e1';
 }
 .socialico-linkedin:hover {
   color: #0085ae !important;
