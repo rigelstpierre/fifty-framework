@@ -406,7 +406,7 @@ function FFW_actions()
     elseif( is_search() ) : ?>
 
       <h1 class="page-title">Search Results</h1>
-
+ 
     <?php  /* IS_CATEGORY
     ========================================================================================== */
     elseif ( is_category() || is_archive() || is_page() ) : ?>
