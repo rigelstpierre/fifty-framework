@@ -1,6 +1,6 @@
 !(function ($){
 
-    "use strict"; // jsHint
+    // "use strict"; // jsHint
 
     window.FIFTYFRAMEWORK = {};
     
