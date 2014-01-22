@@ -397,7 +397,7 @@ function optionsframework_options()
   );
     // SKROLLR
     $options[] = array(
-      'name' => __( 'Toggle ON/OFF <b>skrollr.js</b>', 'FFW' ),
+      'name' => __( 'Toggle ON/OFF skrollr.js', 'FFW' ),
       'desc' => __( 'Check to ENABLE, uncheck to DISABLE', 'FFW' ),
       'id'   => 'toggle_js_skrollr',
       'std'  => '1',
@@ -405,7 +405,7 @@ function optionsframework_options()
     );
     // ENQUIRE
     $options[] = array(
-      'name' => __( 'Toggle ON/OFF <b>enquire.js</b>', 'FFW' ),
+      'name' => __( 'Toggle ON/OFF enquire.js', 'FFW' ),
       'desc' => __( 'Check to ENABLE, uncheck to DISABLE', 'FFW' ),
       'id'   => 'toggle_js_enquire',
       'std'  => '1',
@@ -413,7 +413,7 @@ function optionsframework_options()
     );
     // BACKSTRETCH
     $options[] = array(
-      'name' => __( 'Toggle ON/OFF <b>backstretch.js</b>', 'FFW' ),
+      'name' => __( 'Toggle ON/OFF backstretch.js', 'FFW' ),
       'desc' => __( 'Check to ENABLE, uncheck to DISABLE', 'FFW' ),
       'id'   => 'toggle_js_backstretch',
       'std'  => '1',
