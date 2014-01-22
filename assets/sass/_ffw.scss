@@ -27,6 +27,16 @@
   @return $num / ($num * 0 + 1);
 }
 
+/**
+ * calculate-rem()
+ * Calcualte the rem value using base 16px font sizing.
+ */
+@function calculate-rem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+  // Related Mixin
+  @mixin font-size-rem($size) { font-size: $size; font-size: calculate-rem($size); }
 
 
 
@@ -193,7 +203,7 @@
 ) {
   li {
     margin:$li-margin;
-    @include bg-shorthand(
+    @include bg(
       'data:image/png;base64,#{$li-bgbase64}',
       no-repeat,
       0 50%,
@@ -372,4 +382,49 @@
   max-height: #{max_height}px;
   max-width: #{max_width}px;
   padding:$padding;
+}
+
+
+
+
+
+/* ================================================================ */
+/*                                                                  */
+/*                             ANIMATION                            */
+/*                                                                  */
+/* ================================================================ */
+
+
+
+
+/* KEYFRAMES
+================================================== */
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @-o-keyframes #{$name} {
+    @content;
+  }  
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+
+
+
+/* ANIMATION EX:-webkit-animation: name 1s infinite;
+================================================== */
+@mixin animation( $str ) {
+  -webkit-animation: $str;
+     -moz-animation: $str;
+      -ms-animation: $str;
+       -o-animation: $str;
+          animation: $str;
 }

@@ -346,7 +346,12 @@ function FFW_actions()
     //////////////////////////////
     if ( $height ) {
       $hero_height = $height;
-      $hero_height_inline = 'height:'.$hero_height.'px;';
+      
+      if ( $hero_height !== 'auto' ) {
+        $hero_height_inline = 'height:'.$hero_height.'px;';
+      } else {
+        $hero_height_inline = '';
+      }
     }
 
     // begin HTML ?>

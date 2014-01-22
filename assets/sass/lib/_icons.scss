@@ -214,7 +214,7 @@ i.socialico,.socialico  {
 %glyph-base64 {
   display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
   width:55px;height:55px;
-  @include bg-shorthand(
+  @include bg(
     'data:image/png;base64,',
     no-repeat,
     50% 50%,

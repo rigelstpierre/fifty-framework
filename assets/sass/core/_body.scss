@@ -18,7 +18,12 @@ body {
 
 a { color:$colorAnchorDefault; &:hover {} }
 
-* { box-sizing: border-box; }
+* { 
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+      -ms-box-sizing: border-box; /* ie8 only */
+          box-sizing: border-box;
+}
 
 
 h1 { font-size:em(68px); line-height:1.15; font-weight: 900; }
