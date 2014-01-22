@@ -560,7 +560,7 @@ function FFW_actions()
     $class    = isset($args['class']) ? $args['class'] : null;
 
     ?>
-    <div class="mobile-menu-toggle-wrap" class="mobile-only <?php echo $class; ?>">
+    <div class="mobile-menu-toggle-wrap mobile-only <?php echo $class; ?>">
       <button id="mobile-menu-toggle" class="no-appearance">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>

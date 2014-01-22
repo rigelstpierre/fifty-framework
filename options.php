@@ -397,6 +397,14 @@ function optionsframework_options()
   );
     // SKROLLR
     $options[] = array(
+      'name' => __( 'Toggle ON/OFF jquery.mobile.js', 'FFW' ),
+      'desc' => __( 'Check to ENABLE, uncheck to DISABLE', 'FFW' ),
+      'id'   => 'toggle_js_jquerymobile',
+      'std'  => '0',
+      'type' => 'checkbox'
+    );
+    // SKROLLR
+    $options[] = array(
       'name' => __( 'Toggle ON/OFF skrollr.js', 'FFW' ),
       'desc' => __( 'Check to ENABLE, uncheck to DISABLE', 'FFW' ),
       'id'   => 'toggle_js_skrollr',
