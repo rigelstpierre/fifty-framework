@@ -243,48 +243,48 @@ function optionsframework_options()
 
 
 
-    /**
-     * Colors
-     * @since 1.0
-     */
+  /**
+   * Colors
+   * @since 1.0
+   */
+  $options[] = array(
+    'name'  => __( 'Colors', 'FFW' ),
+    'type'  => 'heading',
+  );
+    // COLORS ENABLE
     $options[] = array(
-      'name'  => __( 'Colors', 'FFW' ),
-      'type'  => 'heading',
+      'name' => __( 'Enable Custom Colors', 'FFW' ),
+      'desc' => __( 'Check this box to enable the output of custom color styles/classes.', 'FFW' ),
+      'id'   => 'enable_colors',
+      'std'  => '1',
+      'type' => 'checkbox'
     );
-      // COLORS ENABLE
-      $options[] = array(
-        'name' => __( 'Enable Custom Colors', 'FFW' ),
-        'desc' => __( 'Check this box to enable the output of custom color styles/classes.', 'FFW' ),
-        'id'   => 'enable_colors',
-        'std'  => '1',
-        'type' => 'checkbox'
-      );
-      
-      // HEADER - BG
-      $options[] = array(
-        "name" => __( 'Header - Background Color', 'FFW' ),
-        "desc" => __( 'The background color of the header area', 'FFW' ),
-        "id"   => "header_color_bg",
-        "std"  => "1",
-        "type" => "color",
-      );
-      // HEADER - TEXT
-      $options[] = array(
-        "name" => __( 'Header - Text Color', 'FFW' ),
-        "desc" => __( 'The color of the text in the header (nav) area. This includes links', 'FFW' ),
-        "id"   => "header_color_text",
-        "std"  => "1",
-        "type" => "color",
-      );
-      // HEADER - TEXT HOVER
-      $options[] = array(
-        "name" => __( 'Header - Text Color Hover', 'FFW' ),
-        "desc" => __( 'The hover color of the links in the header (nav) area.', 'FFW' ),
-        "id"   => "header_color_text_hover",
-        "std"  => "1",
-        "type" => "color",
-      );
-  
+    
+    // HEADER - BG
+    $options[] = array(
+      "name" => __( 'Header - Background Color', 'FFW' ),
+      "desc" => __( 'The background color of the header area', 'FFW' ),
+      "id"   => "header_color_bg",
+      "std"  => "1",
+      "type" => "color",
+    );
+    // HEADER - TEXT
+    $options[] = array(
+      "name" => __( 'Header - Text Color', 'FFW' ),
+      "desc" => __( 'The color of the text in the header (nav) area. This includes links', 'FFW' ),
+      "id"   => "header_color_text",
+      "std"  => "1",
+      "type" => "color",
+    );
+    // HEADER - TEXT HOVER
+    $options[] = array(
+      "name" => __( 'Header - Text Color Hover', 'FFW' ),
+      "desc" => __( 'The hover color of the links in the header (nav) area.', 'FFW' ),
+      "id"   => "header_color_text_hover",
+      "std"  => "1",
+      "type" => "color",
+    );
+
 
 
 
@@ -385,6 +385,41 @@ function optionsframework_options()
         'wpadminbar_fixed' => 'Turn ON fixed positioning for the admin bar'
       ),
     );
+
+
+  /**
+   * Scripts
+   * @since 1.0
+   */
+  $options[] = array(
+    'name'  => __( 'Scripts', 'FFW' ),
+    'type'  => 'heading'
+  );
+    // SKROLLR
+    $options[] = array(
+      'name' => __( 'Toggle ON/OFF <b>skrollr.js</b>', 'FFW' ),
+      'desc' => __( 'Check to ENABLE, uncheck to DISABLE', 'FFW' ),
+      'id'   => 'toggle_js_skrollr',
+      'std'  => '1',
+      'type' => 'checkbox'
+    );
+    // ENQUIRE
+    $options[] = array(
+      'name' => __( 'Toggle ON/OFF <b>enquire.js</b>', 'FFW' ),
+      'desc' => __( 'Check to ENABLE, uncheck to DISABLE', 'FFW' ),
+      'id'   => 'toggle_js_enquire',
+      'std'  => '1',
+      'type' => 'checkbox'
+    );
+    // BACKSTRETCH
+    $options[] = array(
+      'name' => __( 'Toggle ON/OFF <b>backstretch.js</b>', 'FFW' ),
+      'desc' => __( 'Check to ENABLE, uncheck to DISABLE', 'FFW' ),
+      'id'   => 'toggle_js_backstretch',
+      'std'  => '1',
+      'type' => 'checkbox'
+    );
+
 
 
   return $options;
