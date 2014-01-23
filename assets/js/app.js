@@ -441,7 +441,17 @@
         // do stuff on window resize
 
 
-    }).trigger('resize');   
+    }).trigger('resize');
+
+
+
+    /* ORIENTATION CHANGE (requires jQuery mobile)
+    ================================================== */
+    $(window).on( "orientationchange", function (e) {
+      
+      // do stuff on mobile orientation change
+
+    });
 
 
     /* SELF INVOKING ANONYMOUS FUNCTION(s)
