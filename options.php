@@ -43,8 +43,8 @@ function optionsframework_options()
 
     // TOGGLE CORE APP.JS
     $options[] = array(
-      'name' => __( 'Application Javascript', 'FFW' ),
-      'desc' => __( 'Toggle on/off the parent theme (fifty-framework) application javascript (app.js)', 'FFW' ),
+      'name' => __( 'FFW Application Javascript', 'FFW' ),
+      'desc' => __( 'Check to ENABLE, uncheck to DISABLE', 'FFW' ),
       'id'   => 'toggle_app_js',
       'std'  => '0',
       'type' => 'checkbox'
@@ -53,8 +53,8 @@ function optionsframework_options()
 
     // TOGGLE SIDEBAR ON/OFF
     $options[] = array(
-      'name' => __( 'Enable Sidebar', 'FFW' ),
-      'desc' => __( 'Toggle on/off the sidebars globally.', 'FFW' ),
+      'name' => __( 'Sidebar Visibility', 'FFW' ),
+      'desc' => __( 'Check to ENABLE, uncheck to DISABLE.', 'FFW' ),
       'id'   => 'toggle_sidebar',
       'std'  => '0',
       'type' => 'checkbox'
@@ -398,7 +398,7 @@ function optionsframework_options()
 
     // SKROLLR
     $options[] = array(
-      'name' => __( 'Toggle ON/OFF skrollr.js', 'FFW' ),
+      'name' => __( 'skrollr.js', 'FFW' ),
       'desc' => __( 'Check to ENABLE, uncheck to DISABLE', 'FFW' ),
       'id'   => 'toggle_js_skrollr',
       'std'  => '1',
@@ -406,7 +406,7 @@ function optionsframework_options()
     );
     // ENQUIRE
     $options[] = array(
-      'name' => __( 'Toggle ON/OFF enquire.js', 'FFW' ),
+      'name' => __( 'enquire.js', 'FFW' ),
       'desc' => __( 'Check to ENABLE, uncheck to DISABLE', 'FFW' ),
       'id'   => 'toggle_js_enquire',
       'std'  => '1',
@@ -414,7 +414,7 @@ function optionsframework_options()
     );
     // BACKSTRETCH
     $options[] = array(
-      'name' => __( 'Toggle ON/OFF backstretch.js', 'FFW' ),
+      'name' => __( 'backstretch.js', 'FFW' ),
       'desc' => __( 'Check to ENABLE, uncheck to DISABLE', 'FFW' ),
       'id'   => 'toggle_js_backstretch',
       'std'  => '1',
