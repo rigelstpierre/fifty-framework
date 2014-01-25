@@ -5,7 +5,7 @@ $section_title    	= get_sub_field('section_title');
 $section_subtitle 	= get_sub_field('section_subtitle');
 $show_full_content	= get_sub_field('show_full_content');
 $show_link_to_blog	= get_sub_field('show_link_to_blog');
-$blog_link_text		= get_sub_field('blog_link_text');
+$blog_link_text		  = get_sub_field('blog_link_text');
 
 
 $ppp = get_sub_field('number_posts');
