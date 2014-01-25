@@ -41,7 +41,7 @@ $blog_query = new WP_Query( $blog_args ); ?>
 			</div><!-- #sidebar -->
 			
 			
-			<div id="content" class="<?php sidebar_position_class(); ?>">
+			<div id="content" class="blog <?php sidebar_position_class(); ?>">
 				<div class="content-inner">
 					<?php while( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
 					<article class="post post-<?php echo get_the_ID(); ?>">

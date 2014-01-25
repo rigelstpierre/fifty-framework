@@ -480,7 +480,6 @@
         // Announce the new orientation number
         
         console.log('Orientation is: ', window.orientation);
-        alert('Orientation is: ', window.orientation);
 
     }, false);
 
