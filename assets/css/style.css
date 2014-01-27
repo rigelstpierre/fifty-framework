@@ -774,6 +774,11 @@ table {
   border-bottom: 1px solid transparent;
   overflow: hidden;
 }
+@media only screen and (max-width: 767px) {
+  .box {
+    margin-bottom: 0.625em;
+  }
+}
 .box .box-inner {
   position: relative;
   width: 100%;

@@ -222,6 +222,8 @@
   border-right:1px solid transparent;
   border-bottom:1px solid transparent;
   overflow:hidden;
+
+  @include media(mobile) {margin-bottom:em(10px);}
   
   // INNER
   .box-inner {
