@@ -197,6 +197,75 @@ function FFW_helper_functions() {
     return $image_url[0];
   } 
 
+  /**
+   * get_the_slug()
+   * Get the slug of the current page/post
+   * @author Alexander Zizzo
+   * @since 1.36
+   * @param (boolean) echo or return
+   */
+  function get_the_slug( $echo = true )
+  {
+    // globals
+    global $post;
+    // if is single or page
+    if ( is_single() || is_page() ) {
+      return $post->post_name;
+    } else {
+      return NULL;
+    }
+  }
+
+
+  function get_parent_id()
+  {
+    // globals
+    global $post;
+    // set vars
+    // $parent_id = wp_get_post_parent_id( $post->ID );
+    $parent_id = $post->post_parent;
+
+    return $parent_id;
+  }
+
+
+  function get_parent_slug()
+  {
+    // globals
+    global $post;
+    // set vars
+    $parent_id  = $post->post_parent;
+    $parent     = get_page($post->post_parent);
+
+    return $parent->post_name;
+  }
+
+
+  /**
+   * is_child_of()
+   * Helper function to determine if page is child of another, by slug
+   * @author Alexander Zizzo
+   * @since 1.36
+   * @param (string) parent page slug
+   */
+  function is_child_of( $parent_slug = NULL )
+  {
+    // globals
+    global $post;
+
+    // vars
+    $slug        = get_the_slug();
+    $parent_id   = $post->post_parent;
+    $parent_page = get_page($post->post_parent);
+    $parent_name = $parent_page->post_name;
+
+    // return true/false
+    if ( $parent_name == $parent_slug ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
 
 
