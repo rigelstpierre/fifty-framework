@@ -123,7 +123,7 @@ header.default {
 
             &:hover > ul { margin-top:0; }
 
-            &.has_children {
+            &.menu-item-has-children {
               a:after {display:none;}
             }
           }

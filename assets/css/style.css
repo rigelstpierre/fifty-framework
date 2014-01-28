@@ -7837,7 +7837,7 @@ header.default nav > ul > li > a {
   header.default nav ul li:hover > ul {
     margin-top: 0;
   }
-  header.default nav ul li.has_children a:after {
+  header.default nav ul li.menu-item-has-children a:after {
     display: none;
   }
   header.default nav ul ul {
@@ -7929,10 +7929,10 @@ nav.menu ul > li:hover > ul {
   visibility: visible;
   margin-top: 0px;
 }
-nav.menu ul > li.has_children {
+nav.menu ul > li.menu-item-has-children {
   /* Requires use of Has_Children_Walker() */
 }
-nav.menu ul > li.has_children > a:after {
+nav.menu ul > li.menu-item-has-children > a:after {
   text-transform: none;
   position: relative;
   line-height: inherit;

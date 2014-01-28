@@ -73,8 +73,7 @@
 				'theme_location'  => 'header_menu', 
 				'container_class' => '',
 				'container'       => false, 
-				'menu_class'      => 'menu-header',
-				'walker'					=> new Has_Children_Walker()
+				'menu_class'      => 'menu-header'
 			) ); ?>
 		</nav>
 

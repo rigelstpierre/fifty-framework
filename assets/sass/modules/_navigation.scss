@@ -53,9 +53,9 @@ nav.menu {
       }
     }
     
-    // top-level <li>.has_children
+    // top-level <li>.menu-item-has-children
     ////////////////////////////////
-    >li.has_children {
+    >li.menu-item-has-children {
       /* Requires use of Has_Children_Walker() */
       
       >a {
