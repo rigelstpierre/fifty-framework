@@ -2809,6 +2809,14 @@ i.icon.transparent, .icon.transparent {
   content: '\f085';
 }
 
+.icon-phone:before {
+  content: '\f095';
+}
+
+.icon-mail:before {
+  content: '\f003';
+}
+
 /* ICON-BAR
 ================================================== */
 .icon-bar {
