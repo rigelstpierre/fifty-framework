@@ -90,6 +90,8 @@ i.icon,.icon, %icon  {
 .icon-zoom-in:before, %icon-zoom-in:before              { content:'\f00e'; }    // fa-search-plus
 .icon-zoom-out:before, %icon-zoom-out:before            { content:'\f010'; }    // fa-search-minus
 .icon-settings-alt:before, %icon-settings-alt:before    { content:'\f085'; }    // fa-cogs
+.icon-phone:before, %icon-phone:before                  { content:'\f095'; }    // fa-phone
+.icon-mail:before, %icon-mail:before                    { content:'\f003'; }    // fa-envelope-o
 
 
 
@@ -157,11 +159,11 @@ i.socialico,.socialico  {
   &:hover   {color:#694db4 !important;}
 }
 .socialico-googleplus {
-  &:before  {content:'\f0d4';}                  // PICTOS: 'g'  |  FA: ''
+  &:before  {content:'\f0d5';}                  // PICTOS: 'g'  |  FA: ''
   &:hover   {color:#bc3426 !important;}
 }
 .socialico-linkedin {
-  &:before  {content:'\f08c';}                  // PICTOS: 'i'  |  FA: ''
+  &:before  {content:'\f0e1';}                  // PICTOS: 'i'  |  FA: ''
   &:hover   {color:#0085ae !important;}
 }
 .socialico-tumblr {
@@ -214,7 +216,7 @@ i.socialico,.socialico  {
 %glyph-base64 {
   display: -moz-inline-stack;display: inline-block;zoom: 1;*display: inline;
   width:55px;height:55px;
-  @include bg-shorthand(
+  @include bg(
     'data:image/png;base64,',
     no-repeat,
     50% 50%,

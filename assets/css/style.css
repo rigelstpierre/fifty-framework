@@ -29,6 +29,10 @@
  * strip-unit()
  * Strip a value that has units to be just the integer.
  */
+/**
+ * calculate-rem()
+ * Calcualte the rem value using base 16px font sizing.
+ */
 /* ================================================================ */
 /*                                                                  */
 /*                          CUSTOM MIXINS                           */
@@ -84,6 +88,15 @@
 /* EMPTY-BUTTON
 ================================================== */
 /* COVER IMAGE
+================================================== */
+/* ================================================================ */
+/*                                                                  */
+/*                             ANIMATION                            */
+/*                                                                  */
+/* ================================================================ */
+/* KEYFRAMES
+================================================== */
+/* ANIMATION EX:-webkit-animation: name 1s infinite;
 ================================================== */
 /* Reset & Vendor Libs */
 /* _normalize.scss */
@@ -761,6 +774,11 @@ table {
   border-bottom: 1px solid transparent;
   overflow: hidden;
 }
+@media only screen and (max-width: 767px) {
+  .box {
+    margin-bottom: 0.625em;
+  }
+}
 .box .box-inner {
   position: relative;
   width: 100%;
@@ -1384,6 +1402,10 @@ a {
 }
 
 * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  /* ie8 only */
   box-sizing: border-box;
 }
 
@@ -1550,6 +1572,19 @@ h6 {
 
 /* Z-INDEXES
 ================================================== */
+/* VISIBILITY
+================================================== */
+.visually-hidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
 /* _helpers.scss */
 /* WORDPRESS CLASSES
 ================================================== */
@@ -2774,6 +2809,14 @@ i.icon.transparent, .icon.transparent {
   content: '\f085';
 }
 
+.icon-phone:before {
+  content: '\f095';
+}
+
+.icon-mail:before {
+  content: '\f003';
+}
+
 /* ICON-BAR
 ================================================== */
 .icon-bar {
@@ -2851,14 +2894,14 @@ i.socialico.circle:before, .socialico.circle:before {
 }
 
 .socialico-googleplus:before {
-  content: '\f0d4';
+  content: '\f0d5';
 }
 .socialico-googleplus:hover {
   color: #bc3426 !important;
 }
 
 .socialico-linkedin:before {
-  content: '\f08c';
+  content: '\f0e1';
 }
 .socialico-linkedin:hover {
   color: #0085ae !important;
@@ -7802,7 +7845,7 @@ header.default nav > ul > li > a {
   header.default nav ul li:hover > ul {
     margin-top: 0;
   }
-  header.default nav ul li.has_children a:after {
+  header.default nav ul li.menu-item-has-children a:after {
     display: none;
   }
   header.default nav ul ul {
@@ -7894,10 +7937,10 @@ nav.menu ul > li:hover > ul {
   visibility: visible;
   margin-top: 0px;
 }
-nav.menu ul > li.has_children {
+nav.menu ul > li.menu-item-has-children {
   /* Requires use of Has_Children_Walker() */
 }
-nav.menu ul > li.has_children > a:after {
+nav.menu ul > li.menu-item-has-children > a:after {
   text-transform: none;
   position: relative;
   line-height: inherit;

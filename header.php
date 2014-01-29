@@ -36,7 +36,7 @@
 	<?php /* COLORS */ if ( of_get_option( 'enable_colors', '1' ) ) { include dirname(__FILE__).'/lib/css/colors.css.php'; } ?>
 
 	<?php /* TOGGLE WPADMINBAR SETTINGS */ do_action( 'FFW_wpadminbar', 'wpadminbar_on_off' ); ?>
-		
+	
 
 </head>
 
@@ -73,8 +73,7 @@
 				'theme_location'  => 'header_menu', 
 				'container_class' => '',
 				'container'       => false, 
-				'menu_class'      => 'menu-header',
-				'walker'					=> new Has_Children_Walker()
+				'menu_class'      => 'menu-header'
 			) ); ?>
 		</nav>
 

@@ -278,35 +278,35 @@ function FFW_actions()
     if ( $bg == false ) {
       $hero_url = '';
 
-      if ( $debug ) { ?> <script>console.log('BG OVERRIDE');</script><?php }
+      if ( $debug ) { ?> <script>console.log('HERO_BEFORE DEBUGGING -> BG OVERRIDE');</script><?php }
     }
     /* is index.php
     ========================================================================================== */
     elseif ( get_option('page_for_posts' ) == get_the_ID() || $template == 'index.php' || is_category() || is_archive() ) {
       $hero_url = wp_get_attachment_url( get_post_thumbnail_id( get_option('page_for_posts' ) ) );
 
-      if ( $debug ) { ?> <script>console.log('IS INDEX.PHP');</script><?php }
+      if ( $debug ) { ?> <script>console.log('HERO_BEFORE DEBUGGING -> IS INDEX.PHP');</script><?php }
     }
     /* is archive or category   v1.35 removed is_archive() from logic
     ========================================================================================== */
     elseif ( is_category() && $bg != false ) {
       $hero_url = get_header_image();
 
-      if ( $debug ) { ?> <script>console.log('IS ARCHIVE OR CATEGORY');</script><?php }
+      if ( $debug ) { ?> <script>console.log('HERO_BEFORE DEBUGGING -> IS ARCHIVE OR CATEGORY');</script><?php }
     }
     /* dntly_campaigns
     ========================================================================================== */
     elseif ( 'dntly_campaigns' == get_post_type() && is_archive() ) {
       $hero_url = get_header_image();
 
-      if ( $debug ) { ?> <script>console.log('DNTLY_CAMPAIGNS');</script><?php }
+      if ( $debug ) { ?> <script>console.log('HERO_BEFORE DEBUGGING -> DNTLY_CAMPAIGNS');</script><?php }
     }
     /* staff post type
     ========================================================================================== */
     elseif ( $staff_bg == false && 'ffw_staff' == get_post_type() ) {
       $hero_url = '';
 
-      if ( $debug ) { ?> <script>console.log('FFW_STAFF');</script><?php }
+      if ( $debug ) { ?> <script>console.log('HERO_BEFORE DEBUGGING -> FFW_STAFF');</script><?php }
     }
     /* use video thumbnail
     ========================================================================================== */
@@ -319,14 +319,14 @@ function FFW_actions()
       $hero_url    = $vid_thumb;
       $hero_class  = $vid_service;
 
-      if ( $debug ) { ?> <script>console.log('USE VIDEO THUMBNAIL');</script><?php }
+      if ( $debug ) { ?> <script>console.log('HERO_BEFORE DEBUGGING -> USE VIDEO THUMBNAIL');</script><?php }
     }
     /* has post thumbnail (featured image)
     ========================================================================================== */
     elseif ( has_post_thumbnail() ) {
       $hero_url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID) );
 
-      if ( $debug ) { ?> <script>console.log('HAS POST THUMBNAIL');</script><?php }
+      if ( $debug ) { ?> <script>console.log('HERO_BEFORE DEBUGGING -> HAS POST THUMBNAIL');</script><?php }
     }
     /* use header image from settings
     ========================================================================================== */
@@ -334,12 +334,12 @@ function FFW_actions()
       $hero_url = get_header_image();
       $hero_height = get_custom_header()->height; // unused as of 09/16/2013
 
-      if ( $debug ) { ?> <script>console.log('USE HEADER IMAGE');</script><?php }
+      if ( $debug ) { ?> <script>console.log('HERO_BEFORE DEBUGGING -> USE HEADER IMAGE');</script><?php }
     }
     else {
       $hero_url = '';
 
-      if ( $debug ) { ?> <script>console.log('ELSE');</script><?php }
+      if ( $debug ) { ?> <script>console.log('HERO_BEFORE DEBUGGING -> ELSE');</script><?php }
     }
 
 
@@ -348,7 +348,12 @@ function FFW_actions()
     //////////////////////////////
     if ( $height ) {
       $hero_height = $height;
-      $hero_height_inline = 'height:'.$hero_height.'px;';
+      
+      if ( $hero_height !== 'auto' ) {
+        $hero_height_inline = 'height:'.$hero_height.'px;';
+      } else {
+        $hero_height_inline = '';
+      }
     }
 
     // begin HTML ?>
@@ -401,7 +406,7 @@ function FFW_actions()
     elseif( is_search() ) : ?>
 
       <h1 class="page-title">Search Results</h1>
-
+ 
     <?php  /* IS_CATEGORY
     ========================================================================================== */
     elseif ( is_category() || is_archive() || is_page() ) : ?>
@@ -555,7 +560,7 @@ function FFW_actions()
     $class    = isset($args['class']) ? $args['class'] : null;
 
     ?>
-    <div class="mobile-menu-toggle-wrap" class="mobile-only <?php echo $class; ?>">
+    <div class="mobile-menu-toggle-wrap mobile-only <?php echo $class; ?>">
       <button id="mobile-menu-toggle" class="no-appearance">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>

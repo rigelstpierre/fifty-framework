@@ -1,6 +1,6 @@
 !(function ($){
 
-    "use strict"; // jsHint
+    // "use strict"; // jsHint
 
     window.FIFTYFRAMEWORK = {};
     
@@ -395,6 +395,35 @@
     }
 
 
+    /* MATCH MEDIA
+    ================================================== */
+    FF.matchMedia = function( element ) {
+
+        // Find matches
+        var mql = window.matchMedia("(orientation: portrait)");
+
+        // If there are matches, we're in portrait, else we're landscape
+        if(mql.matches) {  
+            // Portrait orientation
+
+        } else {  
+            // Landscape orientation
+        }
+
+        // Add a media query change listener
+        mql.addListener(function (m) {
+
+            if(m.matches) {
+                // Changed to portrait
+            }
+            else {
+                // Changed to landscape
+            }
+        });
+    }
+
+
+
     /* ================================================================ */
     /*                                                                  */
     /*                     DOCUMENT / WINDOW CALLS                      */
@@ -409,7 +438,7 @@
         
         // do stuff on document ready
         FF.init();
-
+        FF.matchMedia();
 
     });
 
@@ -441,7 +470,26 @@
         // do stuff on window resize
 
 
-    }).trigger('resize');   
+    }).trigger('resize');
+
+
+
+    /* ORIENTATION CHANGE (requires jQuery mobile)
+    ================================================== */
+    window.addEventListener("orientationchange", function() {
+        // Announce the new orientation number
+        
+        console.log('Orientation is: ', window.orientation);
+
+    }, false);
+
+        // Some devices dont have this event but instead listen for resize event
+        window.addEventListener("resize", function() {
+            // Get screen size (inner/outerWidth, inner/outerHeight)
+            
+        }, false);
+
+
 
 
     /* SELF INVOKING ANONYMOUS FUNCTION(s)

@@ -163,3 +163,16 @@
 %z-highest    {z-index:99999;}
 
 
+/* VISIBILITY
+================================================== */
+%visuallyhidden {
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+  .visually-hidden { @extend %visuallyhidden; }
