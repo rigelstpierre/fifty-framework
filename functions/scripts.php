@@ -31,6 +31,7 @@ function FFW_scripts_styles()
   wp_register_script('enquire', get_template_directory_uri() . '/assets/js/vendor/enquire.min.js', array('jquery'),'',true );
   wp_register_script('backstretch', get_template_directory_uri() . '/assets/js/vendor/jquery.backstretch.min.js', array('jquery'),'',true );
   wp_register_script('magnific-popup', get_template_directory_uri() . '/assets/js/vendor/jquery.magnific-popup.min.js', array('jquery'),'',true );
+  wp_register_script('sticky', get_template_directory_uri() . '/assets/js/vendor/jquery.sticky.js', array('jquery'),'',true );
 
   // page specific
   // wp_register_script('example', get_template_directory_uri() . '/assets/js/vendor/example.js', array('jquery'),'',true );
@@ -62,6 +63,7 @@ function FFW_scripts_styles()
     wp_enqueue_script('scrollTo');
     wp_enqueue_script('flexslider');
     wp_enqueue_script('fitvid');
+    wp_enqueue_script('sticky');
     wp_enqueue_script('animo');
 
     // toggle-able scripts in options

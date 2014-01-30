@@ -26,6 +26,8 @@
         FF.backStretch();
         FF.debugBox();
         FF.hamburgerNav();
+        FF.codeMirror();
+        FF.sticky();
     };
 
     /* SET ELEMENTS
@@ -362,6 +364,67 @@
 
     }
 
+
+    /* CODE MIRROR
+    ================================================== */
+    FF.codeMirror = function() {
+        $('.prettify').each(function() {
+            
+
+            // set vars
+            var $this = $(this),
+                $code = $this.html(),
+                $unescaped = $('<div/>').html($code).text();
+
+            // classes as args
+            var c_mode    = $this.data('mode'),
+                c_theme   = $this.data('theme');
+
+            if (!c_mode) c_mode = 'xml';
+            if (!c_theme) c_theme = 'monokai';
+           
+            $this.empty();
+
+            var mixedMode = {
+                name: "htmlmixed",
+                scriptTypes: [
+                {
+                    matches: /\/x-handlebars-template|\/x-mustache/i,
+                    mode: null
+                },
+                {
+                    matches: /(text|application)\/(x-)?vb(a|script)/i,
+                    mode: "vbscript"
+                }]
+            };
+
+            CodeMirror(this, {
+                value: $code,
+                height: "150px",
+                mode: c_mode,
+                theme: c_theme,
+                extraKeys: {"Ctrl-Space": "autocomplete"},
+                lineNumbers: !$this.is('.inline'),
+                readOnly: true,
+            });
+
+        });
+    }
+
+
+    /* STICKY
+    ================================================== */
+    FF.sticky = function() {
+        $('.sticky').each(function() {
+            
+            // vars
+            var $this   = $(this),
+                offset  = $this.data('offset');
+
+
+            $this.sticky({topSpacing:offset});
+        });
+    }
 
     /* DEBUG_BOX
     ================================================== */
