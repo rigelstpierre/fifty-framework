@@ -68,22 +68,7 @@ require_once( get_template_directory() .'/functions/classes/video-services.class
 
 
 
-/**
- * Load Hybrid Core Framework
- * @since  1.1
- */
-/* Load the core theme framework. */
 
-/*
-require_once( trailingslashit( get_template_directory() ) . 'hybrid-core/hybrid.php' );
-new Hybrid();
-
-add_action( 'after_setup_theme', 'ffw_hybrid_core_setup', 10 );
-function ffw_hybrid_core_setup() {
-
-
-}
-*/
 
 
 /**
@@ -96,6 +81,7 @@ if( !class_exists( 'mrMetaBox') ) {
   define('MRMETABOX_URL', TEMPLATEPATH . '/admin/mr-meta-box/');
   require_once(MRMETABOX_URL . 'mr-meta-box.php');
 }
+
 // Widgets (FFW Custom)
 require_once( get_template_directory() .'/lib/widget-author_info/plugin.php');
 require_once( get_template_directory() .'/lib/widget-social_links/plugin.php');
@@ -115,8 +101,9 @@ require_once( get_template_directory() .'/functions/pagination.php' );
 
 // Post Types
 if ( of_get_option ( 'enable_slides', '1' ) ) {
-  require_once( get_template_directory() .'/functions/post-types/slides.php' );
-  require_once( get_template_directory() .'/functions/meta/slides.php' );
+  require_once( get_template_directory() .'/functions/slides/posttypes.php' );
+  require_once( get_template_directory() .'/functions/slides/metabox.php' );
+  //require_once( get_template_directory() .'/functions/meta/slides.php' );
 }
 
 

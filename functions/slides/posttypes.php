@@ -46,7 +46,7 @@ if ( ! class_exists( 'FFW_Slides_Post_Type' ) ) {
       $args = array(
           'labels'          => $labels,
           'public'          => true,
-          'supports'        => array( 'title', 'editor', 'thumbnail', 'custom-fields' ),
+          'supports'        => array( 'title', 'editor', 'thumbnail' ),
           'capability_type' => 'post',
           'rewrite'         => array("slug" => "slides"), // Permalinks format
           'has_archive'     => false,
