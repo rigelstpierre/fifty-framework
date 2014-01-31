@@ -6,7 +6,7 @@
   } elseif ( is_page() ) {
     $post_class = 'page';
   }
-?>
+?> 
 
 <article class="post <?php echo $post_class; ?> post-<?php echo get_the_ID(); ?>">
   <header>

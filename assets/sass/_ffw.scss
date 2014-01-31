@@ -38,6 +38,12 @@
   // Related Mixin
   @mixin font-size-rem($size) { font-size: $size; font-size: calculate-rem($size); }
 
+@function ffw_hover_lighten($hex) {
+   @return lighten( desaturate( adjust-hue( $hex, 1deg ), 15 ), 10 );
+}
+@function ffw_hover_darken($hex) {
+   @return darken( saturate( $hex, 2 ), 7 )
+}
 
 
 

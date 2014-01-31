@@ -5,7 +5,8 @@
         "ffw"; 
 
 /* Reset & Vendor Libs */
-@import "vendor/normalize",
+@import "vendor/reset",
+        "vendor/codemirror",
         "vendor/addthis";
 
 /* Base & Vars */
@@ -25,6 +26,7 @@
         "lib/buttons",
         "lib/shapes",
         "lib/animate",
+        "lib/code",
         "lib/modals";
 
 /* Modules & Components */

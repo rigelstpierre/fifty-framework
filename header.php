@@ -10,8 +10,6 @@
 
 	<title><?php bloginfo('name'); ?><?php wp_title(" - ",true); ?></title>
 
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
-
 	<!-- Favicons -->
 	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/favicon.png" type="image/x-icon">
 	<link rel="apple-touch-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/apple-touch-icon.png" sizes="114x114">
