@@ -50,7 +50,9 @@ if ( ! class_exists( 'FFW_Slides_Post_Type' ) ) {
           'capability_type' => 'post',
           'rewrite'         => array("slug" => "slides"), // Permalinks format
           'has_archive'     => false,
+          'menu_position'   => 80,
           'menu_icon'       => 'dashicons-slides',
+
       ); 
       
       $args = apply_filters( 'FFW_slides_args', $args);
