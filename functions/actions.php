@@ -301,14 +301,19 @@ function FFW_actions()
 
       if ( $debug ) { ?> <script>console.log('HERO_BEFORE DEBUGGING -> DNTLY_CAMPAIGNS');</script><?php }
     }
+    /* ffw_staff archive
+    ========================================================================================== */
+    elseif( $staff_bg == true && is_post_type_archive( 'ffw_staff' ) && function_exists( 'get_staff_archive_image' ) ){
+      
+        $hero_url = get_staff_archive_image();
+      
+    }
     /* staff post type
     ========================================================================================== */
     elseif ( $staff_bg == false && 'ffw_staff' == get_post_type() ) {
-      if( function_exists('get_staff_archive_image'){
-        $hero_url = get_staff_archive_image();
-      }else{
+     
         $hero_url = '';
-      }
+    
 
       if ( $debug ) { ?> <script>console.log('HERO_BEFORE DEBUGGING -> FFW_STAFF');</script><?php }
     }
