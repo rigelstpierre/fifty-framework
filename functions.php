@@ -107,7 +107,7 @@ if ( of_get_option ( 'enable_slides', '1' ) ) {
 }
 
 
-require_once( get_template_directory() .'/functions/post/metabox.php' );
+//require_once( get_template_directory() .'/functions/post/metabox.php' );
 
 
 // Metaboxes
