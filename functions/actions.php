@@ -304,7 +304,11 @@ function FFW_actions()
     /* staff post type
     ========================================================================================== */
     elseif ( $staff_bg == false && 'ffw_staff' == get_post_type() ) {
-      $hero_url = '';
+      if( function_exists('get_staff_archive_image'){
+        $hero_url = get_staff_archive_image();
+      }else{
+        $hero_url = '';
+      }
 
       if ( $debug ) { ?> <script>console.log('HERO_BEFORE DEBUGGING -> FFW_STAFF');</script><?php }
     }
