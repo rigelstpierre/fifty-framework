@@ -114,6 +114,7 @@ function ffw_slides_render_fields( $post )
         <div id="classDetails" class="classForm">
             <table cellspacing="0" cellpadding="0" id="etm_class_info">
                 <tbody>
+                    <?php do_action( 'ffw_before_slides_row' ); ?>
                     <tr>
                         <td style="width:30%;"><p><strong>Custom Class</strong></p></td>
                         <td>
@@ -145,6 +146,7 @@ function ffw_slides_render_fields( $post )
                             </label>
                         </td>
                     </tr>
+                    <?php do_action( 'ffw_after_slides_row' ); ?>
                 </tbody>
             </table>
         </div>
