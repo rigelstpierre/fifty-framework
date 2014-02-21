@@ -24,6 +24,14 @@ get_header(); ?>
 
         <?php /* DEBUGGING
         ================================================== */ ?>
+        <h3>dntly_get_accounts</h3>
+        <pre>
+        <?php 
+            $dntly          = new DNTLY_API;
+            $dntly_accounts = $dntly->get_accounts();
+            var_dump($dntly_accounts);
+        ?>
+        </pre>
         
         <h3>Post Meta</h3>
         <pre><?php var_dump(get_post_meta( $post->ID )); ?></pre>
@@ -56,6 +64,14 @@ get_header(); ?>
 
         <h3>Post ID</h3>
         <pre><?php var_dump(get_the_ID()); ?></pre>
+
+
+
+
+        <h3>Donately Meta</h3>
+        <pre><?php var_dump($dntly_settings); ?></pre>
+
+
 
 
         <?php do_action('FFW_pagination', array( 'id' => 'nav-below', 'class' => 'center' ) ); ?>
