@@ -12,7 +12,7 @@ function FFW_scripts_styles()
   /**
    * Styles
    */
-  wp_register_style( 'style',  get_stylesheet_directory_uri().'/assets/css/style.min.css' );
+  wp_register_style( 'style',  get_template_directory_uri().'/assets/css/style.min.css' );
   
 
   /**
