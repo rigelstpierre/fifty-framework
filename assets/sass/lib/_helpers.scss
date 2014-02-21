@@ -182,3 +182,19 @@
 /* RELATIVE WRAP
 ================================================== */
 .rel-wrap {position:relative;height:1px;}
+
+
+/* DEBUGGING
+================================================== */
+.row.row-debug {
+
+  header {
+    h2 {color:$colorAnchorDefault}
+  }
+  pre {background-color:#f7f7f7;}
+}
+
+  #debug_fa {
+    .inner {font-size:em(30px);}
+  }
+  #debug_vardump {}

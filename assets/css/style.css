@@ -1511,8 +1511,8 @@ textarea {
   font-family: fontawesome;
   font-weight: normal;
   font-style: normal;
-  src: url("../fonts/fontawesome/fontawesome.eot");
-  src: url("../fonts/fontawesome/fontawesome.eot?#iefix") format("embedded-opentype"), url("../fonts/fontawesome/fontawesome.woff") format("woff"), url("../fonts/fontawesome/fontawesome.ttf") format("truetype"), url("../fonts/fontawesome/fontawesome.svg#fontawesome") format("svg");
+  src: url("../fonts/fontawesome/fontawesome-webfont.eot");
+  src: url("../fonts/fontawesome/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/fontawesome/fontawesome-webfont.woff") format("woff"), url("../fonts/fontawesome/fontawesome-webfont.ttf") format("truetype"), url("../fonts/fontawesome/fontawesome-webfont.svg#fontawesome") format("svg");
 }
 
 @font-face {
@@ -1989,6 +1989,19 @@ h6 {
 .rel-wrap {
   position: relative;
   height: 1px;
+}
+
+/* DEBUGGING
+================================================== */
+.row.row-debug header h2 {
+  color: #2f7499;
+}
+.row.row-debug pre {
+  background-color: #f7f7f7;
+}
+
+#debug_fa .inner {
+  font-size: 1.875em;
 }
 
 /* _forms.scss */
@@ -2989,6 +3002,22 @@ i.icon.transparent, .icon.transparent {
 
 .icon-mail:before {
   content: '\f003';
+}
+
+.icon-angle-up:before {
+  content: '\f104';
+}
+
+.icon-angle-right:before {
+  content: '\f105';
+}
+
+.icon-angle-left:before {
+  content: '\f106';
+}
+
+.icon-angle-down:before {
+  content: '\f107';
 }
 
 /* ICON-BAR

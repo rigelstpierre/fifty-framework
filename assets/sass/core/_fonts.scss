@@ -25,8 +25,12 @@
 
 @include fff(opensans-condensed, '../fonts/opensans-condensed/OpenSans-CondLight', 300);
 
+// Pictos
 @include fff(pictos, '../fonts/pictos/pictos', normal);
-@include fff(fontawesome, '../fonts/fontawesome/fontawesome', normal);
+// Font Awesome
+@include fff(fontawesome, '../fonts/fontawesome/fontawesome-webfont', normal);
+// Arrrrows
 @include fff(arrrows, '../fonts/arrrows/arrrows', 300);
 @include fff(arrrows, '../fonts/arrrows/arrrows-bold', bold);
+// Socialico
 @include fff(socialico, '../fonts/socialico/socialico', normal);
