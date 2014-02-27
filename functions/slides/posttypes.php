@@ -44,14 +44,15 @@ if ( ! class_exists( 'FFW_Slides_Post_Type' ) ) {
       );
       
       $args = array(
-          'labels'          => $labels,
-          'public'          => true,
-          'supports'        => array( 'title', 'editor', 'thumbnail' ),
-          'capability_type' => 'post',
-          'rewrite'         => array("slug" => "slides"), // Permalinks format
-          'has_archive'     => false,
-          'menu_position'   => 80,
-          'menu_icon'       => 'dashicons-slides',
+          'labels'              => $labels,
+          'public'              => true,
+          'exclude_from_search' => true,
+          'supports'            => array( 'title', 'editor', 'thumbnail' ),
+          'capability_type'     => 'post',
+          'rewrite'             => array("slug" => "slides"), // Permalinks format
+          'has_archive'         => false,
+          'menu_position'       => 80,
+          'menu_icon'           => 'dashicons-slides',
 
       ); 
       
