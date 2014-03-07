@@ -8,7 +8,6 @@
  * @since Fifty and Fifty 1.0
  */
 
-
 /**
  * Debugging
  */
