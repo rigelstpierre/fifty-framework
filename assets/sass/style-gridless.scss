@@ -1,5 +1,7 @@
 /* style.scss */
 
+/* _config.scss */
+
 
 /* COLORS                           | **REQUIRED**
 ================================================== */
@@ -36,7 +38,7 @@ $colorGrayDarker:       #464646;
 /* GRID SETTINGS                    | **REQUIRED**
 ================================================== */
 $widescreen             : 1140;
-$desktop                : 960;
+$desktop                : 1000;
 $tablet                 : 768;
 $mobile-landscape       : 480;
 $mobile-portrait        : 320;
@@ -46,7 +48,7 @@ $columns                : 12;
 $margin                 : 10px;
 $padding                : 10px;
 
-$responsive             : false;
+$responsive             : true;
 $from-direction         : left;
 
 
@@ -54,6 +56,8 @@ $from-direction         : left;
 /* STYLE OPTIONS & TOGGLES        
 ================================================== */
 $transparency-header:     false;
+
+
 
 
 /* FONTS                            | **REQUIRED**
@@ -67,6 +71,7 @@ $arrrows      :  "arrrows";
 $social       :  "socialico";
 $socialico    :  "socialico";
 
+ 
 
  
 /* SASS Libraries */
@@ -79,7 +84,8 @@ $socialico    :  "socialico";
         "vendor/addthis";
 
 /* Base & Vars */
-@import "core/base",
+@import "core/grid",
+        "core/base",
         "core/typography",
         "core/fonts",
         "core/body";
