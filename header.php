@@ -60,7 +60,7 @@
 			    </a></h2>
 			<?php endif; ?>		
 		</div>
-
+	
 		<button id="mobile-menu-toggle" class="no-appearance">
 			<span class="icon-bar"></span>
       <span class="icon-bar"></span>

@@ -12,8 +12,12 @@ function FFW_scripts_styles()
   /**
    * Styles
    */
-  wp_register_style( 'style',  get_template_directory_uri().'/assets/css/style.min.css' );
-  
+  if ( of_get_option( 'toggle_1000px_grid', '1' ) ) {
+    wp_register_style( 'style',  get_template_directory_uri().'/assets/css/style-1000px.css' );
+  }
+  if ( !of_get_option( 'toggle_1000px_grid' ) ) {
+    wp_register_style( 'style',  get_template_directory_uri().'/assets/css/style.min.css' );
+  }
 
   /**
    * Javascripts

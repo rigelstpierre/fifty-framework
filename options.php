@@ -41,6 +41,15 @@ function optionsframework_options()
       'type' => 'upload'
     );
 
+    // TOGGLE LARGER GRID
+    $options[] = array(
+      'name' => __( '1000px Grid', 'FFW' ),
+      'desc' => __( 'Check to ENABLE, uncheck to DISABLE', 'FFW' ),
+      'id'   => 'toggle_1000px_grid',
+      'std'  => '0',
+      'type' => 'checkbox'
+    );
+
     // TOGGLE CORE APP.JS
     $options[] = array(
       'name' => __( 'FFW Application Javascript', 'FFW' ),
