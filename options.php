@@ -50,6 +50,15 @@ function optionsframework_options()
       'type' => 'checkbox'
     );
 
+    // TOGGLE LARGER GRID
+    $options[] = array(
+      'name' => __( '960px Grid - NO MEDIA QUERIES (Tablet & Mobile)', 'FFW' ),
+      'desc' => __( 'Check to ENABLE, uncheck to DISABLE', 'FFW' ),
+      'id'   => 'toggle_no_media_query_grid',
+      'std'  => '0',
+      'type' => 'checkbox'
+    );
+
     // TOGGLE CORE APP.JS
     $options[] = array(
       'name' => __( 'FFW Application Javascript', 'FFW' ),

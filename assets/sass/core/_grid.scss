@@ -40,25 +40,27 @@
   $mobile_min            : #{$mobile}px;
 
 
-  // MQ -> Widescreen (UNUSED)
-  // @if $type == widescreen {
-  //   @media only screen and ( min-width: $widescreen_min ) { @content; }
-  // }
-  // MQ -> Desktop
-  @if $type == desktop {
-    @media only screen and ( min-width: $desktop_min ) { @content; }
-  }
-  // MQ -> Tablet
-  @else if $type == tablet {
-    @media only screen and ( min-width: $tablet_min ) and ( max-width: $desktop_max ) { @content; }
-  }
-  // MQ -> Mobile
-  @else if $type == mobile {
-    @media only screen and ( max-width: $tablet_max ) { @content; }
-  }
-  // MQ -> Mobile Landscape
-  @else if $type == mobile_landscape {
-    @media only screen and ( min-width: $mobile_landscape_min ) and ( max-width: $tablet_max ) { @content; }
+  @if $responsive == true {
+    // MQ -> Widescreen (UNUSED)
+    // @if $type == widescreen {
+    //   @media only screen and ( min-width: $widescreen_min ) { @content; }
+    // }
+    // MQ -> Desktop
+    @if $type == desktop {
+      @media only screen and ( min-width: $desktop_min ) { @content; }
+    }
+    // MQ -> Tablet
+    @else if $type == tablet {
+      @media only screen and ( min-width: $tablet_min ) and ( max-width: $desktop_max ) { @content; }
+    }
+    // MQ -> Mobile
+    @else if $type == mobile {
+      @media only screen and ( max-width: $tablet_max ) { @content; }
+    }
+    // MQ -> Mobile Landscape
+    @else if $type == mobile_landscape {
+      @media only screen and ( min-width: $mobile_landscape_min ) and ( max-width: $tablet_max ) { @content; }
+    }
   }
 
 

@@ -11,11 +11,18 @@ function FFW_scripts_styles()
 
   /**
    * Styles
+   * @TEMP Select 1000px Grid, or 960px Grid without Media Queries in Theme Options
    */
-  if ( of_get_option( 'toggle_1000px_grid', '1' ) ) {
+  // 1000px
+  if ( of_get_option( 'toggle_1000px_grid' ) && of_get_option( 'toggle_1000px_grid', '1' ) ) {
     wp_register_style( 'style',  get_template_directory_uri().'/assets/css/style-1000px.css' );
   }
-  if ( !of_get_option( 'toggle_1000px_grid' ) ) {
+  // no media queries
+  if ( of_get_option( 'toggle_no_media_query_grid' ) && of_get_option( 'toggle_no_media_query_grid', '1' ) ) {
+    wp_register_style( 'style',  get_template_directory_uri().'/assets/css/style-no-media-queries.css' );
+  }
+  // default 960px with media queries
+  if ( !of_get_option( 'toggle_1000px_grid' ) && !of_get_option( 'toggle_no_media_query_grid' ) ) {
     wp_register_style( 'style',  get_template_directory_uri().'/assets/css/style.min.css' );
   }
 
