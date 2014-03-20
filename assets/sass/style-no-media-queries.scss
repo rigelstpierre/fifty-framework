@@ -125,14 +125,15 @@ $socialico    :  "socialico";
 body {min-width:980px !important;}
 .container {min-width:960px !important;}
 
-body, .animated {
-  /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
-  backface-visibility: visible !important;
-  -o-backface-visibility: visible !important;
-  -webkit-backface-visibility: visible !important;
+/* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
+// @TODO RIGEL - play with these values. Past Chrome versions needed hidden, it looks to have changed. If necessary manually set the visibility on individual elements.
+body, .animated, * {
+  backface-visibility: visible ;
+  -o-backface-visibility: hidden ;
+  -webkit-backface-visibility: hidden ;
 }
-* {
-  backface-visibility: hidden !important;
-  -o-backface-visibility: hidden !important;
-  -webkit-backface-visibility: hidden !important;
+ {
+  backface-visibility: visible ;
+  -o-backface-visibility: hidden ;
+  -webkit-backface-visibility: hidden ;
 }
