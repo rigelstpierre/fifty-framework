@@ -5,10 +5,41 @@
     window.FIFTYFRAMEWORK = {};
     
     var FF          = window.FIFTYFRAMEWORK;
-    var iOS         = ( navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
-    var MOBILE_ALL  = ((/Mobile|Android|iPhone|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera) ? true : false);
-    var MOBILE      = ((/Mobile|iPhone|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera) ? true : false);
-    var DEBUG       = false;
+
+    // user-agent && user-agent helper methods
+    var ua                        = navigator.userAgent;
+    var regex_apple_webkit        = new RegExp(/AppleWebKit\/([\d.]+)/);
+    var result_apple_webkit_regex = regex_apple_webkit.exec(ua);
+    var apple_webkit_version      = (result_apple_webkit_regex === null ? null : parseFloat(regex_apple_webkit.exec(ua)[1]));
+
+    // global variables
+    var GLOBALS = {
+        // debug toggles
+        debug           : false,
+        debug_skrollr   : false,
+
+        // user-agents
+        user_agent : {
+          iOS         : (ua.match(/(iPad|iPhone|iPod)/g) ? true : false),
+          iphone      : (ua.match(/(iPhone|iPod)/g) ? true : false),
+          ipad        : (ua.match(/(iPad)/g) ? true : false),
+          android     : (ua.match(/(Android)/g) ? true : false),
+          mobile      : ((/Mobile|iPhone|iPod|BlackBerry|Windows Phone/i).test(ua || navigator.vendor || window.opera) ? true : false),
+          mobile_all  : ((/Mobile|Android|iPhone|iPod|BlackBerry|Windows Phone/i).test(ua || navigator.vendor || window.opera) ? true : false),
+        },
+
+        browser : {
+          // desktop_chrome   : (ua.indexOf('Android') <= -1 && ua.indexOf('iPhone') <= -1 && ua.indexOf('iPod') <= -1 && ua.indexOf('Mobile') <= -1 && ua.indexOf('Mozilla/5.0') > -1 && ua.indexOf('AppleWebKit') > -1 && ua.indexOf('Chrome') > -1),
+          desktop_chrome   : (window.chrome ? true : false),
+          iphone_chrome    : ((ua.match(/(iPod|iPhone|iPad)/) && ua.match(/AppleWebKit/) && ua.match('CriOS')) ? true : false),
+          iphone_safari    : ((ua.match(/(iPod|iPhone|iPad)/) && ua.match(/AppleWebKit/) && !ua.match('CriOS')) ? true : false),
+          android_native   : (ua.indexOf('Android') > -1 && ua.indexOf('Mozilla/5.0') > -1 && ua.indexOf('AppleWebKit') > -1 && ua.indexOf('Chrome') <= -1),
+          android_chrome   : (ua.indexOf('Android') > -1 && ua.indexOf('Mozilla/5.0') > -1 && ua.indexOf('AppleWebKit') > -1 && ua.indexOf('Chrome') > -1),
+          android_samsung  : (ua.indexOf('Android') > -1 && ua.indexOf('Mozilla/5.0') > -1 && ua.indexOf('AppleWebKit') > -1 && ua.indexOf('Chrome') > -1 && ua.indexOf('SCH') > -1)
+        }
+    }
+
+
 
     /* INITIATE FUNCTIONS
     ================================================== */
@@ -503,6 +534,27 @@
         FF.init();
         FF.matchMedia();
 
+
+        // invisible font fix for chrome
+        if ( GLOBALS.browser.desktop_chrome ) {
+            // Method 1 - Reset <body> width in a setTimeout
+            var chrome_fix_1 = function( duration ) {
+                setTimeout(function() {
+                    $('body').width($('body').width()+1).width('auto');
+                }, duration);
+            }
+                // Invoke Method 1
+                // chrome_fix_1(500);
+
+            // Method 2 - Redeclare <body> offset onload
+            var chrome_fix_2 = function() {
+                var orig_body_offset = $('body').offset();
+                $('body').offset(orig_body_offset);
+            }
+                // Invoke Method 2
+                chrome_fix_2();
+        }
+
     });
 
     /* WINDOW LOAD
@@ -519,7 +571,7 @@
     $(window).scroll(function(){
 
         // DEBUG - winY position
-        if (DEBUG) { var winY = $(window).scrollTop(); console.log(winY);}
+        if ( GLOBALS.debug ) { var winY = $(window).scrollTop(); console.log(winY);}
 
         FF.lazyLoadImage();
 

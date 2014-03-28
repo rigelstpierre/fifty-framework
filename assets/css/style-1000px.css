@@ -1539,6 +1539,26 @@ textarea {
   src: url("../fonts/socialico/socialico.eot?#iefix") format("embedded-opentype"), url("../fonts/socialico/socialico.woff") format("woff"), url("../fonts/socialico/socialico.ttf") format("truetype"), url("../fonts/socialico/socialico.svg#socialico") format("svg");
 }
 
+/* Chrome v33 "invisible text" fix
+================================================== */
+body {
+  -webkit-animation-duration: 0.1s;
+  -webkit-animation-name: fontfix;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-delay: 0.1s;
+}
+
+@-webkit-keyframes fontfix {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 /* _body.scss */
 html {
   font-size: 100%;
@@ -8199,9 +8219,6 @@ nav.menu ul > li:hover > ul {
   opacity: 1;
   visibility: visible;
   margin-top: 0px;
-}
-nav.menu ul > li.menu-item-has-children {
-  /* Requires use of Has_Children_Walker() */
 }
 nav.menu ul > li.menu-item-has-children > a:after {
   text-transform: none;

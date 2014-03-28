@@ -56,7 +56,6 @@ nav.menu {
     // top-level <li>.menu-item-has-children
     ////////////////////////////////
     >li.menu-item-has-children {
-      /* Requires use of Has_Children_Walker() */
       
       >a {
         @include pseudo-icon(after, "u", "arrrows") {

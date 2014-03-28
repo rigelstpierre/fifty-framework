@@ -8,10 +8,17 @@
  * @since Fifty and Fifty 1.0
  */
 
+
+/**
+ * Versions
+ */
+// @TODO Bryan Monzon - Versioning Definition (current 1.5) - milestone 2.0, quickfixes 1.5.1, feature additions 1.6, etc.
+
+
 /**
  * Debugging
  */
-$debug = false;
+$debug = true;
 
 if ( $debug ) {
 	ini_set('display_errors','On');
