@@ -17,7 +17,7 @@ if ( ! class_exists( 'FFW_Slides_Post_Type' ) ) {
       add_action( 'manage_posts_custom_column', array( &$this, 'slides_column_display' ), 10, 2 );
 
       // Give the slides menu item a unique icon
-      add_action( 'admin_head', array( &$this, 'slides_icon' ) );
+      //add_action( 'admin_head', array( &$this, 'slides_icon' ) );
 
     }
     
