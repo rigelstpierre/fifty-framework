@@ -944,7 +944,7 @@ function wpadminbar( $args = NULL )
 
   <?php endif;
 }
-add_action( 'FFW_wpadminbar', 'wpadminbar' );
+//add_action( 'FFW_wpadminbar', 'wpadminbar' );
 
 
 
