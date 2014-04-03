@@ -241,32 +241,6 @@ function FFW_helper_functions() {
   }
 
 
-  /**
-   * is_child_of()
-   * Helper function to determine if page is child of another, by slug
-   * @author Alexander Zizzo
-   * @since 1.36
-   * @param (string) parent page slug
-   */
-  function is_child_of( $parent_slug = NULL )
-  {
-    // globals
-    global $post;
-
-    // vars
-    $slug        = get_the_slug();
-    $parent_id   = $post->post_parent;
-    $parent_page = get_page($post->post_parent);
-    $parent_name = $parent_page->post_name;
-
-    // return true/false
-    if ( $parent_name == $parent_slug ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
 
 
 

@@ -34,9 +34,6 @@ get_header(); ?>
 
         <h3>get_parent_id</h3>
         <pre><?php var_dump(get_parent_id()); ?></pre>
-
-        <h3>is_child_of</h3>
-        <pre><?php var_dump(is_child_of('debug')); ?></pre>
           
 
       </div>
