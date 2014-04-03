@@ -99,7 +99,9 @@ function show_metaboxes( $post, $args )
   $fields = $tabs = $post_format_metaboxes[$args['id']]['fields'];
 
   /** Nonce **/
-  $output = '<input type="hidden" name="post_format_meta_box_nonce" value="' . wp_create_nonce( basename( __FILE__ ) ) . '" />';
+  // $output = '<input type="hidden" name="post_format_meta_box_nonce" value="' . wp_create_nonce( basename( __FILE__ ) ) . '" />';
+
+  $output = wp_nonce_field( basename( __FILE__ ), 'post_format_meta_box_nonce' );
 
   if ( sizeof( $fields ) ) {
     foreach ( $fields as $id => $field ) {
@@ -125,7 +127,6 @@ function show_metaboxes( $post, $args )
       }
     }
   }
-
   echo $output;
 }
 
@@ -145,20 +146,23 @@ function save_metaboxes( $post_id )
   global $post_format_metaboxes;
 
   // verify nonce
-  if ( ! wp_verify_nonce( $_POST['post_format_meta_box_nonce'], basename( __FILE__ ) ) )
+  if ( !isset($_POST['post_format_meta_box_nonce']) || !wp_verify_nonce( $_POST['post_format_meta_box_nonce'], basename( __FILE__ ) ) )
     return $post_id;
 
   // check autosave
-  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
-    return $post_id;
+  if ( ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) || ( defined( 'DOING_AJAX') && DOING_AJAX ) || isset( $_REQUEST['bulk_edit'] ) )
+      return $post_id;;
 
   // check permissions
-  if ( 'page' == $_POST['post_type'] ) {
-      if ( ! current_user_can( 'edit_page', $post_id ) )
-          return $post_id;
-  } elseif ( ! current_user_can( 'edit_post', $post_id ) ) {
+  if ( isset( $post->post_type ) && $post->post_type == 'revision' )
       return $post_id;
-  }
+  
+  // if ( 'page' == $_POST['post_type'] ) {
+  //     if ( ! current_user_can( 'edit_page', $post_id ) )
+  //         return $post_id;
+  // } elseif ( ! current_user_can( 'edit_post', $post_id ) ) {
+  //     return $post_id;
+  // }
 
   $post_type = get_post_type();
 
