@@ -109,4 +109,4 @@ function FFW_debug_functions()
   add_action('FFW_debug_box', 'debug_box');
 
 }
-//add_action( 'init', 'FFW_debug_functions' );
+add_action( 'init', 'FFW_debug_functions' );

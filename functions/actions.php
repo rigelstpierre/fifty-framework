@@ -804,11 +804,11 @@ function svg_control( $args = NULL )
 
 
   // svg string with wrapper div for sizing
-  $svg_str .= '<div class="svg_wrap" id="'.$id.'" style="width:'.$width.';height:'.$height.';">';
-  $svg_str .= $xml->asXML(); //modified XML/SVG
-  $svg_str .= '</div>';
+  $svg_style_str = '<div class="svg_wrap" id="'.$id.'" style="width:'.$width.';height:'.$height.';">';
+  $svg_style_str .= $xml->asXML(); //modified XML/SVG
+  $svg_style_str .= '</div>';
 
-  echo $svg_str;
+  echo $svg_style_str;
 
 
 }
@@ -944,7 +944,7 @@ function wpadminbar( $args = NULL )
 
   <?php endif;
 }
-//add_action( 'FFW_wpadminbar', 'wpadminbar' );
+add_action( 'FFW_wpadminbar', 'wpadminbar' );
 
 
 
