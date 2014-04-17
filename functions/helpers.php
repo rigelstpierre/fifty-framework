@@ -256,7 +256,7 @@ function FFW_helper_functions() {
     // vars
     $slug        = get_the_slug();
     $parent_id   = $post->post_parent;
-    $parent_page = get_page($post->post_parent);
+    $parent_page = get_page( $post->post_parent );
     $parent_name = $parent_page->post_name;
 
     // return true/false
