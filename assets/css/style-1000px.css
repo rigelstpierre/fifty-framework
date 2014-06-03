@@ -1781,8 +1781,13 @@ h6 {
 }
 
 .alignright {
-  float: left;
+  float: right;
   margin: 0 0 15px 15px;
+}
+
+.aligncenter {
+  display: block;
+  margin: 5px auto 5px auto;
 }
 
 /* LAZYLOAD IMG
